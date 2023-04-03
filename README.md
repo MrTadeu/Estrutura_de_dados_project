@@ -1,5 +1,5 @@
 # Estrutura_de_dados_project
-fix commit, saike
+fix commit
 
 ## 1. Instruções de execução
 ```cmd
