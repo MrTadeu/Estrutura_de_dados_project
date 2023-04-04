@@ -50,7 +50,9 @@ PessoaStruct *ptrPessoa();
 
 void *escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *(*criarPtrStruct)());
 
+
 CaixaStruct *criarCaixa(FuncionarioStruct funcionario);
+
 
 DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax);
 int DataAntes_Depois(DataStruct d1, DataStruct d2);
