@@ -29,7 +29,6 @@ void AddNOG_inicio(LG *lista, NOG *elemento){
     lista->n_el++;
 }
 
-
 void AddNOG_fim(LG *lista, NOG *elemento){
     if(!lista || !elemento) return;
 
@@ -106,9 +105,11 @@ void MostrarLG(LG *lista, void (MostrarInfo)(void *)){
 void DestruirLG(LG *lista, void (DestruirInfo)(void *)){
     if(!lista) return;
 
-    NOG *Aux = lista->head;
+    NOG *Aux = lista->head, *Temp;
     while(Aux){
+        Temp = Aux->next;
         DestruirInfo(Aux->Info);
-        Aux = Aux->next;
+        free(Aux);
+        Aux = Temp;
     }
 }
