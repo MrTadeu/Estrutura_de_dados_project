@@ -27,7 +27,7 @@ void AddNOG_fim(LG *lista, NOG *elemento){
 }
 
 NOG *RemNOG_inicio(LG *lista){                  // Devolve o NOG removido para o podermos detruir e adicionar info ao historico
-    if(!lista) return NULL;
+    if(!lista) return NULL;                     // Fazer mais generico
 
     NOG *NOG_Removido = lista->head;
     lista->head = lista->head->next;

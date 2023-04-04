@@ -1,0 +1,2 @@
+penar como guardar o historico periodicamente ou a cada compra ou tudo de uma vez no fecho do programa
+
