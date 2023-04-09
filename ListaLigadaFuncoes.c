@@ -11,7 +11,7 @@ LG *criarLG(){
 
 NOG *criarNOG(void *elemento){
     if(!elemento){
-        printF("\tError! Given element is NULL");
+        printf("\tError! Given element is NULL\n");
         return NULL; 
     } 
 
@@ -24,11 +24,11 @@ NOG *criarNOG(void *elemento){
 void AddNOG_inicio(LG *lista, NOG *elemento){
     if(!lista){
        printf("\tError! List is NULL\n"); 
-       return NULL;
+       return;
     }
     if(!elemento){
-        printF("\tError! Given node is NULL");
-        return NULL; 
+         printf("\tError! Given node is NULL");
+        return; 
     } 
 
     if(!lista->head)
@@ -42,11 +42,11 @@ void AddNOG_inicio(LG *lista, NOG *elemento){
 void AddNOG_fim(LG *lista, NOG *elemento){
     if(!lista){
        printf("\tError! List is NULL\n"); 
-       return NULL;
+       return;
     }
     if(!elemento){
-        printF("\tError! Given node is NULL");
-        return NULL; 
+         printf("\tError! Given node is NULL");
+        return; 
     } 
 
     if(!lista->head)
@@ -151,7 +151,7 @@ NOG *RemNOG_Pesquisa(LG *lista, NOG *elemento, int (compareInfo)(void*, void*)){
         return NULL;
     }
     if(!elemento){
-        printF("\tError! Given node is NULL");
+         printf("\tError! Given node is NULL");
         return NULL; 
     } 
 

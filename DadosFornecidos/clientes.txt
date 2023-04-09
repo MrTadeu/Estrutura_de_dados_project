@@ -1,4 +1,3 @@
-10000
 609140	Carla Aguiar Pires
 814991	Ricardo Andrade Matos
 843818	Eduardo Carneiro Castro
@@ -350,7 +349,7 @@
 978635	Daniel Dias Valbom
 919645	Ana Dias Belchior
 483546	Paula Arouca Brito
-641496	Francisca Pires Baptista
+641496  Francisca Pires Baptista
 762780	Hugo Proenca Rego
 649474	Carla Amora Dias
 292899	Basilio Brito Baptista

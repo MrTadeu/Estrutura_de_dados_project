@@ -1,4 +1,4 @@
-# include "TipoDados.h"
+#include "TipoDados.h"
 
 extern int Aleatorio(int min, int max);
 
@@ -10,8 +10,8 @@ ProdutoStruct *ptrProdutos(){
     return (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
 }
 
-PessoaStruct *ptrPessoa(){
-    return (PessoaStruct *) malloc(sizeof(PessoaStruct));
+ClienteStruct *ptrPessoa(){
+    return (ClienteStruct *) malloc(sizeof(ClienteStruct));
 }
 
 void *escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *(*criarPtrStruct)()){

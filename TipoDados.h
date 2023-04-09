@@ -44,8 +44,8 @@ typedef struct{
     int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
 
     LG *listaProdutos;
-}PessoaStruct;
-PessoaStruct *ptrPessoa();
+}ClienteStruct;
+ClienteStruct *ptrPessoa();
 
 
 void *escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *(*criarPtrStruct)());
@@ -60,9 +60,8 @@ int DataAntes_Depois(DataStruct d1, DataStruct d2);
 
 
 //Funções importar_exportar
-PessoaStruct* importarClientes(int* numclientes, char *nomeficheiro);
-FuncionarioStruct* importarFuncionarios(int* numfuncionarios, char* nomeficheiro);
-ProdutoStruct* importarProdutos(int* numProdutos, char* nomeficheiro);
-
+ClienteStruct* importarClientes(int* totalClientes, char *nomeficheiro);
+FuncionarioStruct* importarFuncionarios(int* totalClientes, char *nomeficheiro);
+ProdutoStruct* importarProdutos(int* totalClientes, char *nomeficheiro);
 
 #endif
