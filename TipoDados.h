@@ -51,18 +51,18 @@ PessoaStruct *ptrPessoa();
 void *escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *(*criarPtrStruct)());
 
 
+
 CaixaStruct *criarCaixa(FuncionarioStruct funcionario);
 
 
 DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax);
 int DataAntes_Depois(DataStruct d1, DataStruct d2);
 
-PessoaStruct *gerar_escolherPessoaAleatoria();
 
-
-
-//Funções importar/exportar
-
+//Funções importar_exportar
+PessoaStruct* importarClientes(int* numclientes, char *nomeficheiro);
+FuncionarioStruct* importarFuncionarios(int* numfuncionarios, char* nomeficheiro);
+ProdutoStruct* importarProdutos(int* numProdutos, char* nomeficheiro);
 
 
 #endif

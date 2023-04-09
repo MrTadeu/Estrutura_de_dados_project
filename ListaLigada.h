@@ -20,7 +20,7 @@ NOG *RemNOG_inicio(LG *lista);
 NOG *RemNOG_ultimo(LG *lista);
 NOG *RemNOG_index(LG *lista, int index);              // Devolve o NOG removido para o podermos detruir e adicionar info ao historico
 NOG *RemNOG_Pesquisa(LG *lista, NOG *elemento, int (compareInfo)(void*, void*));
-void MostrarLG(LG *lista, void (dostrarInfo)(void *));
-void DestruirLG(LG *lista, void (destruirInfo)(void *));
+void MostrarLista(LG *lista, void (dostrarInfo)(void *));
+void DestruirLista(LG *lista, void (destruirInfo)(void *));
 
 #endif

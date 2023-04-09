@@ -10,7 +10,10 @@ LG *criarLG(){
 }
 
 NOG *criarNOG(void *elemento){
-    if(!elemento) return;
+    if(!elemento){
+        printF("\tError! Given element is NULL");
+        return NULL; 
+    } 
 
     NOG *NovoNOG = (NOG*) malloc(sizeof(NOG));
     NovoNOG->Info = elemento;
@@ -19,7 +22,14 @@ NOG *criarNOG(void *elemento){
 }
 
 void AddNOG_inicio(LG *lista, NOG *elemento){
-    if(!lista || !elemento) return;
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return NULL;
+    }
+    if(!elemento){
+        printF("\tError! Given node is NULL");
+        return NULL; 
+    } 
 
     if(!lista->head)
         lista->tail = elemento;
@@ -30,7 +40,14 @@ void AddNOG_inicio(LG *lista, NOG *elemento){
 }
 
 void AddNOG_fim(LG *lista, NOG *elemento){
-    if(!lista || !elemento) return;
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return NULL;
+    }
+    if(!elemento){
+        printF("\tError! Given node is NULL");
+        return NULL; 
+    } 
 
     if(!lista->head)
         AddNOG_inicio(lista, elemento);
@@ -41,7 +58,14 @@ void AddNOG_fim(LG *lista, NOG *elemento){
 }
 
 NOG *RemNOG_ultimo(LG *lista){
-    if(!lista->head) return NULL;
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return NULL;
+    }
+    if(!lista->head){
+        printf("\tError! Empty list\n");
+        return NULL;
+    }  
 
     NOG *prev = lista->head, *curr = lista->head, *removido = lista->tail;
     while(curr->next){
@@ -63,7 +87,14 @@ NOG *RemNOG_ultimo(LG *lista){
 }
 
 NOG *RemNOG_inicio(LG *lista){
-    if(!lista->head) return NULL;
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return NULL;
+    }
+    if(!lista->head){
+        printf("\tError! Empty list\n");
+        return NULL;
+    }  
 
     NOG *removido = lista->head;
     lista->head = lista->head->next;
@@ -74,6 +105,10 @@ NOG *RemNOG_inicio(LG *lista){
 }
 
 NOG *RemNOG_index(LG *lista, int index){          // Devolve o NOG removido para o podermos detruir e adicionar info ao historico
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return NULL;
+    }
     if(!lista->head){
         printf("\tError! Empty list\n");
         return NULL;
@@ -107,12 +142,18 @@ NOG *RemNOG_index(LG *lista, int index){          // Devolve o NOG removido para
 }
 
 NOG *RemNOG_Pesquisa(LG *lista, NOG *elemento, int (compareInfo)(void*, void*)){
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return NULL;
+    }
     if(!lista->head){
         printf("\tError! Empty list\n");
         return NULL;
     }
-    if(!elemento)
-        return NULL;
+    if(!elemento){
+        printF("\tError! Given node is NULL");
+        return NULL; 
+    } 
 
     NOG *prev = lista->head, *curr = lista->head, *removido;
     while(curr){
@@ -122,20 +163,20 @@ NOG *RemNOG_Pesquisa(LG *lista, NOG *elemento, int (compareInfo)(void*, void*)){
         curr = curr->next;
     }
 
-
-    if(prev == curr)
-        removido = RemNOG_inicio(lista);
-    else if(!curr){
+    if(!curr){
         printf("\tError! Element not found\n");
         return NULL;
     }
+    else if(prev == curr)
+        removido = RemNOG_inicio(lista);
     else{
+        removido = prev->next;
         prev->next = prev->next->next;
         lista->n_el--;
     }
 }
 
-void MostrarLG(LG *lista, void (mostrarInfo)(void *)){
+void MostrarLista(LG *lista, void (mostrarInfo)(void *)){
     if(!lista) return;
 
     NOG *Aux = lista->head;
@@ -145,7 +186,7 @@ void MostrarLG(LG *lista, void (mostrarInfo)(void *)){
     }
 }
 
-void DestruirLG(LG *lista, void (destruirInfo)(void *)){
+void DestruirLista(LG *lista, void (destruirInfo)(void *)){
     if(!lista) return;
 
     NOG *Aux = lista->head, *Temp;

@@ -30,8 +30,6 @@ void *escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemen
 
 
 
-
-
 DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax){
 
     data.ano = Aleatorio(anoMin, anoMax);
