@@ -35,9 +35,9 @@ ClienteStruct* importarClientes(int* totalClientes, char *nomeficheiro){
     printf("teste\n");
 
     while(fgets(linha, sizeof(linha), f)){
+        printf("%s", linha);
         printf("teste\n");
-        sscanf(linha, "%d,%s", &dadosImportados[*totalClientes].id, buffer);
-        strcpy(dadosImportados[*totalClientes].nome, buffer);
+        sscanf(linha, "%d,%[^\n]", &dadosImportados[*totalClientes].id, dadosImportados[*totalClientes].nome);
         printf("ID: %d, Nome: %s\n", dadosImportados[*totalClientes].id, dadosImportados[*totalClientes].nome);
         *totalClientes = *totalClientes + 1;
     }
