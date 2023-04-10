@@ -14,11 +14,9 @@ ClienteStruct *ptrPessoa(){
     return (ClienteStruct *) malloc(sizeof(ClienteStruct));
 }
 
-void *escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *(*criarPtrStruct)()){
+void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
     int indice = Aleatorio(0, tamanhoVetor);
-    void *ptr = criarPtrStruct();
-    memcpy(ptr, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
-    return ptr;
+    memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
 }
 
 

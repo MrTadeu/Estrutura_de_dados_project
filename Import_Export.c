@@ -3,85 +3,112 @@
 /* void armazenarCliente(void *Ptrcliente, char *linha){
     ClienteStruct *cliente = (ClienteStruct *) Ptrcliente;
     char buffer[500];
-    sscanf(linha, "%d,%s", &(*cliente).id, buffer);
+    sscanf(linha, "%d,%s", &cliente->id, buffer);
     strcpy(cliente->nome, buffer);
 }
 
 void armazenarFuncionario(void *PtrFuncionario, char* linha){
     FuncionarioStruct *funcionario = (FuncionarioStruct *) PtrFuncionario;
     char buffer[500];
-    sscanf(linha, "%d,%s", &(*funcionario).id, buffer);
+    sscanf(linha, "%d,%s", &funcionario->id, buffer);
     strcpy(funcionario->nome, buffer);
 }
 
 void armazenarProduto(void *PtrProduto, char *linha){
     ProdutoStruct *produto = (ProdutoStruct *) PtrProduto;
-    char buffer[1000];
-    sscanf(linha, "%d,%s,%f,%f,%f", &(*produto).codigo, produto->nome, &produto->preco, &produto->tempoCompra, &produto->tempoCaixa);
+    char buffer[500];
+    sscanf(linha, "%d,%s,%f,%f,%f", &produto->codigo, produto->nome, &produto->preco, &produto->tempoCompra, &produto->tempoCaixa);
 }*/
 
-ClienteStruct* importarClientes(int* totalClientes, char *nomeficheiro){
-    char linha[1000], buffer[1000];
-    int QtPalavras;
+ClienteStruct* importarClientes(int* totalClientes, char* nomeficheiro){
+    char linha[1000], *buffer;
+    int i = 0;
     *totalClientes = 0;
-
-    FILE *f = fopen(nomeficheiro, "r");
+    
+    FILE* f = fopen(nomeficheiro, "r");
     if(!f){
         printf("\tError: cant open file\n");
         return NULL;
     }
-
-    ClienteStruct* dadosImportados = (ClienteStruct *) malloc(sizeof(ClienteStruct));
-    printf("teste\n");
+    fgets(linha, sizeof(linha), f); //Para limpar lixo da primeira linha
+    
+    fgets(linha, sizeof(linha), f);
+    sscanf(linha, "%d", totalClientes);
+    ClienteStruct* dadosImportados = (ClienteStruct*) malloc(*totalClientes * sizeof(ClienteStruct));
 
     while(fgets(linha, sizeof(linha), f)){
-        printf("%s", linha);
-        printf("teste\n");
-        sscanf(linha, "%d,%[^\n]", &dadosImportados[*totalClientes].id, dadosImportados[*totalClientes].nome);
-        printf("ID: %d, Nome: %s\n", dadosImportados[*totalClientes].id, dadosImportados[*totalClientes].nome);
-        *totalClientes = *totalClientes + 1;
+        dadosImportados[i].id = atoi(strtok(linha, ","));
+
+        buffer = strtok(NULL, "\n");
+        strncpy(dadosImportados[i].nome, buffer, sizeof(dadosImportados[i].nome)-1); // A guardar o nome do cliente
+        dadosImportados[i].nome[sizeof(dadosImportados[i].nome)-1] = '\0';
+
+        i++;
     }
-    printf("testesaaaaaaaaaaaaaaaaaaaaaaaaa\n");
     return dadosImportados;
-} 
+}
 
 FuncionarioStruct* importarFuncionarios(int* totalFuncionarios, char *nomeficheiro){
-    char linha[1000];
-    int QtPalavras;
+    char linha[1000], *buffer;
+    int i = 0;
     *totalFuncionarios = 0;
-
-    FILE *f = fopen(nomeficheiro, "r");
+    
+    FILE* f = fopen(nomeficheiro, "r");
     if(!f){
         printf("\tError: cant open file\n");
         return NULL;
     }
-
-    FuncionarioStruct* dadosImportados = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
+    fgets(linha, sizeof(linha), f); //Para limpar lixo da primeira linha
+    
+    fgets(linha, sizeof(linha), f);
+    sscanf(linha, "%d", totalFuncionarios);
+    FuncionarioStruct* dadosImportados = (FuncionarioStruct*) malloc(*totalFuncionarios * sizeof(FuncionarioStruct));
 
     while(fgets(linha, sizeof(linha), f)){
-        sscanf(linha, "%d,%s", &dadosImportados[*totalFuncionarios].id, dadosImportados[*totalFuncionarios].nome);
-        *totalFuncionarios = *totalFuncionarios + 1;
+        dadosImportados[i].id = atoi(strtok(linha, ","));
+
+        buffer = strtok(NULL, "\n");
+        strncpy(dadosImportados[i].nome, buffer, sizeof(dadosImportados[i].nome)-1); // A guardar o nome do cliente
+        dadosImportados[i].nome[sizeof(dadosImportados[i].nome)-1] = '\0';
+
+        i++;
     }
     return dadosImportados;
 }
 
 ProdutoStruct* importarProdutos(int* totalProdutos, char *nomeficheiro){
-    char linha[1000];
-    int QtPalavras;
+    char linha[1000], *buffer;
+    int i = 0;
     *totalProdutos = 0;
-
-    FILE *f = fopen(nomeficheiro, "r");
+    
+    FILE* f = fopen(nomeficheiro, "r");
     if(!f){
         printf("\tError: cant open file\n");
         return NULL;
     }
-
-    ProdutoStruct* dadosImportados = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
+    fgets(linha, sizeof(linha), f); //Para limpar lixo da primeira linha
+    
+    fgets(linha, sizeof(linha), f);
+    sscanf(linha, "%d", totalProdutos);
+    ProdutoStruct* dadosImportados = (ProdutoStruct*) malloc(*totalProdutos * sizeof(ProdutoStruct));
 
     while(fgets(linha, sizeof(linha), f)){
-        sscanf(linha, "%d,%s,%f,%f,%f", &dadosImportados[*totalProdutos].codigo, dadosImportados[*totalProdutos].nome, &dadosImportados[*totalProdutos].preco, &dadosImportados[*totalProdutos].tempoCompra, &dadosImportados[*totalProdutos].tempoCaixa);
-        *totalProdutos = *totalProdutos + 1;
-    }
+        dadosImportados[i].codigo = atoi(strtok(linha, ","));
 
+        buffer = strtok(NULL, ",");
+        strncpy(dadosImportados[i].nome, buffer, sizeof(dadosImportados[i].nome)-1); // A guardar o nome do cliente
+        dadosImportados[i].nome[sizeof(dadosImportados[i].nome)-1] = '\0';
+
+        buffer = strtok(NULL, ",");
+        sscanf(buffer, "%f", &dadosImportados[i].preco);
+
+        buffer = strtok(NULL, ",");
+        sscanf(buffer, "%f", &dadosImportados[i].tempoCompra);
+
+        buffer = strtok(NULL, "\n");
+        sscanf(buffer, "%f", &dadosImportados[i].tempoCaixa);
+
+        i++;
+    }
     return dadosImportados;
 }

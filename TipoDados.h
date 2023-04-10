@@ -10,7 +10,7 @@
 #include <conio.h>   // 
 
 typedef struct{
-    char nome[100];
+    char nome[200];
     int id, experiencia;                // A experiencia é a quantidade de vendas realizadas e influencia o salário.
     float atrasoMedio, bonus, salario;  // O atraso medio pode ser negativo ou positivo e influencia o bonus.
 }FuncionarioStruct;
@@ -23,9 +23,9 @@ typedef struct{
 }CaixaStruct;
 
 typedef struct{
-    char nome[100];
     int codigo;
-    float tempoCompra, tempoCaixa, preco;
+    char nome[200];
+    float preco, tempoCompra, tempoCaixa;
 }ProdutoStruct;
 ProdutoStruct *ptrProdutos();
 
@@ -34,21 +34,20 @@ typedef struct{
 }DataStruct;
 
 typedef struct{
-    char nome[100];
-    DataStruct dataNascimento;
     int id;                             // guests: -1
+    char nome[200];                     // guests: "none"
+    DataStruct dataNascimento;          // guests: 0/0/0
     float saldoCartaoCliente;           // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
 
-    int tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtos
-    int tempoEstimadoFila;          // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
-    int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
-
-    LG *listaProdutos;
+    int tempoEstimadoCaixa;        // soma do tempo de caixa dos proprios produtos
+    int tempoEstimadoFila;         // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
+    int tempoAtraso;               // soma do atraso aleatorio de cada pessoa a sua frente
+    LG *listaProdutos;             // lista dos produtos
 }ClienteStruct;
 ClienteStruct *ptrPessoa();
 
 
-void *escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *(*criarPtrStruct)());
+void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento);
 
 
 
