@@ -47,20 +47,18 @@ typedef struct{
 ClienteStruct *ptrPessoa();
 
 
-void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento);
-
-
+void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
 
 CaixaStruct *criarCaixa(FuncionarioStruct funcionario);
 
 
-DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax);
-int DataAntes_Depois(DataStruct d1, DataStruct d2);
+DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax); // Funcional
+int DataAntes_Depois(DataStruct d1, DataStruct d2); // Funcional
 
 
 //Funções importar_exportar
-ClienteStruct* importarClientes(int* totalClientes, char *nomeficheiro);
-FuncionarioStruct* importarFuncionarios(int* totalClientes, char *nomeficheiro);
-ProdutoStruct* importarProdutos(int* totalClientes, char *nomeficheiro);
+ClienteStruct* importarClientes(int* totalClientes, char *nomeficheiro); // Funcional
+FuncionarioStruct* importarFuncionarios(int* totalClientes, char *nomeficheiro); // Funcional
+ProdutoStruct* importarProdutos(int* totalClientes, char *nomeficheiro); // Funcional
 
 #endif
