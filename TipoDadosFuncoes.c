@@ -2,18 +2,6 @@
 
 extern int Aleatorio(int min, int max);
 
-FuncionarioStruct *ptrFuncionario(){
-    return (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
-}
-
-ProdutoStruct *ptrProdutos(){
-    return (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
-}
-
-ClienteStruct *ptrPessoa(){
-    return (ClienteStruct *) malloc(sizeof(ClienteStruct));
-}
-
 void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
     int indice = Aleatorio(0, tamanhoVetor);
     memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);

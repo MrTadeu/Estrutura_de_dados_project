@@ -14,7 +14,6 @@ typedef struct{
     int id, experiencia;                // A experiencia é a quantidade de vendas realizadas e influencia o salário.
     float atrasoMedio, bonus, salario;  // O atraso medio pode ser negativo ou positivo e influencia o bonus.
 }FuncionarioStruct;
-FuncionarioStruct *ptrFuncionario();
 
 typedef struct{
     int idCaixa, tempoTotalEspera;
@@ -27,7 +26,6 @@ typedef struct{
     char nome[200];
     float preco, tempoCompra, tempoCaixa;
 }ProdutoStruct;
-ProdutoStruct *ptrProdutos();
 
 typedef struct{
     int dia, mes, ano;
@@ -44,7 +42,6 @@ typedef struct{
     int tempoAtraso;               // soma do atraso aleatorio de cada pessoa a sua frente
     LG *listaProdutos;             // lista dos produtos
 }ClienteStruct;
-ClienteStruct *ptrPessoa();
 
 
 void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
