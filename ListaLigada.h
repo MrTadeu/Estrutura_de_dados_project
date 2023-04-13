@@ -2,25 +2,25 @@
 #define LISTALIGADA_H_INCLUDED
 
 
-typedef struct nog{
+typedef struct elementoG{
     void *Info;
-    struct nog *next;
-}NOG;
+    struct elementoG *next;
+}Elemento;
 
 typedef struct{
-    NOG *head, *tail;
-    int n_el;
-}LG;
+    Elemento *head, *tail;
+    int quantidadeElementos;
+}Lista;
 
-LG *criarLG();
-NOG *criarNOG(void *elemento);
-void AddNOG_inicio(LG *lista, NOG *elemento);
-void AddNOG_fim(LG *lista, NOG *elemento);
-NOG *RemNOG_inicio(LG *lista);
-NOG *RemNOG_ultimo(LG *lista);
-NOG *RemNOG_index(LG *lista, int index);              // Devolve o NOG removido para o podermos detruir e adicionar info ao historico
-NOG *RemNOG_Pesquisa(LG *lista, NOG *elemento, int (compareInfo)(void*, void*));
-void MostrarLista(LG *lista, void (dostrarInfo)(void *));
-void DestruirLista(LG *lista, void (destruirInfo)(void *));
+Lista *criarLista();
+Elemento *criarElemento(void *elemento);
+void AddElementoInicio(Lista *lista, Elemento *elemento);
+void AddElementoFim(Lista *lista, Elemento *elemento);
+Elemento *RemElementoInicio(Lista *lista);
+Elemento *RemElementoUltimo(Lista *lista);
+Elemento *RemElementoIndex(Lista *lista, int index);              // Devolve o Elemento removido para o podermos detruir e adicionar info ao historico
+Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo)(void*, void*));// maybe n vale apena
+void MostrarLista(Lista *lista, void (dostrarInfo)(void *));
+void DestruirLista(Lista *lista, void (destruirInfo)(void *));
 
 #endif
