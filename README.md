@@ -3,5 +3,5 @@ O projeto "Simulação de Supermercado" é uma implementação em C que tem como
 
 ## 1. Instruções de execução
 ```cmd
-> gcc -o3 -Wall projeto.exe ListaLigadaFuncoes.c TipoDadosFuncoes.c Utils.c 
+> gcc -o3 -Wall .\main.c .\TipoDados.h .\TipoDadosFuncoes.c .\Utils.h .\ListaLigada.h .\ListaLigadaFuncoes.c .\Import_Export.c -o  run.exe
 ```

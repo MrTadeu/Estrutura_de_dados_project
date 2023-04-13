@@ -33,14 +33,14 @@ typedef struct{
 
 typedef struct{
     int id;                             // guests: -1
-    char *nome;                     // guests: "none"
+    char *nome;                         // guests: "none"
     DataStruct dataNascimento;          // guests: 0/0/0
     float saldoCartaoCliente;           // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
 
     int tempoEstimadoCaixa;        // soma do tempo de caixa dos proprios produtos
     int tempoEstimadoFila;         // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
     int tempoAtraso;               // soma do atraso aleatorio de cada pessoa a sua frente
-    Lista *listaProdutos;             // lista dos produtos
+    Lista *listaProdutos;          // lista dos produtos
 }ClienteStruct;
 
 
@@ -52,8 +52,6 @@ CaixaStruct *criarCaixa(FuncionarioStruct funcionario);
 DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax); // Funcional
 int DataAntes_Depois(DataStruct d1, DataStruct d2); // Funcional
 
-
-//pedro check
 
 //Funções importar_exportar
 ClienteStruct* importarClientes(int* totalClientes, char *nomeficheiro); // Funcional
