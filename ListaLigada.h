@@ -18,9 +18,9 @@ void AddElementoInicio(Lista *lista, Elemento *elemento);
 void AddElementoFim(Lista *lista, Elemento *elemento);
 Elemento *RemElementoInicio(Lista *lista);
 Elemento *RemElementoUltimo(Lista *lista);
-Elemento *RemElementoIndex(Lista *lista, int index);              // Devolve o Elemento removido para o podermos detruir e adicionar info ao historico
+Elemento *RemElementoIndex(Lista *lista, int index);// Devolve o Elemento removido para o podermos detruir e adicionar info ao historico
 Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo)(void*, void*));
-void mostrarLista(Lista *lista, void (mostrarInfo)(void *));
+void mostrarLista(Lista *lista, void (mostrarInfo)(void *, int), int indentLevel);// Enviar 0 como indentLevel
 void destruirLista(Lista *lista, void (destruirInfo)(void *));
 
 #endif

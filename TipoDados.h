@@ -22,7 +22,7 @@ typedef struct{
 }CaixaStruct;
 
 typedef struct{
-    int codigo;
+    int id;
     char *nome;
     float preco, tempoCompra, tempoCaixa;
 }ProdutoStruct;
@@ -48,10 +48,10 @@ void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElement
 
 CaixaStruct *criarCaixa(FuncionarioStruct funcionario);
 
-void mostrarFuncionario(void *funcionarioArg);
-void mostrarCaixa(void *caixa);
-void mostrarProduto(void *produto);
-void mostrarCliente(void *cliente);
+void mostrarFuncionario(void *funcionarioArg, int indentLevel);
+void mostrarCaixa(void *caixaArg, int indentLevel);
+void mostrarProduto(void *produtoArg, int indentLevel);
+void mostrarCliente(void *clienteArg, int indentLevel);
 
 DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax); // Funcional
 int DataAntes_Depois(DataStruct d1, DataStruct d2); // Funcional

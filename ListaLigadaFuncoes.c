@@ -176,14 +176,14 @@ Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo
     }
 }
 
-void mostrarLista(Lista *lista, void (mostrarInfo)(void *)){
+void mostrarLista(Lista *lista, void (mostrarInfo)(void *, int), int indentLevel){
     if(!lista){
        printf("\tError! List is NULL\n"); 
        return;
     }
     Elemento *Aux = lista->head;
     while(Aux){
-        mostrarInfo(Aux->Info);
+        mostrarInfo(Aux->Info, indentLevel);
         Aux = Aux->next;
         if(!Aux->next)
             printf("<----------------------------->");
