@@ -22,7 +22,7 @@ typedef struct{
 }CaixaStruct;
 
 typedef struct{
-    int id;
+    int codigo;
     char *nome;
     float preco, tempoCompra, tempoCaixa;
 }ProdutoStruct;
@@ -37,9 +37,12 @@ typedef struct{
     DataStruct dataNascimento;          // guests: 0/0/0
     float saldoCartaoCliente;           // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
 
-    int tempoEstimadoCaixa;        // soma do tempo de caixa dos proprios produtos
-    int tempoEstimadoFila;         // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
-    int tempoAtraso;               // soma do atraso aleatorio de cada pessoa a sua frente
+    int tempoEstimadoCompra;        // soma do tempo de compra dos proprios produtos
+    int tempoEstimadoFila;          // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
+    int tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtos
+
+    int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
+
     Lista *listaProdutos;          // lista dos produtos
 }ClienteStruct;
 

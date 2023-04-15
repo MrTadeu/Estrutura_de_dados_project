@@ -15,7 +15,7 @@ void mostrarFuncionario(void *funcionarioArg, int indentLevel){
     FuncionarioStruct *funcionario = (FuncionarioStruct *) funcionarioArg;
 
     printf("\n%*sFUNCIONARIO INFO:\n%*sId Funcionario: %d\n%*sNome: %s\n%*sExperiencia: %d vendas\n%*sSalario: %f\n%*sAtraso medio: %f\n%*sBonus: %f", 
-           indentLevel, "", indentLevel, "", funcionario->id, indentLevel, "", funcionario->nome, indentLevel, "", funcionario->experiencia, indentLevel, "", funcionario->salario, indentLevel, "", funcionario->atrasoMedio, indentLevel, "", funcionario->bonus);
+           indentLevel*4, "", indentLevel*4, "", funcionario->id, indentLevel*4, "", funcionario->nome, indentLevel*4, "", funcionario->experiencia, indentLevel*4, "", funcionario->salario, indentLevel*4, "", funcionario->atrasoMedio, indentLevel*4, "", funcionario->bonus);
 }
 
 void mostrarCaixa(void *caixaArg, int indentLevel){
@@ -26,7 +26,7 @@ void mostrarCaixa(void *caixaArg, int indentLevel){
     CaixaStruct *caixa = (CaixaStruct *) caixaArg;
     
     printf("\n%*sCAIXA INFO:\n%*sId Caixa: %d\n%*sTempo de Espera: %d segundos", 
-           indentLevel, "", indentLevel, "", caixa->id, indentLevel, "", caixa->tempoTotalEspera);
+           indentLevel*4, "", indentLevel*4, "", caixa->id, indentLevel*4, "", caixa->tempoTotalEspera);
     mostrarFuncionario(caixa->funcionario, indentLevel + 1);
     mostrarLista(caixa->listaPessoas, mostrarCliente, indentLevel + 1);
 }
@@ -38,8 +38,8 @@ void mostrarProduto(void *produtoArg, int indentLevel){
     }
     ProdutoStruct *produto = (ProdutoStruct *) produtoArg;
 
-    printf("\n%*sPRODUTO INFO:\n%*sNome Produto: %s\n%*sId Produto: %d\n%*sPreco: %f\n%*sTempo de Compra: %f\n%*sTempo de Caixa: %f", 
-           indentLevel, "", indentLevel, "", produto->nome, indentLevel, "", produto->id, indentLevel, "", produto->preco, indentLevel, "", produto->tempoCompra, indentLevel, "", produto->tempoCaixa);
+    printf("\n%*sPRODUTO INFO:\n%*sNome Produto: %s\n%*sCodigo Produto: %d\n%*sPreco: %f\n%*sTempo de Compra: %f\n%*sTempo de Caixa: %f", 
+           indentLevel*4, "", indentLevel*4, "", produto->nome, indentLevel*4, "", produto->codigo, indentLevel*4, "", produto->preco, indentLevel*4, "", produto->tempoCompra, indentLevel*4, "", produto->tempoCaixa);
 }
 
 void mostrarCliente(void *clienteArg, int indentLevel){
@@ -49,9 +49,11 @@ void mostrarCliente(void *clienteArg, int indentLevel){
     }
     ClienteStruct *cliente = (ClienteStruct *) clienteArg;
     
-    printf("\n%*sCLIENTE INFO:\n\t%*sId Cliente: %d\n\t%*sNome: %s\n\t%*sData de Nascimento: %d/%d/%d\n\t%*sSaldo do Cartao: %.2f\n\t%*sTempo Estimado de Caixa: %d segundos\n\t%*sTempo Estimado de Fila: %d segundos\n\t%*sTempo de Atraso: %d segundos", 
-           cliente->id, cliente->nome, cliente->dataNascimento.dia, cliente->dataNascimento.mes, cliente->dataNascimento.ano, cliente->saldoCartaoCliente,
-           cliente->tempoEstimadoCaixa, cliente->tempoEstimadoFila, cliente->tempoAtraso);
+    printf("\n%*sCLIENTE INFO:\n\t%*sId Cliente: %d\n\t%*sNome: %s\n\t%*sData de Nascimento: %d/%d/%d\n\t%*sSaldo do Cartao: %.2f\n\t%*sTempo Estimado de Compra: %d segundos\n\t%*sTempo Estimado de Fila: %d segundos\n\t%*sTempo Estimado de Caixa: %d segundos\n\t%*sTempo de atrado: %d segundos",
+        indentLevel*4, "", indentLevel*4, "", cliente->id, indentLevel*4, "", cliente->nome,
+        indentLevel*4, "", cliente->dataNascimento.dia, cliente->dataNascimento.mes, cliente->dataNascimento.ano,
+        indentLevel*4, "", cliente->saldoCartaoCliente, indentLevel*4, "", cliente->tempoEstimadoCompra,
+        indentLevel*4, "", cliente->tempoEstimadoFila, indentLevel*4, "", cliente->tempoEstimadoCaixa, indentLevel*4, "", cliente->tempoAtraso);
     mostrarLista(cliente->listaProdutos, mostrarProduto, indentLevel + 1);
 }
 
@@ -61,13 +63,13 @@ DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax){
     data.ano = Aleatorio(anoMin, anoMax);
     data.mes = Aleatorio(1, 12);
 
-    if(data.mes % 2 != 0 && data.mes < 8 || data.mes >= 8 && data.mes % 2 == 0)
+    if((data.mes % 2 != 0 && data.mes < 8) || (data.mes >= 8 && data.mes % 2 == 0))
         data.dia = Aleatorio(1, 31);
-    else if(data.mes % 2 == 0 && data.mes <= 8 && data.mes != 2 || data.mes > 8 && data.mes % 2 != 0)
+    else if((data.mes % 2 == 0 && data.mes <= 8 && data.mes != 2) || (data.mes > 8 && data.mes % 2 != 0))
         data.dia = Aleatorio(1, 30);
-    else if(data.mes == 2 && data.ano % 4 == 0)
+    else if((data.mes == 2 && data.ano % 4 == 0))
         data.dia = Aleatorio(1, 29);
-    else if(data.mes == 2 && data.ano % 4 != 0)
+    else if((data.mes == 2 && data.ano % 4 != 0))
         data.dia = Aleatorio(1, 28);
     
     return data;

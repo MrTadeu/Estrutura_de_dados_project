@@ -4,6 +4,7 @@
 
 int main(){
     srand(time(NULL));
+
     int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
 

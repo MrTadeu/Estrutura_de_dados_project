@@ -104,7 +104,7 @@ Elemento *RemElementoInicio(Lista *lista){
     return removido;
 }
 
-Elemento *RemElementoIndex(Lista *lista, int index){          // Devolve o Elemento removido para o podermos detruir e adicionar info ao historico
+Elemento *RemElementoIndex(Lista *lista, int index){// Devolve o Elemento removido para o podermos detruir e adicionar info ao historico
     if(!lista){
        printf("\tError! List is NULL\n"); 
        return NULL;
@@ -139,6 +139,7 @@ Elemento *RemElementoIndex(Lista *lista, int index){          // Devolve o Eleme
         prev->next = prev->next->next;
         lista->quantidadeElementos--;
     }
+    return removido;
 }
 
 Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo)(void*, void*)){
@@ -174,6 +175,7 @@ Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo
         prev->next = prev->next->next;
         lista->quantidadeElementos--;
     }
+    return removido;
 }
 
 void mostrarLista(Lista *lista, void (mostrarInfo)(void *, int), int indentLevel){
