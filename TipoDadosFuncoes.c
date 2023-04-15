@@ -7,6 +7,34 @@ void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElement
     memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
 }
 
+void mostrarFuncionario(void *funcionarioArg){
+    if(!funcionarioArg){
+        printf("\tError! Given info is NULL");
+        return; 
+    }
+    FuncionarioStruct *funcionario = (FuncionarioStruct *) funcionarioArg;
+
+    printf("FUNCIONARIO INFO:\n\tNome: %s\n\tId: %d\n\tExperiencia: %d vendas\n\tSalario: %f\n\tAtraso medio: %f\n\tBonus: %f", funcionario->nome, funcionario->id, funcionario->experiencia, funcionario->salario, funcionario->atrasoMedio, funcionario->bonus);
+}
+void mostrarCaixa(void *caixaArg){
+    if(!caixaArg){
+        printf("\tError! Given info is NULL");
+        return; 
+    }
+    CaixaStruct *caixa = (CaixaStruct *) caixaArg;
+    
+    printf("\nCAIXA INFO:\n\tId Caixa: %d\n\tTempo de Espera: %d segundos", caixa->id, caixa->tempoTotalEspera);
+    mostrarFuncionario(caixa->funcionario);
+    mostrarLista(caixa->listaPessoas);
+
+}
+void mostrarProduto(void *produto){
+
+}
+void mostrarCliente(void *cliente){
+
+}
+
 DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax){
 
     data.ano = Aleatorio(anoMin, anoMax);

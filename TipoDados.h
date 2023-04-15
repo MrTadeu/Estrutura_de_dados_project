@@ -17,8 +17,8 @@ typedef struct{
 
 typedef struct{
     int id, tempoTotalEspera;
-    FuncionarioStruct funcionario;
-    Lista *ListaPessoas;
+    FuncionarioStruct *funcionario;
+    Lista *listaPessoas;
 }CaixaStruct;
 
 typedef struct{
@@ -48,6 +48,10 @@ void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElement
 
 CaixaStruct *criarCaixa(FuncionarioStruct funcionario);
 
+void mostrarFuncionario(void *funcionarioArg);
+void mostrarCaixa(void *caixa);
+void mostrarProduto(void *produto);
+void mostrarCliente(void *cliente);
 
 DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax); // Funcional
 int DataAntes_Depois(DataStruct d1, DataStruct d2); // Funcional

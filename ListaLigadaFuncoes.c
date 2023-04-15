@@ -151,7 +151,7 @@ Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo
         return NULL;
     }
     if(!elemento){
-         printf("\tError! Given node is NULL");
+        printf("\tError! Given node is NULL");
         return NULL; 
     } 
 
@@ -176,18 +176,25 @@ Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo
     }
 }
 
-void MostrarLista(Lista *lista, void (mostrarInfo)(void *)){
-    if(!lista) return;
-
+void mostrarLista(Lista *lista, void (mostrarInfo)(void *)){
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return;
+    }
     Elemento *Aux = lista->head;
     while(Aux){
         mostrarInfo(Aux->Info);
         Aux = Aux->next;
+        if(!Aux->next)
+            printf("<----------------------------->");
     }
 }
 
-void DestruirLista(Lista *lista, void (destruirInfo)(void *)){
-    if(!lista) return;
+void destruirLista(Lista *lista, void (destruirInfo)(void *)){
+    if(!lista){
+       printf("\tError! List is NULL\n"); 
+       return;
+    }
 
     Elemento *Aux = lista->head, *Temp;
     while(Aux){
