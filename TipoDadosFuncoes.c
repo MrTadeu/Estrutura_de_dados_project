@@ -1,6 +1,7 @@
 #include "TipoDados.h"
+#include "Utils.h"
 
-extern int Aleatorio(int min, int max);
+
 
 FuncionarioStruct *criarFuncionario(){
     return (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
