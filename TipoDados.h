@@ -43,13 +43,17 @@ typedef struct{
 
     int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
 
-    Lista *listaProdutos;          // lista dos produtos
+    Lista *listaProdutos;           // lista dos produtos
 }ClienteStruct;
 
 
-void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
 
-CaixaStruct *criarCaixa(FuncionarioStruct funcionario);
+FuncionarioStruct *criarFuncionario();
+CaixaStruct *criarCaixa();
+ProdutoStruct *criarProduto();
+ClienteStruct *criarCliente();
+
+void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
 
 void mostrarFuncionario(void *funcionarioArg, int indentLevel);
 void mostrarCaixa(void *caixaArg, int indentLevel);
