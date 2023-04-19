@@ -21,7 +21,7 @@ ClienteStruct *criarCliente(){
 void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
     int indice = Aleatorio(0, tamanhoVetor);
     memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
-}
+} 
 
 void mostrarFuncionario(void *funcionarioArg, int indentLevel){
     if(!funcionarioArg){
