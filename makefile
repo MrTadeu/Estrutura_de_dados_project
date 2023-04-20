@@ -1,6 +1,10 @@
+#--------------------------------------------------------------------------------------------------
 CC=gcc
-CFLAGS=-O3 -Wall
-SRC=main.c TipoDadosFuncoes.c ListaLigadaFuncoes.c Import_Export.c Utils.c
+CFLAGS=-O3 -Wall -Wextra
+#--------------------------------------------------------------------------------------------------
+INCLUDES_DIR = includes
+SRC_DIR = src
+SRC= $(wildcard $(SRC_DIR)/*.c) 
 HEADERS=TipoDados.h Utils.h ListaLigada.h
 
 all: run.exe

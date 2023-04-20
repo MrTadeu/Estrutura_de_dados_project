@@ -1,5 +1,5 @@
-#include "TipoDados.h"
-#include "ListaLigada.h"
+#include "../includes/TipoDados.h"
+#include "../includes/ListaLigada.h"
 
 
 int main(){

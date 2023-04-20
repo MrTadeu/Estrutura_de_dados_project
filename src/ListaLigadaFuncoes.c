@@ -1,5 +1,5 @@
-#include "ListaLigada.h"
-#include "TipoDados.h"
+#include "../includes/ListaLigada.h"
+#include "../includes/TipoDados.h"
 
 Lista *criarLista(){
     Lista *NovaLista = (Lista*) malloc(sizeof(Lista));

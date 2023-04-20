@@ -1,4 +1,4 @@
-#include "TipoDados.h"
+#include "../includes/TipoDados.h"
 
 /* void armazenarCliente(void *Ptrcliente, char *linha){
     ClienteStruct *cliente = (ClienteStruct *) Ptrcliente;
