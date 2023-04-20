@@ -49,7 +49,7 @@ void *escolherFuncionarios(){ // colocar aqui n_funcionariosAtivos
     int indice = escolherAleatorioVetor(Funcionarios, n_funcionariosAtivos, n_funcionarios, sizeof(FuncionarioStruct), funcionario);
     Funcionarios[indice].ativo = 1;
     addAtivos(&Funcionarios[n_funcionariosAtivos], &Funcionarios[indice], sizeof(FuncionarioStruct), &n_funcionariosAtivos);
-    return funcionario
+    return funcionario;
 }
 
 void *escolherProduto(){
