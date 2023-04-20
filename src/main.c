@@ -1,7 +1,5 @@
 #include "../includes/TipoDados.h"
 #include "../includes/ListaLigada.h"
-#include "../includes/Utils.h"
-
 
 //GLOBAL VARIABLES
 ClienteStruct *Clientes;
@@ -11,7 +9,23 @@ int n_clientes, n_funcionarios, n_produtos;
 
 int main(){
     printc("[red]Hello World[/red]");
-
+    
+    #ifdef _WIN32
+        time_t rawtime;
+        struct tm * timeinfo;
+        time ( &rawtime );
+        timeinfo = localtime ( &rawtime );
+        printf ( "Current local time and date: %s", asctime (timeinfo) );
+    #endif
+    #ifdef __linux__
+        time_t rawtime;
+        struct tm * timeinfo;
+        time ( &rawtime );
+        timeinfo = localtime ( &rawtime );
+        printf ( "Current local time and date: %s", asctime (timeinfo) );
+    #endif
+    
+    return 0;
     srand(time(NULL));
 
    /*  int total;

@@ -1,5 +1,4 @@
 #include "../includes/TipoDados.h"
-#include "../includes/Utils.h"
 
 int escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
     int indice = Aleatorio(0, tamanhoVetor);

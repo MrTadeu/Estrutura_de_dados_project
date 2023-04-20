@@ -20,6 +20,7 @@
 #include <linux.h>
 #endif
 
+
 typedef struct{
     char *nome;
     int id, experiencia;                // A experiencia é a quantidade de vendas realizadas e influencia o salário.
