@@ -22,10 +22,10 @@ void armazenarProduto(void *PtrProduto, char *linha){
 
 
 //GLOBAL VARIABLES
-/* extern  */ClienteStruct *Clientes;
-/* extern  */FuncionarioStruct *Funcionarios;
-/* extern  */ProdutoStruct *Produtos;
-/* extern  */int n_clientes, n_funcionarios, n_produtos;
+extern ClienteStruct *Clientes;
+extern FuncionarioStruct *Funcionarios;
+extern ProdutoStruct *Produtos;
+extern int n_clientes, n_funcionarios, n_produtos;
 /* void importarClientesNew(); */
 
 /* int main(){
