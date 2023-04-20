@@ -14,7 +14,7 @@ int main(){
 
     srand(time(NULL));
 
-    /* int total;
+   /*  int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
 
     FuncionarioStruct *novoFuncionario = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
