@@ -1,10 +1,10 @@
 #include "../includes/TipoDados.h"
 
 //GLOBAL VARIABLES
-/* extern  */ClienteStruct *Clientes;
-/* extern  */FuncionarioStruct *Funcionarios;
-/* extern  */ProdutoStruct *Produtos;
-/* extern  */int n_clientes, n_funcionarios, n_produtos;
+/* extern ClienteStruct *Clientes;
+extern FuncionarioStruct *Funcionarios;
+extern ProdutoStruct *Produtos;
+extern int n_clientes, n_funcionarios, n_produtos; */
 
 typedef enum {
     CLIENTES,
@@ -14,7 +14,7 @@ typedef enum {
 void importarClientesx(char **linhaString, int n_linha);
 void importarFuncionariosx(char **linhaString, int n_linha);
 void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo);
-
+/* 
 int main(){
     importarDados("../Data/clientes.txt", 5, importarClientesx, CLIENTES);
     importarDados("../Data/funcionarios.txt", 5, importarFuncionariosx, FUNCIONARIOS);
@@ -25,9 +25,9 @@ int main(){
     }
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
-        printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i]);
+        printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
     }
-}
+} */
 
 
 int importarCount(char *filename){
@@ -50,7 +50,7 @@ int importarCount(char *filename){
         while (pch != NULL){
             filedata = malloc((strlen(pch)+1));
             strcpy(filedata, pch);
-            pch = strtok (NULL, "\t\r\n");-
+            pch = strtok (NULL, "\t\r\n");
             count++;
         }
         
@@ -78,8 +78,6 @@ void importarFuncionariosx(char **linhaString, int n_linha){
     Funcionarios[n_linha].nome = malloc((strlen(linhaString[1])+1));
     strcpy(Funcionarios[n_linha].nome, linhaString[1]);
 }
-
-void
 
 void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo){
     int n_linha = 0, countFile = importarCount(filename);

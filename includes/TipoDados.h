@@ -9,8 +9,17 @@
 #include <time.h>     // Para contar o tempo
 #ifndef PTHREAD_H
 #include <pthread.h> 
-#include <conio.h>   
 #endif // Para criar as threads
+//#include <conio.h>
+ 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+#ifdef __linux__
+#include <linux.h>
+#endif
+
 
 typedef struct{
     char *nome;
@@ -79,5 +88,30 @@ int DataAntes_Depois(DataStruct d1, DataStruct d2); // Funcional
 ClienteStruct* importarClientes(int* totalClientes, char *nomeficheiro); // Funcional
 FuncionarioStruct* importarFuncionarios(int* totalClientes, char *nomeficheiro); // Funcional
 ProdutoStruct* importarProdutos(int* totalClientes, char *nomeficheiro); // Funcional
+
+//Utils.c
+int Aleatorio(int min, int max);
+
+
+
+/* <-------------------------------- Printcolor --------------------------------> */
+#ifndef CJAG_COLORPRINT
+#define CJAG_COLORPRINT
+
+#define ERROR_TAG "[r][ERROR][/r] "
+
+void printc(const char *fmt, ...);
+
+void spinner_start(unsigned int type, const char* fmt, ...);
+void spinner_update(const char* fmt, ...);
+void spinner_done(const char* fmt, ...);
+
+void progress_start(int max, char* fmt);
+void progress_update();
+
+#endif
+
+/* <-------------------------------- /Printcolor --------------------------------> */
+
 
 #endif

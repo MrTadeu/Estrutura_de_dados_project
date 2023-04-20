@@ -43,6 +43,13 @@ clean:
 	@del $(BUILD_DIR)
 	@rmdir $(BUILD_DIR)
 	@del $(PROGRAM).exe
+
+buildLinux: setupLinux $(PROGRAM)
+
+.PHONY: setupLinux
+setupLinux:
+	@-mkdir -p $(BUILD_DIR)
+
 .PHONY: cleanLinux
 cleanLinux:
 	@-rm -r $(BUILD_DIR)
