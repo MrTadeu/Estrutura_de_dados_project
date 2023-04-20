@@ -16,10 +16,10 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
 
     CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *menorInfo = (CaixaStruct *)menor->Info;
-    if (menorInfoInfo->aberta == 0){ // se o primeiro caixa estiver fechado, procura o primeiro aberto
+    if (menorInfo->aberta == 0){ // se o primeiro caixa estiver fechado, procura o primeiro aberto
         menorInfo = caixaAuxInfo;
         index = pos;
-        while (menorInfoInfo->aberta == 0 && caixaAux){ // NÃO ESQUECER DE VERIFICAR SE TODAS ESTÃO FECHADAS TRATAR DO ASSUSNTO
+        while (menorInfo->aberta == 0 && caixaAux){ // NÃO ESQUECER DE VERIFICAR SE TODAS ESTÃO FECHADAS TRATAR DO ASSUSNTO
             caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
             if(caixaAuxInfo->aberta == 1){
                 menorInfo = caixaAuxInfo;
