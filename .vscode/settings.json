@@ -5,6 +5,8 @@
         "tipodados.h": "c",
         "utils.h": "c",
         "stdio.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "string.h": "c",
+        "math.h": "c"
     }
 }
