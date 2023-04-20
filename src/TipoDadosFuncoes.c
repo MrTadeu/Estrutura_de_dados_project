@@ -48,13 +48,13 @@ void *escolherFuncionarios(){ // colocar aqui n_funcionariosAtivos
     FuncionarioStruct *funcionario = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
     int indice = escolherAleatorioVetor(Funcionarios, n_funcionariosAtivos, n_funcionarios, sizeof(FuncionarioStruct), funcionario);
     Funcionarios[indice].ativo = 1;
-    addAtivos(&Funcionarios[n_funcionariosAtivos], &Funcionarios[indice], sizeof(FuncionarioStruct), &n_funcionariosAtivos);
-    return funcionario
+    batenteChange(&Funcionarios[n_funcionariosAtivos], &Funcionarios[indice], sizeof(FuncionarioStruct), &n_funcionariosAtivos, '+');
+    return funcionario;
 }
 
 void *escolherProduto(){
     ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
-    int indice = escolherAleatorioVetor(Produtos, 0, n_produtos, sizeof(ProdutoStruct), produto);
+    escolherAleatorioVetor(Produtos, 0, n_produtos, sizeof(ProdutoStruct), produto);
     return produto;
 }
 
@@ -66,7 +66,7 @@ void *escolherCliente(){
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
     int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente);
     Clientes[indice].ativo = 1;
-    addAtivos(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos);
+    batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
     return cliente;
 }
 
