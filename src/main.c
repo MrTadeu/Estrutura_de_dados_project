@@ -6,7 +6,7 @@
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;
-
+int n_clientes, n_funcionarios, n_produtos
 
 int main(){
     printf("Hello World");

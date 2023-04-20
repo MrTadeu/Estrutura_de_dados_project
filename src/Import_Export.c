@@ -22,19 +22,27 @@ void armazenarProduto(void *PtrProduto, char *linha){
 
 
 //GLOBAL VARIABLES
-extern ClienteStruct *Clientes;
-extern FuncionarioStruct *Funcionarios;
-extern ProdutoStruct *Produtos;
+/* extern  */ClienteStruct *Clientes;
+/* extern  */FuncionarioStruct *Funcionarios;
+/* extern  */ProdutoStruct *Produtos;
+/* extern  */int n_clientes, n_funcionarios, n_produtos;
+/* void importarClientesNew(); */
+
+/* int main(){
+    printf("Hello World");
+    importarClientesNew();
+
+    return 0;
+} */
 
 
-
-
-AlunoFile* getTxt(AlunoFile *alunosFile, int *n_linhas_lidas){
-    FILE *file = fopen("data/alunos.txt","r");
+void importarClientesNew(){
+    FILE *file = fopen("../Data/clientes.txt","r");
     char **filedata = malloc(5*sizeof(char *)), *linhaString = malloc(250);
+    Clientes = malloc(sizeof(ClienteStruct));
 
     if (!file) {
-        printf("\n\n\tImpossivel abrir Ficheiro \n\n");
+        printf("\n\n\tImpossivel abrir Ficheiro [red]clientes.txt[/red]\n\n");
         exit(1);
     }
 
@@ -51,38 +59,27 @@ AlunoFile* getTxt(AlunoFile *alunosFile, int *n_linhas_lidas){
             pch = strtok (NULL, "\t\r\n");
             count++;
         }
-        alunosFile = realloc(alunosFile, ((*n_linhas_lidas)+1)*sizeof(AlunoFile));
+        Clientes = realloc(Clientes, ((n_clientes)+1)*sizeof(ClienteStruct));
 
-        //nome
-        alunosFile[*n_linhas_lidas].nome = malloc((strlen(filedata[0])+1));
-        strcpy(alunosFile[*n_linhas_lidas].nome, filedata[0]);
-        //Role / REGIME
-        alunosFile[*n_linhas_lidas].role = malloc((strlen(filedata[1])+1));
-        strcpy(alunosFile[*n_linhas_lidas].role, filedata[1]);
-        //Year
-        alunosFile[*n_linhas_lidas].ano = atoi(filedata[2]);
-        //ID / Número
-        alunosFile[*n_linhas_lidas].id = atoi(filedata[3]);
-        //Course 
-        alunosFile[*n_linhas_lidas].course = malloc((strlen(filedata[4])+1));
-        strcpy(alunosFile[*n_linhas_lidas].course, filedata[4]);
+        Clientes[n_clientes].id = atoi(filedata[0]);
+        Clientes[n_clientes].nome = malloc((strlen(filedata[1])+1));
+        strcpy(Clientes[n_clientes].nome, filedata[1]);
 
-        *n_linhas_lidas = *n_linhas_lidas + 1;
+        n_clientes++;
     }
 
-    for (int i = 0; i < *n_linhas_lidas; i++){
-        printf("\nLinha %d: %s\t%s\t%d\t%d\t%s", i+1, alunosFile[i].nome, alunosFile[i].role, alunosFile[i].ano, alunosFile[i].id, alunosFile[i].course);
+    for (int i = 0; i < n_clientes; i++){
+        printf("\nLinha %d: ID: %d NOME: %s", i+1,Clientes[i].id, Clientes[i].nome);
     }
 
     fclose(file);
-    return alunosFile;
 }
 
 
 
 
 
-
+/* 
 
 
 
@@ -177,4 +174,4 @@ ProdutoStruct* importarProdutos(int* totalProdutos, char *nomeficheiro){
         i++;
     }
     return dadosImportados;
-}
+} */
