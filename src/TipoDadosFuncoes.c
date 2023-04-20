@@ -1,10 +1,15 @@
 #include "../includes/TipoDados.h"
 #include "../includes/Utils.h"
 
-void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
+int escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
     int indice = Aleatorio(0, tamanhoVetor);
     memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
+    return indice;
 } 
+
+FuncionarioStruct *criarFuncionario(){
+
+}
 
 CaixaStruct *criarCaixa(){
     return (CaixaStruct *) malloc(sizeof(CaixaStruct));
@@ -12,7 +17,7 @@ CaixaStruct *criarCaixa(){
 
 ProdutoStruct *criarProduto(){
     ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
-    escolherAleatorioVetor(Produtos, n_produtos, sizeof(ProdutoStruct), produto);
+    int indice = escolherAleatorioVetor(Produtos, n_produtos, sizeof(ProdutoStruct), produto);
     return produto;
 }
 Lista *criarListaProdutos(){
@@ -30,14 +35,23 @@ ClienteStruct *criarCliente(){
 }
 ClienteStruct *criarGuest(){
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    cliente->id = -1;
     cliente->dataNascimento.ano = -1;
     cliente->dataNascimento.mes = -1;
     cliente->dataNascimento.dia = -1;
-    cliente->id = -1;
-    cliente
+    cliente->listaProdutos = NULL;
+    cliente->nome = (char *) malloc(sizeof(char)*13);
+    strcpy(cliente->nome, "Desconhecido");
+    cliente->saldoCartaoCliente = -1;
+    cliente->tempoAtraso = 0;
+    cliente->tempoEstimadoCaixa = 0;
+    cliente->tempoEstimadoCompra = 0;
+    cliente->tempoEstimadoFila = 0;
 }
 
+void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos){
 
+}
 
 void mostrarFuncionario(void *funcionarioArg, int indentLevel){
     if(!funcionarioArg){
