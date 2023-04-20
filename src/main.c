@@ -1,21 +1,20 @@
 #include "../includes/TipoDados.h"
 #include "../includes/ListaLigada.h"
+#include "../includes/Utils.h"
 
 
 //GLOBAL VARIABLES
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;
-int n_clientes, n_funcionarios, n_produtos
+int n_clientes, n_funcionarios, n_produtos;
 
 int main(){
-    printf("Hello World");
+    printc("[red]Hello World[/red]");
 
     srand(time(NULL));
 
-
-
-    int total;
+   /*  int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
 
     FuncionarioStruct *novoFuncionario = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
@@ -23,7 +22,7 @@ int main(){
 
     printf("id: %d, nome: %s", novoFuncionario->id, novoFuncionario->nome);
     free(DadosPessoa);
-    free(novoFuncionario);
+    free(novoFuncionario); */
     
     return 0;
 }
