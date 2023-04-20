@@ -46,8 +46,6 @@ typedef struct{
     Lista *listaProdutos;           // lista dos produtos
 }ClienteStruct;
 
-
-
 FuncionarioStruct *criarFuncionario();
 CaixaStruct *criarCaixa();
 ProdutoStruct *criarProduto();
