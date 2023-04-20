@@ -6,14 +6,7 @@ extern FuncionarioStruct *Funcionarios;
 extern ProdutoStruct *Produtos;
 extern int n_clientes, n_funcionarios, n_produtos; */
 
-typedef enum {
-    CLIENTES,
-    FUNCIONARIOS
-} TipoDados;
 
-void importarClientesx(char **linhaString, int n_linha);
-void importarFuncionariosx(char **linhaString, int n_linha);
-void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo);
 /* 
 int main(){
     importarDados("../Data/clientes.txt", 5, importarClientesx, CLIENTES);

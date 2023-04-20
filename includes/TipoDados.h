@@ -65,6 +65,16 @@ extern FuncionarioStruct *Funcionarios;
 extern ProdutoStruct *Produtos;
 extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
+typedef enum {
+    CLIENTES,
+    FUNCIONARIOS
+} TipoDados;
+
+void importarClientesx(char **linhaString, int n_linha);
+void importarFuncionariosx(char **linhaString, int n_linha);
+void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo);
+
+
 
 int escolherAleatorioVetor(void *vetor, int batente, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
 void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos);

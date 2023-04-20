@@ -1,4 +1,4 @@
-#include "TipoDados.h"
+#include "../includes/TipoDados.h"
 #ifdef _WIN32
     void dormir(){
         Sleep(1000);

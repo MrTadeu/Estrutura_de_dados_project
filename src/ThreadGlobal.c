@@ -1,4 +1,4 @@
-#include "TipoDados.h"
+#include "../includes/TipoDados.h"
 
 void *ThreadGlobal(){
 
