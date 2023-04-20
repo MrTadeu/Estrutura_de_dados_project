@@ -27,7 +27,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
 # .PHONY - Não é um arquivo, é um comando usado para não dar erro de arquivo não encontrado
 .PHONY: setup
 setup:
-	if not exist "$(BUILD_DIR)" mkdir "$(BUILD_DIR)"
+	@if not exist "$(BUILD_DIR)" mkdir "$(BUILD_DIR)"
 #run.o: $(SRC) $(HEADERS)
 #	$(CC) $(CFLAGS) $(SRC) -o run
 
