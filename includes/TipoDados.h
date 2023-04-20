@@ -66,7 +66,7 @@ extern ProdutoStruct *Produtos;
 extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
 
-int escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
+int escolherAleatorioVetor(void *vetor, int batente, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
 void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos);
 ClienteStruct *criarGuest();
 void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);
