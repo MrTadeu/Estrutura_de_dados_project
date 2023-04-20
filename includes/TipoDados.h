@@ -9,18 +9,17 @@
 #include <time.h>     // Para contar o tempo
 #ifndef PTHREAD_H
 #include <pthread.h> 
-#endif // Para criar as threads
 #include <conio.h>   
-
+#endif // Para criar as threads
 
 typedef struct{
     char *nome;
-    int id, experiencia;                // A experiencia é a quantidade de vendas realizadas e influencia o salário.
+    int id, experiencia, ativo;                // A experiencia é a quantidade de vendas realizadas e influencia o salário.
     float atrasoMedio, bonus, salario;  // O atraso medio pode ser negativo ou positivo e influencia o bonus.
 }FuncionarioStruct;
 
 typedef struct{
-    int id, tempoTotalEspera;
+    int id, tempoTotalEspera, aberta;
     FuncionarioStruct *funcionario;
     Lista *listaPessoas;
 }CaixaStruct;
@@ -36,7 +35,7 @@ typedef struct{
 }DataStruct;
 
 typedef struct{
-    int id;                             // guests: -1
+    int id, ativo;                      // guests: -1
     char *nome;                         // guests: "none"
     DataStruct dataNascimento;          // guests: -1/-1/-1
     float saldoCartaoCliente;           // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
@@ -55,18 +54,17 @@ typedef struct{
 extern ClienteStruct *Clientes;
 extern FuncionarioStruct *Funcionarios;
 extern ProdutoStruct *Produtos;
-extern int n_clientes, n_funcionarios, n_produtos;
+extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
 
 int escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
-FuncionarioStruct *criarFuncionario();
-CaixaStruct *criarCaixa();
-ProdutoStruct *criarProduto();
-Lista *criarListaProdutos();
-ClienteStruct *criarCliente();
-ClienteStruct *criarGuest();
-
 void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos);
+ClienteStruct *criarGuest();
+void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);
+void *escolherFuncionarios();
+void *escolherProduto();
+void *escolherCliente();
+void criarAddLista(Lista *lista, int Qt, void*(*escolherElemento)());
 
 void mostrarFuncionario(void *funcionarioArg, int indentLevel);
 void mostrarCaixa(void *caixaArg, int indentLevel);

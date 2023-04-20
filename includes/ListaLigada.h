@@ -16,6 +16,7 @@ Lista *criarLista();
 Elemento *criarElemento(void *elemento);
 void AddElementoInicio(Lista *lista, Elemento *elemento);
 void AddElementoFim(Lista *lista, Elemento *elemento);
+void criarAddLista(Lista *lista, int Qt, void*(*escolherElemento)());
 Elemento *RemElementoInicio(Lista *lista);
 Elemento *RemElementoUltimo(Lista *lista);
 Elemento *RemElementoIndex(Lista *lista, int index);// Devolve o Elemento removido para o podermos detruir e adicionar info ao historico

@@ -1,38 +1,15 @@
 #include "../includes/TipoDados.h"
-#include "../includes/Utils.h"
 
-int escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
-    int indice = Aleatorio(0, tamanhoVetor);
+int escolherAleatorioVetor(void *vetor, int batente, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
+    int indice = Aleatorio(batente, tamanhoVetor-1);
     memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
     return indice;
 } 
 
-FuncionarioStruct *criarFuncionario(){
-
+void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos){
+    cliente->listaProdutos = produtos;
 }
 
-CaixaStruct *criarCaixa(){
-    return (CaixaStruct *) malloc(sizeof(CaixaStruct));
-}
-
-ProdutoStruct *criarProduto(){
-    ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
-    int indice = escolherAleatorioVetor(Produtos, n_produtos, sizeof(ProdutoStruct), produto);
-    return produto;
-}
-Lista *criarListaProdutos(){
-    Lista *listaProdutos = criarLista();
-    for(int i = 0; i < Aleatorio(1, 30); i++){
-        AddElementoFim(listaProdutos, criarElemento(criarProduto()));
-    }
-    return listaProdutos;
-}
-
-ClienteStruct *criarCliente(){
-    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
-    escolherAleatorioVetor(Clientes, n_clientes, sizeof(ClienteStruct), cliente);
-    return cliente;
-}
 ClienteStruct *criarGuest(){
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
     cliente->id = -1;
@@ -49,8 +26,48 @@ ClienteStruct *criarGuest(){
     cliente->tempoEstimadoFila = 0;
 }
 
-void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos){
+void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal){ // Troca dois elementos de posicao e decrementa batente
+    void* temp = malloc(size);
+    memcpy(temp, ptr1, size);
+    memcpy(ptr1, ptr2, size);
+    memcpy(ptr2, temp, size);
+    free(temp);
+    if(sinal == '+')
+        *batente = *batente + 1;
+    else if(sinal == '-')
+        *batente = *batente - 1;
+    else
+        printf("\n\tError! Invalid Operation.\n");
+}
 
+void *escolherFuncionarios(){ // colocar aqui n_funcionariosAtivos
+    if(n_funcionariosAtivos >= n_funcionarios-1){
+        printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");
+        return NULL;
+    }
+    FuncionarioStruct *funcionario = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
+    int indice = escolherAleatorioVetor(Funcionarios, n_funcionariosAtivos, n_funcionarios, sizeof(FuncionarioStruct), funcionario);
+    Funcionarios[indice].ativo = 1;
+    addAtivos(&Funcionarios[n_funcionariosAtivos], &Funcionarios[indice], sizeof(FuncionarioStruct), &n_funcionariosAtivos);
+    return funcionario
+}
+
+void *escolherProduto(){
+    ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
+    int indice = escolherAleatorioVetor(Produtos, 0, n_produtos, sizeof(ProdutoStruct), produto);
+    return produto;
+}
+
+void *escolherCliente(){
+    if(n_clientesAtivos >= n_clientes-1){
+        printf("\n\tErro! Nao existem mais clientes disponiveis.\n");
+        return NULL;
+    }
+    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente);
+    Clientes[indice].ativo = 1;
+    addAtivos(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos);
+    return cliente;
 }
 
 void mostrarFuncionario(void *funcionarioArg, int indentLevel){

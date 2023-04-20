@@ -57,6 +57,11 @@ void AddElementoFim(Lista *lista, Elemento *elemento){
     lista->quantidadeElementos++;
 }
 
+void EscolherCriarElementoAddLista(Lista *lista, int Qt, void*(*escolherElemento)()){
+    for(int i = 0; i < Qt; i++)
+        AddElementoFim(lista, criarElemento(escolherElemento()));
+}
+
 Elemento *RemElementoUltimo(Lista *lista){
     if(!lista){
        printf("\tError! List is NULL\n"); 

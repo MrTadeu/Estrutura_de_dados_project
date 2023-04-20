@@ -1,13 +1,12 @@
 #include "../includes/TipoDados.h"
 #include "../includes/ListaLigada.h"
-#include "../includes/Utils.h"
 
 
 //GLOBAL VARIABLES
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;
-int n_clientes, n_funcionarios, n_produtos;
+int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
 int main(){
     printc("[red]Hello World[/red]");
