@@ -24,6 +24,7 @@ ClienteStruct *criarGuest(){
     cliente->tempoEstimadoCaixa = 0;
     cliente->tempoEstimadoCompra = 0;
     cliente->tempoEstimadoFila = 0;
+    return NULL; //JAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 }
 
 void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal){ // Troca dois elementos de posicao e decrementa batente
