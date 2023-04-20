@@ -46,14 +46,6 @@ clean:
 
 buildLinux: setupLinux $(PROGRAM)
 
-# isto vai criar ./simulation.o
-$(PROGRAM): $(OBJ)
-	$(CC) -I $(INCLUDES_DIR) $(CFLAGS) $(OBJ) -o $(PROGRAM)
-
-# isto vai criar um arquivo .o para cada arquivo .c || a opção -c é para não criar um executavel e sim um arquivos  .o ou seja compilar individualmente
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) -c -I $(INCLUDES_DIR) $(CFLAGS) -o $@ $^
-
 .PHONY: setupLinux
 setupLinux:
 	@-mkdir -p $(BUILD_DIR)

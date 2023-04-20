@@ -10,7 +10,7 @@
 #ifndef PTHREAD_H
 #include <pthread.h> 
 #endif // Para criar as threads
-#include <conio.h>
+//#include <conio.h>
  
 #ifdef _WIN32
 #include <windows.h>
