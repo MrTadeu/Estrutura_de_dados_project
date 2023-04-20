@@ -11,10 +11,10 @@
 #include <conio.h>   
 
 //GLOBAL VARIABLES
-extern ClienteStruct *Clientes;
+/* extern ClienteStruct *Clientes;
 extern FuncionarioStruct *Funcionarios;
 extern ProdutoStruct *Produtos;
-extern int n_clientes, n_funcionarios, n_produtos;
+extern int n_clientes, n_funcionarios, n_produtos; */
 
 typedef struct{
     char *nome;

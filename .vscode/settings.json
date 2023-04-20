@@ -1,12 +1,7 @@
 {
     "files.associations": {
-        "stdlib.h": "c",
         "listaligada.h": "c",
-        "tipodados.h": "c",
         "utils.h": "c",
-        "stdio.h": "c",
-        "time.h": "c",
-        "string.h": "c",
-        "math.h": "c"
+        "tipodados.h": "c"
     }
 }
