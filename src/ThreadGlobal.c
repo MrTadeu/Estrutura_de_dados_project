@@ -7,6 +7,8 @@ void *ThreadGlobal(){
     }
 }
 
+/* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
+
 int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
     int pos = 0, index = 0;
     Elemento *caixaAux = caixa->head;
@@ -17,7 +19,7 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
     if (menorInfoInfo->aberta == 0){ // se o primeiro caixa estiver fechado, procura o primeiro aberto
         menorInfo = caixaAuxInfo;
         index = pos;
-        while (menorInfoInfo->aberta == 0 && caixaAux){
+        while (menorInfoInfo->aberta == 0 && caixaAux){ // NÃO ESQUECER DE VERIFICAR SE TODAS ESTÃO FECHADAS TRATAR DO ASSUSNTO
             caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
             if(caixaAuxInfo->aberta == 1){
                 menorInfo = caixaAuxInfo;
@@ -52,3 +54,4 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
     AddElementoFim(caixaAuxInfo->listaPessoas, cliente);
 }
 
+/* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
