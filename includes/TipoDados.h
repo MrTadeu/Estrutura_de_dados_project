@@ -41,7 +41,7 @@ typedef struct{
 typedef struct{
     int id;                             // guests: -1
     char *nome;                         // guests: "none"
-    DataStruct dataNascimento;          // guests: 0/0/0
+    DataStruct dataNascimento;          // guests: -1/-1/-1
     float saldoCartaoCliente;           // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
 
     int tempoEstimadoCompra;        // soma do tempo de compra dos proprios produtos
@@ -65,7 +65,7 @@ void mostrarCaixa(void *caixaArg, int indentLevel);
 void mostrarProduto(void *produtoArg, int indentLevel);
 void mostrarCliente(void *clienteArg, int indentLevel);
 
-DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax); // Funcional
+DataStruct gerarDataValidaAleatoria(int anoMin, int anoMax); // Funcional
 int DataAntes_Depois(DataStruct d1, DataStruct d2); // Funcional
 
 

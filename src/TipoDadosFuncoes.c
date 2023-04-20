@@ -24,7 +24,17 @@ Lista *criarListaProdutos(){
 }
 
 ClienteStruct *criarCliente(){
-    return (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    escolherAleatorioVetor(Clientes, n_clientes, sizeof(ClienteStruct), cliente);
+    return cliente;
+}
+ClienteStruct *criarGuest(){
+    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    cliente->dataNascimento.ano = -1;
+    cliente->dataNascimento.mes = -1;
+    cliente->dataNascimento.dia = -1;
+    cliente->id = -1;
+    cliente
 }
 
 
@@ -79,9 +89,8 @@ void mostrarCliente(void *clienteArg, int indentLevel){
     mostrarLista(cliente->listaProdutos, mostrarProduto, indentLevel + 1);
 }
 
-
-DataStruct gerarDataValidaAleatoria(DataStruct data, int anoMin, int anoMax){
-
+DataStruct gerarDataValidaAleatoria(int anoMin, int anoMax){
+    DataStruct data;
     data.ano = Aleatorio(anoMin, anoMax);
     data.mes = Aleatorio(1, 12);
 
