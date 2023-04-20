@@ -3,7 +3,7 @@ O projeto "Simulação de Supermercado" é uma implementação em C que tem como
 
 ## 1. Instruções de execução
 ```cmd
-> gcc -o3 -Wall .\main.c .\TipoDados.h .\TipoDadosFuncoes.c .\Utils.h .\ListaLigada.h .\ListaLigadaFuncoes.c .\Import_Export.c -o  run.exe
+> gcc -o3 -Wall .\src\main.c .\includes\TipoDados.h .\src\TipoDadosFuncoes.c .\src\Utils.c .\includes\ListaLigada.h .\src\ListaLigadaFuncoes.c .\src\Import_Export.c -o  run.exe
 ```
 
 ## 2. Instruçoes de execução com `MakeFile` no windows 
