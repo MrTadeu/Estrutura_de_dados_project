@@ -7,10 +7,8 @@
   },
   "C_Cpp.errorSquiggles": "disabled",
   "files.exclude": {
-    ".gitignore": true,
     "LICENSE": true,
-    "makefile": true,
-    "README.md": true,
-    "src\\colorprint.c": true
+    "src\\colorprint.c": true,
+    ".gitignore": true
   }
 }
