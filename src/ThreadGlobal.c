@@ -1,6 +1,6 @@
 #include "TipoDados.h"
 
-void *ThreadGlobal(void *arg){
+void *ThreadGlobal(){
 
     while(1){
         
@@ -10,7 +10,7 @@ void *ThreadGlobal(void *arg){
 int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
     int pos = 0, index = 0;
     Elemento *caixaAux = caixa->head;
-    Elemento menor = caixaAux;
+    Elemento *menor = caixaAux;
 
     while(caixaAux){
         caixaAux->Info = (CaixaStruct *)caixaAux->Info;
@@ -22,6 +22,7 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
         caixaAux = caixaAux->next;
         pos++;
     }
+    return index;
 }
 
 void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) a melhor caixa para o cliente
