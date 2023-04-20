@@ -11,7 +11,7 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
     int pos = 0, index = 0;
     Elemento *caixaAux = caixa->head;
     Elemento menor = caixaAux;
-    
+
     while(caixaAux){
         caixaAux->Info = (CaixaStruct *)caixaAux->Info;
         menor->Info = (CaixaStruct *)menor->Info;
@@ -25,8 +25,8 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
 }
 
 void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) a melhor caixa para o cliente
-    int index = CaixaIndex(caixa);
-    Lista *caixaAux = caixas->head;
+    int index = CaixaIndex(caixas);
+    Elemento *caixaAux = caixas->head;
     while(index){
         caixaAux = caixaAux->next;
         index--;
