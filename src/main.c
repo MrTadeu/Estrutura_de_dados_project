@@ -9,7 +9,7 @@ ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
 int main(){
-    printc("[red]Hello World[/red]");
+    /* printc("[red]Hello World[/red]");
     
     #ifdef _WIN32
         time_t rawtime;
@@ -39,7 +39,7 @@ int main(){
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
         printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
-    }
+    } */
    /*  int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
 
