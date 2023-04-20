@@ -5,28 +5,11 @@
 /* extern  */FuncionarioStruct *Funcionarios;
 /* extern  */ProdutoStruct *Produtos;
 /* extern  */int n_clientes, n_funcionarios, n_produtos;
-
-typedef enum {
-    CLIENTES,
-    FUNCIONARIOS
-} TipoDados;
-
-void importarClientesx(char **linhaString, int n_linha);
-void importarFuncionariosx(char **linhaString, int n_linha);
-void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo);
+void importarClientesNew();
+int importarCount(char *filename);
 
 int main(){
-    importarDados("../Data/clientes.txt", 5, importarClientesx, CLIENTES);
-    importarDados("../Data/funcionarios.txt", 5, importarFuncionariosx, FUNCIONARIOS);
-    
-    printf("\nClientes");
-    for (int i = 0; i < n_clientes; i++){
-        printf("\nLinha %d: ID: %d NOME: %s DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
-    }
-    printf("\n\nFuncionarios");
-    for (int i = 0; i < n_funcionarios; i++){
-        printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i]);
-    }
+    /* importarClientesNew(); */
 }
 
 
@@ -67,35 +50,18 @@ int importarCount(char *filename){
     return n_linhas;
 }
 
-void importarClientesx(char **linhaString, int n_linha){
-    Clientes[n_linha].id = atoi(linhaString[0]);
-    Clientes[n_linha].nome = malloc((strlen(linhaString[1])+1));
-    strcpy(Clientes[n_linha].nome, linhaString[1]);
+void importarCLI(char **linhaString, int n_linha){
+
 }
 
-void importarFuncionariosx(char **linhaString, int n_linha){
-    Funcionarios[n_linha].id = atoi(linhaString[0]);
-    Funcionarios[n_linha].nome = malloc((strlen(linhaString[1])+1));
-    strcpy(Funcionarios[n_linha].nome, linhaString[1]);
-}
-
-void
-
-void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo){
-    int n_linha = 0, countFile = importarCount(filename);
-    FILE *file = fopen(filename, "r");
-    char **filedata = malloc(colunas*sizeof(char *)), *linhaString = malloc(250);
-    if(tipo == CLIENTES){
-        n_clientes = countFile;
-        Clientes = malloc(sizeof(ClienteStruct)*countFile);
-    }
-    if(tipo == FUNCIONARIOS){
-        n_funcionarios = countFile;
-        Funcionarios = malloc(sizeof(FuncionarioStruct)*countFile);
-    }
+void importarClientesNew(int colunas, void (guardarDados)(void *, int)){
+    n_clientes = 0;
+    FILE *file = fopen("../Data/clientes.txt","r");
+    char **filedata = malloc(5*sizeof(char *)), *linhaString = malloc(250);
+    Clientes = malloc(sizeof(ClienteStruct)*importarCount("../Data/clientes.txt"));
 
     if (!file) {
-        printf("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
+        printf("\n\n\tImpossivel abrir Ficheiro [red]clientes.txt[/red]\n\n");
         exit(1);
     }
 
@@ -112,12 +78,23 @@ void importarDados(char *filename, int colunas, void (guardarDados)(char **, int
             count++;
         }
         
-        if(count == 1 &&  n_linha == 0){
+        if(count == 1 &&  n_clientes == 0){
             continue;
         }
 
-        guardarDados(filedata, n_linha);
-        n_linha++;
+        Clientes[n_clientes].id = atoi(filedata[0]);
+        Clientes[n_clientes].nome = malloc((strlen(filedata[1])+1));
+        /* Clientes[n_clientes].dataNascimento = random_date(2000,2030); */
+        /* Clientes[n_clientes].listaProdutos;
+        Clientes[n_clientes].saldoCartaoCliente; */
+        
+        strcpy(Clientes[n_clientes].nome, filedata[1]);
+
+        n_clientes++;
+    }
+
+    for (int i = 0; i < n_clientes; i++){
+        printf("\nLinha %d: ID: %d NOME: %s DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
     }
 
     fclose(file);
