@@ -21,6 +21,10 @@ void armazenarProduto(void *PtrProduto, char *linha){
 }*/
 
 
+//GLOBAL VARIABLES
+extern ClienteStruct *Clientes;
+extern FuncionarioStruct *Funcionarios;
+extern ProdutoStruct *Produtos;
 
 
 
