@@ -3,6 +3,8 @@
 
 
 int main(){
+    printf("Hello World");
+
     srand(time(NULL));
 
     int total;

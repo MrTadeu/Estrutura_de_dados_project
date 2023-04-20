@@ -5,3 +5,7 @@ O projeto "Simulação de Supermercado" é uma implementação em C que tem como
 ```cmd
 > gcc -o3 -Wall .\main.c .\TipoDados.h .\TipoDadosFuncoes.c .\Utils.h .\ListaLigada.h .\ListaLigadaFuncoes.c .\Import_Export.c -o  run.exe
 ```
+
+## 2. I
+```cmd
+> https://chocolatey.org/install#individual
