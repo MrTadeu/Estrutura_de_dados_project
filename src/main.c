@@ -1,5 +1,6 @@
 #include "../includes/TipoDados.h"
 #include "../includes/ListaLigada.h"
+#include "../includes/Utils.h"
 
 
 //GLOBAL VARIABLES
@@ -9,7 +10,7 @@ ProdutoStruct *Produtos;
 int n_clientes, n_funcionarios, n_produtos;
 
 int main(){
-    printf("Hello World");
+    printc("[red]Hello World[/red]");
 
     srand(time(NULL));
 
