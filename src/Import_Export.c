@@ -1,18 +1,10 @@
 #include "../includes/TipoDados.h"
 
 //GLOBAL VARIABLES
-<<<<<<< HEAD
 /* extern  */ClienteStruct *Clientes;
 /* extern  */FuncionarioStruct *Funcionarios;
 /* extern  */ProdutoStruct *Produtos;
 /* extern  */int n_clientes, n_funcionarios, n_produtos;
-=======
-extern ClienteStruct *Clientes;
-extern FuncionarioStruct *Funcionarios;
-extern ProdutoStruct *Produtos;
-extern int n_clientes, n_funcionarios, n_produtos;
-/* void importarClientesNew(); */
->>>>>>> d6b932be59e1a5a6d902adf1c8c7877f09410d5d
 
 typedef enum {
     CLIENTES,
