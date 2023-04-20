@@ -1,28 +1,33 @@
 #include "../includes/TipoDados.h"
 #include "../includes/Utils.h"
 
-
-
-FuncionarioStruct *criarFuncionario(){
-    return (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
-}
+void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
+    int indice = Aleatorio(0, tamanhoVetor);
+    memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
+} 
 
 CaixaStruct *criarCaixa(){
     return (CaixaStruct *) malloc(sizeof(CaixaStruct));
 }
 
 ProdutoStruct *criarProduto(){
-    return (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
+    ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
+    escolherAleatorioVetor(Produtos, n_produtos, sizeof(ProdutoStruct), produto);
+    return produto;
+}
+Lista *criarListaProdutos(){
+    Lista *listaProdutos = criarLista();
+    for(int i = 0; i < Aleatorio(1, 30); i++){
+        AddElementoFim(listaProdutos, criarElemento(criarProduto()));
+    }
+    return listaProdutos;
 }
 
 ClienteStruct *criarCliente(){
     return (ClienteStruct *) malloc(sizeof(ClienteStruct));
 }
 
-void escolherAleatorioVetor(void *vetor, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
-    int indice = Aleatorio(0, tamanhoVetor);
-    memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
-} 
+
 
 void mostrarFuncionario(void *funcionarioArg, int indentLevel){
     if(!funcionarioArg){
