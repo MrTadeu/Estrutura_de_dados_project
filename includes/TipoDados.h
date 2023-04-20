@@ -104,7 +104,7 @@
     int Aleatorio(int min, int max);
     DataStruct gerarData(int anoMin, int anoMax);
     int DataAntesDepois(DataStruct d1, DataStruct d2);
-
+    
     //JOAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO????????????????
     //void criarAddLista(Lista *lista, int Qt, void*(*escolherElemento)());
 #endif
