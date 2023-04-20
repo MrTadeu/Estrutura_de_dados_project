@@ -2,14 +2,19 @@
 CC = gcc
 CFLAGS = -O3 -Wall -Wextra
 #--------------------------------------------------------------------------------------------------
+#----------------------DIRETÓRIOS------------------------------------------------------------------
 INCLUDES_DIR = includes
 SRC_DIR = src
 BUILD_DIR = build
 #--------------------------------------------------------------------------------------------------
+#----------------------DIRETÓRIOS E FICHEIROS------------------------------------------------------
 SRC = $(wildcard $(SRC_DIR)/*.c) # TODOS OS .c (vai fazer a lista de todos os .c)
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC)) # TODOS OS .c VÃO SER SUBSTITUIDOS POR .o
 HEADERS = $(wildcard $((INCLUDES_DIR)/*.h)) # TODOS OS .h (vai fazer a lista de todos os .h)
 # TODOS OS .c VÃO SER SUBSTITUIDOS POR .o src/main.c -> build/main.o
+#Os arquivos de objeto permitem uma compilação mais rápida, pois só precisam ser recompilados quando o arquivo de origem a partir do qual foram gerados é alterado. Isso acelera o processo de construção, especialmente para grandes projetos. Ele também permite compilações incrementais, o que significa que apenas os arquivos de objeto que foram alterados precisam ser recompilados, em vez de todo o programa.
+#E se quisermos usar uma biblioteca no futuro que tem certas dependências, o arquivo de objeto nos ajudará a gerenciar essas dependências. Se tiver uma diferença em um cabeçalho o arquivo tem de ser recompilado, assim somente certos aquivos serão recompilados.
+#É de notar que eu não fiz um comando de compilação especifica para cada um, uma vez que para esse projeto que constantemente é modificado (dava muito trabalho estar a fazer isso :) , imagina ter que ficar a ouvir reclamaçoes para atualizar este ficheiro :'(    ).
 #--------------------------------------------------------------------------------------------------
 PROGRAM = simulation
 #--------------------------------------------------------------------------------------------------
@@ -22,8 +27,9 @@ $(PROGRAM): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(PROGRAM)
 
 # isto vai criar um arquivo .o para cada arquivo .c
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) -c $(CFLAGS) $(INCLUDES_DIR) -o $@ $^
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) #INCLUDES_DIR
+	$(CC) -c $(CFLAGS) $(HEADERS) -o $@ $^
+
 # .PHONY - Não é um arquivo, é um comando usado para não dar erro de arquivo não encontrado
 .PHONY: setup
 setup:
@@ -33,8 +39,8 @@ setup:
 
 .PHONY: clean
 clean:
-	del $(BUILD_DIR)
-	del $(PROGRAM).o
+	@del $(BUILD_DIR)
+	@del $(PROGRAM).o
 
 .PHONY: cleanLinux
 cleanLinux:
