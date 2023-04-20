@@ -3,5 +3,6 @@
         "listaligada.h": "c",
         "utils.h": "c",
         "tipodados.h": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
