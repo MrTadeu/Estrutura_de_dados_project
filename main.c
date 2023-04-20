@@ -2,10 +2,18 @@
 #include "ListaLigada.h"
 
 
+//GLOBAL VARIABLES
+ClienteStruct *Clientes;
+FuncionarioStruct *Funcionarios;
+ProdutoStruct *Produtos;
+
+
 int main(){
     printf("Hello World");
 
     srand(time(NULL));
+
+
 
     int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
