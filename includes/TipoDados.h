@@ -1,7 +1,7 @@
 #ifndef TIPODADOS_H_INCLUDED
 #define TIPODADOS_H_INCLUDED
 
-#include "ListaLigada.h"
+#include "../includes/ListaLigada.h"
 #include <stdio.h>
 #include <stdlib.h> 
 #include <string.h>

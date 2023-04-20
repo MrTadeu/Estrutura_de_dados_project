@@ -3,6 +3,8 @@
         "stdlib.h": "c",
         "listaligada.h": "c",
         "tipodados.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "stdio.h": "c",
+        "time.h": "c"
     }
 }
