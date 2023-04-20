@@ -7,14 +7,11 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>     // Para contar o tempo
-#include <pthread.h>  // Para criar as threads
+#ifndef PTHREAD_H
+#include <pthread.h> 
+#endif // Para criar as threads
 #include <conio.h>   
 
-//GLOBAL VARIABLES
-extern ClienteStruct *Clientes;
-extern FuncionarioStruct *Funcionarios;
-extern ProdutoStruct *Produtos;
-extern int n_clientes, n_funcionarios, n_produtos;
 
 typedef struct{
     char *nome;
@@ -52,6 +49,13 @@ typedef struct{
 
     Lista *listaProdutos;           // lista dos produtos
 }ClienteStruct;
+
+
+//GLOBAL VARIABLES
+extern ClienteStruct *Clientes;
+extern FuncionarioStruct *Funcionarios;
+extern ProdutoStruct *Produtos;
+extern int n_clientes, n_funcionarios, n_produtos;
 
 FuncionarioStruct *criarFuncionario();
 CaixaStruct *criarCaixa();
