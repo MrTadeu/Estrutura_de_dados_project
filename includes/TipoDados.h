@@ -71,6 +71,11 @@
 
         Lista *listaProdutos;           // lista dos produtos
     }ClienteStruct;
+    
+    typedef struct{
+        int probabilidadeGerarPessoa;
+        int *semaforo;
+    }GlobalStruct;
 
      typedef enum {
         CLIENTES,
@@ -79,6 +84,8 @@
     } TipoDados;
 
     //GLOBAL VARIABLES
+    extern Lista* Caixas;
+    extern GlobalStruct Global;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
     extern ProdutoStruct *Produtos;
@@ -114,4 +121,7 @@
     //Threads.c
     void *ThreadGlobal();
     
+
+    //Relofio.c
+
 #endif

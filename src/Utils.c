@@ -1,4 +1,18 @@
 #include "../includes/TipoDados.h"
+#ifdef _WIN32
+    void dormir(int tempo){
+        Sleep(tempo);
+    }
+#endif
+
+
+#ifdef __linux__
+    void dormir(int tempo){
+        usleep(tempo * 1000);
+    }
+#endif
+
+
 
 int Aleatorio(int min, int max){
     int resultado = min + rand() % (max-min + 1);
@@ -33,7 +47,19 @@ int DataAntesDepois(DataStruct d1, DataStruct d2){ // Se d1 for antes de d2 retu
     return 0;
 }
 
+void *ThreadTempo(){
+    while(1){
+        time_t tempoTot;
+        struct tm * timeinfo;
+        time (&tempoTot);
+        timeinfo = localtime (&tempoTot);
+        printf("%d", timeinfo->tm_sec);
+        //printf ( "Current local time and date: %s", asctime (timeinfo) );
+        dormir(1000);
+    }
+}
 
+  
 
 /* int fileExists(const char* path) {
   struct stat st;

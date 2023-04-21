@@ -1,8 +1,14 @@
 #include "../includes/TipoDados.h"
 
-void *ThreadGlobal(){
+
+void *ThreadGlobal(int prob){
     while(1){
+        if (Aleatorio(0, 100) <= prob){
+            //Global.semaforo[CaixaIndex(Caixas)] = 1;
+
+        }
         
+        dormir(1000);
     }
 }
 
@@ -61,7 +67,7 @@ void *ThreadCaixa(CaixaStruct *caixa){
     }
 }
 
-void criarListaThreads(Lista *listaThreads){
+void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
     pthread_create(&thread, NULL, ThreadCaixa, NULL);
     AddElementoFim(listaThreads, criarElemento(thread));

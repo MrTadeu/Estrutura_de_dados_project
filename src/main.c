@@ -3,6 +3,8 @@
 
 
 //GLOBAL VARIABLES
+Lista* Caixas;
+GlobalStruct Global;
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;
