@@ -64,21 +64,45 @@ void importarFuncionariosx(char **linhaString, int n_linha){
     strcpy(Funcionarios[n_linha].nome, linhaString[1]);
 }
 
-void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo){
-    int n_linha = 0, countFile = importarCount(filename);
-    FILE *file = fopen(filename, "r");
-    char **filedata = malloc(colunas*sizeof(char *)), *linhaString = malloc(250);
+void importarProdutos(char **linhaString, int n_linha){
+    Produtos[n_linha].id = atoi(linhaString[0]);
+    Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
+    strcpy(Produtos[n_linha].nome, linhaString[1]);
+    Produtos[n_linha].preco = atof(linhaString[2]);
+    Produtos[n_linha].tempoCompra = atoi(linhaString[3]);
+    Produtos[n_linha].tempoCaixa = atoi(linhaString[4]);
+}
+
+void importarDados(void (guardarDados)(char **, int), TipoDados tipo){
+    int n_linha = 0, countFile, colunas = 0;
+    char **filedata = malloc(colunas*sizeof(char *)), *linhaString = malloc(250), *filename = malloc(40);
+
     if(tipo == CLIENTES){
+        strcpy(filename, "../Data/clientes.txt");
+        colunas = 2;
+        countFile = importarCount(filename);
         n_clientes = countFile;
         Clientes = malloc(sizeof(ClienteStruct)*countFile);
     }
     if(tipo == FUNCIONARIOS){
+        strcpy(filename, "../Data/funcionarios.txt");
+        colunas = 2;
+        countFile = importarCount(filename);
         n_funcionarios = countFile;
         Funcionarios = malloc(sizeof(FuncionarioStruct)*countFile);
     }
+    if(tipo == PRODUTOS){
+        strcpy(filename, "../Data/produtos.txt");
+        colunas = 5;
+        countFile = importarCount(filename);
+        n_produtos = countFile;
+        Produtos = malloc(sizeof(ProdutoStruct)*countFile);
+    }
 
+    
+    FILE *file = fopen(filename, "r");
     if (!file) {
-        printc("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
+        printf("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
         exit(1);
     }
 
@@ -103,5 +127,8 @@ void importarDados(char *filename, int colunas, void (guardarDados)(char **, int
         n_linha++;
     }
 
+    free(filedata);
+    free(linhaString);
+    free(filename);
     fclose(file);
 }

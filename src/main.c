@@ -18,7 +18,11 @@ int main(){
 /*
     printc("[red]Hello World[/red]");
 
-     #ifdef _WIN32
+    /* printc("[red]Hello World[/red]");
+    
+
+    
+    /* #ifdef _WIN32
         time_t rawtime;
         struct tm * timeinfo;
         time ( &rawtime );
@@ -34,12 +38,10 @@ int main(){
     #endif
     
     return 0;
-*/
+    srand(time(NULL));*/
 
-
-/*
-    importarDados("Data/clientes.txt", 2, importarClientesx, CLIENTES);
-    importarDados("Data/funcionarios.txt", 2, importarFuncionariosx, FUNCIONARIOS);
+    importarDados(importarClientesx, CLIENTES);
+    importarDados(importarFuncionariosx, FUNCIONARIOS);
     
     printf("\nClientes");
     for (int i = 0; i < n_clientes; i++){
@@ -48,28 +50,8 @@ int main(){
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
         printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
-    }  */
-
-
-
-/*     Lista *listaClientesTeste = criarLista();
-    for (int i = 0; i < 4; i++){
-        printf("\n");
-        EscolherCriarElementoAddLista(listaClientesTeste, 1, escolherCliente);
-        for (int j = 0; j < n_clientesAtivos; j++)
-        {
-            printf("At ");
-        }
-        for (int j = 0; j < n_clientes-n_clientesAtivos; j++)
-        {
-            printf("Desat ");
-        }
-        printf("\n");
-    } */
-    
-    
-
-   /*  int total;
+    } 
+    /*  int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
 
     FuncionarioStruct *novoFuncionario = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
