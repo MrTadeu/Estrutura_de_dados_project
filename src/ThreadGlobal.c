@@ -71,6 +71,7 @@ void *ThreadCaixa(void *arg){
 
 void criarListaThreads(Lista *listaThreads){
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
+    pthread_create(&thread[11], NULL, ThreadCaixa, NULL);
     AddElementoFim(listaThreads, criarElemento(thread));
 }
 
