@@ -10,7 +10,7 @@
                 "-Wextra",
                 "*.c",
                 "-o",
-                "main.exe"
+                "..\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"

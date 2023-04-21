@@ -11,7 +11,7 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 int main(){
     printc("[red]Hello World[/red]");
 
-    importarDados("Data\\clientes.txt", 2, importarClientesx, CLIENTES);
+    /* printc("[red]Hello World[/red]");
     
 
     
@@ -31,10 +31,10 @@ int main(){
     #endif
     
     return 0;
-    srand(time(NULL));
+    srand(time(NULL));*/
 
-    importarDados("../Data/clientes.txt", 5, importarClientesx, CLIENTES);
-    importarDados("../Data/funcionarios.txt", 5, importarFuncionariosx, FUNCIONARIOS);
+    importarDados(importarClientesx, CLIENTES);
+    importarDados(importarFuncionariosx, FUNCIONARIOS);
     
     printf("\nClientes");
     for (int i = 0; i < n_clientes; i++){
@@ -43,7 +43,7 @@ int main(){
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
         printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
-    } */
+    } 
    /*  int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
 

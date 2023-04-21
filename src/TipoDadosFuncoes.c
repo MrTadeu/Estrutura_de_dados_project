@@ -98,7 +98,7 @@ void mostrarProduto(void *produtoArg, int indentLevel){
     ProdutoStruct *produto = (ProdutoStruct *) produtoArg;
 
     printf("\n%*sPRODUTO INFO:\n%*sNome Produto: %s\n%*sCodigo Produto: %d\n%*sPreco: %f\n%*sTempo de Compra: %f\n%*sTempo de Caixa: %f", 
-           indentLevel*4, " ", indentLevel*4, " ", produto->nome, indentLevel*4, " ", produto->codigo, indentLevel*4, " ", produto->preco, indentLevel*4, " ", produto->tempoCompra, indentLevel*4, " ", produto->tempoCaixa);
+           indentLevel*4, " ", indentLevel*4, " ", produto->nome, indentLevel*4, " ", produto->id, indentLevel*4, " ", produto->preco, indentLevel*4, " ", produto->tempoCompra, indentLevel*4, " ", produto->tempoCaixa);
 }
 
 void mostrarCliente(void *clienteArg, int indentLevel){

@@ -9,6 +9,7 @@
   "files.exclude": {
     "LICENSE": true,
     "src\\colorprint.c": true,
-    ".gitignore": true
+    ".gitignore": true,
+    ".vscode": true
   }
 }

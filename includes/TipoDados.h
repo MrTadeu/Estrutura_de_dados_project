@@ -47,7 +47,7 @@
     }CaixaStruct;
 
     typedef struct{
-        int codigo;
+        int id;
         char *nome;
         float preco, tempoCompra, tempoCaixa;
     }ProdutoStruct;
@@ -73,7 +73,8 @@
 
      typedef enum {
         CLIENTES,
-        FUNCIONARIOS
+        FUNCIONARIOS,
+        PRODUTOS
     } TipoDados;
 
     //GLOBAL VARIABLES
@@ -85,7 +86,7 @@
     //ImportExport.c
     void importarClientesx(char **linhaString, int n_linha);
     void importarFuncionariosx(char **linhaString, int n_linha);
-    void importarDados(char *filename, int colunas, void (guardarDados)(char **, int), TipoDados tipo);
+    void importarDados(void (guardarDados)(char **, int), TipoDados tipo);
 
     //TipoDadosFuncoes.c
     int escolherAleatorioVetor(void *vetor, int batente, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
