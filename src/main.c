@@ -11,7 +11,11 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 int main(){
     pthread_t thread_global;
     pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
-
+    if (pthread_create(&thread_global, NULL, ThreadGlobal, NULL) != 0){
+        printf("[red]Erro[/red] ao criar thread global\n");
+        exit(1);
+    }
+    
     srand(time(NULL));
     setlocale(LC_ALL, NULL);
     printc("\n[red]Hello World[/red]");

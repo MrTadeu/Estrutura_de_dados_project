@@ -1,7 +1,6 @@
 #include "../includes/TipoDados.h"
 
 void *ThreadGlobal(){
-
     while(1){
         
     }
@@ -9,7 +8,7 @@ void *ThreadGlobal(){
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-static int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
+int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
     int pos = 0, index = 0;
     Elemento *caixaAux = caixa->head;
     Elemento *menor = caixaAux;
@@ -43,7 +42,7 @@ static int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de
     return index;
 }
 
-static void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) a melhor caixa para o cliente
+void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) a melhor caixa para o cliente
     int index = CaixaIndex(caixas);
     Elemento *caixaAux = caixas->head;
     while(index){
@@ -56,22 +55,15 @@ static void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adi
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-void *ThreadCaixa(void *arg){
-    CaixaStruct *caixa = (CaixaStruct *)arg;
-    while(1){
-    /*     if(caixa->aberta == 1){
-            if(caixa->listaPessoas->quantidadeElementos > 0){
-                Elemento *cliente = caixa->listaPessoas->head;
-                ClienteStruct *clienteInfo = (ClienteStruct *)cliente->Info;
-                if(clienteInfo->tempoAtendimento == 0){
-                    caixa->tempoTotalEspera += clienteInfo->tempoEspera;
-                    caixa->tempoTotalAtendimento += clienteInfo->tempoAtendimento; */
+void *ThreadCaixa(CaixaStruct *caixa){
+    while(caixa->aberta){
+        
     }
 }
 
 void criarListaThreads(Lista *listaThreads){
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
-    pthread_create(&thread[11], NULL, ThreadCaixa, NULL);
+    pthread_create(&thread, NULL, ThreadCaixa, NULL);
     AddElementoFim(listaThreads, criarElemento(thread));
 }
 
