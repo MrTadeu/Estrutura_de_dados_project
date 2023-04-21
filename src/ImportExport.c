@@ -2,8 +2,8 @@
 
 /* 
 int main(){
-    importarDados("../Data/clientes.txt", 5, importarClientesx, CLIENTES);
-    importarDados("../Data/funcionarios.txt", 5, importarFuncionariosx, FUNCIONARIOS);
+    importarDados("../Data/clientes.txt", 5, importarClientes, CLIENTES);
+    importarDados("../Data/funcionarios.txt", 5, importarFuncionarios, FUNCIONARIOS);
     
     printf("\nClientes");
     for (int i = 0; i < n_clientes; i++){
@@ -52,13 +52,13 @@ int importarCount(char *filename){
     return n_linhas;
 }
 
-void importarClientesx(char **linhaString, int n_linha){
+void importarClientes(char **linhaString, int n_linha){
     Clientes[n_linha].id = atoi(linhaString[0]);
     Clientes[n_linha].nome = malloc((strlen(linhaString[1])+1));
     strcpy(Clientes[n_linha].nome, linhaString[1]);
 }
 
-void importarFuncionariosx(char **linhaString, int n_linha){
+void importarFuncionarios(char **linhaString, int n_linha){
     Funcionarios[n_linha].id = atoi(linhaString[0]);
     Funcionarios[n_linha].nome = malloc((strlen(linhaString[1])+1));
     strcpy(Funcionarios[n_linha].nome, linhaString[1]);
@@ -69,8 +69,8 @@ void importarProdutos(char **linhaString, int n_linha){
     Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
     strcpy(Produtos[n_linha].nome, linhaString[1]);
     Produtos[n_linha].preco = atof(linhaString[2]);
-    Produtos[n_linha].tempoCompra = atoi(linhaString[3]);
-    Produtos[n_linha].tempoCaixa = atoi(linhaString[4]);
+    Produtos[n_linha].tempoCompra = atof(linhaString[3]);
+    Produtos[n_linha].tempoCaixa = atof(linhaString[4]);
 }
 
 void importarDados(void (guardarDados)(char **, int), TipoDados tipo){
@@ -78,21 +78,21 @@ void importarDados(void (guardarDados)(char **, int), TipoDados tipo){
     char **filedata = malloc(colunas*sizeof(char *)), *linhaString = malloc(250), *filename = malloc(40);
 
     if(tipo == CLIENTES){
-        strcpy(filename, "../Data/clientes.txt");
+        strcpy(filename, "Data/clientes.txt");
         colunas = 2;
         countFile = importarCount(filename);
         n_clientes = countFile;
         Clientes = malloc(sizeof(ClienteStruct)*countFile);
     }
     if(tipo == FUNCIONARIOS){
-        strcpy(filename, "../Data/funcionarios.txt");
+        strcpy(filename, "Data/funcionarios.txt");
         colunas = 2;
         countFile = importarCount(filename);
         n_funcionarios = countFile;
         Funcionarios = malloc(sizeof(FuncionarioStruct)*countFile);
     }
     if(tipo == PRODUTOS){
-        strcpy(filename, "../Data/produtos.txt");
+        strcpy(filename, "Data/produtos.txt");
         colunas = 5;
         countFile = importarCount(filename);
         n_produtos = countFile;

@@ -10,14 +10,8 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 
 int main(){
     srand(time(NULL));
-    
-/*
-    printc("[red]Hello World[/red]");
-
-    /* printc("[red]Hello World[/red]");
-    
-
-    
+    setlocale(LC_ALL, NULL);
+    printc("\n[red]Hello World[/red]");
     /* #ifdef _WIN32
         time_t rawtime;
         struct tm * timeinfo;
@@ -31,13 +25,14 @@ int main(){
         time ( &rawtime );
         timeinfo = localtime ( &rawtime );
         printf ( "Current local time and date: %s", asctime (timeinfo) );
-    #endif
-    
-    return 0;
-    srand(time(NULL));*/
+    #endif*/
 
-    importarDados(importarClientesx, CLIENTES);
-    importarDados(importarFuncionariosx, FUNCIONARIOS);
+    importarDados(importarClientes, CLIENTES);
+    printc("\n[red]Hello World1[/red]");
+    importarDados(importarFuncionarios, FUNCIONARIOS);
+    printc("\n[red]Hello World2[/red]");
+    importarDados(importarProdutos, PRODUTOS);
+    printc("\n[red]Hello World3[/red]");
     
     printf("\nClientes");
     for (int i = 0; i < n_clientes; i++){
@@ -47,6 +42,10 @@ int main(){
     for (int i = 0; i < n_funcionarios; i++){
         printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
     } 
+    printf("\n\nProdutos");
+    for (int i = 0; i < n_produtos; i++){
+        printf("\nLinha %d: ID: %d NOME: %s PRECO: %f TCOMPRA: %f TCAIXA %f", i+1,Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
+    }
     /*  int total;
     FuncionarioStruct *DadosPessoa = importarFuncionarios(&total, "DadosFornecidos/funcionarios.csv");
 

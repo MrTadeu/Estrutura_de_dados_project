@@ -7,6 +7,7 @@
     #include <string.h>
     #include <math.h>
     #include <time.h>
+    #include <locale.h>
 
     //Criar as threads
     #ifndef PTHREAD_H
@@ -84,8 +85,9 @@
     extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
     //ImportExport.c
-    void importarClientesx(char **linhaString, int n_linha);
-    void importarFuncionariosx(char **linhaString, int n_linha);
+    void importarClientes(char **linhaString, int n_linha);
+    void importarFuncionarios(char **linhaString, int n_linha);
+    void importarProdutos(char **linhaString, int n_linha);
     void importarDados(void (guardarDados)(char **, int), TipoDados tipo);
 
     //TipoDadosFuncoes.c
