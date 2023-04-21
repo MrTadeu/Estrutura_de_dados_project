@@ -78,7 +78,7 @@ void importarDados(char *filename, int colunas, void (guardarDados)(char **, int
     }
 
     if (!file) {
-        printf("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
+        printc("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
         exit(1);
     }
 
