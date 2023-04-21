@@ -61,13 +61,13 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-void *ThreadCaixa(CaixaStruct *caixa){
+void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     while(caixa->aberta){
         
     }
 }
 
-void *ThreadCliente(ClienteStruct *cliente){
+void *ThreadCliente(ClienteStruct *cliente){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     while(cliente->tempoEstimadoCompra){
         if(cliente->naFila == 1){
             SelecionarCaixa(Caixas, criarElemento(cliente));
@@ -81,6 +81,6 @@ void *ThreadCliente(ClienteStruct *cliente){
     AddElementoFim(listaThreads, criarElemento(thread));
 } */
 
-void criarCaixas(Lista *caixas){
+void criarCaixas(Lista *caixas){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
 }
