@@ -67,11 +67,19 @@ void *ThreadCaixa(CaixaStruct *caixa){
     }
 }
 
-void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
+void *ThreadCliente(ClienteStruct *cliente){
+    while(cliente->tempoEstimadoCompra){
+        if(cliente->naFila == 1){
+            SelecionarCaixa(Caixas, criarElemento(cliente));
+        }
+    }
+}
+
+/* void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
     pthread_create(&thread, NULL, ThreadCaixa, NULL);
     AddElementoFim(listaThreads, criarElemento(thread));
-}
+} */
 
 void criarCaixas(Lista *caixas){
 
