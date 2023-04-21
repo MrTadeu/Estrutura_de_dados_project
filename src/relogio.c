@@ -19,6 +19,7 @@ void *ThreadTempo(){
         struct tm * timeinfo;
         time (&tempoTot);
         timeinfo = localtime (&tempoTot);
+        printf("%d", timeinfo->tm_sec);
         //printf ( "Current local time and date: %s", asctime (timeinfo) );
         dormir();
     }
