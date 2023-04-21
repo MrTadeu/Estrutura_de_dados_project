@@ -9,8 +9,12 @@ ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
 int main(){
+    pthread_t thread_global;
+    pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
+
     srand(time(NULL));
     
+
 /*
     printc("[red]Hello World[/red]");
 

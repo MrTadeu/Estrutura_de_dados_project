@@ -107,4 +107,8 @@
     
     //JOAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO????????????????
     //void criarAddLista(Lista *lista, int Qt, void*(*escolherElemento)());
+
+    //Threads.c
+    void *ThreadGlobal();
+    
 #endif

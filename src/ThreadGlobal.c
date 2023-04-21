@@ -9,7 +9,7 @@ void *ThreadGlobal(){
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
+static int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
     int pos = 0, index = 0;
     Elemento *caixaAux = caixa->head;
     Elemento *menor = caixaAux;
@@ -43,7 +43,7 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
     return index;
 }
 
-void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) a melhor caixa para o cliente
+static void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) a melhor caixa para o cliente
     int index = CaixaIndex(caixas);
     Elemento *caixaAux = caixas->head;
     while(index){
@@ -55,3 +55,25 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 }
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
+
+void *ThreadCaixa(void *arg){
+    CaixaStruct *caixa = (CaixaStruct *)arg;
+    while(1){
+    /*     if(caixa->aberta == 1){
+            if(caixa->listaPessoas->quantidadeElementos > 0){
+                Elemento *cliente = caixa->listaPessoas->head;
+                ClienteStruct *clienteInfo = (ClienteStruct *)cliente->Info;
+                if(clienteInfo->tempoAtendimento == 0){
+                    caixa->tempoTotalEspera += clienteInfo->tempoEspera;
+                    caixa->tempoTotalAtendimento += clienteInfo->tempoAtendimento; */
+    }
+}
+
+void criarListaThreads(Lista *listaThreads){
+    pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
+    AddElementoFim(listaThreads, criarElemento(thread));
+}
+
+void criarCaixas(Lista *caixas){
+
+}
