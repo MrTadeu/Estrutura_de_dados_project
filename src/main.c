@@ -9,9 +9,13 @@ ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
 int main(){
-    /* printc("[red]Hello World[/red]");
+    printc("[red]Hello World[/red]");
+
+    importarDados("Data\\clientes.txt", 2, importarClientesx, CLIENTES);
     
-    #ifdef _WIN32
+
+    
+    /* #ifdef _WIN32
         time_t rawtime;
         struct tm * timeinfo;
         time ( &rawtime );

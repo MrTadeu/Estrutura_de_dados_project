@@ -13,18 +13,13 @@ void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos){
 ClienteStruct *criarGuest(){
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
     cliente->id = -1;
-    cliente->dataNascimento.ano = -1;
-    cliente->dataNascimento.mes = -1;
-    cliente->dataNascimento.dia = -1;
-    cliente->listaProdutos = NULL;
     cliente->nome = (char *) malloc(sizeof(char)*13);
     strcpy(cliente->nome, "Desconhecido");
-    cliente->saldoCartaoCliente = -1;
     cliente->tempoAtraso = 0;
     cliente->tempoEstimadoCaixa = 0;
     cliente->tempoEstimadoCompra = 0;
     cliente->tempoEstimadoFila = 0;
-    return NULL; //JAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    return cliente;
 }
 
 void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal){ // Troca dois elementos de posicao e decrementa batente
