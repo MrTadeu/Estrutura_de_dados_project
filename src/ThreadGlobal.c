@@ -14,7 +14,7 @@ void *ThreadGlobal(int prob){
             Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
             arg->ListaClientesNaLoja = PessoasAcabaramTempoDeCompra;
             arg->cliente = (ClienteStruct *)escolherCliente();
-
+            
             ThreadTempoDeCompra(arg);
 
         }
