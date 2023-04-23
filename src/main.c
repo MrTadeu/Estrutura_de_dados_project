@@ -13,8 +13,17 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 
 
 int main(){
+    importarDados(importarClientes, CLIENTES);
+    printc("\n[red]Hello World1[/red]");
+    importarDados(importarFuncionarios, FUNCIONARIOS);
+    printc("\n[red]Hello World2[/red]");
+    importarDados(importarProdutos, PRODUTOS);
+    printc("\n[red]Hello World3[/red]");
+
+
     pthread_t thread_global;
-    pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
+    int arg = 100;
+    pthread_create(&thread_global, NULL, ThreadGlobal, &arg);
     if (pthread_create(&thread_global, NULL, ThreadGlobal, NULL) != 0){
         printc("[red]Erro[/red] ao criar thread global\n");
         exit(1);
@@ -23,7 +32,8 @@ int main(){
     srand(time(NULL));
     setlocale(LC_ALL, NULL);
     printc("\n[red]Hello World[/red]");
-    
+    pthread_join(thread_global, NULL);
+
     /* #ifdef _WIN32
         time_t rawtime;
         struct tm * timeinfo;
@@ -39,12 +49,7 @@ int main(){
         printf ( "Current local time and date: %s", asctime (timeinfo) );
     #endif*/
 
-    importarDados(importarClientes, CLIENTES);
-    printc("\n[red]Hello World1[/red]");
-    importarDados(importarFuncionarios, FUNCIONARIOS);
-    printc("\n[red]Hello World2[/red]");
-    importarDados(importarProdutos, PRODUTOS);
-    printc("\n[red]Hello World3[/red]");
+   
 
     
     printf("\nClientes");

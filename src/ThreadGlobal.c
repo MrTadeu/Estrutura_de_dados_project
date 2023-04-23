@@ -49,12 +49,12 @@ void *ThreadEsperaTempoCompra(void *args){
     return NULL;
 }
 
-void *ThreadGlobal(int prob){
-
+void *ThreadGlobal(void *prob){
+    int *probab = (int *)prob;
     Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
 
     while(1){
-        if (Aleatorio(0, 100) <= prob){
+        if (Aleatorio(0, 100) <= *probab){
             /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
             arg->ListaClientesNaFila = PessoasAcabaramTempoDeCompra;
             arg->cliente = (ClienteStruct *)escolherCliente(); */
@@ -63,7 +63,7 @@ void *ThreadGlobal(int prob){
 
         }
         
-        dormir(1000);
+        dormir(10000);
     }
 }
 

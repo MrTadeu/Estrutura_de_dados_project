@@ -47,8 +47,6 @@ void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal
         printf("\n\tError! Invalid Operation.\n");
 }
 
-
-
 FuncionarioStruct *escolherFuncionarios(){
     if(n_funcionariosAtivos >= n_funcionarios-1){
         printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");
@@ -77,7 +75,7 @@ ClienteStruct *escolherCliente(){
     int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente);
     Clientes[indice].ativo = 1;
     batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
-    EscolherCriarElementoAddLista(listaProdutos, Aleatorio(1, 100), escolherProduto);
+    EscolherCriarElementoAddLista(listaProdutos, Aleatorio(1, 100), (void *)escolherProduto);
     return cliente;
 }
 
@@ -132,7 +130,7 @@ void mostrarCliente(void *clienteArg, int indentLevel){
 }
 
 int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
-    ProdutoStruct *produto1 = (ProdutoStruct *) ptrProduto1, *produto2 = (ProdutoStruct *) ptrProduto2;
+    ProdutoStruct *produto1 = (ProdutoStruct *) ptrProduto1_Info, *produto2 = (ProdutoStruct *) ptrProduto2_Info;
     if(produto1->tempoCaixa != produto2->tempoCaixa || produto1->tempoCompra != produto2->tempoCompra ||
         produto1->preco != produto2->preco || produto1->id != produto2->id || strcpy(produto1->nome, produto2->nome) != 0)
         return 0;
@@ -140,7 +138,7 @@ int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
 }
 
 int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
-    ClienteStruct *cliente1 = (ClienteStruct *) ptrCliente1, *cliente2 = (ClienteStruct *) ptrCliente2;
+    ClienteStruct *cliente1 = (ClienteStruct *) ptrCliente1_Info, *cliente2 = (ClienteStruct *) ptrCliente2_Info;
     if(cliente1->id != cliente2->id || cliente1->ativo != cliente2->ativo || cliente1->dataNascimento.ano != cliente2->dataNascimento.ano ||
         cliente1->dataNascimento.mes != cliente2->dataNascimento.mes || cliente1->dataNascimento.dia != cliente2->dataNascimento.dia ||
         strcpy(cliente1->nome, cliente2->nome) != 0 || cliente1->saldoCartaoCliente != cliente2->saldoCartaoCliente || cliente1->tempoAtraso != cliente2->tempoAtraso ||
@@ -148,7 +146,7 @@ int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
         cliente1->tempoEstimadoFila != cliente2->tempoEstimadoFila || cliente1->listaProdutos->quantidadeElementos != cliente2->listaProdutos->quantidadeElementos)
         return 0;
 
-    Elemento *produto1 = cliente1->listaProdutos->head, produto2 = cliente2->listaProdutos->head;
+    Elemento *produto1 = cliente1->listaProdutos->head, *produto2 = cliente2->listaProdutos->head;
     while(produto1 && produto2){
         if(!compararProduto(produto1->Info, produto2->Info))
             return 0;
@@ -164,7 +162,8 @@ int pesquisarClienteVetor(ClienteStruct *pessoa){
         return -1;
     }
     for (int i = 0; i < n_clientesAtivos; i++){
-        if(compararCliente(Clientes[i], pessoa))
+        if(compararCliente(&Clientes[i], pessoa))
             return i;
     }
+    return -1;
 }
