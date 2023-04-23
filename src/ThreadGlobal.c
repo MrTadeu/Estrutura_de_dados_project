@@ -15,7 +15,7 @@ void *ThreadGlobal(int prob){
     }
 }
 
-/* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
+/*------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
 int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
     int pos = 0, index = 0;
