@@ -8,11 +8,12 @@ typedef struct{
 void *ThreadEsperaTempoCompra(void *args);
 
 void ThreadTempoDeCompra(/* Lista listaThreadTempoCompra,  */Lista *ListaClientesNaFila, ClienteStruct *pessoa){
+    if(!pessoa)
+        return;
     pthread_t /* * */thread/*  = (pthread_t *) malloc(sizeof(pthread_t)) */;
     Argumentos *dados = (Argumentos *) malloc(sizeof(Argumentos));
     dados->cliente = pessoa;
     dados->ListaClientesNaFila = ListaClientesNaFila;
-
     pthread_create(&thread, NULL, ThreadEsperaTempoCompra, dados);
     /* AddElementoInicio(listaThreadTempoCompra, criarElemento((void *) thread)); */
 
@@ -34,15 +35,19 @@ void *ThreadEsperaTempoCompra(void *args){
     printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
     printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
     printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
-    printf("\nLista de Produtos:");
+    /* printf("\nLista de Produtos:");
     Elemento *Aux = cliente->listaProdutos->head;
     while(Aux){
         ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
         printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
-        Aux = Aux->next;
+        Aux = Aux->next; 
     }
-    
+    */
+
     dormir(cliente->tempoEstimadoCompra * 1000);
+    printf("\nFinished ");
+    printf("\nNome: %s", cliente->nome);
+    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     pthread_exit(NULL);
     free(dados);
@@ -50,6 +55,7 @@ void *ThreadEsperaTempoCompra(void *args){
 }
 
 void *ThreadGlobal(void *prob){
+    srand(time(NULL));
     int *probab = (int *)prob;
     Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
 
@@ -62,8 +68,7 @@ void *ThreadGlobal(void *prob){
             ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
 
         }
-        
-        dormir(10000);
+        dormir(100);
     }
 }
 

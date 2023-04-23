@@ -59,14 +59,7 @@ void AddElementoFim(Lista *lista, Elemento *elemento){
 
 void EscolherCriarElementoAddLista(Lista *lista, int Qt){
     for(int i = 0; i < Qt; i++)
-        AddElementoFim(lista, criarElemento(escolherProduto));
-
-    Elemento *Aux = lista->head;
-    while(Aux){
-        ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
-        printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
-        Aux = Aux->next;
-    }
+        AddElementoFim(lista, criarElemento(escolherProduto()));
 }
 
 Elemento *RemElementoUltimo(Lista *lista){

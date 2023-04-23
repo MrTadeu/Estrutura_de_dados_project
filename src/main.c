@@ -13,6 +13,9 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 
 
 int main(){
+    srand(time(NULL));
+    setlocale(LC_ALL, NULL);
+
     importarDados(importarClientes, CLIENTES);
     printc("\n[red]Hello World1[/red]");
     importarDados(importarFuncionarios, FUNCIONARIOS);
@@ -24,15 +27,14 @@ int main(){
     pthread_t thread_global;
     int arg = 100;
     pthread_create(&thread_global, NULL, ThreadGlobal, &arg);
-    if (pthread_create(&thread_global, NULL, ThreadGlobal, NULL) != 0){
+/*     if (pthread_create(&thread_global, NULL, ThreadGlobal, NULL) != 0){
         printc("[red]Erro[/red] ao criar thread global\n");
         exit(1);
-    }
+    } */
     
-    srand(time(NULL));
-    setlocale(LC_ALL, NULL);
     printc("\n[red]Hello World[/red]");
     pthread_join(thread_global, NULL);
+    dormir(10000000);
 
     /* #ifdef _WIN32
         time_t rawtime;
