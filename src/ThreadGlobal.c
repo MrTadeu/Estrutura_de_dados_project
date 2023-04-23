@@ -71,13 +71,13 @@ void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOO
 }
 
 
-void ListaParaClientes(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
-    
-}
+/* void ListaParaClientes(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
+} */
 
 void *ThreadTempoDeCompra(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // Vai inserir o cliente na fila da thread global
     dormir(cliente->tempoEstimadoCompra * 1000);
-    ListaParaClientes(ListaClientesNaLoja, cliente);
+    AddElementoFim(ListaClientesNaLoja, criarElemento(cliente)); // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
+
 }
 
 void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
