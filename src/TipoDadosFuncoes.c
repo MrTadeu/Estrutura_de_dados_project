@@ -10,6 +10,16 @@ void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos){
     cliente->listaProdutos = produtos;
 }
 
+CaixaStruct *criarCaixa(int id){
+    CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
+    caixa->id = id;
+    caixa->aberta = 1;
+    caixa->tempoTotalEspera = 0;
+    caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
+    caixa->listaPessoas = criarLista(); 
+    return caixa;
+}
+
 ClienteStruct *criarGuest(){
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
     cliente->id = -1;

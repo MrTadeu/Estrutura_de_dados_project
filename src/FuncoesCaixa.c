@@ -1,3 +1,5 @@
 #include "../includes/TipoDados.h"
 
-void *runCaixa()
+void *runCaixa(CaixaStruct *caixa){
+    //d
+}
