@@ -17,7 +17,7 @@ void menu(){
     } while (opcao != 0);
     
 }
-[/blue]
+/* [/blue]
 [/blue]
 [/blue]
 [/blue]
@@ -25,4 +25,4 @@ void menu(){
 [blue]
 [blue]
 [blue]
-[blue]
+[blue] */
