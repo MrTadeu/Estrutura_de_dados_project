@@ -14,7 +14,7 @@ void atualizarAtrasos(Lista *lista, int atraso){
 }
 
 fecharUrgencia(Lista *lista){
-//
+    
 }
 
 void atenderPessoa(ClienteStruct *pessoa){
