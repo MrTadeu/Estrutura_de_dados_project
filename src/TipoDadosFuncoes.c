@@ -49,7 +49,7 @@ void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal
 
 
 
-void *escolherFuncionarios(){
+FuncionarioStruct *escolherFuncionarios(){
     if(n_funcionariosAtivos >= n_funcionarios-1){
         printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");
         return NULL;
@@ -61,13 +61,13 @@ void *escolherFuncionarios(){
     return funcionario;
 }
 
-void *escolherProduto(){
+ProdutoStruct *escolherProduto(){
     ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
     escolherAleatorioVetor(Produtos, 0, n_produtos, sizeof(ProdutoStruct), produto);
     return produto;
 }
 
-void *escolherCliente(){
+ClienteStruct *escolherCliente(){
     if(n_clientesAtivos >= n_clientes-1){
         printf("\n\tErro! Nao existem mais clientes disponiveis.\n");
         return NULL;
