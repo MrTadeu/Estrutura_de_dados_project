@@ -47,6 +47,8 @@ void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal
         printf("\n\tError! Invalid Operation.\n");
 }
 
+
+
 void *escolherFuncionarios(){
     if(n_funcionariosAtivos >= n_funcionarios-1){
         printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");
@@ -71,9 +73,11 @@ void *escolherCliente(){
         return NULL;
     }
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    Lista *listaProdutos = criarLista();
     int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente);
     Clientes[indice].ativo = 1;
     batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
+    EscolherCriarElementoAddLista(listaProdutos, Aleatorio(1, 100), escolherProduto);
     return cliente;
 }
 
@@ -152,4 +156,15 @@ int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
         produto2 = produto2->next;
     }
     return 1;
+}
+
+int pesquisarClienteVetor(ClienteStruct *pessoa){
+    if(!pessoa){
+        printf("[red]Error![/red] NULL ClienteStruct");
+        return -1;
+    }
+    for (int i = 0; i < n_clientesAtivos; i++){
+        if(compararCliente(Clientes[i], pessoa))
+            return i;
+    }
 }

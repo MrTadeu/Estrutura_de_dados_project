@@ -112,7 +112,7 @@
     void mostrarCliente(void *clienteArg, int indentLevel);
     int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info);
     int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info);
-
+    int pesquisarClienteVetor(ClienteStruct *pessoa);
 
     //Utils.c
     int Aleatorio(int min, int max);
@@ -121,7 +121,7 @@
     void dormir(int tempo);
     
     //FuncoesCaixa.c
-    void *runCaixa(CaixaStruct *caixa);
+    void *ThreadCaixa(CaixaStruct *caixa);
 
     //Threads.c
     void *ThreadGlobal();
