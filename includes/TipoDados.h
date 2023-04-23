@@ -103,7 +103,6 @@
 
     //TipoDadosFuncoes.c
     int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
-    void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos);
     ClienteStruct *criarGuest();
     FuncionarioStruct *escolherFuncionarios();
     ProdutoStruct *escolherProduto();

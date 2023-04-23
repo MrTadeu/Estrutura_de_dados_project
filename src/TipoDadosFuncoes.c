@@ -6,8 +6,16 @@ int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t t
     return indice;
 } 
 
-void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos){
-    cliente->listaProdutos = produtos;
+void calculoTemposCliente(ClienteStruct *cliente){
+    if(!cliente){
+        printf("[red]Error![/red] Given client is NULL");
+        return;
+    }
+    ProdutoStruct *produto = (ProdutoStruct *) cliente->listaProdutos->head->Info;
+    while(produto){
+        cliente->tempoEstimadoCaixa += produto->tempoCaixa;
+        cliente->tempoEstimadoCompra += produto->tempoCompra;
+    }
 }
 
 CaixaStruct *criarCaixa(int id){
@@ -75,7 +83,8 @@ ClienteStruct *escolherCliente(){
     int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente);
     Clientes[indice].ativo = 1;
     batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
-    EscolherCriarElementoAddLista(listaProdutos, Aleatorio(1, 100), (void *)escolherProduto);
+    EscolherCriarElementoAddLista(listaProdutos, Aleatorio(1, 100), escolherProduto);
+    calculoTemposCliente(cliente);
     return cliente;
 }
 
