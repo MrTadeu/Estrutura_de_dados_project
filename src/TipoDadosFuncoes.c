@@ -47,8 +47,6 @@ void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal
         printf("\n\tError! Invalid Operation.\n");
 }
 
-
-
 void *escolherFuncionarios(){
     if(n_funcionariosAtivos >= n_funcionarios-1){
         printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");

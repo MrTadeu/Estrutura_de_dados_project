@@ -42,7 +42,7 @@
     }FuncionarioStruct;
 
     typedef struct{
-        int id, tempoTotalEspera, aberta;
+        int id, tempoTotalEspera, aberta, fecharUrgencia;
         FuncionarioStruct *funcionario;
         Lista *listaPessoas;
     }CaixaStruct;
