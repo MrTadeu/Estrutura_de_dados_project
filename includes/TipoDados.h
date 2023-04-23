@@ -100,9 +100,9 @@
     int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
     void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos);
     ClienteStruct *criarGuest();
-    void *escolherFuncionarios();
-    void *escolherProduto();
-    void *escolherCliente();
+    FuncionarioStruct *escolherFuncionarios();
+    ProdutoStruct *escolherProduto();
+    ClienteStruct *escolherCliente();//alterado para retornar um ponteiro para o cliente escolhido
     void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);
     void mostrarFuncionario(void *funcionarioArg, int indentLevel);
     void mostrarCaixa(void *caixaArg, int indentLevel);

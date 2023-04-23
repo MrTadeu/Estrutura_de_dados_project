@@ -10,27 +10,15 @@ ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
 
-typedef struct{
-    int ale, pos;
-}Teste;
 
-void *print_thread_id(void* arg);
-
-void *print_thread_id(void* arg) {
-    Teste* num = (Teste*) arg;
-    Sleep(1000 * num->ale);
-    printf("\nTempo: %d Posição%d\n", num->ale, num->pos);
-    pthread_exit(NULL);
-    return NULL;
-}
 
 int main(){
-    /* pthread_t thread_global;
+    pthread_t thread_global;
     pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
     if (pthread_create(&thread_global, NULL, ThreadGlobal, NULL) != 0){
-        printf("[red]Erro[/red] ao criar thread global\n");
+        printc("[red]Erro[/red] ao criar thread global\n");
         exit(1);
-    } */
+    }
     
     srand(time(NULL));
     setlocale(LC_ALL, NULL);
@@ -97,7 +85,7 @@ int main(){
     free(DadosPessoa);
     free(novoFuncionario); */
 
-    Lista *listaThreadTempoCompra = criarLista();
+    /* Lista *listaThreadTempoCompra = criarLista();
     for (int i = 0; i < 10; i++){
         pthread_t *thread = (pthread_t *) malloc(sizeof(pthread_t));
         printf("\n\nThread: %p", thread);
@@ -111,13 +99,6 @@ int main(){
         if (status != 0) {
             printf("Error creating thread %d\n", i);
         }
-
-        /* Elemento *Aux = listaThreadTempoCompra->head;
-        while(Aux){
-            pthread_t *x = (pthread_t *)Aux->Info;
-            printf("\n\n\t\t\tThread idkkk: %p", x);
-            Aux = Aux->next;
-        } */
     }
 
     Elemento *Aux = listaThreadTempoCompra->head;
@@ -132,6 +113,6 @@ int main(){
         pthread_join(*x, NULL);
         Aux = Aux->next;
     }
-    Sleep(100000);
+    Sleep(100000); */
 }
 

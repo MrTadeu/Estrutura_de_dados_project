@@ -1,21 +1,65 @@
 #include "../includes/TipoDados.h"
 
 typedef struct{
-    Lista *ListaClientesNaLoja;
+    Lista *ListaClientesNaFila;
     ClienteStruct *cliente;
 }Argumentos;
 
+void *ThreadEsperaTempoCompra(void *args);
+
+void ThreadTempoDeCompra(/* Lista listaThreadTempoCompra,  */Lista *ListaClientesNaFila, ClienteStruct *pessoa){
+    pthread_t /* * */thread/*  = (pthread_t *) malloc(sizeof(pthread_t)) */;
+    Argumentos *dados = (Argumentos *) malloc(sizeof(Argumentos));
+    dados->cliente = pessoa;
+    dados->ListaClientesNaFila = ListaClientesNaFila;
+
+    pthread_create(&thread, NULL, ThreadEsperaTempoCompra, dados);
+    /* AddElementoInicio(listaThreadTempoCompra, criarElemento((void *) thread)); */
+
+    /* Elemento *Aux = listaThreadTempoCompra->head;
+    while(Aux){
+        pthread_t *x = (pthread_t *)Aux->Info;
+        pthread_join(*x, NULL);
+        Aux = Aux->next;
+    } */
+}
+
+void *ThreadEsperaTempoCompra(void *args){
+    Argumentos *dados = (Argumentos *)args;
+    Lista *ListaClientesNaFila = (Lista*)dados->ListaClientesNaFila;
+    ClienteStruct *cliente = (ClienteStruct *)dados->cliente;
+    printf("\n\nPessoa Gerada: ");
+    printf("\nNome: %s", cliente->nome);
+    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
+    printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
+    printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
+    printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
+    printf("\nLista de Produtos:");
+    Elemento *Aux = cliente->listaProdutos->head;
+    while(Aux){
+        ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
+        printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
+        Aux = Aux->next;
+    }
+    
+    dormir(cliente->tempoEstimadoCompra * 1000);
+    AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
+    pthread_exit(NULL);
+    free(dados);
+    return NULL;
+}
+
 void *ThreadGlobal(int prob){
 
-    Lista *caixas, *PessoasAcabaramTempoDeCompra;
+    Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
 
     while(1){
         if (Aleatorio(0, 100) <= prob){
-            Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
-            arg->ListaClientesNaLoja = PessoasAcabaramTempoDeCompra;
-            arg->cliente = (ClienteStruct *)escolherCliente();
+            /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
+            arg->ListaClientesNaFila = PessoasAcabaramTempoDeCompra;
+            arg->cliente = (ClienteStruct *)escolherCliente(); */
             
-            ThreadTempoDeCompra(arg);
+            ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
 
         }
         
@@ -79,20 +123,12 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
     return NULL;
 } */
 
-void *ThreadTempoDeCompra(void *args){ // Vai inserir o cliente na fila da thread global
-    Argumentos *argumento = (Argumentos *)args;
-    Lista *ListaClientesNaLoja = (Lista*)argumento->ListaClientesNaLoja;
-    ClienteStruct *cliente = (ClienteStruct *)argumento->cliente;
 
-    dormir(cliente->tempoEstimadoCompra * 1000);
-    AddElementoFim(ListaClientesNaLoja, criarElemento(cliente)); // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
-    return NULL;
-}
 
 void criarListaThreads(Lista *listaThreads, void *(*FuncaoThread)(void *), void *arg1, void *arg2){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
     Argumentos *argumento = (Argumentos *)malloc(sizeof(Argumentos));
-    argumento->ListaClientesNaLoja = arg1;
+    argumento->ListaClientesNaFila = arg1;
     argumento->cliente = arg2;
     pthread_create(thread, NULL, FuncaoThread, (Argumentos *)argumento);
     AddElementoFim(listaThreads, criarElemento(thread));
