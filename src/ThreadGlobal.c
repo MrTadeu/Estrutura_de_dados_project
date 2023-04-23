@@ -1,5 +1,9 @@
 #include "../includes/TipoDados.h"
 
+typedef struct{
+    Lista *ListaClientesNaLoja;
+    ClienteStruct *cliente;
+}Argumentos;
 
 void *ThreadGlobal(int prob){
 
@@ -7,7 +11,11 @@ void *ThreadGlobal(int prob){
 
     while(1){
         if (Aleatorio(0, 100) <= prob){
-            //Global.semaforo[CaixaIndex(Caixas)] = 1;
+            Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
+            arg->ListaClientesNaLoja = PessoasAcabaramTempoDeCompra;
+            arg->cliente = (ClienteStruct *)escolherCliente();
+
+            ThreadTempoDeCompra(arg);
 
         }
         
@@ -63,11 +71,6 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 }
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
-typedef struct{
-    Lista *ListaClientesNaLoja;
-    ClienteStruct *cliente;
-    CaixaStruct *caixa;
-}Argumentos;
 
 /* void *ThreadCaixa(void *args){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     while(caixa->aberta){
@@ -86,13 +89,11 @@ void *ThreadTempoDeCompra(void *args){ // Vai inserir o cliente na fila da threa
     return NULL;
 }
 
-
-void criarListaThreads(Lista *listaThreads, void *(*FuncaoThread)(void *), void *arg1, void *arg2, void *arg3){ // criar um remover lista threads
+void criarListaThreads(Lista *listaThreads, void *(*FuncaoThread)(void *), void *arg1, void *arg2){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
     Argumentos *argumento = (Argumentos *)malloc(sizeof(Argumentos));
     argumento->ListaClientesNaLoja = arg1;
     argumento->cliente = arg2;
-    argumento->caixa = arg3;
     pthread_create(thread, NULL, FuncaoThread, (Argumentos *)argumento);
     AddElementoFim(listaThreads, criarElemento(thread));
 }

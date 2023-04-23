@@ -83,7 +83,6 @@
         PRODUTOS
     } TipoDados;
 
-
     //GLOBAL VARIABLES
     extern GlobalStruct Global;
     extern ClienteStruct *Clientes;
