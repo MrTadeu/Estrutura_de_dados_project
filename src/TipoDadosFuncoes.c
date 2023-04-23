@@ -12,24 +12,13 @@ void calculoTemposCliente(ClienteStruct *cliente){
         return;
     }
 
-    printf("\nhii %d\n", cliente->listaProdutos->quantidadeElementos);
-
     Elemento *Aux = cliente->listaProdutos->head;
     while(Aux){
-        printf("hii");
         ProdutoStruct *produto = (ProdutoStruct *) Aux->Info;
         cliente->tempoEstimadoCaixa += produto->tempoCaixa;
         cliente->tempoEstimadoCompra += produto->tempoCompra;
         Aux = Aux->next;
     }
-    
-
-  /*   ProdutoStruct *produto = (ProdutoStruct *) cliente->listaProdutos->head->Info;
-    while(produto){
-        cliente->tempoEstimadoCaixa += produto->tempoCaixa;
-        cliente->tempoEstimadoCompra += produto->tempoCompra;
-        
-    } */
 }
 
 CaixaStruct *criarCaixa(int id){
@@ -81,37 +70,25 @@ FuncionarioStruct *escolherFuncionarios(){
     return funcionario;
 }
 
-ProdutoStruct *escolherProduto(){
-    ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
-    escolherAleatorioVetor(Produtos, 0, n_produtos, sizeof(ProdutoStruct), produto);
-    return produto;
-}
-
 ClienteStruct *escolherCliente(){
     if(n_clientesAtivos >= n_clientes-1){
         printf("\n\tErro! Nao existem mais clientes disponiveis.\n");
         return NULL;
     }
-    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
-    cliente->listaProdutos = criarLista(); //isto depois escolherAleatorioVetor funciona
-    printf("\n\n\n\txsadasdads:%d",  cliente->listaProdutos->quantidadeElementos);
-
-    int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); //trava aquii <------
-    Clientes[indice].ativo = 1;
-
-    printf("\nindice: %d", indice);
-    printf("\n\n\n\txsadasdadsabc:%d",  cliente->listaProdutos->quantidadeElementos);
-
-    printf("hiii");
+    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
+    int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt
+    Clientes[indice].ativo = 1;                                                                                 // e armazena os dados na varivel cliente criada acima
+    cliente->listaProdutos = criarLista(); 
     batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
-    printf("hiii");
-    EscolherCriarElementoAddLista(cliente->listaProdutos, Aleatorio(1, 100), (void *) escolherProduto);
-    printf("hiii");
-
+    EscolherCriarElementoAddLista(cliente->listaProdutos, Aleatorio(1, 100));
     calculoTemposCliente(cliente);
-    printf("hiii");
-
     return cliente;
+}
+
+ProdutoStruct *escolherProduto(){
+    ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
+    escolherAleatorioVetor(Produtos, 0, n_produtos, sizeof(ProdutoStruct), produto);
+    return produto;
 }
 
 void mostrarFuncionario(void *funcionarioArg, int indentLevel){
@@ -169,6 +146,26 @@ int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
     if(produto1->tempoCaixa != produto2->tempoCaixa || produto1->tempoCompra != produto2->tempoCompra ||
         produto1->preco != produto2->preco || produto1->id != produto2->id || strcpy(produto1->nome, produto2->nome) != 0)
         return 0;
+    return 1;
+}
+
+int compararListaProdutos(Lista *lista1, Lista *lista2){
+    if(!lista1||!lista2){
+        printf("\n\t[red]Error![/red] List is NULL\n");
+        return -1;
+    }
+    if(lista1->quantidadeElementos != lista2->quantidadeElementos){
+        printf("\n\t[red]Error![/red] Lists have different sizes.\n");
+        return -1;
+    }
+        
+    Elemento *aux1 = lista1->head, *aux2 = lista2->head;
+    while(!aux1||!aux2){
+        if(!compararProduto(aux1->Info, aux2->Info))
+            return 0;
+        aux1 = aux1->next;
+        aux2 = aux2->next;
+    }
     return 1;
 }
 
