@@ -14,6 +14,7 @@ CaixaStruct *criarCaixa(int id){
     CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
     caixa->id = id;
     caixa->aberta = 1;
+    caixa->fecharUrgencia = 0;
     caixa->tempoTotalEspera = 0;
     caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
     caixa->listaPessoas = criarLista(); 
@@ -124,4 +125,31 @@ void mostrarCliente(void *clienteArg, int indentLevel){
         indentLevel*4, " ", cliente->saldoCartaoCliente, indentLevel*4, " ", cliente->tempoEstimadoCompra,
         indentLevel*4, " ", cliente->tempoEstimadoFila, indentLevel*4, " ", cliente->tempoEstimadoCaixa, indentLevel*4, " ", cliente->tempoAtraso);
     mostrarLista(cliente->listaProdutos, mostrarProduto, indentLevel + 1);
+}
+
+int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
+    ProdutoStruct *produto1 = (ProdutoStruct *) ptrProduto1, *produto2 = (ProdutoStruct *) ptrProduto2;
+    if(produto1->tempoCaixa != produto2->tempoCaixa || produto1->tempoCompra != produto2->tempoCompra ||
+        produto1->preco != produto2->preco || produto1->id != produto2->id || strcpy(produto1->nome, produto2->nome) != 0)
+        return 0;
+    return 1;
+}
+
+int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
+    ClienteStruct *cliente1 = (ClienteStruct *) ptrCliente1, *cliente2 = (ClienteStruct *) ptrCliente2;
+    if(cliente1->id != cliente2->id || cliente1->ativo != cliente2->ativo || cliente1->dataNascimento.ano != cliente2->dataNascimento.ano ||
+        cliente1->dataNascimento.mes != cliente2->dataNascimento.mes || cliente1->dataNascimento.dia != cliente2->dataNascimento.dia ||
+        strcpy(cliente1->nome, cliente2->nome) != 0 || cliente1->saldoCartaoCliente != cliente2->saldoCartaoCliente || cliente1->tempoAtraso != cliente2->tempoAtraso ||
+        cliente1->tempoEstimadoCaixa != cliente2->tempoEstimadoCaixa || cliente1->tempoEstimadoCompra != cliente2->tempoEstimadoCompra ||
+        cliente1->tempoEstimadoFila != cliente2->tempoEstimadoFila || cliente1->listaProdutos->quantidadeElementos != cliente2->listaProdutos->quantidadeElementos)
+        return 0;
+
+    Elemento *produto1 = cliente1->listaProdutos->head, produto2 = cliente2->listaProdutos->head;
+    while(produto1 && produto2){
+        if(!compararProduto(produto1->Info, produto2->Info))
+            return 0;
+        produto1 = produto1->next;
+        produto2 = produto2->next;
+    }
+    return 1;
 }
