@@ -14,7 +14,7 @@ void menu(){
         printf("Qual a opção que pretende? ");
         scanf("%d", &opcao);
 
-        int j = 0;
+        j = 0;
         switch (opcao){
             case j++:
                 printf("A sair...\n");
