@@ -37,13 +37,12 @@
 
     typedef struct{
         char *nome;
-        int id, experiencia, ativo;                 // A experiencia é a quantidade de vendas realizadas e influencia o salário.
-        float atrasoMedio, bonus, salario;          // O atraso medio pode ser negativo ou positivo e influencia o bonus.
+        int id, experiencia, ativo;                // A experiencia é a quantidade de vendas realizadas e influencia o salário.
+        float atrasoMedio, bonus, salario;  // O atraso medio pode ser negativo ou positivo e influencia o bonus.
     }FuncionarioStruct;
 
     typedef struct{
-        int id, tempoTotalEspera, aberta, fecharUrgencia;
-        float percentagemParaAtraso;
+        int id, tempoTotalEspera, aberta;
         FuncionarioStruct *funcionario;
         Lista *listaPessoas;
     }CaixaStruct;
@@ -84,6 +83,7 @@
         PRODUTOS
     } TipoDados;
 
+
     //GLOBAL VARIABLES
     extern GlobalStruct Global;
     extern ClienteStruct *Clientes;
@@ -100,7 +100,6 @@
     //TipoDadosFuncoes.c
     int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
     void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos);
-    CaixaStruct *criarCaixa(int id);
     ClienteStruct *criarGuest();
     void *escolherFuncionarios();
     void *escolherProduto();
@@ -110,8 +109,6 @@
     void mostrarCaixa(void *caixaArg, int indentLevel);
     void mostrarProduto(void *produtoArg, int indentLevel);
     void mostrarCliente(void *clienteArg, int indentLevel);
-    int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info);
-    int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info);
 
 
     //Utils.c
@@ -121,7 +118,7 @@
     void dormir(int tempo);
     
     //FuncoesCaixa.c
-    void *runCaixa(CaixaStruct *caixa);
+
 
     //Threads.c
     void *ThreadGlobal();
