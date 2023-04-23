@@ -120,6 +120,6 @@ int main(){
         pthread_join(*x, NULL);
         Aux = Aux->next;
     }
-    Sleep(100000); */
+    dormir(100000); */
 }
 

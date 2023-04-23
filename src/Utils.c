@@ -47,7 +47,7 @@ int DataAntesDepois(DataStruct d1, DataStruct d2){ // Se d1 for antes de d2 retu
     return 0;
 }
 
-void *ThreadTempo(){
+/* void *ThreadTempo(){
     while(1){
         time_t tempoTot;
         struct tm * timeinfo;
@@ -57,7 +57,7 @@ void *ThreadTempo(){
         //printf ( "Current local time and date: %s", asctime (timeinfo) );
         dormir(1000);
     }
-}
+} */
 
   
 
