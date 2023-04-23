@@ -69,18 +69,18 @@ typedef struct{
     CaixaStruct *caixa;
 }Argumentos;
 
-void *ThreadCaixa(void *args){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+/* void *ThreadCaixa(void *args){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     while(caixa->aberta){
         
     }
     return NULL;
-}
+} */
 
 void *ThreadTempoDeCompra(void *args){ // Vai inserir o cliente na fila da thread global
     Argumentos *argumento = (Argumentos *)args;
     Lista *ListaClientesNaLoja = (Lista*)argumento->ListaClientesNaLoja;
     ClienteStruct *cliente = (ClienteStruct *)argumento->cliente;
-    
+
     dormir(cliente->tempoEstimadoCompra * 1000);
     AddElementoFim(ListaClientesNaLoja, criarElemento(cliente)); // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
     return NULL;
