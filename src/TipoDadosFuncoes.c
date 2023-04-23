@@ -11,11 +11,25 @@ void calculoTemposCliente(ClienteStruct *cliente){
         printf("[red]Error![/red] Given client is NULL");
         return;
     }
-    ProdutoStruct *produto = (ProdutoStruct *) cliente->listaProdutos->head->Info;
+
+    printf("\nhii %d\n", cliente->listaProdutos->quantidadeElementos);
+
+    Elemento *Aux = cliente->listaProdutos->head;
+    while(Aux){
+        printf("hii");
+        ProdutoStruct *produto = (ProdutoStruct *) Aux->Info;
+        cliente->tempoEstimadoCaixa += produto->tempoCaixa;
+        cliente->tempoEstimadoCompra += produto->tempoCompra;
+        Aux = Aux->next;
+    }
+    
+
+  /*   ProdutoStruct *produto = (ProdutoStruct *) cliente->listaProdutos->head->Info;
     while(produto){
         cliente->tempoEstimadoCaixa += produto->tempoCaixa;
         cliente->tempoEstimadoCompra += produto->tempoCompra;
-    }
+        
+    } */
 }
 
 CaixaStruct *criarCaixa(int id){
@@ -79,12 +93,24 @@ ClienteStruct *escolherCliente(){
         return NULL;
     }
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
-    Lista *listaProdutos = criarLista();
-    int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente);
+    cliente->listaProdutos = criarLista(); //isto depois escolherAleatorioVetor funciona
+    printf("\n\n\n\txsadasdads:%d",  cliente->listaProdutos->quantidadeElementos);
+
+    int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); //trava aquii <------
     Clientes[indice].ativo = 1;
+
+    printf("\nindice: %d", indice);
+    printf("\n\n\n\txsadasdadsabc:%d",  cliente->listaProdutos->quantidadeElementos);
+
+    printf("hiii");
     batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
-    EscolherCriarElementoAddLista(listaProdutos, Aleatorio(1, 100), escolherProduto);
+    printf("hiii");
+    EscolherCriarElementoAddLista(cliente->listaProdutos, Aleatorio(1, 100), (void *) escolherProduto);
+    printf("hiii");
+
     calculoTemposCliente(cliente);
+    printf("hiii");
+
     return cliente;
 }
 

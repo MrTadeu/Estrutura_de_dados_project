@@ -1,8 +1,8 @@
 #include "../includes/TipoDados.h"
 
 void atualizarAtrasos(Lista *lista, int atraso){
-    if(!head){
-        printf("\t\n[red]Error![/red] NULL element.\n");
+    if(!lista){
+        printf("\t\n[red]Error![/red] lista NULL.\n");
         return;
     }
     Elemento *aux = lista->head;
@@ -13,14 +13,19 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
+<<<<<<< Updated upstream:src/FuncoesCaixa.c
 fecharUrgencia(Lista *lista){
     
+=======
+void fecharUrgencia(/* Lista *lista */){
+//
+>>>>>>> Stashed changes:src/FuncoesCaixa.x
 }
 
 void atenderPessoa(ClienteStruct *pessoa){
-    int index = pesquisaClienteVetor(pessoa);
+    int index = pesquisarClienteVetor(pessoa);
     batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
-    return RemElementoInicio(caixa->listaPessoas);
+   /*  return RemElementoInicio(caixa->listaPessoas); */
 }
 
 void *ThreadCaixa(CaixaStruct *caixa){
@@ -36,7 +41,7 @@ void *ThreadCaixa(CaixaStruct *caixa){
         }
         pessoa = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
-        atrasoMaximo = cliente->tempoEstimadoCaixa * caixa->percentagemParaAtraso;
+        atrasoMaximo = pessoa->tempoEstimadoCaixa * caixa->percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
         atualizarAtrasos(caixa->listaPessoas, atraso);
         
