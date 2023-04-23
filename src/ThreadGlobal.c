@@ -63,25 +63,36 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 }
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
+typedef struct{
+    Lista *ListaClientesNaLoja;
+    ClienteStruct *cliente;
+    CaixaStruct *caixa;
+}Argumentos;
 
-void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+void *ThreadCaixa(void *args){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     while(caixa->aberta){
         
     }
+    return NULL;
 }
 
-
-/* void ListaParaClientes(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
-} */
-
-void *ThreadTempoDeCompra(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // Vai inserir o cliente na fila da thread global
+void *ThreadTempoDeCompra(void *args){ // Vai inserir o cliente na fila da thread global
+    Argumentos *argumento = (Argumentos *)args;
+    Lista *ListaClientesNaLoja = (Lista*)argumento->ListaClientesNaLoja;
+    ClienteStruct *cliente = (ClienteStruct *)argumento->cliente;
+    
     dormir(cliente->tempoEstimadoCompra * 1000);
     AddElementoFim(ListaClientesNaLoja, criarElemento(cliente)); // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
-
+    return NULL;
 }
 
-void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
+
+void criarListaThreads(Lista *listaThreads, void *(*FuncaoThread)(void *), void *arg1, void *arg2, void *arg3){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
-    pthread_create(&thread, NULL, ThreadCaixa, NULL);
+    Argumentos *argumento = (Argumentos *)malloc(sizeof(Argumentos));
+    argumento->ListaClientesNaLoja = arg1;
+    argumento->cliente = arg2;
+    argumento->caixa = arg3;
+    pthread_create(thread, NULL, FuncaoThread, (Argumentos *)argumento);
     AddElementoFim(listaThreads, criarElemento(thread));
 }
