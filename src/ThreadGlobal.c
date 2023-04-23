@@ -68,20 +68,17 @@ void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOO
     while(caixa->aberta){
         
     }
+    return NULL;
 }
-
-
-/* void ListaParaClientes(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
-} */
 
 void *ThreadTempoDeCompra(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // Vai inserir o cliente na fila da thread global
     dormir(cliente->tempoEstimadoCompra * 1000);
     AddElementoFim(ListaClientesNaLoja, criarElemento(cliente)); // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
-
+    return NULL;
 }
 
-void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
+void criarListaThreads(Lista *listaThreads, void *(*FuncaoThread)(void *), void *arg){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
-    pthread_create(&thread, NULL, ThreadCaixa, NULL);
+    pthread_create(thread, NULL, FuncaoThread, arg);
     AddElementoFim(listaThreads, criarElemento(thread));
 }
