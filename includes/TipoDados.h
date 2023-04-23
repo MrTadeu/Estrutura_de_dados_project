@@ -84,7 +84,6 @@
     } TipoDados;
 
     //GLOBAL VARIABLES
-    extern Lista* Caixas;
     extern GlobalStruct Global;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
@@ -114,6 +113,7 @@
     int Aleatorio(int min, int max);
     DataStruct gerarData(int anoMin, int anoMax);
     int DataAntesDepois(DataStruct d1, DataStruct d2);
+    void dormir(int tempo);
     
     //JOAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO????????????????
     //void criarAddLista(Lista *lista, int Qt, void*(*escolherElemento)());
@@ -121,7 +121,4 @@
     //Threads.c
     void *ThreadGlobal();
     
-
-    //Relofio.c
-
 #endif

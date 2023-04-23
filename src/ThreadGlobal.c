@@ -1,7 +1,10 @@
 #include "../includes/TipoDados.h"
 
 
-/* void *ThreadGlobal(int prob){
+void *ThreadGlobal(int prob){
+
+    Lista *caixas, *PessoasAcabaramTempoDeCompra;
+
     while(1){
         if (Aleatorio(0, 100) <= prob){
             //Global.semaforo[CaixaIndex(Caixas)] = 1;
@@ -10,7 +13,7 @@
         
         dormir(1000);
     }
-} */
+}
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
@@ -61,31 +64,24 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-/* void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     while(caixa->aberta){
         
     }
 }
 
-void *ThreadCliente(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // Vai inserir o cliente na fila da thread global
-    
 
+void ListaParaClientes(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
+    
 }
 
-void ListaParaCaixa(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
-    while(cliente->tempoEstimadoCompra){
-        if(cliente->naFila == 1){
-
-        }
-    }
-} */
+void *ThreadTempoDeCompra(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // Vai inserir o cliente na fila da thread global
+    dormir(cliente->tempoEstimadoCompra * 1000);
+    ListaParaClientes(ListaClientesNaLoja, cliente);
+}
 
 void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
     pthread_create(&thread, NULL, ThreadCaixa, NULL);
     AddElementoFim(listaThreads, criarElemento(thread));
 }
-
-/* void criarCaixas(Lista *caixas){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-
-} */
