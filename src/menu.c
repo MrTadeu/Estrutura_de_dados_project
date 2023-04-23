@@ -1,8 +1,9 @@
 #include "../includes/TipoDados.h"
 
 void menu(){
+    int opcao;
     do{
-        int opcao, j = 0;
+        int j = 0;
         printf("**************************************************\n");
         printf("***************    Menu Principal    *************\n");
         printf("**************************************************\n");
@@ -14,18 +15,17 @@ void menu(){
         printf("Qual a opção que pretende? ");
         scanf("%d", &opcao);
 
-        j = 0;
         switch (opcao){
-            case j++:
+            case 0:
                 printf("A sair...\n");
                 break;
-            case j++:
+            case 1:
                 /* menuConfiguracoes(); */
                 break;
-            case j++:
+            case 2:
                 /* menuFuncionarios(); */
                 break;
-            case j++:
+            case 3:
                 /* menuHistorico(); */
                 break;
             default:

@@ -57,13 +57,7 @@ void AddElementoFim(Lista *lista, Elemento *elemento){
     lista->quantidadeElementos++;
 }
 
-<<<<<<< Updated upstream
 void EscolherCriarElementoAddLista(Lista *lista, int Qt, void*(*escolherProduto)()){
-=======
-void EscolherCriarElementoAddLista(Lista *lista, int Qt, void *(*escolherElemento)()){
-    ProdutoStruct *X = (ProdutoStruct *) escolherElemento();
-    printf("\n\n\n\tx: %s %d", X->nome, lista->quantidadeElementos);
->>>>>>> Stashed changes
     for(int i = 0; i < Qt; i++)
         AddElementoFim(lista, criarElemento((ProdutoStruct *) escolherElemento()));
     Elemento *Aux = lista->head;
