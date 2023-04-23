@@ -67,12 +67,12 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
     }
 }
 
-void *ThreadCliente(Lista *ListaClientesNaLoja, ClienteStruct *cliente)[ // Vai inserir o cliente na fila da thread global
+void *ThreadCliente(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // Vai inserir o cliente na fila da thread global
     
 
-]
+}
 
-void *ThreadClienteGlobal(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // Cria uma lista de clientes gigante que terminaram o tempo de compra e estão na fila
+void ListaParaCaixa(Lista *ListaClientesNaLoja, ClienteStruct *cliente){ // lista de clientes gigante que terminaram o tempo de compra e estão na fila para entrar no caixa
     while(cliente->tempoEstimadoCompra){
         if(cliente->naFila == 1){
 
