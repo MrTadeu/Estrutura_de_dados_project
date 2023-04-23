@@ -83,6 +83,11 @@
         PRODUTOS
     } TipoDados;
 
+    typedef struct{
+        CaixaStruct *caixa;
+        ClienteStruct *pessoa;
+    }HistoricoStruct;
+
     //GLOBAL VARIABLES
     extern GlobalStruct Global;
     extern ClienteStruct *Clientes;
