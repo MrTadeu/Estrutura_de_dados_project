@@ -1,7 +1,7 @@
 #include "../includes/TipoDados.h"
 
 
-void *ThreadGlobal(int prob){
+/* void *ThreadGlobal(int prob){
     while(1){
         if (Aleatorio(0, 100) <= prob){
             //Global.semaforo[CaixaIndex(Caixas)] = 1;
@@ -10,7 +10,7 @@ void *ThreadGlobal(int prob){
         
         dormir(1000);
     }
-}
+} */
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
@@ -61,7 +61,7 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+/* void *ThreadCaixa(CaixaStruct *caixa){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     while(caixa->aberta){
         
     }
@@ -73,7 +73,7 @@ void *ThreadCliente(ClienteStruct *cliente){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOO
             SelecionarCaixa(Caixas, criarElemento(cliente));
         }
     }
-}
+} */
 
 /* void criarListaThreads(Lista *listaThreads){ // criar um remover lista threads
     pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
@@ -81,6 +81,6 @@ void *ThreadCliente(ClienteStruct *cliente){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOO
     AddElementoFim(listaThreads, criarElemento(thread));
 } */
 
-void criarCaixas(Lista *caixas){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+/* void criarCaixas(Lista *caixas){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
-}
+} */

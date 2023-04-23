@@ -1,7 +1,7 @@
 #include "../includes/TipoDados.h"
 
-int escolherAleatorioVetor(void *vetor, int batente, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
-    int indice = Aleatorio(batente, tamanhoVetor-1);
+int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento){
+    int indice = Aleatorio(n_ativos, tamanhoVetor-1);
     memcpy(ptrElemento, (char *)vetor + indice * tamanhoElemento, tamanhoElemento);
     return indice;
 } 
@@ -36,7 +36,7 @@ void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal
         printf("\n\tError! Invalid Operation.\n");
 }
 
-void *escolherFuncionarios(){ // colocar aqui n_funcionariosAtivos
+void *escolherFuncionarios(){
     if(n_funcionariosAtivos >= n_funcionarios-1){
         printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");
         return NULL;
