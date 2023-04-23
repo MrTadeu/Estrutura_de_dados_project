@@ -58,10 +58,10 @@
     }DataStruct;
 
     typedef struct{
-        int id, ativo;                      // guests: -1
-        char *nome;                         // guests: "none"
-        DataStruct dataNascimento;          // guests: -1/-1/-1
-        float saldoCartaoCliente;           // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
+        int id, ativo;                  // guests: -1
+        char *nome;                     // guests: "Desconhecido"
+        DataStruct dataNascimento;      // guests: -1/-1/-1
+        float saldoCartaoCliente;       // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
 
         int tempoEstimadoCompra;        // soma do tempo de compra dos proprios produtos
         int tempoEstimadoFila;          // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
@@ -73,8 +73,8 @@
     }ClienteStruct;
     
     typedef struct{
-        int probabilidadeGerarPessoa;
-        int *semaforo;
+        Lista* Caixas;
+        int n_caixasTotal, n_caixasAbertas, probabilidadeGerarPessoa;
     }GlobalStruct;
 
      typedef enum {
@@ -84,7 +84,6 @@
     } TipoDados;
 
     //GLOBAL VARIABLES
-    extern Lista* Caixas;
     extern GlobalStruct Global;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
@@ -110,13 +109,14 @@
     void mostrarProduto(void *produtoArg, int indentLevel);
     void mostrarCliente(void *clienteArg, int indentLevel);
 
+
     //Utils.c
     int Aleatorio(int min, int max);
     DataStruct gerarData(int anoMin, int anoMax);
     int DataAntesDepois(DataStruct d1, DataStruct d2);
     
-    //JOAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO????????????????
-    //void criarAddLista(Lista *lista, int Qt, void*(*escolherElemento)());
+    //FuncoesCaixa.c
+
 
     //Threads.c
     void *ThreadGlobal();
