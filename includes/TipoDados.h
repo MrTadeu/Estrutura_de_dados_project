@@ -98,7 +98,7 @@
     void importarDados(void (guardarDados)(char **, int), TipoDados tipo);
 
     //TipoDadosFuncoes.c
-    int escolherAleatorioVetor(void *vetor, int batente, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
+    int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
     void associarProdutosCliente(ClienteStruct *cliente, Lista *produtos);
     ClienteStruct *criarGuest();
     void *escolherFuncionarios();
