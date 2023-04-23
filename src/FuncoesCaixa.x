@@ -13,14 +13,9 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
-<<<<<<< Updated upstream:src/FuncoesCaixa.c
-fecharUrgencia(Lista *lista){
+/* fecharUrgencia(Lista *lista){
     
-=======
-void fecharUrgencia(/* Lista *lista */){
-//
->>>>>>> Stashed changes:src/FuncoesCaixa.x
-}
+} */
 
 void atenderPessoa(ClienteStruct *pessoa){
     int index = pesquisarClienteVetor(pessoa);

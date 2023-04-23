@@ -127,14 +127,3 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
     }
     return NULL;
 } */
-
-
-
-void criarListaThreads(Lista *listaThreads, void *(*FuncaoThread)(void *), void *arg1, void *arg2){ // criar um remover lista threads
-    pthread_t *thread = (pthread_t *)malloc(sizeof(pthread_t));
-    Argumentos *argumento = (Argumentos *)malloc(sizeof(Argumentos));
-    argumento->ListaClientesNaFila = arg1;
-    argumento->cliente = arg2;
-    pthread_create(thread, NULL, FuncaoThread, (Argumentos *)argumento);
-    AddElementoFim(listaThreads, criarElemento(thread));
-}
