@@ -56,6 +56,7 @@ void importarClientes(char **linhaString, int n_linha){
     Clientes[n_linha].id = atoi(linhaString[0]);
     Clientes[n_linha].nome = malloc((strlen(linhaString[1])+1));
     strcpy(Clientes[n_linha].nome, linhaString[1]);
+    
 }
 
 void importarFuncionarios(char **linhaString, int n_linha){
