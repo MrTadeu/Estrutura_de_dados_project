@@ -43,7 +43,6 @@ void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
 void temporizador(CaixaStruct *caixa, ClienteStruct *clientes){
     if (!caixa || !clientes) return;
     //Atualizar dados
-    AtualizarDadosTemposCaixa(caixa);
     
     clientes->tempoEstimadoFila = 0;
     int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;
