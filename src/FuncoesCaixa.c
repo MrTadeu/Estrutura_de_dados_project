@@ -17,11 +17,10 @@ void atualizarAtrasos(Lista *lista, int atraso){
     
 } */
 
-void atenderPessoa(ClienteStruct *pessoa){
+void DesocuparCliente(ClienteStruct *pessoa){
     int index = pesquisarClienteVetor(pessoa);
     batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
-
-   /*  return RemElementoInicio(caixa->listaPessoas); */
+    pessoa->ativo = 0;
 }
 
 void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
@@ -40,9 +39,10 @@ void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
     caixa->tempoTotalEspera = countTempoEstimadoCaixa;
 }
 
-void temporizador(CaixaStruct *caixa, ClienteStruct *clientes){
+void AtenderClientes(CaixaStruct *caixa, ClienteStruct *clientes){
     if (!caixa || !clientes) return;
     //Atualizar dados
+    DesocuparCliente(clientes);
     
     clientes->tempoEstimadoFila = 0;
     int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;
