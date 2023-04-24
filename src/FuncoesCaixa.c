@@ -32,7 +32,7 @@ void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
         ClienteStruct *cliente = (ClienteStruct *)aux->Info;
 
         countTempoEstimadoCaixa += cliente->tempoEstimadoCaixa;
-        clientes->tempoEstimadoFila = countTempoEstimadoCaixa - cliente->tempoEstimadoCaixa;
+        cliente->tempoEstimadoFila = countTempoEstimadoCaixa - cliente->tempoEstimadoCaixa;
 
         aux = aux->next;
     }
@@ -152,7 +152,7 @@ void *ThreadCaixa(CaixaStruct *caixa){
 
     while(caixa->listaPessoas->quantidadeElementos > 0){
         if(caixa->fecharUrgencia){
-            fecharUrgencia(caixa->listaPessoas);
+            /* fecharUrgencia(caixa->listaPessoas); */
         }
         pessoa = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
