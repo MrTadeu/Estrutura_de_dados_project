@@ -1,5 +1,25 @@
 #include "../includes/TipoDados.h"
 
+void Init(){
+    srand(time(NULL));
+    setlocale(LC_ALL, NULL);
+    importGlobal();
+    importarDados(importarClientes, CLIENTES);
+    importarDados(importarFuncionarios, FUNCIONARIOS);
+    importarDados(importarProdutos, PRODUTOS);
+    if(Global.threadGlobalAranque == 1){
+        changeStateThreadGlobal();
+    }
+}
+
+void closeAll(){
+    exportarGlobal();
+    exportarDados(guardarClienteTxt, CLIENTES);
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
+    exportarDados(guardarProdutoTxt, PRODUTOS);
+    //pensar quando é fechado o programa fazer oq com as caixas abertas/ therad global / thread tcompra
+}
+
 void editarLojaAbertaAranque(){
     printc("\n\t[blue]Deseja que a loja esteja aberta no aranque? (0-NÃO OU 1-SIM)[/blue] ");
     int n;
@@ -68,4 +88,25 @@ void editarLotacaoMax(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     getchar();
     getchar();
+}
+
+void editarVerTransacoes(){
+    if(Global.lojaAberta == 1){
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        printc("[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
+        printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
+        printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
+        printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
+        printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]\n\n");
+        Global.VerTransacoes = 1;
+        getchar();
+        getchar();
+        Global.VerTransacoes = 0;
+    }
+    else{
+        printc("\n[red]A loja tem de estar aberta para ver as transações![/red]");
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+        getchar();
+        getchar();
+    }
 }

@@ -9,24 +9,6 @@ FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
-void Init(){
-    srand(time(NULL));
-    setlocale(LC_ALL, NULL);
-    importGlobal();
-    importarDados(importarClientes, CLIENTES);
-    importarDados(importarFuncionarios, FUNCIONARIOS);
-    importarDados(importarProdutos, PRODUTOS);
-}
-
-void closeAll(){
-    exportarGlobal();
-    exportarDados(guardarClienteTxt, CLIENTES);
-    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
-    exportarDados(guardarProdutoTxt, PRODUTOS);
-    //pensar quando é fechado o programa fazer oq com as caixas abertas/ therad global / thread tcompra
-}
-
-
 int main(){
     Init();
     menu();

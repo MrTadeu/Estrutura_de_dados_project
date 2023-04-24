@@ -96,10 +96,6 @@
     extern ProdutoStruct *Produtos;
     extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
-    //main.c
-    void Init();
-    void closeAll();
-
     //menu.c
     void menu();
     void menuClientes();
@@ -110,6 +106,9 @@
     void editarProbGerarPessoa();
     void editarLotacaoMax();
     void editarLojaAbertaAranque();
+    void Init();
+    void closeAll();
+    void editarVerTransacoes();
 
     //clientes.c
     void verClientes();

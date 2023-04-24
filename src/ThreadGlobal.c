@@ -56,8 +56,8 @@ void *ThreadEsperaTempoCompra(void *args){
         printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
         printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
         printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
-        printf("\nLista de Produtos:");
-    /*  Elemento *Aux = cliente->listaProdutos->head;
+        /* printf("\nLista de Produtos:");
+        Elemento *Aux = cliente->listaProdutos->head;
         while(Aux){
             ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
             printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
@@ -67,9 +67,7 @@ void *ThreadEsperaTempoCompra(void *args){
    
     dormir(cliente->tempoEstimadoCompra * 1000);
     if(Global.VerTransacoes == 1){
-        printf("\nFinished ");
-        printf("\nNome: %s", cliente->nome);
-        printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
+        printf("\n\n%s acabou de comprar todos os produtos em %ds",cliente->nome, cliente->tempoEstimadoCompra);
     }
     /* pthread_mutex_lock(&listaLock); */
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
