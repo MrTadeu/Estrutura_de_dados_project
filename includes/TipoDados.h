@@ -96,6 +96,17 @@
     extern ProdutoStruct *Produtos;
     extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
+    //main.c
+    void Init();
+    void closeAll();
+
+    //menu.c
+    void menu();
+    void menuClientes();
+
+    //clientes.c
+    void verClientes();
+
     //ImportExport.c
     int importarCount(char *filename);
     void importarClientes(char **linhaString, int n_linha, int n_colunas);
@@ -107,7 +118,7 @@
     void guardarFuncionarioTxt(FILE *file, int i);
     void guardarProdutoTxt(FILE *file, int i);
     void importGlobal();
-    void guardarGlobalBin();
+    void exportarGlobal();
 
 
     //TipoDadosFuncoes.c
@@ -136,12 +147,12 @@
     //FuncoesCaixa.c
     void *ThreadCaixa(CaixaStruct *caixa);
 
-    //Threads.c
+    //ThreadGlobal.c
     typedef struct{
         Lista *ListaClientesNaFila;
         ClienteStruct *cliente;
     }Argumentos;
-
+    void changeStateThreadGlobal();
     void *ThreadGlobal();
     void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa);
     void *ThreadEsperaTempoCompra(void *args);

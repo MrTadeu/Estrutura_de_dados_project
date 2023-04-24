@@ -9,27 +9,30 @@ FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
+void Init(){
+    srand(time(NULL));
+    setlocale(LC_ALL, NULL);
+    importGlobal();
+    importarDados(importarClientes, CLIENTES);
+    importarDados(importarFuncionarios, FUNCIONARIOS);
+    importarDados(importarProdutos, PRODUTOS);
+}
 
+void closeAll(){
+    exportarGlobal();
+    exportarDados(guardarClienteTxt, CLIENTES);
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
+    exportarDados(guardarProdutoTxt, PRODUTOS);
+    //pensar quando é fechado o programa fazer oq com as caixas abertas/ therad global / thread tcompra
+}
 
 
 int main(){
-    srand(time(NULL));
-    setlocale(LC_ALL, NULL);
-    printf("\nClientes");
+    Init();
+    menu();
+    closeAll();
 
-    importarDados(importarClientes, CLIENTES);
-    printc("\n[red]Hello World1[/red]");
-    importarDados(importarFuncionarios, FUNCIONARIOS);
-    printc("\n[red]Hello World2[/red]");
-    importarDados(importarProdutos, PRODUTOS);
-    printc("\n[red]Hello World3[/red]");
-
-
-
-    printf("\nClientes");
-    for (int i = 0; i < n_clientes; i++){
-        printf("\nLinha %d: ID: %d NOME: %s SALDOCARTAO: %f DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
-    }
+   /*
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
         printf("\nLinha %d: ID: %d NOME: %s BONUS: %f SALARIO: %f EXPERIENCIA: %d ATRASOMEDIO: %f", i+1,Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].salario, Funcionarios[i].experiencia, Funcionarios[i].atrasoMedio);
@@ -38,27 +41,16 @@ int main(){
     for (int i = 0; i < n_produtos; i++){
         printf("\nLinha %d: ID: %d NOME: %s PRECO: %f TCOMPRA: %f TCAIXA %f", i+1,Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
     }
+ */
 
 
-
-    exportarDados(guardarClienteTxt, CLIENTES);
-    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
-    exportarDados(guardarProdutoTxt, PRODUTOS);
+    
     
 
 
 
 
-    pthread_t thread_global;
-
-    int erro = pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
-     if (erro != 0){
-        printc("[red]Erro[/red] ao criar thread global\n");
-        exit(1);
-    } 
     
-    printc("\n[red]Hello World[/red]");
-    pthread_join(thread_global, NULL);
 
     /* #ifdef _WIN32
         time_t rawtime;
@@ -77,21 +69,6 @@ int main(){
 
    
 
-    
-    
-
-    /* printf("\n\nFuncionarios");
-    for (int i = 0; i < n_funcionarios; i++){
-        printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
-    } 
-
-    Lista* l = criarLista();
-    EscolherCriarElementoAddLista(l, 4, escolherFuncionarios);
-
-    printf("\n\nFuncionarios");
-    for (int i = 0; i < n_funcionarios; i++){
-        printf("\nLinha %d: ID: %d NOME: %s", i+1, Funcionarios[i].id, Funcionarios[i].nome);
-    }  */
 
 
     /*  int total;

@@ -2,17 +2,35 @@
 
 pthread_mutex_t listaLock;
 
+void changeStateThreadGlobal(){
+    if(Global.lojaAberta == 0){
+        Global.lojaAberta = 1;
+        pthread_t GlobalThread;
+
+        if (pthread_create(&GlobalThread, NULL, ThreadGlobal, NULL) != 0){
+            printc("[red]Erro[/red] ao criar thread global!!!\n");
+            exit(1);
+        } 
+        
+        pthread_join(GlobalThread, NULL);
+    }
+    else if(Global.lojaAberta == 1){
+        Global.lojaAberta = 0;
+    }
+}
+
 void *ThreadGlobal(){
     srand(time(NULL));
     Lista *PessoasAcabaramTempoDeCompra = criarLista();
     /* pthread_mutex_init(&listaLock, NULL); */
-    while(1){
+    while(Global.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Global.probGerarPessoa && n_clientes <= Global.lotacaoMaxima){
             ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
 
         }
         dormir(100);
     }
+    return NULL;
 }
 
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
