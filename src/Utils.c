@@ -102,7 +102,7 @@ void temporizador(CaixaStruct *caixa, ClienteStruct *clientes){
         }
         tempo--;
         dormir(1000);
-        else{
+        if (clientes->tempoAtraso > 0){
             if (clientes->tempoAtraso != 0){
                 clientes->tempoAtraso--;
                 continue;
