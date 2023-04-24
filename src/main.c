@@ -46,15 +46,14 @@ int main(){
     Global.lotacao_maxima_da_Loja = 1000;
     Global.probabilidadeGerarPessoa = 100;
 
-    pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
-/*     if (pthread_create(&thread_global, NULL, ThreadGlobal, NULL) != 0){
+    int erro = pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
+     if (erro != 0){
         printc("[red]Erro[/red] ao criar thread global\n");
         exit(1);
     } */
     
     printc("\n[red]Hello World[/red]");
     pthread_join(thread_global, NULL);
-    dormir(10000000);
 
     /* #ifdef _WIN32
         time_t rawtime;
