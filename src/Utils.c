@@ -70,10 +70,10 @@ void AtualizarDadosTemposCaixa(CaixaStruct *lista){
     Elemento *aux = lista->listaPessoas->head;
     while (aux){
         ClienteStruct *cliente = (ClienteStruct *)aux->Info;
-        /* if (cliente->tempoEstimadoCaixa > 0){
+        if (cliente->tempoEstimadoCaixa > 0){
             cliente->tempoEstimadoCaixa--;
             lista->tempoTotalEspera--;
-        } */
+        }
         aux = aux->next;
     }
     
