@@ -1,10 +1,10 @@
-1670	Ana Francisca Lemos Martins
-4322	Joana Manies Ferreira Bastos
-2856	Ana Beatriz Campos Pereira
-3044    Patricia Cabral Henriques Bras
-9164	Carolina Rita Cruz Almeida
-3562	Catarina Nicole Silva Silva
-7046	Carolina Gomes Moutinho
-9140	Ines Fernandes Guilherme Silva
-8839	Roberto Maria Silva Pina
-6477	Pedro Ferreira Alves Silva
+1670	Ana Francisca Lemos Martins	0.000000	0.000000	0	17185688908264123855273984.000000
+4322	Joana Manies Ferreira Bastos	0.000000	0.000000	0	18177434011167776178094731165696.000000
+2856	Ana Beatriz Campos Pereira	0.000000	0.000000	0	0.000003
+3044	Ana Beatriz Campos Pereira	0.000000	0.000000	0	0.000003
+9164	Carolina Rita Cruz Almeida	0.000000	0.000000	0	61401392772425982148608.000000
+3562	Catarina Nicole Silva Silva	0.000000	0.000000	0	279508363824936779776.000000
+7046	Carolina Gomes Moutinho	0.000000	0.000000	0	0.000000
+9140	Ines Fernandes Guilherme Silva	0.000000	0.000000	0	14743360745492062144561152.000000
+8839	Roberto Maria Silva Pina	0.000000	0.000000	0	279450063320385585152.000000
+6477	Pedro Ferreira Alves Silva	0.000000	0.000000	0	71613526010563383732977270784.000000

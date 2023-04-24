@@ -1,63 +1,62 @@
-62
-609140	Carla Aguiar Pires
-814991	Ricardo Andrade Matos
-843818	Eduardo Carneiro Castro
-647507	Cristiana Eanes Baptista
-684741	Marisa Calado Barbosa
-945973	Leonor Leal Moreira
-499505	Paula Nogueira Carrico
-714448	Carina Carvalheira Valbom
-193433	Joana Vivas Estrela
-924118	Cristiano Lopes Nunes
-619247	Carmo Carrico Quadros
-384996	Lui Psaredes Santos
-869226	Cristiano Moura Ferraz
-908038	Cristiano Cardoso Andrade
-683643	Odete Leal Barbosa
-423576	Maria Almada Quadros
-128786	Ricardo Tinoco Pinto
-357712	Ricardo Carmona Dinis
-637012	Claudio Eanes Vivas
-557244	Dulcineia Vivas Dinis
-718589	Luis Amorim Andrade
-995099	Clarice Proenca Carmona
-043001	Dulce Proenca Arantes
-964554	Celina Mota Carrico
-264112	Daniel Carvalheira Rego
-939454	Celso Cipriano Quadros
-394998	Francisca Leao Vivas
-403245	Odete Mendes Seixas
-466252	Carlota Pires Peres
-162235	Ana Arantes Regueira
-746821	Cristiana Azenha Brito
-810906	Dina Rosado Lobato
-573442	Rodolfo Pinheiro Arantes
-228381	David Lobato Brito
-140130	Cristiano Estrela Pinto
-329995	Rodolfo Amorim Rego
-998081	Ricardo Mota Nascimento
-785716	Clotilde Real Nunes
-370626	Joana Soeiro Sequeira
-261346	Duarte Mourao Moreira
-277969	Paula Dinis Domingos
-357688	Pedro Nascimento Dinis
-628651	Soraia Azevedo Macedo
-787153	Celina Carrico Sequeira
-574887	Lucas Cipriano Nunes
-101782	Marisa Cabral Dias
-175517	Rita Belchior Rego
-285944	David Soeiro Brito
-399001	Paula Mourao Pires
-583857	Dolores Caiado Silva
-301117	Maria Arouca Queiros
-396778	Camilo Pinto Castro
-904939	Eduardo Proenca Cipriano
-165553	Pedro Carvalheira Santos
-139466	Bernardo Pacheco Farias
-114567	David Brito Martins
-791109	Basilio Brito Lobo
-997379	Rita Andrade Carrico
-099107	Carla Cunha Clementino
-728580	Celino Dinis Paredes
-066970	Bruno Barros Calado
-747409	Duarte Clementino Bogas
+609140	Carla Aguiar Pires	0.000000	3	1	2011
+814991	Ricardo Andrade Matos	75036150843986333624862507008.000000	29	6	1933
+843818	Eduardo Carneiro Castro	223812839814455099392.000000	25	4	1974
+647507	Cristiana Eanes Baptista	160.380646	15	4	1965
+684741	Marisa Calado Barbosa	1183156240786845056213738380591104.000000	26	2	1914
+945973	Leonor Leal Moreira	4461777686748433436571384938496.000000	8	9	1961
+499505	Paula Nogueira Carrico	73775193990463446699191828480.000000	27	7	1967
+714448	Carina Carvalheira Valbom	15276555587312123117568.000000	12	1	1951
+193433	Joana Vivas Estrela	262187502065883807744.000000	8	5	1943
+924118	Cristiano Lopes Nunes	272391374591924109312.000000	18	8	1963
+619247	Carmo Carrico Quadros	18534118229936181514076160.000000	11	5	1983
+384996	Lui Psaredes Santos	548.768555	21	2	1965
+869226	Cristiano Moura Ferraz	548.784241	19	7	1964
+908038	Cristiano Cardoso Andrade	0.000000	14	1	1967
+683643	Odete Leal Barbosa	0.000000	9	5	1964
+423576	Maria Almada Quadros	0.000000	9	2	2005
+128786	Ricardo Tinoco Pinto	0.000000	2	7	1945
+357712	Ricardo Carmona Dinis	0.000000	27	6	1969
+637012	Claudio Eanes Vivas	0.000132	9	7	1971
+557244	Dulcineia Vivas Dinis	18177434011167776178094731165696.000000	14	7	1956
+718589	Luis Amorim Andrade	17336525628711837645144064.000000	12	9	1922
+995099	Clarice Proenca Carmona	641.741455	16	9	2001
+43001	Dulce Proenca Arantes	0.000000	6	8	2011
+964554	Celina Mota Carrico	279450063320385585152.000000	19	12	1942
+264112	Daniel Carvalheira Rego	18304519676901250973040640.000000	9	3	2009
+939454	Celso Cipriano Quadros	284106926072575033344.000000	19	2	1927
+394998	Francisca Leao Vivas	0.000000	14	2	2006
+403245	Odete Mendes Seixas	279481658886521356288.000000	24	9	1925
+466252	Carlota Pires Peres	73982091784189274250623584305152.000000	1	7	1992
+162235	Ana Arantes Regueira	0.000000	28	11	2012
+746821	Cristiana Azenha Brito	18013840495473754286063616.000000	25	1	1980
+810906	Dina Rosado Lobato	70066984988231667286016.000000	3	8	1954
+573442	Rodolfo Pinheiro Arantes	72147958764451125002240.000000	30	6	1916
+228381	David Lobato Brito	0.000000	11	10	2001
+140130	Cristiano Estrela Pinto	0.000000	24	5	1997
+329995	Rodolfo Amorim Rego	0.000000	21	11	1987
+998081	Ricardo Mota Nascimento	0.000000	17	7	1933
+785716	Clotilde Real Nunes	0.000000	27	12	1923
+370626	Joana Soeiro Sequeira	0.000000	30	3	1964
+261346	Duarte Mourao Moreira	0.000000	5	11	1998
+277969	Paula Dinis Domingos	0.000000	26	4	2002
+357688	Pedro Nascimento Dinis	0.000000	2	12	1942
+628651	Soraia Azevedo Macedo	0.000000	28	2	1991
+787153	Celina Carrico Sequeira	0.000000	6	11	1994
+574887	Lucas Cipriano Nunes	0.000000	26	8	2003
+101782	Marisa Cabral Dias	0.000000	20	2	1997
+175517	Rita Belchior Rego	0.000000	12	10	2005
+285944	David Soeiro Brito	0.000000	3	11	1963
+399001	Paula Mourao Pires	0.000000	6	4	1923
+583857	Dolores Caiado Silva	0.000000	27	6	1949
+301117	Maria Arouca Queiros	0.000000	12	2	2001
+396778	Camilo Pinto Castro	0.000000	2	10	1953
+904939	Eduardo Proenca Cipriano	0.000000	26	8	1931
+165553	Pedro Carvalheira Santos	0.000000	30	12	1960
+139466	Bernardo Pacheco Farias	0.000000	21	4	1946
+114567	David Brito Martins	0.000000	28	2	1953
+791109	Basilio Brito Lobo	0.000000	14	5	1916
+997379	Rita Andrade Carrico	0.000000	6	1	1920
+99107	Carla Cunha Clementino	0.000000	16	8	1974
+728580	Celino Dinis Paredes	0.000000	6	5	1955
+66970	Bruno Barros Calado	0.000000	26	5	1992
+747409	Duarte Clementino Bogas	0.000000	17	6	1935
