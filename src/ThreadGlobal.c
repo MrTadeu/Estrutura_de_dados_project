@@ -1,6 +1,5 @@
 #include "../includes/TipoDados.h"
 
-
 void *ThreadGlobal(void *arg){
     srand(time(NULL));
     ArgumentosThereadGlobal *dados = (ArgumentosThereadGlobal *) arg;
@@ -40,7 +39,6 @@ void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa){
         pthread_join(*x, NULL);
         Aux = Aux->next;
     } */
-    free(dados);
 }
 
 void *ThreadEsperaTempoCompra(void *args){
