@@ -84,7 +84,7 @@ void AtenderClientes(CaixaStruct *caixa, ClienteStruct *clientes){
             clientes->tempoEstimadoCaixa--;
             caixa->tempoTotalEspera--;
         }
-        else if (clientes->tempoAtraso > 0) cliente->tempoAtraso--;
+        else if (clientes->tempoAtraso > 0) Clientes->tempoAtraso--;
     }
     caixa->tempoTotalEspera -= clientes->tempoEstimadoCaixa;
     clientes->tempoEstimadoCaixa = 0;
