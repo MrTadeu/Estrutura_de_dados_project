@@ -126,6 +126,19 @@
     void *ThreadCaixa(CaixaStruct *caixa);
 
     //Threads.c
-    void *ThreadGlobal();
+    typedef struct{
+        Lista *ListaClientesNaFila;
+        ClienteStruct *cliente;
+    }Argumentos;
+
+    typedef struct{
+        int probabilidade;
+        int lotacao_maxima_da_Loja;
+    }ArgumentosThereadGlobal;
+    
+    void *ThreadGlobal(void *prob);
+    void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa);
+    void *ThreadEsperaTempoCompra(void *args);
+
     
 #endif

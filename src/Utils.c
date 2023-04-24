@@ -59,7 +59,30 @@ int DataAntesDepois(DataStruct d1, DataStruct d2){ // Se d1 for antes de d2 retu
     }
 } */
 
-  
+void temporizador(CaixaStruct *caixa, ClienteStruct *clientes, int sub){
+    if (!caixa || !clientes) return;
+    if (!sub) sub = 1;
+    
+    
+    clientes->tempoEstimadoFila = 0;
+    /* Elemento *produtos = clientes->listaProdutos->head; */
+    while (clientes->tempoEstimadoCaixa > 0){
+        caixa->tempoTotalEspera -= sub;
+        clientes->tempoEstimadoCaixa -= sub;
+        /* if (){
+            
+        } */
+        
+    }
+    
+    
+    //Adicionar no ficheiro Histórico
+    
+    //Remover da fila
+    RemElementoInicio(caixa->listaPessoas);
+    //Remover do caixa
+
+}
 
 /* int fileExists(const char* path) {
   struct stat st;

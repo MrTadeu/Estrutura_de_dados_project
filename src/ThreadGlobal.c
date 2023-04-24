@@ -1,13 +1,30 @@
 #include "../includes/TipoDados.h"
 
-typedef struct{
-    Lista *ListaClientesNaFila;
-    ClienteStruct *cliente;
-}Argumentos;
 
-void *ThreadEsperaTempoCompra(void *args);
+void *ThreadGlobal(void *arg){
+    srand(time(NULL));
+    ArgumentosThereadGlobal *dados = (ArgumentosThereadGlobal *) arg;
+    int prob = (int)dados->probabilidade;
+    int lotacao = (int)dados->lotacao_maxima_da_Loja;
+    
+    free(arg);
+    Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
 
-void ThreadTempoDeCompra(/* Lista listaThreadTempoCompra,  */Lista *ListaClientesNaFila, ClienteStruct *pessoa){
+    while(1){
+        if (Aleatorio(0, 100) <= prob && n_clientes <= lotacao){
+            /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
+            arg->ListaClientesNaFila = PessoasAcabaramTempoDeCompra;
+            arg->cliente = (ClienteStruct *)escolherCliente(); */
+            
+            ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
+
+        }
+        dormir(100);
+    }
+}
+
+/* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
+void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa){
     if(!pessoa)
         return;
     pthread_t /* * */thread/*  = (pthread_t *) malloc(sizeof(pthread_t)) */;
@@ -23,6 +40,7 @@ void ThreadTempoDeCompra(/* Lista listaThreadTempoCompra,  */Lista *ListaCliente
         pthread_join(*x, NULL);
         Aux = Aux->next;
     } */
+    free(dados);
 }
 
 void *ThreadEsperaTempoCompra(void *args){
@@ -35,14 +53,14 @@ void *ThreadEsperaTempoCompra(void *args){
     printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
     printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
     printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
-    /* printf("\nLista de Produtos:");
-    Elemento *Aux = cliente->listaProdutos->head;
+    printf("\nLista de Produtos:");
+    /* Elemento *Aux = cliente->listaProdutos->head;
     while(Aux){
         ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
         printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
         Aux = Aux->next; 
-    }
-    */
+    } */
+   
 
     dormir(cliente->tempoEstimadoCompra * 1000);
     printf("\nFinished ");
@@ -53,24 +71,8 @@ void *ThreadEsperaTempoCompra(void *args){
     free(dados);
     return NULL;
 }
+/* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
 
-void *ThreadGlobal(void *prob){
-    srand(time(NULL));
-    int *probab = (int *)prob;
-    Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
-
-    while(1){
-        if (Aleatorio(0, 100) <= *probab){
-            /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
-            arg->ListaClientesNaFila = PessoasAcabaramTempoDeCompra;
-            arg->cliente = (ClienteStruct *)escolherCliente(); */
-            
-            ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
-
-        }
-        dormir(100);
-    }
-}
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
