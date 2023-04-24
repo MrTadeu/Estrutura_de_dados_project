@@ -78,11 +78,17 @@ void temporizador(CaixaStruct *caixa, ClienteStruct *clientes){
         }
         
     } */
-
-    while (clientes->tempoEstimadoCaixa){
-        /* code */
+    while (tempo){
+        dormir(1000);
+        tempo--;
+        if (clientes->tempoEstimadoCaixa){
+            clientes->tempoEstimadoCaixa--;
+            caixa->tempoTotalEspera--;
+        }
+        else if (clientes->tempoAtraso > 0) cliente->tempoAtraso--;
     }
-    
+    caixa->tempoTotalEspera -= clientes->tempoEstimadoCaixa;
+    clientes->tempoEstimadoCaixa = 0;
     
     //Remover da fila
     RemElementoInicio(caixa->listaPessoas);
