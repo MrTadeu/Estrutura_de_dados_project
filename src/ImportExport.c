@@ -3,7 +3,7 @@
 void importGlobal(){
     char *file = malloc(sizeof(char)*16);
     strcpy(file,"Data/global.bin");
-    if(checkIFfileExists() == 1){
+    if(checkIFfileExists(file) == 1){
         FILE *file = fopen("Data/global.bin", "rb");
         if (!file) {
             printf("\n\n\tImpossivel abrir Ficheiro [red]Data/global.bin[/red]\n\n");
