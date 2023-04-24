@@ -74,7 +74,7 @@
     
     typedef struct{
         Lista* Caixas;
-        int n_caixasTotal, n_caixasAbertas, probabilidadeGerarPessoa;
+        int n_caixasTotal, n_caixasAbertas, probabilidadeGerarPessoa, lotacao_maxima_da_Loja;
     }GlobalStruct;
 
      typedef enum {
@@ -131,12 +131,7 @@
         ClienteStruct *cliente;
     }Argumentos;
 
-    typedef struct{
-        int probabilidade;
-        int lotacao_maxima_da_Loja;
-    }ArgumentosThereadGlobal;
-    
-    void *ThreadGlobal(void *prob);
+    void *ThreadGlobal();
     void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa);
     void *ThreadEsperaTempoCompra(void *args);
 

@@ -25,11 +25,10 @@ int main(){
 
 
     pthread_t thread_global;
-    ArgumentosThereadGlobal *dados = (ArgumentosThereadGlobal*)malloc(sizeof(ArgumentosThereadGlobal));
-    dados->lotacao_maxima_da_Loja = 1000;
-    dados->probabilidade = 100;
+    Global.lotacao_maxima_da_Loja = 1000;
+    Global.probabilidadeGerarPessoa = 100;
 
-    pthread_create(&thread_global, NULL, ThreadGlobal, dados);
+    pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
 /*     if (pthread_create(&thread_global, NULL, ThreadGlobal, NULL) != 0){
         printc("[red]Erro[/red] ao criar thread global\n");
         exit(1);

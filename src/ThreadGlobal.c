@@ -1,16 +1,11 @@
 #include "../includes/TipoDados.h"
 
-void *ThreadGlobal(void *arg){
+void *ThreadGlobal(){
     srand(time(NULL));
-    ArgumentosThereadGlobal *dados = (ArgumentosThereadGlobal *) arg;
-    int prob = (int)dados->probabilidade;
-    int lotacao = (int)dados->lotacao_maxima_da_Loja;
-    
-    free(arg);
     Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
 
     while(1){
-        if (Aleatorio(0, 100) <= prob && n_clientes <= lotacao){
+        if (Aleatorio(0, 100) <= Global.probabilidadeGerarPessoa && n_clientes <= Global.lotacao_maxima_da_Loja){
             /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
             arg->ListaClientesNaFila = PessoasAcabaramTempoDeCompra;
             arg->cliente = (ClienteStruct *)escolherCliente(); */
@@ -45,14 +40,14 @@ void *ThreadEsperaTempoCompra(void *args){
     Argumentos *dados = (Argumentos *)args;
     Lista *ListaClientesNaFila = (Lista*)dados->ListaClientesNaFila;
     ClienteStruct *cliente = (ClienteStruct *)dados->cliente;
-    printf("\n\nPessoa Gerada: ");
+    /* printf("\n\nPessoa Gerada: ");
     printf("\nNome: %s", cliente->nome);
     printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
     printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
     printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
     printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
     printf("\nLista de Produtos:");
-    /* Elemento *Aux = cliente->listaProdutos->head;
+    Elemento *Aux = cliente->listaProdutos->head;
     while(Aux){
         ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
         printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
@@ -61,9 +56,9 @@ void *ThreadEsperaTempoCompra(void *args){
    
 
     dormir(cliente->tempoEstimadoCompra * 1000);
-    printf("\nFinished ");
+    /* printf("\nFinished ");
     printf("\nNome: %s", cliente->nome);
-    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
+    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra); */
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     pthread_exit(NULL);
     free(dados);
