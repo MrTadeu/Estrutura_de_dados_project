@@ -23,6 +23,24 @@ int main(){
     importarDados(importarProdutos, PRODUTOS);
     printc("\n[red]Hello World3[/red]");
 
+    printf("\nClientes");
+    for (int i = 0; i < n_clientes; i++){
+        printf("\nLinha %d: ID: %d NOME: %s DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+    }
+    printf("\n\nFuncionarios");
+    for (int i = 0; i < n_funcionarios; i++){
+        printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
+    } 
+    printf("\n\nProdutos");
+    for (int i = 0; i < n_produtos; i++){
+        printf("\nLinha %d: ID: %d NOME: %s PRECO: %f TCOMPRA: %f TCAIXA %f", i+1,Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
+    }
+
+
+
+
+
+
 
     pthread_t thread_global;
     Global.lotacao_maxima_da_Loja = 1000;
@@ -56,19 +74,7 @@ int main(){
    
 
     
-    printf("\nClientes");
-    for (int i = 0; i < n_clientes; i++){
-        printf("\nLinha %d: ID: %d NOME: %s DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
-    }
-    printf("\n\nFuncionarios");
-    for (int i = 0; i < n_funcionarios; i++){
-        printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
-    } 
-    printf("\n\nProdutos");
-    for (int i = 0; i < n_produtos; i++){
-        printf("\nLinha %d: ID: %d NOME: %s PRECO: %f TCOMPRA: %f TCAIXA %f", i+1,Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
-    }
-
+    
 
     /* printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){

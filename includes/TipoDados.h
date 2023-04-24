@@ -96,10 +96,10 @@
     extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
     //ImportExport.c
-    void importarClientes(char **linhaString, int n_linha);
-    void importarFuncionarios(char **linhaString, int n_linha);
-    void importarProdutos(char **linhaString, int n_linha);
-    void importarDados(void (guardarDados)(char **, int), TipoDados tipo);
+    void importarClientes(char **linhaString, int n_linha, int n_colunas);
+    void importarFuncionarios(char **linhaString, int n_linha, int n_colunas);
+    void importarProdutos(char **linhaString, int n_linha, int n_colunas);
+    void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo);
 
     //TipoDadosFuncoes.c
     int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
@@ -121,6 +121,7 @@
     DataStruct gerarData(int anoMin, int anoMax);
     int DataAntesDepois(DataStruct d1, DataStruct d2);
     void dormir(int tempo);
+    struct tm getCurrentTime();
     
     //FuncoesCaixa.c
     void *ThreadCaixa(CaixaStruct *caixa);

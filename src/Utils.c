@@ -59,6 +59,12 @@ int DataAntesDepois(DataStruct d1, DataStruct d2){ // Se d1 for antes de d2 retu
     }
 } */
 
+struct tm getCurrentTime(){
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    return tm;
+}
+
 void temporizador(CaixaStruct *caixa, ClienteStruct *clientes, int sub){
     if (!caixa || !clientes) return;
     if (!sub) sub = 1;
