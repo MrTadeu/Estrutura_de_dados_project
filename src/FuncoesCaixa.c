@@ -143,7 +143,7 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-void *ThreadCaixa(CaixaStruct *caixa){
+/* void *ThreadCaixa(CaixaStruct *caixa){
 
     int atraso, n_vendas = 0;
     float atrasoMaximo, atrasoMedio;
@@ -152,7 +152,7 @@ void *ThreadCaixa(CaixaStruct *caixa){
 
     while(caixa->listaPessoas->quantidadeElementos > 0){
         if(caixa->fecharUrgencia){
-            /* fecharUrgencia(caixa->listaPessoas); */
+            fecharUrgencia(caixa->listaPessoas);
         }
         pessoa = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
@@ -177,3 +177,4 @@ void *ThreadCaixa(CaixaStruct *caixa){
     caixa->funcionario->experiencia += n_vendas;
 }
 
+ */
