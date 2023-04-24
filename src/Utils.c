@@ -72,7 +72,7 @@ void temporizador(CaixaStruct *caixa, ClienteStruct *clientes, int sub){
         /* if (){
             
         } */
-        
+        dormir(1000);
     }
     
     

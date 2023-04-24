@@ -1,9 +1,11 @@
 #include "../includes/TipoDados.h"
 
+pthread_mutex_t listaLock;
+
 void *ThreadGlobal(){
     srand(time(NULL));
     Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
-
+    pthread_mutex_init(&listaLock, NULL);
     while(1){
         if (Aleatorio(0, 100) <= Global.probabilidadeGerarPessoa && n_clientes <= Global.lotacao_maxima_da_Loja){
             /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
@@ -40,14 +42,14 @@ void *ThreadEsperaTempoCompra(void *args){
     Argumentos *dados = (Argumentos *)args;
     Lista *ListaClientesNaFila = (Lista*)dados->ListaClientesNaFila;
     ClienteStruct *cliente = (ClienteStruct *)dados->cliente;
-    /* printf("\n\nPessoa Gerada: ");
+    printf("\n\nPessoa Gerada: ");
     printf("\nNome: %s", cliente->nome);
     printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
     printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
     printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
     printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
     printf("\nLista de Produtos:");
-    Elemento *Aux = cliente->listaProdutos->head;
+   /* Elemento *Aux = cliente->listaProdutos->head;
     while(Aux){
         ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
         printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
@@ -56,10 +58,12 @@ void *ThreadEsperaTempoCompra(void *args){
    
 
     dormir(cliente->tempoEstimadoCompra * 1000);
-    /* printf("\nFinished ");
+    printf("\nFinished ");
     printf("\nNome: %s", cliente->nome);
-    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra); */
+    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
+    pthread_mutex_lock(&listaLock);
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
+    pthread_mutex_unlock(&listaLock);
     pthread_exit(NULL);
     free(dados);
     return NULL;
