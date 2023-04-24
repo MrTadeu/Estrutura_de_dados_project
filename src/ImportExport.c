@@ -28,7 +28,7 @@ void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
     if(n_colunas == 6){
         Funcionarios[n_linha].bonus = atof(linhaString[2]);
         Funcionarios[n_linha].salario = atof(linhaString[3]);
-        Funcionarios[n_linha].experiencia = atoi(linhaString[4])
+        Funcionarios[n_linha].experiencia = atoi(linhaString[4]);
         Funcionarios[n_linha].atrasoMedio = atof(linhaString[5]);
     }
     else{
@@ -40,12 +40,14 @@ void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
 }
 
 void importarProdutos(char **linhaString, int n_linha, int n_colunas){
-    Produtos[n_linha].id = atoi(linhaString[0]);
-    Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
-    strcpy(Produtos[n_linha].nome, linhaString[1]);
-    Produtos[n_linha].preco = atof(linhaString[2]);
-    Produtos[n_linha].tempoCompra = atof(linhaString[3]);
-    Produtos[n_linha].tempoCaixa = atof(linhaString[4]);
+    if(n_colunas == 5){
+        Produtos[n_linha].id = atoi(linhaString[0]);
+        Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
+        strcpy(Produtos[n_linha].nome, linhaString[1]);
+        Produtos[n_linha].preco = atof(linhaString[2]);
+        Produtos[n_linha].tempoCompra = atof(linhaString[3]);
+        Produtos[n_linha].tempoCaixa = atof(linhaString[4]);
+    }
 }
 
 void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo){
@@ -53,6 +55,7 @@ void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo){
     char *linhaString = malloc(250), *filename = malloc(40);
 
     if(tipo == CLIENTES){
+        free(Clientes);
         strcpy(filename, "Data/clientes.txt");
         colunas = 6;
         countFile = importarCount(filename);
@@ -60,6 +63,7 @@ void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo){
         Clientes = malloc(sizeof(ClienteStruct)*countFile);
     }
     if(tipo == FUNCIONARIOS){
+        free(Funcionarios);
         strcpy(filename, "Data/funcionarios.txt");
         colunas = 6;
         countFile = importarCount(filename);
@@ -67,6 +71,7 @@ void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo){
         Funcionarios = malloc(sizeof(FuncionarioStruct)*countFile);
     }
     if(tipo == PRODUTOS){
+        free(Produtos);
         strcpy(filename, "Data/produtos.txt");
         colunas = 5;
         countFile = importarCount(filename);
@@ -140,11 +145,12 @@ int importarCount(char *filename){
 
         n_linhas++;
     }
+    free(filedata);
     fclose(file);
     return n_linhas;
 }
 
-void exportarDados(TipoDados tipo, void (guardarDadosTxt)(char **, int, int)){
+void exportarDados(void (guardarDadosTxt)(FILE *, int), TipoDados tipo){
     char *filename = malloc(40);
     int n_elementos = 0;
    
@@ -170,7 +176,8 @@ void exportarDados(TipoDados tipo, void (guardarDadosTxt)(char **, int, int)){
         guardarDadosTxt(file, i);
     }
 
-    fprintf(file, "%d\n", countFile);
+    free(filename);
+    fclose(file);
 }
 
 void guardarClienteTxt(FILE *file, int i){

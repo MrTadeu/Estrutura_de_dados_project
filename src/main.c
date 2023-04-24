@@ -23,6 +23,8 @@ int main(){
     importarDados(importarProdutos, PRODUTOS);
     printc("\n[red]Hello World3[/red]");
 
+
+
     printf("\nClientes");
     for (int i = 0; i < n_clientes; i++){
         printf("\nLinha %d: ID: %d NOME: %s DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
@@ -38,6 +40,10 @@ int main(){
 
 
 
+    exportarDados(guardarClienteTxt, CLIENTES);
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
+    exportarDados(guardarProdutoTxt, PRODUTOS);
+    
 
 
 
@@ -50,7 +56,7 @@ int main(){
      if (erro != 0){
         printc("[red]Erro[/red] ao criar thread global\n");
         exit(1);
-    } */
+    } 
     
     printc("\n[red]Hello World[/red]");
     pthread_join(thread_global, NULL);

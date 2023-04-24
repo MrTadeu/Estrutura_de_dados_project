@@ -1,4 +1,44 @@
-10001	Azeitona Verde Retalhada com Ervas [marcaB] 300 gr	3.00	1.0	3.2
-10002	Croutons Pão Tostado [marcaB] 150 gr	1.69	1.2	2.3
-10003	Azeitona Mista Britada com Ervas Aromáticas [marcaB] 300 gr	2.00	1.6	1.0
-10004	Azeitona Mista Retalhada com Ervas Aromáticas [marcaB] 800 gr	4.00	5.0	0.6
+10001	Azeitona Verde Retalhada com Ervas [marcaB] 300 gr	3.000000	12.000000	3.200000
+10002	Croutons Pão Tostado [marcaB] 150 gr	1.690000	6.200000	2.300000
+10003	Azeitona Mista Britada com Ervas Aromáticas [marcaB] 300 gr	2.000000	14.600000	1.000000
+10004	Azeitona Mista Retalhada com Ervas Aromáticas [marcaB] 800 gr	4.000000	5.000000	0.600000
+10005	Mini Picos Azeite [marcaB] 300 gr	1.450000	6.700000	0.800000
+10006	Rosquinhas Sésamo e Azeite [marcaB] 180 gr	0.900000	18.299999	2.800000
+10007	Azeitona Verde Descaroçada [marcaB] 230 gr	2.000000	61.599998	4.900000
+10008	Azeitona Preta Inteira Oxidada [marcaB] 560 gr	2.500000	36.900002	1.400000
+10009	Mini Tosta Integral [marcaB Equilíbrio] 180 gr	0.910000	1.500000	4.000000
+10010	Azeitona Verde Inteira [marcaB] 290 gr	2.000000	59.400002	1.500000
+10011	Azeitona Preta Descaroçada Oxidada [marcaB] 200 gr	1.500000	21.799999	4.200000
+10012	Pasta de Delícias do Mar [Fácil & Bom] 250 gr	3.250000	46.799999	5.100000
+10013	Azeitona Preta às Rodelas Oxidada [marcaB] 200 gr	1.500000	42.900002	5.300000
+10014	Azeitona Verde Retalhada com Ervas [marcaB] 800 gr	4.000000	4.000000	0.600000
+10015	Mini Gressinos Integrais [marcaB Equilíbrio] 300 gr	1.090000	25.799999	1.000000
+10016	Croutons Azeite/Alho/Salsa [marcaB] 75 gr	0.640000	22.500000	12.700000
+10017	Azeitona Preta Inteira Oxidada M [marcaB] 250 gr	1.500000	6.200000	1.100000
+10018	Mini Tostas [marcaB] 350 gr	1.590000	59.200001	5.600000
+10019	Mini Pepinos [marcaB] 290 gr	3.000000	20.100000	3.000000
+10020	Azeitona Verde com Pimento [marcaB] 300 gr	3.000000	65.199997	5.900000
+10021	Pasta de Atum [Fácil & Bom] 250 gr	3.250000	17.200001	1.400000
+10022	Croutons Azeite/Tomate/Oregãos [marcaB] 75 gr	0.640000	21.900000	0.600000
+10023	Mistura de Pickles [marcaB] 300 gr	2.000000	1.700000	0.300000
+10024	Azeitona Mista Inteira [marcaB] 300 gr	2.000000	75.199997	5.700000
+10025	Azeitona Verde com Pimento [marcaB] 800 gr	4.000000	29.299999	1.000000
+10026	Azeitona Verde Inteira [marcaB] 750 gr	3.000000	21.400000	0.600000
+10027	Tosta Sueca [marcaB] 225 gr	0.540000	9.200000	6.000000
+10028	Tosta Extra Finas [marcaB] 100 gr	0.860000	15.700000	0.800000
+10029	Batatas Fritas em Azeite Receita Caseira [marcaB] 150 gr	0.990000	0.300000	0.500000
+10030	Snack Tiras Milho [marcaB] 130 gr	0.650000	28.400000	3.400000
+10031	Nachos com Sal [marcaB] 150 gr	0.990000	2.900000	0.600000
+10032	Pepino em Vinagre [marcaB] 345 gr	1.390000	18.100000	7.000000
+10033	Bacalhau com Azeite e Alho [marcaB] 120 gr	1.990000	56.599998	1.500000
+10034	Azeitonas Verdes com Piripiri e Ervas [marcaB] 350 gr	1.090000	12.900000	0.900000
+10035	Vinagre de Vinho Branco Acidez 6º [marcaB] 500 ml	0.490000	34.799999	3.300000
+10036	Chocolate em Pó [marcaB] 125 gr	0.750000	63.200001	11.000000
+10037	Cacau Magro em Pó [marcaB] 125 gr	1.490000	17.299999	2.000000
+10038	Cereais Milho Corn Flakes [marcaB] 1 kg	1.970000	35.900002	0.200000
+10039	Corn Flakes [marcaB] 500 gr	0.990000	18.900000	0.400000
+10040	Tarteletes Chocolate [marcaB] 150 gr	0.880000	189.699997	2.100000
+10041	Vinagre Balsâmico [marcaB] 250 ml	1.490000	48.500000	0.400000
+10042	Filete de Cavala Azeite [marcaB] 120 gr	1.490000	43.599998	5.800000
+10043	Massa Penne com Molho Cogumelos [marcaB] 150 gr	1.740000	3.500000	1.400000
+10044	Batatas Fritas Onduladas [marcaB] 200 gr	0.890000	19.200001	4.300000

@@ -96,10 +96,16 @@
     extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
     //ImportExport.c
+    int importarCount(char *filename);
     void importarClientes(char **linhaString, int n_linha, int n_colunas);
     void importarFuncionarios(char **linhaString, int n_linha, int n_colunas);
     void importarProdutos(char **linhaString, int n_linha, int n_colunas);
     void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo);
+    void exportarDados(void (guardarDadosTxt)(FILE *, int), TipoDados tipo);
+    void guardarClienteTxt(FILE *file, int i);
+    void guardarFuncionarioTxt(FILE *file, int i);
+    void guardarProdutoTxt(FILE *file, int i);
+
 
     //TipoDadosFuncoes.c
     int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
