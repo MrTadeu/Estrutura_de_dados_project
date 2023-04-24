@@ -32,7 +32,7 @@ void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
         ClienteStruct *cliente = (ClienteStruct *)aux->Info;
 
         countTempoEstimadoCaixa += cliente->tempoEstimadoCaixa;
-        clientes->tempoEstimadoFila = countTempoEstimadoCaixa - cliente->tempoEstimadoCaixa;
+        cliente->tempoEstimadoFila = countTempoEstimadoCaixa - cliente->tempoEstimadoCaixa;
 
         aux = aux->next;
     }
