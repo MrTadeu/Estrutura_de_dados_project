@@ -15,6 +15,7 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 int main(){
     srand(time(NULL));
     setlocale(LC_ALL, NULL);
+    printf("\nClientes");
 
     importarDados(importarClientes, CLIENTES);
     printc("\n[red]Hello World1[/red]");
@@ -27,11 +28,11 @@ int main(){
 
     printf("\nClientes");
     for (int i = 0; i < n_clientes; i++){
-        printf("\nLinha %d: ID: %d NOME: %s DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+        printf("\nLinha %d: ID: %d NOME: %s SALDOCARTAO: %f DATANASC: %d/%d/%d", i+1,Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
     }
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
-        printf("\nLinha %d: ID: %d NOME: %s", i+1,Funcionarios[i].id, Funcionarios[i].nome);
+        printf("\nLinha %d: ID: %d NOME: %s BONUS: %f SALARIO: %f EXPERIENCIA: %d ATRASOMEDIO: %f", i+1,Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].salario, Funcionarios[i].experiencia, Funcionarios[i].atrasoMedio);
     } 
     printf("\n\nProdutos");
     for (int i = 0; i < n_produtos; i++){

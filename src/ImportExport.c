@@ -11,6 +11,7 @@ void importarClientes(char **linhaString, int n_linha, int n_colunas){
         Clientes[n_linha].dataNascimento.ano = atoi(linhaString[5]);
     }
     else{
+        Clientes[n_linha].saldoCartaoCliente = 0;
         struct tm tm = getCurrentTime();
         Clientes[n_linha].dataNascimento = gerarData(tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10);
     }
@@ -19,6 +20,7 @@ void importarClientes(char **linhaString, int n_linha, int n_colunas){
     Clientes[n_linha].tempoEstimadoFila = 0;
     Clientes[n_linha].tempoEstimadoCaixa = 0;
     Clientes[n_linha].tempoAtraso = 0;
+    Clientes[n_linha].ativo = 0;
 }
 
 void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
@@ -35,6 +37,7 @@ void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
         Funcionarios[n_linha].bonus = 0;
         Funcionarios[n_linha].salario = 0;
         Funcionarios[n_linha].experiencia = 0;
+        Funcionarios[n_linha].atrasoMedio = 0;
     }
     Funcionarios[n_linha].ativo = 0;
 }
@@ -98,16 +101,13 @@ void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo){
             pch = strtok (NULL, "\t\r\n");
             count++;
         }
-        
         if(count == 1 &&  n_linha == 0){
             continue;
         }
-
         guardarDados(filedata, n_linha, count);
         n_linha++;
     }
 
-    free(filedata);
     free(linhaString);
     free(filename);
     fclose(file);
@@ -172,6 +172,7 @@ void exportarDados(void (guardarDadosTxt)(FILE *, int), TipoDados tipo){
         printc("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
         exit(1);
     }
+    fprintf(file, "%d\n", n_elementos);
     for (int i = 0; i < n_elementos; i++){
         guardarDadosTxt(file, i);
     }
