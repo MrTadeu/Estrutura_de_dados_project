@@ -65,28 +65,56 @@ struct tm getCurrentTime(){
     return tm;
 }
 
-void temporizador(CaixaStruct *caixa, ClienteStruct *clientes, int sub){
-    if (!caixa || !clientes) return;
-    if (!sub) sub = 1;
-    
-    
-    clientes->tempoEstimadoFila = 0;
-    /* Elemento *produtos = clientes->listaProdutos->head; */
-    while (clientes->tempoEstimadoCaixa > 0){
-        caixa->tempoTotalEspera -= sub;
-        clientes->tempoEstimadoCaixa -= sub;
-        /* if (){
-            
+void AtualizarDadosTemposCaixa(CaixaStruct *lista){
+    if (!lista) return;
+    Elemento *aux = lista->listaPessoas->head;
+    while (aux){
+        ClienteStruct *cliente = (ClienteStruct *)aux->Info;
+        /* if (cliente->tempoEstimadoCaixa > 0){
+            cliente->tempoEstimadoCaixa--;
+            lista->tempoTotalEspera--;
         } */
-        dormir(1000);
+        aux = aux->next;
     }
     
+}
+
+void temporizador(CaixaStruct *caixa, ClienteStruct *clientes){
+    if (!caixa || !clientes) return;
+    //Atualizar dados
+    /* dddddddddddddddddddddddddddddddddddddddddddd */
     
+    clientes->tempoEstimadoFila = 0;
+    int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;
+
     //Adicionar no ficheiro Histórico
+    /*   DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD    FUNÇÃO   DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
+
+    while (tempo >= 0){
+        if (clientes->tempoAtraso < 0){
+            clientes->tempoEstimadoCaixa--;
+            caixa->tempoTotalEspera--;
+            if (tempo == 0){
+                caixa->tempoTotalEspera -= clientes->tempoEstimadoCaixa;
+                clientes->tempoEstimadoCaixa = 0;
+                break;
+            }
+        }
+        tempo--;
+        dormir(1000);
+        else{
+            if (clientes->tempoAtraso != 0){
+                clientes->tempoAtraso--;
+                continue;
+            }
+            clientes->tempoEstimadoCaixa--;
+            caixa->tempoTotalEspera--;
+        }
+        
+    }
     
     //Remover da fila
     RemElementoInicio(caixa->listaPessoas);
-    //Remover do caixa
 
 }
 
