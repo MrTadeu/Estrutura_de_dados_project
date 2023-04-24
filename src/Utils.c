@@ -65,58 +65,6 @@ struct tm getCurrentTime(){
     return tm;
 }
 
-void AtualizarDadosTemposCaixa(CaixaStruct *lista){
-    if (!lista) return;
-    Elemento *aux = lista->listaPessoas->head;
-    while (aux){
-        ClienteStruct *cliente = (ClienteStruct *)aux->Info;
-        if (cliente->tempoEstimadoCaixa > 0){
-            cliente->tempoEstimadoCaixa--;
-            lista->tempoTotalEspera--;
-        }
-        aux = aux->next;
-    }
-    
-}
-
-void temporizador(CaixaStruct *caixa, ClienteStruct *clientes){
-    if (!caixa || !clientes) return;
-    //Atualizar dados
-    /* dddddddddddddddddddddddddddddddddddddddddddd */
-    
-    clientes->tempoEstimadoFila = 0;
-    int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;
-
-    //Adicionar no ficheiro Histórico
-    /*   DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD    FUNÇÃO   DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
-
-    while (tempo >= 0){
-        if (clientes->tempoAtraso < 0){
-            clientes->tempoEstimadoCaixa--;
-            caixa->tempoTotalEspera--;
-            if (tempo == 0){
-                caixa->tempoTotalEspera -= clientes->tempoEstimadoCaixa;
-                clientes->tempoEstimadoCaixa = 0;
-                break;
-            }
-        }
-        tempo--;
-        dormir(1000);
-        if (clientes->tempoAtraso > 0){
-            if (clientes->tempoAtraso != 0){
-                clientes->tempoAtraso--;
-                continue;
-            }
-            clientes->tempoEstimadoCaixa--;
-            caixa->tempoTotalEspera--;
-        }
-        
-    }
-    
-    //Remover da fila
-    RemElementoInicio(caixa->listaPessoas);
-
-}
 
 /* int fileExists(const char* path) {
   struct stat st;
