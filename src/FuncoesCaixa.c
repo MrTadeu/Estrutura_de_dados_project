@@ -152,7 +152,7 @@ void *ThreadCaixa(CaixaStruct *caixa){
 
     while(caixa->listaPessoas->quantidadeElementos > 0){
         if(caixa->fecharUrgencia){
-            fecharUrgencia(caixa->listaPessoas);
+            /* fecharUrgencia(caixa->listaPessoas); */
         }
         pessoa = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
