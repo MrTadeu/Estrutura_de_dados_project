@@ -8,6 +8,7 @@
     #include <math.h>
     #include <time.h>
     #include <locale.h>
+    #include <unistd.h>
 
     //Criar as threads
     #ifndef PTHREAD_H
@@ -105,6 +106,8 @@
     void guardarClienteTxt(FILE *file, int i);
     void guardarFuncionarioTxt(FILE *file, int i);
     void guardarProdutoTxt(FILE *file, int i);
+    void importGlobal();
+    void guardarGlobalBin();
 
 
     //TipoDadosFuncoes.c

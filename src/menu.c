@@ -30,12 +30,12 @@ void menu(){
         }
         if (Global.lojaAberta == 0){
             if (opcao == i++){
-                criarExame();
+                /* criarExame(); */
             }
         }
         if (Global.lojaAberta == 1){
             if (opcao == i++){
-                inscreverExame();
+                /* inscreverExame(); */
             }
         }
     } while (opcao != 0);
