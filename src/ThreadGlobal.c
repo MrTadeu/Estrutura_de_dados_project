@@ -12,7 +12,7 @@ void changeStateThreadGlobal(){
             exit(1);
         } 
         
-        pthread_join(GlobalThread, NULL);
+        /* pthread_join(GlobalThread, NULL); */// <--- Nao dar join porque a thread global vai ficar sempre a correr
     }
     else if(Global.lojaAberta == 1){
         Global.lojaAberta = 0;
@@ -48,25 +48,29 @@ void *ThreadEsperaTempoCompra(void *args){
     Argumentos *dados = (Argumentos *)args;
     Lista *ListaClientesNaFila = (Lista*)dados->ListaClientesNaFila;
     ClienteStruct *cliente = (ClienteStruct *)dados->cliente;
-    printf("\n\nPessoa Gerada: ");
-    printf("\nNome: %s", cliente->nome);
-    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
-    printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
-    printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
-    printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
-    printf("\nLista de Produtos:");
-   /* Elemento *Aux = cliente->listaProdutos->head;
-    while(Aux){
-        ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
-        printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
-        Aux = Aux->next; 
-    } */
-   
 
+    if(Global.VerTransacoes == 1){
+        printf("\n\nPessoa Gerada: ");
+        printf("\nNome: %s", cliente->nome);
+        printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
+        printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
+        printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
+        printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
+        printf("\nLista de Produtos:");
+    /*  Elemento *Aux = cliente->listaProdutos->head;
+        while(Aux){
+            ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
+            printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
+            Aux = Aux->next; 
+        } */
+    }
+   
     dormir(cliente->tempoEstimadoCompra * 1000);
-    printf("\nFinished ");
-    printf("\nNome: %s", cliente->nome);
-    printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
+    if(Global.VerTransacoes == 1){
+        printf("\nFinished ");
+        printf("\nNome: %s", cliente->nome);
+        printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
+    }
     /* pthread_mutex_lock(&listaLock); */
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     /* pthread_mutex_unlock(&listaLock); */

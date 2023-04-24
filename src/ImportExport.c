@@ -18,6 +18,8 @@ void importGlobal(){
         Global.probGerarPessoa = 50;
         Global.lotacaoMaxima = 200;
         Global.lojaAberta = 0;
+        Global.VerTransacoes = 0;
+        Global.threadGlobalAranque = 0;
     }
     free(file);
 }

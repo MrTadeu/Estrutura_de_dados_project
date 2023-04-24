@@ -75,7 +75,7 @@
     
     typedef struct{
         Lista* Caixas;
-        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta;
+        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
     }GlobalStruct;
 
      typedef enum {
@@ -103,6 +103,13 @@
     //menu.c
     void menu();
     void menuClientes();
+    void menuConfig();
+
+    //global.c
+    void editarNumCaixas();
+    void editarProbGerarPessoa();
+    void editarLotacaoMax();
+    void editarLojaAbertaAranque();
 
     //clientes.c
     void verClientes();

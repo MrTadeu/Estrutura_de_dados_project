@@ -71,7 +71,6 @@ FuncionarioStruct *escolherFuncionarios(){
 }
 
 ClienteStruct *escolherCliente(){
-    /* printf("\n\tpessoa gerada"); */
     if(n_clientesAtivos >= n_clientes){
             /* printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n"); */
         return NULL;
@@ -84,7 +83,6 @@ ClienteStruct *escolherCliente(){
     batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
     EscolherCriarElementoAddLista(cliente->listaProdutos, Aleatorio(1, 100));
     calculoTemposCliente(cliente);
-    /* printf("testee"); */
     return cliente;
 }
 

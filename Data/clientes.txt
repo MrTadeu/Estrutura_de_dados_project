@@ -1,7 +1,7 @@
 6
+991368	Silvia Domingos Estrela	10.000000	6	4	1926
 247462	Alzinda Mota Ferreira	120.000000	24	10	1913
 609954	Carla Rosado Calado	0.000000	15	12	1918
-297780	Silvia Farias Brito	0.000000	9	1	1971
 444750	Bruno Cipriano Pinheiro	1.100000	7	11	1915
 730138	Dora Coelho Antunes	0.000000	6	2	1983
-991368	Silvia Domingos Estrela	10.000000	6	4	1926
+297780	Silvia Farias Brito	0.000000	9	1	1971
