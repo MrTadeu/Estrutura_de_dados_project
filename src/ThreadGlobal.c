@@ -4,14 +4,10 @@ pthread_mutex_t listaLock;
 
 void *ThreadGlobal(){
     srand(time(NULL));
-    Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
+    Lista *PessoasAcabaramTempoDeCompra = criarLista();
     /* pthread_mutex_init(&listaLock, NULL); */
     while(1){
-        if (Aleatorio(0, 100) <= Global.probabilidadeGerarPessoa && n_clientes <= Global.lotacao_maxima_da_Loja){
-            /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
-            arg->ListaClientesNaFila = PessoasAcabaramTempoDeCompra;
-            arg->cliente = (ClienteStruct *)escolherCliente(); */
-            
+        if (Aleatorio(0, 100) <= Global.probGerarPessoa && n_clientes <= Global.lotacaoMaxima){
             ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
 
         }
@@ -23,19 +19,11 @@ void *ThreadGlobal(){
 void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa){
     if(!pessoa)
         return;
-    pthread_t /* * */thread/*  = (pthread_t *) malloc(sizeof(pthread_t)) */;
+    pthread_t thread;
     Argumentos *dados = (Argumentos *) malloc(sizeof(Argumentos));
     dados->cliente = pessoa;
     dados->ListaClientesNaFila = ListaClientesNaFila;
     pthread_create(&thread, NULL, ThreadEsperaTempoCompra, dados);
-    /* AddElementoInicio(listaThreadTempoCompra, criarElemento((void *) thread)); */
-
-    /* Elemento *Aux = listaThreadTempoCompra->head;
-    while(Aux){
-        pthread_t *x = (pthread_t *)Aux->Info;
-        pthread_join(*x, NULL);
-        Aux = Aux->next;
-    } */
 }
 
 void *ThreadEsperaTempoCompra(void *args){

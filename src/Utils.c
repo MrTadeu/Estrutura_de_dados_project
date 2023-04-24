@@ -47,6 +47,13 @@ int DataAntesDepois(DataStruct d1, DataStruct d2){ // Se d1 for antes de d2 retu
     return 0;
 }
 
+int checkIFfileExists(char *filepath){
+    if(access(filepath, F_OK) != -1){
+        return 1;
+    } 
+    return 0;
+}
+
 /* void *ThreadTempo(){
     while(1){
         time_t tempoTot;

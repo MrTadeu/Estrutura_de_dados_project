@@ -1,5 +1,27 @@
 #include "../includes/TipoDados.h"
 
+void importGlobal(){
+    char *file = malloc(sizeof(char)*16);
+    file = "Data/global.bin";
+    if(checkIFfileExists == 1){
+        FILE *file = fopen("Data/global.bin", "rb");
+        if (!file) {
+            printf("\n\n\tImpossivel abrir Ficheiro [red]Data/global.bin[/red]\n\n");
+            exit(1);
+        }
+        fread(&Global, sizeof(GlobalStruct), 1, file);
+        fclose(file);
+    }
+    else{
+        Global.numCaixasTotal = 10;
+        Global.numCaixasAbertas = 0;
+        Global.probGerarPessoa = 50;
+        Global.lotacaoMaxima = 200;
+        Global.lojaAberta = 0;
+    }
+    free(file);
+}
+
 void importarClientes(char **linhaString, int n_linha, int n_colunas){
     Clientes[n_linha].id = atoi(linhaString[0]);
     Clientes[n_linha].nome = malloc((strlen(linhaString[1])+1));
@@ -191,4 +213,15 @@ void guardarFuncionarioTxt(FILE *file, int i){
 
 void guardarProdutoTxt(FILE *file, int i){
     fprintf(file, "%d\t%s\t%f\t%f\t%f\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
+}
+
+void guardarGlobalBin(){
+    FILE *file = fopen("Data/global.bin", "wb");
+    if (!file) {
+        printc("\n\n\tImpossivel abrir Ficheiro [red]global.bin[/red]\n\n");
+        exit(1);
+    }
+    fwrite(&Global, sizeof(GlobalStruct), 1, file);
+
+    fclose(file);
 }

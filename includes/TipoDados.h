@@ -74,7 +74,7 @@
     
     typedef struct{
         Lista* Caixas;
-        int n_caixasTotal, n_caixasAbertas, probabilidadeGerarPessoa, lotacao_maxima_da_Loja;
+        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta;
     }GlobalStruct;
 
      typedef enum {
@@ -128,6 +128,7 @@
     int DataAntesDepois(DataStruct d1, DataStruct d2);
     void dormir(int tempo);
     struct tm getCurrentTime();
+    int checkIFfileExists(char *filepath);
     
     //FuncoesCaixa.c
     void *ThreadCaixa(CaixaStruct *caixa);

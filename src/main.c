@@ -50,8 +50,6 @@ int main(){
 
 
     pthread_t thread_global;
-    Global.lotacao_maxima_da_Loja = 1000;
-    Global.probabilidadeGerarPessoa = 100;
 
     int erro = pthread_create(&thread_global, NULL, ThreadGlobal, NULL);
      if (erro != 0){
