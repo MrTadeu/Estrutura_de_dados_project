@@ -5,7 +5,7 @@ pthread_mutex_t listaLock;
 void *ThreadGlobal(){
     srand(time(NULL));
     Lista /* *caixas, */ /* *listaThreadTempoCompra = criarLista(), */ *PessoasAcabaramTempoDeCompra = criarLista();
-    pthread_mutex_init(&listaLock, NULL);
+    /* pthread_mutex_init(&listaLock, NULL); */
     while(1){
         if (Aleatorio(0, 100) <= Global.probabilidadeGerarPessoa && n_clientes <= Global.lotacao_maxima_da_Loja){
             /* Argumentos *arg = (Argumentos *)malloc(sizeof(Argumentos));
@@ -61,9 +61,9 @@ void *ThreadEsperaTempoCompra(void *args){
     printf("\nFinished ");
     printf("\nNome: %s", cliente->nome);
     printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
-    pthread_mutex_lock(&listaLock);
+    /* pthread_mutex_lock(&listaLock); */
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
-    pthread_mutex_unlock(&listaLock);
+    /* pthread_mutex_unlock(&listaLock); */
     pthread_exit(NULL);
     free(dados);
     return NULL;
