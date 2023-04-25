@@ -1,5 +1,6 @@
 #include "../includes/TipoDados.h"
 
+/* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 void atualizarAtrasos(Lista *lista, int atraso){
     if(!lista){
         printf("\t\n[red]Error![/red] lista NULL.\n");
@@ -92,8 +93,11 @@ void AtenderClientes(CaixaStruct *caixa, ClienteStruct *clientes){
     //Remover da fila
     RemElementoInicio(caixa->listaPessoas);
 }
+/* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
+/* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
 
 
+/* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
 int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
