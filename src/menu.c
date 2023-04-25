@@ -119,12 +119,20 @@ void menuClientes(){
         scanf("%d", &opcao);
 
         i = 1;
-        if (opcao == 0){
-        }
         if (opcao == i++){
             verClientes();
         }
         if (opcao == i++){
+            pesquisarClientes();
+        }
+        if (opcao == i++){
+            adicionarCliente();
+        }
+        if (opcao == i++){
+            editarCliente();
+        }
+        if (opcao == i++){
+            removerCliente();
         }
     } while (opcao != 0);
 }

@@ -112,6 +112,12 @@
 
     //clientes.c
     void verClientes();
+    int checkIfUserExists(int id);
+    int generateUserID();
+    void pesquisarClientes();
+    void adicionarCliente();
+    void editarCliente();
+    void removerCliente();
 
     //ImportExport.c
     int importarCount(char *filename);
