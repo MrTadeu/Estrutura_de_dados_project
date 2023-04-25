@@ -22,13 +22,13 @@ void changeStateThreadGlobal(){
 void *ThreadGlobal(){
     srand(time(NULL));
     Lista *PessoasAcabaramTempoDeCompra = criarLista();
-    ClienteStruct *clienteAux;
+    /* ClienteStruct *clienteAux; */
     /* pthread_mutex_init(&listaLock, NULL); */
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){
             ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
-            SelecionarCaixa()
-            clienteAux = RemElementoInicio(PessoasAcabaramTempoDeCompra);
+            /* SelecionarCaixa();
+            clienteAux = RemElementoInicio(PessoasAcabaramTempoDeCompra); */
 
         }
         dormir(100);
