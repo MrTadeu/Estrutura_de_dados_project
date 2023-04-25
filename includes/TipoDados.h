@@ -18,9 +18,11 @@
     //TIME (SLEEP)
     #ifdef _WIN32
         #include <windows.h>
+        #define SET_UTF8_CODEPAGE system("chcp 65001 > nul");
     #endif
     #ifdef __linux__
         #include <linux.h>
+        #define SET_UTF8_CODEPAGE
     #endif
     
     //Printcolor
@@ -76,6 +78,7 @@
     typedef struct{
         Lista* Caixas;
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
+        int *NivelExperiencia,*salarioBase;
     }GlobalStruct;
 
      typedef enum {
@@ -99,6 +102,7 @@
     //menu.c
     void menu();
     void menuClientes();
+    void menuFuncionarios();
     void menuConfig();
 
     //global.c
@@ -118,6 +122,9 @@
     void adicionarCliente();
     void editarCliente();
     void removerCliente();
+
+    //funcionarios.c
+    void verFuncionariosCaixa();
 
     //ImportExport.c
     int importarCount(char *filename);
@@ -149,6 +156,7 @@
     int pesquisarClienteVetor(ClienteStruct *pessoa);
 
     //Utils.c
+    void setPortugues();
     int Aleatorio(int min, int max);
     DataStruct gerarData(int anoMin, int anoMax);
     int DataAntesDepois(DataStruct d1, DataStruct d2);

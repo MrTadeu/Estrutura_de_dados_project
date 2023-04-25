@@ -12,7 +12,10 @@
     }
 #endif
 
-
+void setPortugues(){
+    SET_UTF8_CODEPAGE;
+    setlocale(LC_ALL, "pt_PT.UTF-8");
+}
 
 int Aleatorio(int min, int max){
     int resultado = min + rand() % (max-min + 1);

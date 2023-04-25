@@ -1,7 +1,7 @@
 6
-51082	Bolacha Krit Minions [marcaBé!] 175 G	1.000000	69.500000	0.600000
-51083	Bolo Laranja [marcaBé!] 400 G	2.290000	33.400002	14.100000
-51084	Bolacha Fibralia 5 Cereais [marcaBé!] 500G	2.870000	9.000000	0.400000
-51085	Napolitanas Bolo Chocolate [marcaBé!] 240 G	1.390000	18.600000	2.500000
-51086	Travesseiros Chocolate 3Un [marcaBé!] 255 G	1.490000	45.900002	4.900000
-51087	Bolacha Tosta Rica Cacau [marcaBé!] 570 G	3.350000	0.500000	4.500000
+51082	Bolacha Krit Minions [marcaBé!] 175 G	1.000000	69.000000	0.000000
+51083	Bolo Laranja [marcaBé!] 400 G	2.000000	33.000000	14.000000
+51084	Bolacha Fibralia 5 Cereais [marcaBé!] 500G	2.000000	9.000000	0.000000
+51085	Napolitanas Bolo Chocolate [marcaBé!] 240 G	1.000000	18.000000	2.000000
+51086	Travesseiros Chocolate 3Un [marcaBé!] 255 G	1.000000	45.000000	4.000000
+51087	Bolacha Tosta Rica Cacau [marcaBé!] 570 G	3.000000	0.000000	4.000000

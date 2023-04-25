@@ -14,11 +14,11 @@ void menu(){
         if(Global.lojaAberta == 1){
             printc("**        [blue]%d [/blue]-> Fechar Loja                      **\n", i++);
         }
-        printc("**        [blue]%d [/blue]-> Configurações                  **\n", i++);
+        printc("**        [blue]%d [/blue]-> Configurações                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Clientes                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Funcionarios                **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Produtos                    **\n", i++);
-        printc("**        [blue]%d [/blue]-> Ver Transações                 **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Transações                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Historico                    **\n", i++);
         printc("**************************************************\n");
         printc("Qual a opção que pretende? ");
@@ -45,7 +45,7 @@ void menu(){
             menuClientes();
         }
         if (opcao == i++){
-
+            menuFuncionarios();
         }
         if (opcao == i++){
 
@@ -133,6 +133,56 @@ void menuClientes(){
         }
         if (opcao == i++){
             removerCliente();
+        }
+    } while (opcao != 0);
+}
+
+
+void menuFuncionarios(){
+    int opcao;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        int i = 0;
+        printc("**************************************************\n");
+        printc("****************    [blue]Menu Funcionário[/blue]    *************\n");
+        printc("**************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Funcionários Inativos        **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Funcionários em Caixa        **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar Funcionários           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Adicionar Funcionário            **\n", i++);
+        printc("**        [blue]%d [/blue]-> Editar Funcionário               **\n", i++);
+        printc("**        [blue]%d [/blue]-> Remover Funcionário              **\n", i++);
+        printc("**        [blue]%d [/blue]-> Trocar Funcionário da Caixa      **\n", i++);
+        printc("**        [blue]%d [/blue]-> Alterar Salários                 **\n", i++);
+        printc("**************************************************\n");
+        printc("Qual a opção que pretende? ");
+        scanf("%d", &opcao);
+
+        i = 1;
+        if (opcao == i++){
+            verFuncionariosCaixa();
+        }
+        if (opcao == i++){
+            verFuncionariosCaixa();
+        }
+        if (opcao == i++){
+            /* pesquisarFuncionarios(); */
+        }
+        if (opcao == i++){
+            /* adicionarFuncionario(); */
+        }
+        if (opcao == i++){
+            /* editarFuncionario(); */
+        }
+        if (opcao == i++){
+            /* removerFuncionario(); */
+        }
+        if (opcao == i++){
+            /* trocarFuncionario(); */
+        }
+        if (opcao == i++){
+            /* alterarSalario(); */
         }
     } while (opcao != 0);
 }
