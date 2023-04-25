@@ -11,12 +11,11 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 
 
 int main(){
-    setPortugues();
     Init();
     menu();
     closeAll();
 
-    /*--------------> SABE O QUE FAZER PEDRO ( ͡~ ͜ʖ ͡°) <-----------------*/
+    /*--------------> PORenquanto mover para A FUNÇAO INIT  <-----------------*/
     Global.salarioBase = (int *) malloc(sizeof(int) * 3);
     Global.salarioBase[0] = 300;
     Global.salarioBase[1] = 600;
