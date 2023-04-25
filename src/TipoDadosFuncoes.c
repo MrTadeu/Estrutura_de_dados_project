@@ -75,7 +75,11 @@ ClienteStruct *escolherCliente(){
         printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n");
         return NULL;
     }
-    
+    if(n_clientesAtivos >= Opcoes.lotacaoMaxima){
+        printc("\n\t[red]Erro![/red] Loja atingiu a lotação máxima.\n");
+        return NULL;
+    }
+
     ClienteStruct *cliente;
     if(Aleatorio(1, 100) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();

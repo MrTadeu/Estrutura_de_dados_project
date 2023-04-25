@@ -8,10 +8,10 @@ void menu(){
         printc("***************    [blue]Menu Principal[/blue]    *************\n");
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Sair                             **\n", i++);
-        if(Global.lojaAberta == 0){
+        if(Opcoes.lojaAberta == 0){
             printc("**        [blue]%d [/blue]-> Abrir Loja                       **\n", i++);
         }
-        if(Global.lojaAberta == 1){
+        if(Opcoes.lojaAberta == 1){
             printc("**        [blue]%d [/blue]-> Fechar Loja                      **\n", i++);
         }
         printc("**        [blue]%d [/blue]-> Configurações                    **\n", i++);
@@ -28,12 +28,12 @@ void menu(){
         if (opcao == 0){
             printf("[lw]A fechar o programa...[/lw]");
         }
-        if (Global.lojaAberta == 0){
+        if (Opcoes.lojaAberta == 0){
             if (opcao == i++){
                changeStateThreadGlobal();
             }
         }
-        if (Global.lojaAberta == 1){
+        if (Opcoes.lojaAberta == 1){
             if (opcao == i++){
                 changeStateThreadGlobal();
             }
@@ -65,15 +65,15 @@ void menuConfig(){
         printc("**************************************************\n");
         printc("*****************    [blue]Menu Config[/blue]    **************\n");
         printc("**************************************************\n");
-        if(Global.threadGlobalAranque == 1){
+        if(Opcoes.threadGlobalAranque == 1){
             printc("        [red]Loja Aberta no Aranque[/red]\n");
         }
-        if(Global.threadGlobalAranque == 0){
+        if(Opcoes.threadGlobalAranque == 0){
             printc("        [green]Loja não é Aberta no Aranque[/green]\n");
         }
-        printc("        [blue]%d[/blue] - Numero Caixas\n", Global.numCaixasTotal);
-        printc("        [blue]%d%%[/blue] - Probabilidade de Gerar Pessoa 1/seg\n", Global.probGerarPessoa);
-        printc("        [blue]%d[/blue] - Lotaçao Maxima\n", Global.lotacaoMaxima);
+        printc("        [blue]%d[/blue] - Numero Caixas\n", Opcoes.numCaixasTotal);
+        printc("        [blue]%d%%[/blue] - Probabilidade de Gerar Pessoa 1/seg\n", Opcoes.probGerarPessoa);
+        printc("        [blue]%d[/blue] - Lotaçao Maxima\n", Opcoes.lotacaoMaxima);
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
         printc("**        [blue]%d [/blue]-> Editar Loja Aberta no Aranque    **\n", i++);
@@ -142,7 +142,7 @@ void menuFuncionarios(){
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-        /* printf("n_caixas: %d\n", Global.numCaixasTotal); */
+        /* printf("n_caixas: %d\n", Opcoes.numCaixasTotal); */
         int i = 0;
         printc("**************************************************\n");
         printc("****************    [blue]Menu Funcionário[/blue]    *************\n");

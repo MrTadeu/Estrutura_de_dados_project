@@ -1,25 +1,26 @@
 #include "../includes/TipoDados.h"
 
-void importGlobal(){
+void importOpcoes(){
     char *file = malloc(sizeof(char)*16);
-    strcpy(file,"Data/global.bin");
+    strcpy(file,"Data/opcoes.bin");
     if(checkIFfileExists(file) == 1){
-        FILE *file = fopen("Data/global.bin", "rb");
+        FILE *file = fopen("Data/opcoes.bin", "rb");
         if (!file) {
-            printf("\n\n\tImpossivel abrir Ficheiro [red]Data/global.bin[/red]\n\n");
+            printf("\n\n\tImpossivel abrir Ficheiro [red]Data/opcoes.bin[/red]\n\n");
             exit(1);
         }
-        fread(&Global, sizeof(GlobalStruct), 1, file);
+        fread(&Opcoes, sizeof(OpcaoStruct), 1, file);
         fclose(file);
     }
     else{
-        Global.numCaixasTotal = 10;
-        Global.numCaixasAbertas = 0;
-        Global.probGerarPessoa = 50;
-        Global.lotacaoMaxima = 200;
-        Global.lojaAberta = 0;
-        Global.VerTransacoes = 0;
-        Global.threadGlobalAranque = 0;
+        Opcoes.numCaixasTotal = 10;
+        Opcoes.numCaixasAbertas = 0;
+        Opcoes.probGerarPessoa = 50;
+        Opcoes.lotacaoMaxima = 200;
+        Opcoes.lojaAberta = 0;
+        Opcoes.VerTransacoes = 0;
+        Opcoes.threadGlobalAranque = 0;
+        Glo
     }
     free(file);
 }
@@ -217,13 +218,13 @@ void guardarProdutoTxt(FILE *file, int i){
     fprintf(file, "%d\t%s\t%f\t%f\t%f\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
 }
 
-void exportarGlobal(){
+void exportarOpcoes(){
     FILE *file = fopen("Data/global.bin", "wb");
     if (!file) {
         printc("\n\n\tImpossivel abrir Ficheiro [red]global.bin[/red]\n\n");
         exit(1);
     }
-    fwrite(&Global, sizeof(GlobalStruct), 1, file);
+    fwrite(&Opcoes, sizeof(OpcaoStruct), 1, file);
 
     fclose(file);
 }
