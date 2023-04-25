@@ -10,9 +10,12 @@ int encontrarIdFuncionario(int id){
 }
 
 float convertNumeroDeVendasSalario_vetor(int pos){
-    if (Funcionarios[pos].n_vendas <= Opcoes.nivelFuncionario[0][0]) return Opcoes.nivelFuncionario[0][1];
-    else if (Funcionarios[pos].n_vendas<= Opcoes.nivelFuncionario[1][0] ) return Opcoes.nivelFuncionario[1][1];
-    else return Opcoes.nivelFuncionario[2][1];
+    if (Funcionarios[pos].n_vendas <= Opcoes.nivelFuncionario[0][0]) 
+        return Opcoes.nivelFuncionario[0][1];
+    else if (Funcionarios[pos].n_vendas<= Opcoes.nivelFuncionario[1][0] ) 
+        return Opcoes.nivelFuncionario[1][1];
+    else 
+        return Opcoes.nivelFuncionario[2][1];
 }
 
 float convertVendasToSalario_lista(FuncionarioStruct *funcionario){
@@ -20,9 +23,12 @@ float convertVendasToSalario_lista(FuncionarioStruct *funcionario){
         printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
         return -1;
     }
-    if (funcionario->n_vendas <= Opcoes.nivelFuncionario[0][0]) return Opcoes.nivelFuncionario[0][1];
-    else if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1][0] ) return Opcoes.nivelFuncionario[1][1];
-    else return Opcoes.nivelFuncionario[2][1];
+    if (funcionario->n_vendas <= Opcoes.nivelFuncionario[0][0]) 
+        return Opcoes.nivelFuncionario[0][1];
+    else if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1][0] ) 
+        return Opcoes.nivelFuncionario[1][1];
+    else 
+        return Opcoes.nivelFuncionario[2][1];
 }
 
 void verFuncionariosCaixa(){
