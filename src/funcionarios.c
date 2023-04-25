@@ -9,7 +9,7 @@ int encontrarIdFuncionario(int id){
     return -1;
 }
 
-float convertNumeroDeVendasSalario_vetor(int pos){
+/* float convertNumeroDeVendasSalario_vetor(int pos){
     if (Funcionarios[pos].n_vendas <= Opcoes.nivelFuncionario[0][0]) 
         return Opcoes.nivelFuncionario[0][1];
     else if (Funcionarios[pos].n_vendas<= Opcoes.nivelFuncionario[1][0] ) 
@@ -17,7 +17,7 @@ float convertNumeroDeVendasSalario_vetor(int pos){
     else 
         return Opcoes.nivelFuncionario[2][1];
 }
-
+ */
 float convertVendasToSalario_lista(FuncionarioStruct *funcionario){
     if(!funcionario){
         printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
@@ -25,7 +25,7 @@ float convertVendasToSalario_lista(FuncionarioStruct *funcionario){
     }
     if (funcionario->n_vendas <= Opcoes.nivelFuncionario[0][0]) 
         return Opcoes.nivelFuncionario[0][1];
-    else if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1][0] ) 
+    else if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1][0]) 
         return Opcoes.nivelFuncionario[1][1];
     else 
         return Opcoes.nivelFuncionario[2][1];
@@ -34,10 +34,8 @@ float convertVendasToSalario_lista(FuncionarioStruct *funcionario){
 void verFuncionariosCaixa(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
-    for (int i = 0; i < n_funcionarios; i++){
-        if (Funcionarios[i].ativo == 1){
-            printf("\nID: %d Nome: %s Salario: %.2d €\n", Funcionarios[i].id, Funcionarios[i].nome, convertNumeroDeVendasSalario(i));
-        }
+    for (int i = 0; i < n_funcionariosAtivos; i++){
+        printf("\nID: %d Nome: %s Salario: %.2f €\n", Funcionarios[i].id, Funcionarios[i].nome, convertVendasToSalario_lista(&Funcionarios[i]));
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     getchar();
@@ -47,10 +45,8 @@ void verFuncionariosCaixa(){
 void verFuncionariosInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
-    for (int i = 0; i < n_funcionarios; i++){
-        if (Funcionarios[i].ativo == 0){
-            printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, convertNumeroDeVendasSalario(i));
-        }
+    for (int i = n_funcionariosAtivos; i < n_funcionarios; i++){
+        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, convertVendasToSalario_lista(&Funcionarios[i]));
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     getchar();
@@ -71,7 +67,7 @@ void pesquisarFuncionarios(){
         getchar();
     }
     else{
-        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, convertNumeroDeVendasSalario(pos));
+        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, convertVendasToSalario_lista(&Funcionarios[pos]));
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         getchar();
         getchar();
@@ -92,7 +88,7 @@ void editarFuncionarios(){
         getchar();
     }
     else{
-        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, convertNumeroDeVendasSalario(pos));
+        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, convertVendasToSalario_lista(&Funcionarios[pos]));
 
         char nome[100];
         printf("Insira o novo nome do funcionario: ");
