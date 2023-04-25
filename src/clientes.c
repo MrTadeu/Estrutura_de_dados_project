@@ -131,3 +131,37 @@ void removerCliente(){
     getchar();
     getchar();
 }
+
+ClienteStruct *escolherCliente(){
+    if(n_clientesAtivos >= n_clientes){
+        printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n");
+        return NULL;
+    }
+    if(n_clientesAtivos >= Opcoes.lotacaoMaxima){
+        printc("\n\t[red]Erro![/red] Loja atingiu a lotação máxima.\n");
+        return NULL;
+    }
+
+    ClienteStruct *cliente;
+    if(Aleatorio(1, 100) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
+        cliente = criarGuest();
+        cliente->listaProdutos = criarLista();
+    }
+    else{
+        cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
+        int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
+        Clientes[indice].ativo = 1;                                                                           
+        batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
+    }
+
+    cliente->listaProdutos = criarLista();
+    criarProdutosAddCliente(cliente->listaProdutos, Aleatorio(1, 100));
+    calculoTemposCliente(cliente);
+    return cliente;
+}
+
+void DesocuparCliente(ClienteStruct *pessoa){
+    int index = pesquisarClienteVetor(pessoa);
+    batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
+    pessoa->ativo = 0;
+}

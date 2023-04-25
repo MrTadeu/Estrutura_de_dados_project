@@ -21,15 +21,21 @@ void changeStateThreadGlobal(){
 
 void *ThreadGlobal(){
     srand(time(NULL));
-    Lista *PessoasAcabaramTempoDeCompra = criarLista();
+    Global.PessoasAcabaramTempoDeCompra = criarLista();
+    Global.PessoasAtendidas = criarLista();
+
     /* ClienteStruct *clienteAux; */
     /* pthread_mutex_init(&listaLock, NULL); */
-    while(Opcoes.lojaAberta == 1){
-        if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){
-            ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
-            /* SelecionarCaixa();
-            clienteAux = RemElementoInicio(PessoasAcabaramTempoDeCompra); */
 
+    while(Opcoes.lojaAberta == 1){
+        if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
+            ThreadTempoDeCompra(Global.PessoasAcabaramTempoDeCompra, escolherCliente());
+            SelecionarCaixa(Global.caixas, Global.PessoasAcabaramTempoDeCompra->head);
+            RemElementoInicio(Global.PessoasAcabaramTempoDeCompra);
+        }
+        if(Global.PessoasAtendidas->quantidadeElementos > 0){ //Libertar pessoa
+            DesocuparCliente((ClienteStruct *)Global.PessoasAtendidas->head->Info)
+            destruirElemento(RemElementoInicio(Global.PessoasAtendidas), destruirCliente);
         }
         dormir(100);
     }
@@ -79,7 +85,6 @@ void *ThreadEsperaTempoCompra(void *args){
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     /* pthread_mutex_unlock(&listaLock); */
     pthread_exit(NULL);
-    free(dados);
     return NULL;
 }
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/

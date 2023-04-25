@@ -70,34 +70,6 @@ FuncionarioStruct *escolherFuncionarios(){
     return funcionario;
 }
 
-ClienteStruct *escolherCliente(){
-    if(n_clientesAtivos >= n_clientes){
-        printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n");
-        return NULL;
-    }
-    if(n_clientesAtivos >= Opcoes.lotacaoMaxima){
-        printc("\n\t[red]Erro![/red] Loja atingiu a lotação máxima.\n");
-        return NULL;
-    }
-
-    ClienteStruct *cliente;
-    if(Aleatorio(1, 100) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
-        cliente = criarGuest();
-        cliente->listaProdutos = criarLista();
-    }
-    else{
-        cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
-        int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
-        Clientes[indice].ativo = 1;                                                                           
-        batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
-    }
-
-    cliente->listaProdutos = criarLista();
-    criarProdutosAddCliente(cliente->listaProdutos, Aleatorio(1, 100));
-    calculoTemposCliente(cliente);
-    return cliente;
-}
-
 ProdutoStruct *escolherProduto(){
     ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
     escolherAleatorioVetor(Produtos, 0, n_produtos, sizeof(ProdutoStruct), produto);
@@ -211,4 +183,15 @@ int pesquisarClienteVetorBatente(ClienteStruct *pessoa){ // Devolve index do cli
             return i;
     }
     return -1;
+}
+
+void destruirProduto(void *Produto){
+    ProdutoStruct *produto = (ProdutoStruct *) Produto;
+    free(produto);
+}
+
+void destruirCliente(void *Cliente){
+    ClienteStruct *cliente = (ClienteStruct *) Cliente;
+    destruirLista(cliente->listaProdutos, destruirProduto);
+    free(cliente);
 }

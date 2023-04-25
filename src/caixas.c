@@ -15,10 +15,10 @@ void atualizarAtrasos(Lista *lista, int atraso){
 }
 
 atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
-    float salario = getNivelFuncionario(funcionario);
+    float salario = (getNivelFuncionario(funcionario)).salario;
     funcionario->n_vendas += n_vendas;
     if(Opcoes.VerTransacoes == 1){
-        if(getNivelFuncionario(funcionario) != salario){
+        if((getNivelFuncionario(funcionario)).salario != salario){
             float novoSalario = getNivelFuncionario(funcionario);
             for (int  i = 1; i < 3; i++){
                 if(Opcoes.nivelFuncionario[i][1] == novoSalario)
@@ -34,12 +34,6 @@ atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int
 /* fecharUrgencia(Lista *lista){
     
 } */
-
-void DesocuparCliente(ClienteStruct *pessoa){
-    int index = pesquisarClienteVetor(pessoa);
-    batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
-    pessoa->ativo = 0;
-}
 
 /* void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
     if(!caixa){
@@ -85,8 +79,8 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = 0;
 
-    DesocuparCliente(cliente);
-    return RemElementoInicio(caixa->listaPessoas);//Remover da fila
+    //Remover da fila
+    return RemElementoInicio(caixa->listaPessoas);
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 /* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
@@ -129,16 +123,17 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor tempo
     return index;
 }
 
-void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona e adiciona a melhor caixa para o cliente
+void SelecionarCaixa(Lista *caixas, ClienteStruct *cliente){ // seleciona e adiciona a melhor caixa para o cliente
     int index = CaixaIndex(caixas);
     Elemento *caixaAux = caixas->head;
     while(index){
         caixaAux = caixaAux->next;
         index--;
     }
-    CaixaStruct *caixaAuxInfo = (CaixaStruct* )caixaAux->Info;
-    
-    AddElementoFim(caixaAuxInfo->listaPessoas, cliente);
+    CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
+    ClienteStruct *primeiraPessoa = (ClienteStruct *) caixaAuxInfo->listaPessoas->head->Info;
+    cliente->tempoAtraso = primeiraPessoa->tempoAtraso; //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
+    AddElementoFim(caixaAuxInfo->listaPessoas, criarElemento(cliente));
 }
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
@@ -147,22 +142,19 @@ void *ThreadCaixa(CaixaStruct *caixa){
 
     int atraso, n_vendas = 0;
     float atrasoMaximo, atrasoMedio;
-    Elemento *elemento;
-    ClienteStruct *pessoa;
+    ClienteStruct *pessoaEmAtendimento;
+    Elemento *elementoAux;
 
     while(caixa->listaPessoas->quantidadeElementos > 0){
         if(caixa->fecharUrgencia){
             fecharUrgencia(caixa->listaPessoas);
         }
-        pessoa = (ClienteStruct *) caixa->listaPessoas->head->Info;
+        pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
-        atrasoMaximo = pessoa->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
+        atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
         atualizarAtrasos(caixa->listaPessoas, atraso);
-        
-
-
-        atenderPessoa(caixa);
+        AddElementoFim(Global.PessoasAtendidas, atenderPessoa(caixa));
         atrasoMedio += atraso;
         n_vendas++;
     }

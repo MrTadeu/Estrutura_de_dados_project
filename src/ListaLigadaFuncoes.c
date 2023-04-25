@@ -197,6 +197,16 @@ void mostrarLista(Lista *lista, void (mostrarInfo)(void *, int), int indentLevel
     }
 }
 
+void destruirElemento(Elemento *elemento, void (destruirInfo)(void *)){
+    if(!elemento){
+       printf("\tError! List is NULL\n"); 
+       return;
+    }
+
+    destruirInfo(elemento->Info);
+    free(elemento);
+}
+
 void destruirLista(Lista *lista, void (destruirInfo)(void *)){
     if(!lista){
        printf("\tError! List is NULL\n"); 

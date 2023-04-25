@@ -82,14 +82,9 @@
 
     typedef struct{
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
-        float /* **nivelFuncionario,  */eurosPorSegundoAdiantamentoFuncinario;
+        float eurosPorSegundoAdiantamentoFuncinario;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
-
-
-    typedef struct{
-        Lista* caixas;
-    }GlobalStruct;
 
      typedef enum {
         CLIENTES,
@@ -98,11 +93,16 @@
     } TipoDados;
 
     typedef struct{
+        Lista *caixas, *PessoasAcabaramTempoDeCompra, *PessoasAtendidas;
+    }GlobalStruct;
+
+    typedef struct{
         CaixaStruct *caixa;
         ClienteStruct *pessoa;
     }HistoricoStruct;
 
     //GLOBAL VARIABLES
+    extern GlobalStruct Global;
     extern OpcaoStruct Opcoes;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
@@ -132,10 +132,12 @@
     void adicionarCliente();
     void editarCliente();
     void removerCliente();
+    ClienteStruct *escolherCliente();
+    void DesocuparCliente(ClienteStruct *pessoa);
 
     //caixas.c
     int CaixaIndex(Lista *caixa);
-    void SelecionarCaixa(Lista *caixas, Elemento *cliente);
+    void SelecionarCaixa(Lista *caixas, Elemento* cliente);
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);
@@ -167,7 +169,6 @@
     ClienteStruct *criarGuest();
     FuncionarioStruct *escolherFuncionarios();
     ProdutoStruct *escolherProduto();
-    ClienteStruct *escolherCliente();//alterado para retornar um ponteiro para o cliente escolhido
     void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);
     void mostrarFuncionario(void *funcionarioArg, int indentLevel);
     void mostrarCaixa(void *caixaArg, int indentLevel);
@@ -176,6 +177,8 @@
     int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info);
     int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info);
     int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
+    void destruirProduto(void *Produto);
+    void destruirCliente(void *cliente);
 
     //Utils.c
     void setPortugues();
