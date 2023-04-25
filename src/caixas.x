@@ -15,11 +15,11 @@ void atualizarAtrasos(Lista *lista, int atraso){
 }
 
 atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
-    float salario = convertVendasToSalario_lista(funcionario);
+    float salario = getNivelFuncionario(funcionario);
     funcionario->n_vendas += n_vendas;
     if(Opcoes.VerTransacoes == 1){
-        if(convertVendasToSalario_lista(funcionario) != salario){
-            float novoSalario = convertVendasToSalario_lista(funcionario);
+        if(getNivelFuncionario(funcionario) != salario){
+            float novoSalario = getNivelFuncionario(funcionario);
             for (int  i = 1; i < 3; i++){
                 if(Opcoes.nivelFuncionario[i][1] == novoSalario)
                     printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para nível %d com novo salario de %.2f euros\n", funcionario->id, i+1, novoSalario);

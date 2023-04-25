@@ -76,7 +76,7 @@
     }ClienteStruct;
 
     typedef struct{
-        int nivel;
+        int nivel, n_vendas; //NIVEL 1/2/3 
         float salario;
     }NivelFuncionarioStruct;
 
@@ -140,7 +140,7 @@
     //funcionarios.c
     int encontrarIdFuncionario(int id);
     float convertNumeroDeVendasSalario_vetor(int pos);
-    float convertVendasToSalario_lista(FuncionarioStruct *funcionario);
+    NivelFuncionarioStruct getNivelFuncionario(FuncionarioStruct *funcionario);
     void verFuncionariosCaixa();
     void verFuncionariosInativos();
     void pesquisarFuncionarios();
