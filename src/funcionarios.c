@@ -9,7 +9,18 @@ int encontrarIdFuncionario(int id){
     return -1;
 }
 
-
+float *convertVendasToNivel(FuncionarioStruct *funcionario){
+    if(!funcionario){
+        printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
+        return -1;
+    }
+    if(funcionario->n_vendas <= Opcoes.nivelFuncionario[0])
+        return Opcoes.nivelFuncionario[0]
+    else if(funcionario->n_vendas > Opcoes.nivelFuncionario[0] && funcionario->n_vendas <= Opcoes.nivelFuncionario[1])
+        return Opcoes.nivelFuncionario[1]
+    else
+        return Opcoes.nivelFuncionario[2]
+}
 
 void verFuncionariosCaixa(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);

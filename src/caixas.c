@@ -157,6 +157,6 @@ void *ThreadCaixa(CaixaStruct *caixa){
     }
     atrasoMedio /= n_vendas;
     caixa->funcionario->atrasoMedio = (caixa->funcionario->atrasoMedio + atrasoMedio) / 2;
-    caixa->funcionario->experiencia += n_vendas;
+    caixa->funcionario->n_vensas += n_vendas;
 }
 
