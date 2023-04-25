@@ -76,7 +76,7 @@
     }ClienteStruct;
     
     typedef struct{
-        int numCl, numCaixasTotaCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
+        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
         float **nivelFuncionario;
     }OpcaoStruct;
 

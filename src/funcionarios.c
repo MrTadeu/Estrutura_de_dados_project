@@ -18,6 +18,15 @@ float convertNumeroDeVendasSalario(int pos){
     else if (Funcionarios[pos].n_vendas<= Opcoes.nivelFuncionario[1][0] ) return Opcoes.nivelFuncionario[1][1];
     else return Opcoes.nivelFuncionario[2][1];
 }
+float convertVendasToNivel(FuncionarioStruct *funcionario){
+    if(!funcionario){
+        printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
+        return -1;
+    }
+    if (funcionario->n_vendas <= Opcoes.nivelFuncionario[0][0]) return Opcoes.nivelFuncionario[0][1];
+    else if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1][0] ) return Opcoes.nivelFuncionario[1][1];
+    else return Opcoes.nivelFuncionario[2][1];
+}
 
 void verFuncionariosCaixa(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
@@ -87,8 +96,6 @@ void adicionarFuncionario(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printf("Insira o nome do funcionario: ");
     scanf("%s", Funcionarios[n_funcionarios].nome);
-    printf("Insira o nivel de experiencia do funcionario: ");
-    scanf("%d", &Funcionarios[n_funcionarios].experiencia);
     Funcionarios[n_funcionarios].id = generateID(encontrarIdFuncionario, -1);
     Funcionarios[n_funcionarios].ativo = 0;
     n_funcionarios++;
@@ -97,6 +104,6 @@ void adicionarFuncionario(){
     getchar();
 }
 
-void removerFuncionario(){
+/* void removerFuncionario(){
 
-}
+} */

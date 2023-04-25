@@ -1,7 +1,8 @@
-6
+7
 1639	Bruna Cristina Pedreiro Silva	1.000000	2.000000	3	4.000000
 9945	António Alexandre Carvalho	0.000000	0.000000	0	0.000000
 9252	Filipa Liliana Meira Soares	0.000000	0.000000	0	0.000000
 7904	Ana Seixas Garcia 	0.000000	0.000000	0	0.000000
 9162	Simao Daniela Pereira Lima	0.000000	0.000000	0	0.000000
 1478	Mariana Rita Lopes Cabral	0.000000	0.000000	0	0.000000
+4928	jamar	0.000000	20.000000	10	0.000000
