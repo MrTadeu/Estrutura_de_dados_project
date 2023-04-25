@@ -212,16 +212,16 @@ void menuProdutos(){
             verProdutos();
         }
         if (opcao == i++){
-            pesquisarProduto();
+            /* pesquisarProduto(); */
         }
         if (opcao == i++){
-            adicionarProduto();
+            /* adicionarProduto(); */
         }
         if (opcao == i++){
-            editarProduto();
+            /* editarProduto(); */
         }
         if (opcao == i++){
-            removerProduto();
+            /* removerProduto(); */
         }
     } while (opcao != 0);
 }
