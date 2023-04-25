@@ -189,7 +189,7 @@ int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
     return 1;
 }
 
-int pesquisarClienteVetor(ClienteStruct *pessoa){
+int pesquisarClienteVetorBatente(ClienteStruct *pessoa){ // Devolve index do cliente dentro do intervalo de batente para o enviar para a funcao batetnteChange
     if(!pessoa){
         printf("[red]Error![/red] NULL ClienteStruct");
         return -1;

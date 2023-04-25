@@ -25,7 +25,10 @@ void DesocuparCliente(ClienteStruct *pessoa){
 }
 
 void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
-    if (!caixa) return;
+    if(!caixa){
+        printf("\n\t[red]Error![/red] Given caixa is NULL\n");
+        return;
+    } 
     Elemento *aux = caixa->listaPessoas->head;
 
     int countTempoEstimadoCaixa = 0;
@@ -40,45 +43,22 @@ void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
     caixa->tempoTotalEspera = countTempoEstimadoCaixa;
 }
 
-void AtenderClientes(CaixaStruct *caixa, ClienteStruct *clientes){
-    if (!caixa || !clientes) return;
-    //Atualizar dados
-    DesocuparCliente(clientes);
+void atenderPessoa(CaixaStruct *caixa, ClienteStruct *clientes){
+    if (!caixa){
+        printf("\n\t[red]Error![/red] Given caixa is NULL\n");
+        return;
+    }
+    if(!clientes){
+        printf("\n\t[red]Error![/red] Given cliente is NULL\n");
+        return;
+    }
+
+    
     
     clientes->tempoEstimadoFila = 0;
     int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;
 
-    //Adicionar no ficheiro Histórico
-    /*   DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD    FUNÇÃO   DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
-
-    /* while (tempo >= 0){
-        if (clientes->tempoAtraso < 0){
-            if (tempo == 0){
-                caixa->tempoTotalEspera -= clientes->tempoEstimadoCaixa;
-                clientes->tempoEstimadoCaixa = 0;
-                break;
-            }
-            clientes->tempoEstimadoCaixa--;
-            caixa->tempoTotalEspera--;
-        }
-        else if (clientes->tempoAtraso == 0){
-            if (tempo == 0){
-                break;
-            }
-        }
-        tempo--;
-        dormir(1000);
-        if (clientes->tempoAtraso > 0){
-            if (clientes->tempoEstimadoCaixa != 0){
-                clientes->tempoEstimadoCaixa--;
-                caixa->tempoTotalEspera--;
-                continue;
-            }
-            clientes->tempoAtraso--;
-        }
-        
-    } */
-    while (tempo){
+    while(tempo){
         dormir(1000);
         tempo--;
         if (clientes->tempoEstimadoCaixa){
@@ -92,6 +72,7 @@ void AtenderClientes(CaixaStruct *caixa, ClienteStruct *clientes){
     
     //Remover da fila
     RemElementoInicio(caixa->listaPessoas);
+    DesocuparCliente(clientes);
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 /* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
@@ -147,7 +128,7 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-/* void *ThreadCaixa(CaixaStruct *caixa){
+void *ThreadCaixa(CaixaStruct *caixa){
 
     int atraso, n_vendas = 0;
     float atrasoMaximo, atrasoMedio;
@@ -181,4 +162,3 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) 
     caixa->funcionario->experiencia += n_vendas;
 }
 
- */

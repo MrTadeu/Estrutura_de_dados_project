@@ -78,6 +78,7 @@
     typedef struct{
         Lista* Caixas;
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
+        int *NivelExperiencia, *salarioBase;
     }GlobalStruct;
 
      typedef enum {
@@ -152,7 +153,7 @@
     void mostrarCliente(void *clienteArg, int indentLevel);
     int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info);
     int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info);
-    int pesquisarClienteVetor(ClienteStruct *pessoa);
+    int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
 
     //Utils.c
     void setPortugues();
