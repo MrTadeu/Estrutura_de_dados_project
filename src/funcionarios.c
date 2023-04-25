@@ -23,12 +23,54 @@ void verFuncionariosCaixa(){
 void verFuncionariosInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     for (int i = 0; i < n_funcionarios; i++){
-        printf("\nID: %d Nome: %s Salario: %.2f€  Nivel de Experiencia: %d\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].salario, Funcionarios[i].experiencia);
+        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].salario);
     }
     getchar();
     getchar();
 }
 
 void pesquisarFuncionarios(){
-
+    int id;
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    printf("Insira o ID do funcionario que pretende pesquisar: ");
+    scanf("%d", &id);
+    int pos = encontrarIdFuncionario(id);
+    if (pos == -1){
+        printf("Funcionario não encontrado!");
+        getchar();
+        getchar();
+    }
+    else{
+        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, Funcionarios[pos].salario);
+        getchar();
+        getchar();
+    }
 }
+
+void editarFuncionarios(){
+    int id;
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    printf("Insira o ID do funcionario que pretende editar: ");
+    scanf("%d", &id);
+    int pos = encontrarIdFuncionario(id);
+    if (pos == -1){
+        printf("Funcionario não encontrado!");
+        getchar();
+        getchar();
+    }
+    else{
+        printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, Funcionarios[pos].salario);
+        printf("Insira o novo nome do funcionario: ");
+        scanf("%s", Funcionarios[pos].nome);
+        printf("Insira o novo salario do funcionario: ");
+        scanf("%f", &Funcionarios[pos].salario);
+        printf("Insira o novo nivel de experiencia do funcionario: ");
+        scanf("%d", &Funcionarios[pos].experiencia);
+        getchar();
+        getchar();
+    }
+}
+
+/* void adicionarFuncionario(){
+
+} */
