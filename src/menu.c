@@ -162,16 +162,16 @@ void menuFuncionarios(){
 
         i = 1;
         if (opcao == i++){
-            verFuncionariosCaixa();
+            verFuncionariosInativos();
         }
         if (opcao == i++){
             verFuncionariosCaixa();
         }
         if (opcao == i++){
-            /* pesquisarFuncionarios(); */
+            pesquisarFuncionarios();
         }
         if (opcao == i++){
-            /* adicionarFuncionario(); */
+            adicionarFuncionario();
         }
         if (opcao == i++){
             /* editarFuncionario(); */

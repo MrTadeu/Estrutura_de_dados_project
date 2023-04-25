@@ -1,6 +1,6 @@
 #include "../includes/TipoDados.h"
 
-pthread_mutex_t listaLock;
+/* pthread_mutex_t listaLock; */
 
 void changeStateThreadGlobal(){
     if(Global.lojaAberta == 0){
@@ -22,7 +22,7 @@ void changeStateThreadGlobal(){
 void *ThreadGlobal(){
     srand(time(NULL));
     Lista *PessoasAcabaramTempoDeCompra = criarLista();
-    pthread_mutex_init(&listaLock, NULL);
+    /* pthread_mutex_init(&listaLock, NULL); */
     while(Global.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Global.probGerarPessoa && n_clientes <= Global.lotacaoMaxima){
             ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
@@ -69,9 +69,9 @@ void *ThreadEsperaTempoCompra(void *args){
     if(Global.VerTransacoes == 1){
         printf("\n\n%s acabou de comprar todos os produtos em %ds",cliente->nome, cliente->tempoEstimadoCompra);
     }
-    pthread_mutex_lock(&listaLock);
+    /* pthread_mutex_lock(&listaLock); */
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
-    pthread_mutex_unlock(&listaLock);
+    /* pthread_mutex_unlock(&listaLock); */
     pthread_exit(NULL);
     free(dados);
     return NULL;

@@ -125,6 +125,9 @@
 
     //funcionarios.c
     void verFuncionariosCaixa();
+    void verFuncionarios();
+    void pesquisarFuncionarios();
+    void adicionarFuncionario();
 
     //ImportExport.c
     int importarCount(char *filename);
