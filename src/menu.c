@@ -174,7 +174,7 @@ void menuFuncionarios(){
             adicionarFuncionario();
         }
         if (opcao == i++){
-            /* editarFuncionario(); */
+            editarFuncionario();
         }
         if (opcao == i++){
             /* removerFuncionario(); */

@@ -127,7 +127,7 @@
 
     //funcionarios.c
     void verFuncionariosCaixa();
-    void verFuncionarios();
+    void verFuncionariosInativos();
     void pesquisarFuncionarios();
     void adicionarFuncionario();
 
