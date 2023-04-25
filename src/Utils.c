@@ -57,6 +57,15 @@ int checkIFfileExists(char *filepath){
     return 0;
 }
 
+int generateID(int (*checkIfExists)(int), int x){
+    int id = 0;
+    srand(time(NULL));
+    do{
+        id = rand() % 1000000;
+    }while(checkIfExists(id) != x);
+    return id;
+}
+
 /* void *ThreadTempo(){
     while(1){
         time_t tempoTot;
