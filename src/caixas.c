@@ -14,8 +14,8 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
-atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio){
-    
+atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int vendas){
+    float salario = convertNumeroDeVendasSalario(encontrarIdFuncionario(funcionario->id));
     funcionario->n_vendas += n_vendas;
     if(funcionario->n_vendas)
     funcionario->atrasoMedio = (funcionario->atrasoMedio + atrasoMedio) / 2;
