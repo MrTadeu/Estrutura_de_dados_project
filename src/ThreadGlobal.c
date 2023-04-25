@@ -27,7 +27,7 @@ void *ThreadGlobal(){
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){
             ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
-            SelecionarCaixa()
+            SelecionarCaixa();
             clienteAux = RemElementoInicio(PessoasAcabaramTempoDeCompra);
 
         }
