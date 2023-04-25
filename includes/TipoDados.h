@@ -74,11 +74,18 @@
 
         Lista *listaProdutos;           // lista dos produtos
     }ClienteStruct;
-    
+
+    typedef struct{
+        int nivel;
+        float salario;
+    }NivelFuncionarioStruct;
+
     typedef struct{
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
-        float **nivelFuncionario, eurosPorSegundoAdiantamentoFuncinario;
+        float /* **nivelFuncionario,  */eurosPorSegundoAdiantamentoFuncinario;
+        NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
+
 
     typedef struct{
         Lista* caixas;
