@@ -14,6 +14,13 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
+atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio){
+    
+    funcionario->n_vendas += n_vendas;
+    if(funcionario->n_vendas)
+    funcionario->atrasoMedio = (funcionario->atrasoMedio + atrasoMedio) / 2;
+}
+
 /* fecharUrgencia(Lista *lista){
     
 } */
@@ -139,7 +146,7 @@ void *ThreadCaixa(CaixaStruct *caixa){
         }
         pessoa = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
-        atrasoMaximo = pessoa->tempoEstimadoCaixa * caixa->percentagemParaAtraso;
+        atrasoMaximo = pessoa->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
         atualizarAtrasos(caixa->listaPessoas, atraso);
         
@@ -156,7 +163,6 @@ void *ThreadCaixa(CaixaStruct *caixa){
         atenderPessoa(pessoa);
     }
     atrasoMedio /= n_vendas;
-    caixa->funcionario->atrasoMedio = (caixa->funcionario->atrasoMedio + atrasoMedio) / 2;
-    caixa->funcionario->n_vensas += n_vendas;
+    atualizarDadosFuncionario(atrasoMedio);
 }
 
