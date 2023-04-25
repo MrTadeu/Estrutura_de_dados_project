@@ -78,7 +78,6 @@
     typedef struct{
         Lista* Caixas;
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
-        int *NivelExperiencia,*salarioBase;
     }GlobalStruct;
 
      typedef enum {
