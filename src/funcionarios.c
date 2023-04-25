@@ -9,7 +9,7 @@ int encontrarIdFuncionario(int id){
     return -1;
 }
 
-float convertNumeroDeVendasSalario(int pos){
+float convertNumeroDeVendasSalario_vetor(int pos){
     if(!funcionario){
         printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
         return -1;
@@ -18,7 +18,8 @@ float convertNumeroDeVendasSalario(int pos){
     else if (Funcionarios[pos].n_vendas<= Opcoes.nivelFuncionario[1][0] ) return Opcoes.nivelFuncionario[1][1];
     else return Opcoes.nivelFuncionario[2][1];
 }
-float convertVendasToNivel(FuncionarioStruct *funcionario){
+
+float convertVendasToSalario_lista(FuncionarioStruct *funcionario){
     if(!funcionario){
         printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
         return -1;

@@ -76,8 +76,8 @@
     }ClienteStruct;
     
     typedef struct{
-        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
-        float **nivelFuncionario;
+        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
+        float **nivelFuncionario, eurosPorSegundoAdiantamentoFuncinario;
     }OpcaoStruct;
 
     typedef struct{
@@ -128,7 +128,8 @@
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);
-    float convertVendasToNivel(FuncionarioStruct *funcionario);
+    float convertNumeroDeVendasSalario_vetor(int pos);
+    float convertVendasToSalario_lista(FuncionarioStruct *funcionario);
     void verFuncionariosCaixa();
     void verFuncionariosInativos();
     void pesquisarFuncionarios();

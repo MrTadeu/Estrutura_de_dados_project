@@ -14,11 +14,21 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
-atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int vendas){
-    float salario = convertNumeroDeVendasSalario(encontrarIdFuncionario(funcionario->id));
+atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
+    float salario = convertVendasToSalario_lista(funcionario);
     funcionario->n_vendas += n_vendas;
-    if(funcionario->n_vendas)
+    if(Opcoes.VerTransacoes == 1){
+        if(convertVendasToSalario_lista(funcionario) != salario){
+            float novoSalario = convertVendasToSalario_lista(funcionario);
+            for (int  i = 1; i < 3; i++){
+                if(Opcoes.nivelFuncionario[i][1] == novoSalario)
+                    printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para nível %d com novo salario de %.2f euros\n", funcionario->id, i+1, novoSalario);
+            }
+        }
+    }
     funcionario->atrasoMedio = (funcionario->atrasoMedio + atrasoMedio) / 2;
+    if(funcionario->atrasoMedio < 0)
+        funcionario->bonus += Opcoes.eurosPorSegundoAdiantamentoFuncinario * funcionario->atrasoMedio;
 }
 
 /* fecharUrgencia(Lista *lista){
@@ -31,7 +41,7 @@ void DesocuparCliente(ClienteStruct *pessoa){
     pessoa->ativo = 0;
 }
 
-void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
+/* void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
     if(!caixa){
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");
         return;
@@ -48,36 +58,35 @@ void AtualizarDadosTemposCaixa(CaixaStruct *caixa){
         aux = aux->next;
     }
     caixa->tempoTotalEspera = countTempoEstimadoCaixa;
-}
+} */
 
-void atenderPessoa(CaixaStruct *caixa, ClienteStruct *clientes){
+Elemento *atenderPessoa(CaixaStruct *caixa){
     if (!caixa){
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");
         return;
     }
-    if(!clientes){
+    if(!caixa->listaPessoas->head){
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
         return;
     }
-    
-    clientes->tempoEstimadoFila = 0;
-    int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;
+    ClienteStruct *cliente = caixa->listaPessoas->head;
+    cliente->tempoEstimadoFila = 0;
+    int tempo = cliente->tempoEstimadoCaixa + cliente->tempoAtraso;
 
     while(tempo){
         dormir(1000);
         tempo--;
-        if (clientes->tempoEstimadoCaixa){
-            clientes->tempoEstimadoCaixa--;
+        if (cliente->tempoEstimadoCaixa){
+            cliente->tempoEstimadoCaixa--;
             caixa->tempoTotalEspera--;
         }
-        else if (clientes->tempoAtraso > 0) Clientes->tempoAtraso--;
+        else if (cliente->tempoAtraso > 0) cliente->tempoAtraso--;
     }
-    caixa->tempoTotalEspera -= clientes->tempoEstimadoCaixa;
-    clientes->tempoEstimadoCaixa = 0;
-    
-    //Remover da fila
-    RemElementoInicio(caixa->listaPessoas);
-    DesocuparCliente(clientes);
+    caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
+    cliente->tempoEstimadoCaixa = 0;
+
+    DesocuparCliente(cliente);
+    return RemElementoInicio(caixa->listaPessoas);//Remover da fila
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 /* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
@@ -154,13 +163,9 @@ void *ThreadCaixa(CaixaStruct *caixa){
         
 
 
-
-
-
-
+        atenderPessoa(caixa);
         atrasoMedio += atraso;
         n_vendas++;
-        atenderPessoa(pessoa);
     }
     atrasoMedio /= n_vendas;
     atualizarDadosFuncionario(atrasoMedio);
