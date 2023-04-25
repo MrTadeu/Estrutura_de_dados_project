@@ -2,7 +2,7 @@
 #include "../includes/ListaLigada.h"
 
 //GLOBAL VARIABLES
-GlobalStruct Global;
+OpcaoStruct Opcoes;
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;

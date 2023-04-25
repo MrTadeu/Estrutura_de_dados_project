@@ -40,8 +40,8 @@
 
     typedef struct{
         char *nome;
-        int id, experiencia, ativo;                // A experiencia é a quantidade de vendas realizadas e influencia o salário.
-        float atrasoMedio, bonus, salario;  // O atraso medio pode ser negativo ou positivo e influencia o bonus.
+        int id, experiencia, ativo;                         // A experiencia é a quantidade de vendas realizadas e influencia o salário.
+        float atrasoMedio, bonus, salario, percentagem;     // O atraso medio pode ser negativo ou positivo e influencia o bonus.
     }FuncionarioStruct;
 
     typedef struct{
@@ -68,7 +68,7 @@
 
         int tempoEstimadoCompra;        // soma do tempo de compra dos proprios produtos
         int tempoEstimadoFila;          // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
-        int tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtos
+        int tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtoOpcaoStructs
 
         int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
 
@@ -76,9 +76,11 @@
     }ClienteStruct;
     
     typedef struct{
-        Lista* Caixas;
-        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
-        int *NivelExperiencia, *salarioBase;
+        int numCl, numCaixasTotaCaixasAbertas, probGerarPessoa, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, **nivelFuncionario;
+    }OpcaoStruct;
+
+    typedef struct{
+        Lista* caixas;
     }GlobalStruct;
 
      typedef enum {
@@ -93,7 +95,7 @@
     }HistoricoStruct;
 
     //GLOBAL VARIABLES
-    extern GlobalStruct Global;
+    extern OpcaoStruct Opcoes;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
     extern ProdutoStruct *Produtos;
@@ -105,7 +107,7 @@
     void menuFuncionarios();
     void menuConfig();
 
-    //global.c
+    //opcoes.c
     void editarNumCaixas();
     void editarProbGerarPessoa();
     void editarLotacaoMax();
@@ -139,8 +141,8 @@
     void guardarClienteTxt(FILE *file, int i);
     void guardarFuncionarioTxt(FILE *file, int i);
     void guardarProdutoTxt(FILE *file, int i);
-    void importGlobal();
-    void exportarGlobal();
+    void importOpcoes();
+    void exportarOpcoes();
 
 
     //TipoDadosFuncoes.c

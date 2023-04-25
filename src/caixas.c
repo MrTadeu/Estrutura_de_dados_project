@@ -52,8 +52,6 @@ void atenderPessoa(CaixaStruct *caixa, ClienteStruct *clientes){
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
         return;
     }
-
-    
     
     clientes->tempoEstimadoFila = 0;
     int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;
@@ -81,7 +79,7 @@ void atenderPessoa(CaixaStruct *caixa, ClienteStruct *clientes){
 /* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de clientes
+int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor tempo
     int pos = 0, index = 0;
     Elemento *caixaAux = caixa->head;
     Elemento *menor = caixaAux;
@@ -103,7 +101,7 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
     }
     
     pos = 0;
-    while(caixaAux){ // procura o caixa com menos clientes
+    while(caixaAux){ // procura o caixa com menos tempo
         caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
         if(caixaAuxInfo->tempoTotalEspera < menorInfo->tempoTotalEspera && caixaAuxInfo->aberta == 1){
             menorInfo = caixaAuxInfo;
@@ -115,7 +113,7 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor numero de client
     return index;
 }
 
-void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona (adiciona) a melhor caixa para o cliente
+void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona e adiciona a melhor caixa para o cliente
     int index = CaixaIndex(caixas);
     Elemento *caixaAux = caixas->head;
     while(index){
