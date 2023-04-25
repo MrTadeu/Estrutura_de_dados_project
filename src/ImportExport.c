@@ -21,7 +21,7 @@ void importOpcoes(){
         Opcoes.VerTransacoes = 0;
         Opcoes.threadGlobalAranque = 0;
         Opcoes.nivelFuncionario = malloc(sizeof(float)*3);
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < 3; i++){
             Opcoes.nivelFuncionario[i] = malloc(sizeof(float)*2);
             Opcoes.nivelFuncionario[i][0] = 10000; // numero de vendas necessarias para chegar ao proximo nivel
             Opcoes.nivelFuncionario[i][1] = 850.0; // salario base do nivel atual
