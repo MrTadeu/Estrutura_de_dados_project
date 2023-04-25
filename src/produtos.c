@@ -1,4 +1,4 @@
-#include "../includes/TipoDados.h"
+/* #include "../includes/TipoDados.h"
 
 
 int encontrarIdProdutos(int id){
@@ -25,3 +25,4 @@ void pesquisarProduto(){
 
 }
 
+ */

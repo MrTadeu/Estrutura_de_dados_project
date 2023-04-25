@@ -187,12 +187,11 @@ void menuFuncionarios(){
         }
     } while (opcao != 0);
 }
-
+/* 
 void menuProdutos(){
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-        /* printf("n_caixas: %d\n", Opcoes.numCaixasTotal); */
         int i = 0;
         printc("**************************************************\n");
         printc("****************    [blue]Menu Funcionário[/blue]    *************\n");
@@ -212,16 +211,16 @@ void menuProdutos(){
             verProdutos();
         }
         if (opcao == i++){
-            /* pesquisarProduto(); */
+            //pesquisarProduto();
         }
         if (opcao == i++){
-            /* adicionarProduto(); */
+            //adicionarProduto();
         }
         if (opcao == i++){
-            /* editarProduto(); */
+            //editarProduto();
         }
         if (opcao == i++){
-            /* removerProduto(); */
+            //removerProduto();
         }
     } while (opcao != 0);
-}
+} */

@@ -30,7 +30,7 @@ void verFuncionariosCaixa(){
 
     for (int i = 0; i < n_funcionarios; i++){
         if (Funcionarios[i].ativo == 1){
-            printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, convertNumeroDeVendasSalario(i));
+            printf("\nID: %d Nome: %s Salario: %.2d €\n", Funcionarios[i].id, Funcionarios[i].nome, convertNumeroDeVendasSalario(i));
         }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
