@@ -59,14 +59,12 @@ void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
     strcpy(Funcionarios[n_linha].nome, linhaString[1]);
     if(n_colunas == 6){
         Funcionarios[n_linha].bonus = atof(linhaString[2]);
-        Funcionarios[n_linha].salario = atof(linhaString[3]);
-        Funcionarios[n_linha].experiencia = atoi(linhaString[4]);
+        Funcionarios[n_linha].n_vendas = atoi(linhaString[3]);
         Funcionarios[n_linha].atrasoMedio = atof(linhaString[5]);
     }
     else{
         Funcionarios[n_linha].bonus = 0;
-        Funcionarios[n_linha].salario = 0;
-        Funcionarios[n_linha].experiencia = 0;
+        Funcionarios[n_linha].n_vendas = 0;
         Funcionarios[n_linha].atrasoMedio = 0;
     }
     Funcionarios[n_linha].ativo = 0;
@@ -216,7 +214,7 @@ void guardarClienteTxt(FILE *file, int i){
 }
 
 void guardarFuncionarioTxt(FILE *file, int i){
-    fprintf(file, "%d\t%s\t%f\t%f\t%d\t%f\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].salario, Funcionarios[i].experiencia, Funcionarios[i].atrasoMedio);
+    fprintf(file, "%d\t%s\t%f\t%d\t%f\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio);
 }
 
 void guardarProdutoTxt(FILE *file, int i){

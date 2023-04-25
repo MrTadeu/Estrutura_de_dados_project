@@ -104,7 +104,7 @@ ProdutoStruct *escolherProduto(){
     return produto;
 }
 
-void mostrarFuncionario(void *funcionarioArg, int indentLevel){
+/* void mostrarFuncionario(void *funcionarioArg, int indentLevel){
     if(!funcionarioArg){
         printf("\tError! Given info is NULL");
         return; 
@@ -152,7 +152,7 @@ void mostrarCliente(void *clienteArg, int indentLevel){
         indentLevel*4, " ", cliente->saldoCartaoCliente, indentLevel*4, " ", cliente->tempoEstimadoCompra,
         indentLevel*4, " ", cliente->tempoEstimadoFila, indentLevel*4, " ", cliente->tempoEstimadoCaixa, indentLevel*4, " ", cliente->tempoAtraso);
     mostrarLista(cliente->listaProdutos, mostrarProduto, indentLevel + 1);
-}
+} */
 
 int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
     ProdutoStruct *produto1 = (ProdutoStruct *) ptrProduto1_Info, *produto2 = (ProdutoStruct *) ptrProduto2_Info;

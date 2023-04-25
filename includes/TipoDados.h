@@ -132,6 +132,7 @@
     void verFuncionariosCaixa();
     void verFuncionariosInativos();
     void pesquisarFuncionarios();
+    void editarFuncionarios();
     void adicionarFuncionario();
 
     //ImportExport.c
@@ -171,6 +172,7 @@
     void dormir(int tempo);
     struct tm getCurrentTime();
     int checkIFfileExists(char *filepath);
+    int generateID(int (*checkIfExists)(int), int x);
     
     //FuncoesCaixa.c
     void *ThreadCaixa(CaixaStruct *caixa);

@@ -10,8 +10,7 @@ int encontrarIdFuncionario(int id){
 }
 
 float convertNumeroDeVendasSalario(int pos){
-    if(!funcionario){
-        printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
+    if(pos == -1){
         return -1;
     }
     if (Funcionarios[pos].n_vendas <= Opcoes.nivelFuncionario[0][0]) return Opcoes.nivelFuncionario[0][1];
@@ -30,9 +29,10 @@ float convertVendasToNivel(FuncionarioStruct *funcionario){
 
 void verFuncionariosCaixa(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+
     for (int i = 0; i < n_funcionarios; i++){
         if (Funcionarios[i].ativo == 1){
-            printf("\nID: %d Nome: %s Salario: %.2f€  Nivel de Experiencia: %d\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].salario, Funcionarios[i].experiencia);
+            printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, convertNumeroDeVendasSalario(i));
         }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -42,6 +42,7 @@ void verFuncionariosCaixa(){
 
 void verFuncionariosInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+
     for (int i = 0; i < n_funcionarios; i++){
         if (Funcionarios[i].ativo == 0){
             printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, convertNumeroDeVendasSalario(i));
@@ -53,13 +54,15 @@ void verFuncionariosInativos(){
 }
 
 void pesquisarFuncionarios(){
-    int id;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    
+    int id;
     printf("Insira o ID do funcionario que pretende pesquisar: ");
     scanf("%d", &id);
     int pos = encontrarIdFuncionario(id);
     if (pos == -1){
-        printf("Funcionario não encontrado!");
+        printf("Funcionario não encontrado!\n");
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         getchar();
         getchar();
     }
@@ -72,20 +75,28 @@ void pesquisarFuncionarios(){
 }
 
 void editarFuncionarios(){
-    int id;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    
+    int id;
     printf("Insira o ID do funcionario que pretende editar: ");
     scanf("%d", &id);
     int pos = encontrarIdFuncionario(id);
     if (pos == -1){
-        printf("Funcionario não encontrado!");
+        printf("Funcionario não encontrado!\n");
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         getchar();
         getchar();
     }
     else{
         printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, convertNumeroDeVendasSalario(pos));
+
+        char nome[100];
         printf("Insira o novo nome do funcionario: ");
-        scanf("%s", Funcionarios[pos].nome);
+        getchar();
+        scanf("%[^\n]", nome);
+        Funcionarios[pos].nome = malloc(sizeof(char) * (strlen(nome) + 1));
+        strcpy(Funcionarios[pos].nome, nome);
+
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         getchar();
         getchar();
@@ -94,8 +105,13 @@ void editarFuncionarios(){
 
 void adicionarFuncionario(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+
+    char nome[100];
     printf("Insira o nome do funcionario: ");
-    scanf("%s", Funcionarios[n_funcionarios].nome);
+    scanf("%[ ^\n]", nome);
+    Funcionarios[n_funcionarios].nome = malloc(sizeof(char) * (strlen(nome) + 1));
+    strcpy(Funcionarios[n_funcionarios].nome, nome);
+
     Funcionarios[n_funcionarios].id = generateID(encontrarIdFuncionario, -1);
     Funcionarios[n_funcionarios].ativo = 0;
     n_funcionarios++;
@@ -104,6 +120,26 @@ void adicionarFuncionario(){
     getchar();
 }
 
-/* void removerFuncionario(){
+void removerFuncionario(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
-} */
+    int id;
+    printf("Insira o ID do funcionario que pretende remover: ");
+    scanf("%d", &id);
+    int pos = encontrarIdFuncionario(id);
+
+    if (pos == -1){
+        printf("Funcionario não encontrado!\n");
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+        getchar();
+        getchar();
+    }
+    
+    else if (Funcionarios[pos].ativo == 1){
+        
+    }
+    else{
+
+    }
+    
+}

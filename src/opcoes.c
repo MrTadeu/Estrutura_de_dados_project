@@ -3,17 +3,17 @@
 void Init(){
     srand(time(NULL));
     setPortugues();
-    importGlobal();
+    importOpcoes();
     importarDados(importarClientes, CLIENTES);
     importarDados(importarFuncionarios, FUNCIONARIOS);
     importarDados(importarProdutos, PRODUTOS);
-    if(Global.threadGlobalAranque == 1){
+    if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();
     }
 }
 
 void closeAll(){
-    exportarGlobal();
+    exportarOpcoes();
     exportarDados(guardarClienteTxt, CLIENTES);
     exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
     exportarDados(guardarProdutoTxt, PRODUTOS);
@@ -25,7 +25,7 @@ void editarLojaAbertaAranque(){
     int n;
     scanf("%d", &n);
     if(n == 0 || n == 1){
-        Global.threadGlobalAranque = n;
+        Opcoes.threadGlobalAranque = n;
         if(n == 0){
             printc("\n[green]A loja não vai estar aberta no aranque[/green]");
         }
@@ -46,7 +46,7 @@ void editarNumCaixas(){
     int n;
     scanf("%d", &n);
     if(n > 0 && n <= 50){
-        Global.numCaixasTotal = n;
+        Opcoes.numCaixasTotal = n;
         printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
     }
     else{
@@ -62,7 +62,7 @@ void editarProbGerarPessoa(){
     int n;
     scanf("%d", &n);
     if(n > 0 && n <= 100){
-        Global.probGerarPessoa = n;
+        Opcoes.probGerarPessoa = n;
         printc("\n[green]A probabilidade foi alterada para %d%%[/green]", n);
     }
     else{
@@ -79,7 +79,7 @@ void editarLotacaoMax(){
     int n;
     scanf("%d", &n);
     if(n > 0 && n <= 1000){
-        Global.lotacaoMaxima = n;
+        Opcoes.lotacaoMaxima = n;
         printc("\n[green]A lotação máxima foi alterada para %d[/green]", n);
     }
     else{
@@ -91,17 +91,17 @@ void editarLotacaoMax(){
 }
 
 void editarVerTransacoes(){
-    if(Global.lojaAberta == 1){
+    if(Opcoes.lojaAberta == 1){
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         printc("[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]\n\n");
-        Global.VerTransacoes = 1;
+        Opcoes.VerTransacoes = 1;
         getchar();
         getchar();
-        Global.VerTransacoes = 0;
+        Opcoes.VerTransacoes = 0;
     }
     else{
         printc("\n[red]A loja tem de estar aberta para ver as transações![/red]");
