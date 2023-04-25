@@ -139,6 +139,7 @@
     void pesquisarFuncionarios();
     void editarFuncionarios();
     void adicionarFuncionario();
+    void removerFuncionario();
 
     //ImportExport.c
     int importarCount(char *filename);
