@@ -83,8 +83,6 @@ void adicionarFuncionario(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printf("Insira o nome do funcionario: ");
     scanf("%s", Funcionarios[n_funcionarios].nome);
-    printf("Insira o salario do funcionario: ");
-    scanf("%f", &Funcionarios[n_funcionarios].salario);
     printf("Insira o nivel de experiencia do funcionario: ");
     scanf("%d", &Funcionarios[n_funcionarios].experiencia);
     Funcionarios[n_funcionarios].id = generateID(encontrarIdFuncionario, -1);
@@ -93,4 +91,8 @@ void adicionarFuncionario(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     getchar();
     getchar();
+}
+
+void removerFuncionario(){
+
 }
