@@ -15,15 +15,6 @@ int main(){
     menu();
     closeAll();
 
-    /*--------------> PORenquanto mover para A FUNÇAO INIT  <-----------------*/
-    Global.salarioBase = (int *) malloc(sizeof(int) * 3);
-    Global.salarioBase[0] = 300;
-    Global.salarioBase[1] = 600;
-    Global.salarioBase[2] = 800;
-    Global.NivelExperiencia = (int *) malloc(sizeof(int) * 2);
-    Global.NivelExperiencia[0] = 300;
-    Global.NivelExperiencia[1] = 600;
-    /*--------------> POR NA FUNÇAO INIT  <-----------------*/
    /*
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
