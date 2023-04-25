@@ -2,7 +2,7 @@
 
 void Init(){
     srand(time(NULL));
-    setlocale(LC_ALL, NULL);
+    setPortugues();
     importGlobal();
     importarDados(importarClientes, CLIENTES);
     importarDados(importarFuncionarios, FUNCIONARIOS);
