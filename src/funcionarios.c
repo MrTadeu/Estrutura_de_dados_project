@@ -133,11 +133,12 @@ void removerFuncionario(){
         getchar();
     }
     
-    else if (Funcionarios[pos].ativo == 1){
+    // mexe com batente ver com joao
+    /* else if (Funcionarios[pos].ativo == 1){
         
     }
     else{
 
-    }
+    } */
     
 }

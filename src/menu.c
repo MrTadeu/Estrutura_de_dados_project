@@ -48,7 +48,7 @@ void menu(){
             menuFuncionarios();
         }
         if (opcao == i++){
-
+            menuProdutos();
         }
         if (opcao == i++){
             editarVerTransacoes();
@@ -184,6 +184,44 @@ void menuFuncionarios(){
         }
         if (opcao == i++){
             /* alterarSalario(); */
+        }
+    } while (opcao != 0);
+}
+
+void menuProdutos(){
+    int opcao;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        /* printf("n_caixas: %d\n", Opcoes.numCaixasTotal); */
+        int i = 0;
+        printc("**************************************************\n");
+        printc("****************    [blue]Menu Funcionário[/blue]    *************\n");
+        printc("**************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Produtos                     **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar Produto                **\n", i++);
+        printc("**        [blue]%d [/blue]-> Adicionar Produto                **\n", i++);
+        printc("**        [blue]%d [/blue]-> Editar Produto                   **\n", i++);
+        printc("**        [blue]%d [/blue]-> Remover Produto                  **\n", i++);
+        printc("**************************************************\n");
+        printc("Qual a opção que pretende? ");
+        scanf("%d", &opcao);
+
+        i = 1;
+        if (opcao == i++){
+            verProdutos();
+        }
+        if (opcao == i++){
+            pesquisarProduto();
+        }
+        if (opcao == i++){
+            adicionarProduto();
+        }
+        if (opcao == i++){
+            editarProduto();
+        }
+        if (opcao == i++){
+            removerProduto();
         }
     } while (opcao != 0);
 }
