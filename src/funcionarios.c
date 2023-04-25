@@ -9,17 +9,17 @@ int encontrarIdFuncionario(int id){
     return -1;
 }
 
-float *convertVendasToNivel(FuncionarioStruct *funcionario){
+float convertVendasToNivel(FuncionarioStruct *funcionario){
     if(!funcionario){
         printc("\n\t[red]Error![/red] Given funcionario is NULL\n");
         return -1;
     }
-    if(funcionario->n_vendas <= Opcoes.nivelFuncionario[0])
-        return Opcoes.nivelFuncionario[0]
-    else if(funcionario->n_vendas > Opcoes.nivelFuncionario[0] && funcionario->n_vendas <= Opcoes.nivelFuncionario[1])
-        return Opcoes.nivelFuncionario[1]
+    if(funcionario->n_vendas <= Opcoes.nivelFuncionario[0][0])
+        return Opcoes.nivelFuncionario[0][1]
+    else if(funcionario->n_vendas > Opcoes.nivelFuncionario[0][0] && funcionario->n_vendas <= Opcoes.nivelFuncionario[1][0])
+        return Opcoes.nivelFuncionario[1][1]
     else
-        return Opcoes.nivelFuncionario[2]
+        return Opcoes.nivelFuncionario[2][1]
 }
 
 void verFuncionariosCaixa(){
