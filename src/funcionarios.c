@@ -51,9 +51,7 @@ void verFuncionariosCaixa(){
 void verFuncionariosInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     for (int i = 0; i < n_funcionarios; i++){
-        if (Funcionarios[i].ativo == 0){
-            printf("\nID: %d Nome: %s Salario: %.2f€  Nivel de Experiencia: %d\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].salario, Funcionarios[i].experiencia);
-        }
+        printf("\nID: %d Nome: %s Salario: %.2f€  Nivel de Experiencia: %d\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].salario, Funcionarios[i].experiencia);
     }
     getchar();
     getchar();

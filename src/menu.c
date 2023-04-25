@@ -142,6 +142,7 @@ void menuFuncionarios(){
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        /* printf("n_caixas: %d\n", Global.numCaixasTotal); */
         int i = 0;
         printc("**************************************************\n");
         printc("****************    [blue]Menu Funcionário[/blue]    *************\n");
