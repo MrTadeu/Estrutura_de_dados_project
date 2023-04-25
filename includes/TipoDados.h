@@ -128,7 +128,7 @@
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);
-    float *convertVendasToNivel(FuncionarioStruct *funcionario);
+    float convertVendasToNivel(FuncionarioStruct *funcionario);
     void verFuncionariosCaixa();
     void verFuncionariosInativos();
     void pesquisarFuncionarios();
