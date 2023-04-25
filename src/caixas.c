@@ -137,6 +137,7 @@ void SelecionarCaixa(Lista *caixas, Elemento *cliente){ // seleciona e adiciona 
         index--;
     }
     CaixaStruct *caixaAuxInfo = (CaixaStruct* )caixaAux->Info;
+    
     AddElementoFim(caixaAuxInfo->listaPessoas, cliente);
 }
 
@@ -158,8 +159,6 @@ void *ThreadCaixa(CaixaStruct *caixa){
         atrasoMaximo = pessoa->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
         atualizarAtrasos(caixa->listaPessoas, atraso);
-        
-
         
 
 

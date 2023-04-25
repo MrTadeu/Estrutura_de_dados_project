@@ -126,6 +126,10 @@
     void editarCliente();
     void removerCliente();
 
+    //caixas.c
+    int CaixaIndex(Lista *caixa);
+    void SelecionarCaixa(Lista *caixas, Elemento *cliente);
+
     //funcionarios.c
     int encontrarIdFuncionario(int id);
     float convertNumeroDeVendasSalario_vetor(int pos);
