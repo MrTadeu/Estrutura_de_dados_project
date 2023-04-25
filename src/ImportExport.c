@@ -19,14 +19,11 @@ void importOpcoes(){
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 0;
-        Opcoes.threadGlobalAranque = 0;
-        Opcoes.nivelFuncionario = malloc(sizeof(float)*3);
-        for (int i = 0; i < 3; i++){
-            Opcoes.nivelFuncionario[i] = malloc(sizeof(float)*2);
-            Opcoes.nivelFuncionario[i][0] = 10000; // numero de vendas necessarias para chegar ao proximo nivel
-            Opcoes.nivelFuncionario[i][1] = 850.0; // salario base do nivel atual
-        }   
+        Opcoes.threadGlobalAranque = 0;  
     }
+    Opcoes.nivelFuncionario[0].nivel = 1;
+    Opcoes.nivelFuncionario[1].nivel = 2;
+    Opcoes.nivelFuncionario[2].nivel = 3;
     free(file);
 }
 

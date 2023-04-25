@@ -74,11 +74,18 @@
 
         Lista *listaProdutos;           // lista dos produtos
     }ClienteStruct;
-    
+
+    typedef struct{
+        int nivel, n_vendas; //NIVEL 1/2/3 
+        float salario;
+    }NivelFuncionarioStruct;
+
     typedef struct{
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
-        float **nivelFuncionario, eurosPorSegundoAdiantamentoFuncinario;
+        float /* **nivelFuncionario,  */eurosPorSegundoAdiantamentoFuncinario;
+        NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
+
 
     typedef struct{
         Lista* caixas;
@@ -133,7 +140,7 @@
     //funcionarios.c
     int encontrarIdFuncionario(int id);
     float convertNumeroDeVendasSalario_vetor(int pos);
-    float convertVendasToSalario_lista(FuncionarioStruct *funcionario);
+    NivelFuncionarioStruct getNivelFuncionario(FuncionarioStruct *funcionario);
     void verFuncionariosCaixa();
     void verFuncionariosInativos();
     void pesquisarFuncionarios();

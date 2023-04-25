@@ -48,7 +48,7 @@ void menu(){
             menuFuncionarios();
         }
         if (opcao == i++){
-            menuProdutos();
+            /* menuProdutos(); */
         }
         if (opcao == i++){
             editarVerTransacoes();
