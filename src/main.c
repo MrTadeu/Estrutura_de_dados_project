@@ -16,7 +16,7 @@ int main(){
     menu();
     closeAll();
 
-    /*--------------> PORenquanto mover para A FUNÇAO INIT  <-----------------*/
+    /*--------------> SABE O QUE FAZER PEDRO ( ͡~ ͜ʖ ͡°) <-----------------*/
     Global.salarioBase = (int *) malloc(sizeof(int) * 3);
     Global.salarioBase[0] = 300;
     Global.salarioBase[1] = 600;
