@@ -3,6 +3,7 @@
 
 //GLOBAL VARIABLES
 OpcaoStruct Opcoes;
+GlobalStruct Global;
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;

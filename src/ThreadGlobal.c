@@ -22,10 +22,13 @@ void changeStateThreadGlobal(){
 void *ThreadGlobal(){
     srand(time(NULL));
     Lista *PessoasAcabaramTempoDeCompra = criarLista();
+    ClienteStruct *clienteAux;
     /* pthread_mutex_init(&listaLock, NULL); */
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){
             ThreadTempoDeCompra(PessoasAcabaramTempoDeCompra, escolherCliente());
+            SelecionarCaixa()
+            clienteAux = RemElementoInicio(PessoasAcabaramTempoDeCompra);
 
         }
         dormir(100);
@@ -72,6 +75,7 @@ void *ThreadEsperaTempoCompra(void *args){
         printf("\n\n%s acabou de comprar todos os produtos em %ds",cliente->nome, cliente->tempoEstimadoCompra);
     }
     /* pthread_mutex_lock(&listaLock); */
+
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     /* pthread_mutex_unlock(&listaLock); */
     pthread_exit(NULL);
