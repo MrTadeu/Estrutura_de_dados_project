@@ -95,7 +95,8 @@ void adicionarFuncionario(){
 
     char nome[100];
     printf("Insira o nome do funcionario: ");
-    scanf("%[ ^\n]", nome);
+    getchar();
+    scanf("%[^\n]", nome);
     Funcionarios[n_funcionarios].nome = malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Funcionarios[n_funcionarios].nome, nome);
 
@@ -123,6 +124,11 @@ void removerFuncionario(){
     }
     
     // mexe com batente ver com joao
+    else if (pos)
+    {
+        /* code */
+    }
+    
     /* else if (Funcionarios[pos].ativo == 1){
         
     }
