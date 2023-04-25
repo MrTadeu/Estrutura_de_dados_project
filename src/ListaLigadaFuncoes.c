@@ -57,7 +57,7 @@ void AddElementoFim(Lista *lista, Elemento *elemento){
     lista->quantidadeElementos++;
 }
 
-void EscolherCriarElementoAddLista(Lista *lista, int Qt){
+void criarProdutosAddCliente(Lista *lista, int Qt){
     for(int i = 0; i < Qt; i++)
         AddElementoFim(lista, criarElemento(escolherProduto()));
 }

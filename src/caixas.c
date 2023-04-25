@@ -52,8 +52,6 @@ void atenderPessoa(CaixaStruct *caixa, ClienteStruct *clientes){
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
         return;
     }
-
-    
     
     clientes->tempoEstimadoFila = 0;
     int tempo = clientes->tempoEstimadoCaixa + clientes->tempoAtraso;

@@ -35,8 +35,10 @@ void *ThreadGlobal(){
 
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
 void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa){
-    if(!pessoa)
+    if(!pessoa){
+        printf("\n\t[red]Error![/red] Given pessoa is NULL\n");
         return;
+    }
     pthread_t thread;
     Argumentos *dados = (Argumentos *) malloc(sizeof(Argumentos));
     dados->cliente = pessoa;

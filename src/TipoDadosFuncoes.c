@@ -72,16 +72,24 @@ FuncionarioStruct *escolherFuncionarios(){
 
 ClienteStruct *escolherCliente(){
     if(n_clientesAtivos >= n_clientes){
-            /* printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n"); */
+        printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n");
         return NULL;
     }
     
-    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
-    int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt
-    Clientes[indice].ativo = 1;                                                                                 // e armazena os dados na varivel cliente criada acima
-    cliente->listaProdutos = criarLista(); 
-    batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');
-    EscolherCriarElementoAddLista(cliente->listaProdutos, Aleatorio(1, 100));
+    ClienteStruct *cliente;
+    if(Aleatorio(1, 100) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
+        cliente = criarGuest();
+        cliente->listaProdutos = criarLista();
+    }
+    else{
+        cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
+        int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
+        Clientes[indice].ativo = 1;                                                                           
+        batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
+    }
+
+    cliente->listaProdutos = criarLista();
+    criarProdutosAddCliente(cliente->listaProdutos, Aleatorio(1, 100));
     calculoTemposCliente(cliente);
     return cliente;
 }
