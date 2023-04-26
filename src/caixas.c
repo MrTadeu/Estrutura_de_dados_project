@@ -11,24 +11,8 @@ void atualizarAtrasos(Lista *lista, int atraso){
     while(aux){
         pessoa = (ClienteStruct *) aux->Info;
         pessoa->tempoAtraso += atraso;
+        aux = aux->next;
     }
-}
-
-atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
-    float salario = (getNivelFuncionario(funcionario)).salario;
-    funcionario->n_vendas += n_vendas;
-    if(Opcoes.VerTransacoes == 1){
-        if((getNivelFuncionario(funcionario)).salario != salario){
-            float novoSalario = getNivelFuncionario(funcionario);
-            for (int  i = 1; i < 3; i++){
-                if(Opcoes.nivelFuncionario[i][1] == novoSalario)
-                    printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para nível %d com novo salario de %.2f euros\n", funcionario->id, i+1, novoSalario);
-            }
-        }
-    }
-    funcionario->atrasoMedio = (funcionario->atrasoMedio + atrasoMedio) / 2;
-    if(funcionario->atrasoMedio < 0)
-        funcionario->bonus += Opcoes.eurosPorSegundoAdiantamentoFuncinario * funcionario->atrasoMedio;
 }
 
 /* fecharUrgencia(Lista *lista){
@@ -57,13 +41,13 @@ atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int
 Elemento *atenderPessoa(CaixaStruct *caixa){
     if (!caixa){
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");
-        return;
+        return NULL;
     }
     if(!caixa->listaPessoas->head){
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
-        return;
+        return NULL;
     }
-    ClienteStruct *cliente = caixa->listaPessoas->head;
+    ClienteStruct *cliente = (ClienteStruct *) caixa->listaPessoas->head->Info;
     cliente->tempoEstimadoFila = 0;
     int tempo = cliente->tempoEstimadoCaixa + cliente->tempoAtraso;
 
@@ -141,24 +125,26 @@ void SelecionarCaixa(Lista *caixas, ClienteStruct *cliente){ // seleciona e adic
 void *ThreadCaixa(CaixaStruct *caixa){
 
     int atraso, n_vendas = 0;
-    float atrasoMaximo, atrasoMedio;
+    float atrasoMaximo, atrasoMedio = 0;
     ClienteStruct *pessoaEmAtendimento;
-    Elemento *elementoAux;
 
     while(caixa->listaPessoas->quantidadeElementos > 0){
         if(caixa->fecharUrgencia){
-            fecharUrgencia(caixa->listaPessoas);
+            /* fecharUrgencia(caixa->listaPessoas); */
         }
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
         atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
         atualizarAtrasos(caixa->listaPessoas, atraso);
+
         AddElementoFim(Global.PessoasAtendidas, atenderPessoa(caixa));
+
         atrasoMedio += atraso;
         n_vendas++;
     }
     atrasoMedio /= n_vendas;
-    atualizarDadosFuncionario(atrasoMedio);
+    atualizarDadosFuncionario(caixa->funcionario, atrasoMedio, n_vendas);
+    return NULL;
 }
 

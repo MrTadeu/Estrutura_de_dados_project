@@ -161,7 +161,7 @@ ClienteStruct *escolherCliente(){
 }
 
 void DesocuparCliente(ClienteStruct *pessoa){
-    int index = pesquisarClienteVetor(pessoa);
+    int index = pesquisarClienteVetorBatente(pessoa);
     batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
     pessoa->ativo = 0;
 }

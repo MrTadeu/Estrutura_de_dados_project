@@ -34,7 +34,7 @@ void *ThreadGlobal(){
             RemElementoInicio(Global.PessoasAcabaramTempoDeCompra);
         }
         if(Global.PessoasAtendidas->quantidadeElementos > 0){ //Libertar pessoa
-            DesocuparCliente((ClienteStruct *)Global.PessoasAtendidas->head->Info)
+            DesocuparCliente((ClienteStruct *)Global.PessoasAtendidas->head->Info);
             destruirElemento(RemElementoInicio(Global.PessoasAtendidas), destruirCliente);
         }
         dormir(100);

@@ -137,7 +137,9 @@
 
     //caixas.c
     int CaixaIndex(Lista *caixa);
-    void SelecionarCaixa(Lista *caixas, Elemento* cliente);
+    void SelecionarCaixa(Lista *caixas, ClienteStruct *cliente);
+    Elemento *atenderPessoa(CaixaStruct *caixa);
+    void calculoTemposCliente(ClienteStruct *cliente);
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);
@@ -149,6 +151,7 @@
     void editarFuncionarios();
     void adicionarFuncionario();
     void removerFuncionario();
+    void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas);
 
     //ImportExport.c
     int importarCount(char *filename);

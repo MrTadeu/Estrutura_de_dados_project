@@ -18,7 +18,7 @@ void importOpcoes(){
         Opcoes.probGerarPessoa = 50;
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
-        Opcoes.VerTransacoes = 0;
+        Opcoes.VerTransacoes = 1;
         Opcoes.threadGlobalAranque = 0;  
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
@@ -156,7 +156,7 @@ int importarCount(char *filename){
         int count = 0;
 
         while (pch != NULL){
-            filedata = malloc((strlen(pch)+1));
+            filedata = (char *) malloc(sizeof(char)*(strlen(pch)+1));
             strcpy(filedata, pch);
             pch = strtok (NULL, "\t\r\n");
             count++;
@@ -219,9 +219,9 @@ void guardarProdutoTxt(FILE *file, int i){
 }
 
 void exportarOpcoes(){
-    FILE *file = fopen("Data/global.bin", "wb");
+    FILE *file = fopen("Data/opcoes.bin", "wb");
     if (!file) {
-        printc("\n\n\tImpossivel abrir Ficheiro [red]global.bin[/red]\n\n");
+        printc("\n\n\tImpossivel abrir Ficheiro [red]opcoes.bin[/red]\n\n");
         exit(1);
     }
     fwrite(&Opcoes, sizeof(OpcaoStruct), 1, file);

@@ -137,3 +137,20 @@ void removerFuncionario(){
     } */
     
 }
+
+void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
+    float salario = (getNivelFuncionario(funcionario)).salario;
+    funcionario->n_vendas += n_vendas;
+    if(Opcoes.VerTransacoes == 1){
+        if((getNivelFuncionario(funcionario)).salario != salario){
+            float novoSalario = (getNivelFuncionario(funcionario)).salario;
+            for (int  i = 1; i < 3; i++){
+                if((Opcoes.nivelFuncionario[i]).salario == novoSalario)
+                    printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para nível %d com novo salario de %.2f euros\n", funcionario->id, i+1, novoSalario);
+            }
+        }
+    }
+    funcionario->atrasoMedio = (funcionario->atrasoMedio + atrasoMedio) / 2;
+    if(funcionario->atrasoMedio < 0)
+        funcionario->bonus += Opcoes.eurosPorSegundoAdiantamentoFuncinario * funcionario->atrasoMedio;
+}
