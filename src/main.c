@@ -9,17 +9,9 @@ FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
-void testarCaixas(){
-    
-}
 
 int main(){
     Init();
-
-    testarCaixas();
-
-
-
     menu();
     closeAll();
 

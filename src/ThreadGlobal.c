@@ -50,7 +50,7 @@ void *ThreadGlobal(){
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
 void ThreadTempoDeCompra(ClienteStruct *pessoa){
     if(!pessoa){
-        printf("\n\t[red]Error![/red] Given pessoa is NULL\n");
+        /* printc("\n\t[red]Error![/red] Given pessoa is NULL\n"); */
         return;
     }
     pthread_t thread;
@@ -58,6 +58,7 @@ void ThreadTempoDeCompra(ClienteStruct *pessoa){
     dados->cliente = pessoa;
     dados->ListaClientesNaFila = Global.PessoasAcabaramTempoDeCompra;
     pthread_create(&thread, NULL, ThreadEsperaTempoCompra, dados);
+    pthread_detach(thread);
 }
 
 void *ThreadEsperaTempoCompra(void *args){
@@ -72,8 +73,8 @@ void *ThreadEsperaTempoCompra(void *args){
         printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
         printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
         printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
-        /* printf("\nLista de Produtos:");
-        Elemento *Aux = cliente->listaProdutos->head;
+        /*printf("\nLista de Produtos:");
+         Elemento *Aux = cliente->listaProdutos->head;
         while(Aux){
             ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
             printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
@@ -86,11 +87,10 @@ void *ThreadEsperaTempoCompra(void *args){
         printf("\n\n%s acabou de comprar todos os produtos em %ds",cliente->nome, cliente->tempoEstimadoCompra);
     }
     /* pthread_mutex_lock(&listaLock); */
-
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     /* pthread_mutex_unlock(&listaLock); */
-    pthread_exit(NULL);
     printf("\n1\n");
+    /* pthread_exit(NULL); */
     return NULL;
 }
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/

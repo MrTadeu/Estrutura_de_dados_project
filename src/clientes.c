@@ -142,33 +142,49 @@ void removerCliente(){
     getchar();
 }
 
-ClienteStruct *escolherCliente(){
-    if(n_clientesAtivos >= n_clientes){
-        printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n");
-        return NULL;
-    }
-    if(n_clientesAtivos >= Opcoes.lotacaoMaxima){
-        printc("\n\t[red]Erro![/red] Loja atingiu a lotação máxima.\n");
-        return NULL;
+void criarProdutosAddCliente(Lista *lista){
+    for(int i = 0; i < Aleatorio(1, 100); i++)
+        AddElementoFim(lista, criarElemento((void *)escolherProduto()));
+}
+
+void calculoTemposCliente(ClienteStruct *cliente){
+    if(!cliente){
+        printf("[red]Error![/red] Given client is NULL");
+        return;
     }
 
+    Elemento *Aux = cliente->listaProdutos->head;
+    while(Aux){
+        ProdutoStruct *produto = (ProdutoStruct *) Aux->Info;
+        cliente->tempoEstimadoCaixa += produto->tempoCaixa;
+        cliente->tempoEstimadoCompra += produto->tempoCompra;
+        Aux = Aux->next;
+    }
+}
+
+ClienteStruct *escolherCliente(){
     ClienteStruct *cliente;
     if(Aleatorio(1, 100) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
         cliente->listaProdutos = criarLista();
     }
+    else if(n_clientesAtivos >= n_clientes || n_clientesAtivos >= Opcoes.lotacaoMaxima){
+        /* printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n"); */
+        return NULL;
+    }    
     else{
         cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
         int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
         Clientes[indice].ativo = 1;                                                                           
         batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
     }
-
     cliente->listaProdutos = criarLista();
-    criarProdutosAddCliente(cliente->listaProdutos, Aleatorio(1, 100));
+    criarProdutosAddCliente(cliente->listaProdutos);
     calculoTemposCliente(cliente);
     return cliente;
 }
+
+
 
 void DesocuparCliente(ClienteStruct *pessoa){
     int index = pesquisarClienteVetorBatente(pessoa);
