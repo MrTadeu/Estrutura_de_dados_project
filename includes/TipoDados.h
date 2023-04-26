@@ -132,14 +132,16 @@
     void adicionarCliente();
     void editarCliente();
     void removerCliente();
+    void criarProdutosAddCliente(Lista *lista);
+    void calculoTemposCliente(ClienteStruct *cliente);
     ClienteStruct *escolherCliente();
+    
     void DesocuparCliente(ClienteStruct *pessoa);
 
     //caixas.c
     int CaixaIndex(Lista *caixa);
-    void SelecionarCaixa(Lista *caixas, ClienteStruct *cliente);
+    void SelecionarCaixa();
     Elemento *atenderPessoa(CaixaStruct *caixa);
-    void calculoTemposCliente(ClienteStruct *cliente);
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);
@@ -204,7 +206,7 @@
     }Argumentos;
     void changeStateThreadGlobal();
     void *ThreadGlobal();
-    void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa);
+    void ThreadTempoDeCompra(ClienteStruct *pessoa);
     void *ThreadEsperaTempoCompra(void *args);
 
     

@@ -6,21 +6,6 @@ int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t t
     return indice;
 } 
 
-void calculoTemposCliente(ClienteStruct *cliente){
-    if(!cliente){
-        printf("[red]Error![/red] Given client is NULL");
-        return;
-    }
-
-    Elemento *Aux = cliente->listaProdutos->head;
-    while(Aux){
-        ProdutoStruct *produto = (ProdutoStruct *) Aux->Info;
-        cliente->tempoEstimadoCaixa += produto->tempoCaixa;
-        cliente->tempoEstimadoCompra += produto->tempoCompra;
-        Aux = Aux->next;
-    }
-}
-
 CaixaStruct *criarCaixa(int id){
     CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
     caixa->id = id;

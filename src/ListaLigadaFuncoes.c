@@ -27,11 +27,11 @@ void AddElementoInicio(Lista *lista, Elemento *elemento){
        return;
     }
     if(!elemento){
-         printf("\tError! Given node is NULL");
+        printf("\tError! Given node is NULL");
         return; 
     } 
 
-    if(!lista->head)
+    if(lista->head == NULL)
         lista->tail = elemento;
 
     elemento->next = lista->head;
@@ -45,21 +45,19 @@ void AddElementoFim(Lista *lista, Elemento *elemento){
        return;
     }
     if(!elemento){
-         printf("\tError! Given node is NULL");
+        printf("\tError! Given node is NULL");
         return; 
     } 
 
-    if(!lista->head)
+    if(lista->head == NULL){
         AddElementoInicio(lista, elemento);
+        return;
+    }
+        
 
     lista->tail->next = elemento;
     lista->tail = elemento;
     lista->quantidadeElementos++;
-}
-
-void criarProdutosAddCliente(Lista *lista, int Qt){
-    for(int i = 0; i < Qt; i++)
-        AddElementoFim(lista, criarElemento(escolherProduto()));
 }
 
 Elemento *RemElementoUltimo(Lista *lista){

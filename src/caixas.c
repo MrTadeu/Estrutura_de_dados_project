@@ -138,8 +138,11 @@ CaixaStruct CaixaIndex(){ // o melhor index que tem o menor tempo
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
+    printc("\n\n\t[green]OLa1[/green]\n");
     while(pessoaEnviar){
+        printc("\n\n\t[green]OLA2[/green]\n");
         int index = CaixaIndex(Global.caixas);
+        printc("\n\n\t[green]Index = %d[/green]\n", index);
         Elemento *caixaAux = Global.caixas->head;
         
         while(index){
@@ -150,11 +153,14 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         CaixaStruct *caixaAuxInfo = (CaixaStruct *) caixaAux->Info;
 
         //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
+        printc("\n\n\t[greenTESTE[/green]\n");
         ((ClienteStruct *)Global.PessoasAcabaramTempoDeCompra->head->Info)->tempoAtraso = ((ClienteStruct *)caixaAuxInfo->listaPessoas->head->Info)->tempoAtraso; 
 
         printc("\n\n\t[green]PESSSOA ADD Caixa[/green]\n");
-        AddElementoFim(caixaAuxInfo->listaPessoas, criarElemento(pessoa));
+        AddElementoFim(caixaAuxInfo->listaPessoas, criarElemento(pessoaEnviar->Info));
         RemElementoInicio(Global.PessoasAcabaramTempoDeCompra);
+
+        pessoaEnviar = pessoaEnviar->next;
     }
 }
 
@@ -175,8 +181,10 @@ void *ThreadCaixa(CaixaStruct *caixa){
         atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
         atualizarAtrasos(caixa->listaPessoas, atraso);
+        printc("\n\n\t[green]ATRASOS ATUALIZADOS[/green]\n");
 
         AddElementoFim(Global.PessoasAtendidas, atenderPessoa(caixa));
+        printc("\n\n\t[green]PESSOA ATENDIDA[/green]\n");
 
         atrasoMedio += atraso;
         n_vendas++;
