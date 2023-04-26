@@ -73,12 +73,41 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
 /* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor tempo
-    int pos = 0, index = 0;
-    Elemento *caixaAux = caixa->head;
-    Elemento *menor = caixaAux;
+CaixaStruct gerarCaixa(){ // gerarCaixa na ordem
+    Elemento *caixaAux = Global.caixas->head;
+    int cont = 0;
+    while (caixaAux){
+        CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
 
-    CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
+        cont++;
+        caixaAux = caixaAux->next;
+    }
+}
+
+CaixaStruct CaixaIndex(){ // o melhor index que tem o menor tempo
+    int pos = 0, index = 0;
+    Elemento *caixaAux = Global.caixas->head;
+    CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
+
+    while (caixaAux){
+        CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
+        if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
+            menor = caixaAuxInfo;
+        }
+        caixaAux = caixaAux->next;
+    }
+    
+    if (menor->aberta == 0){
+        if (){
+            /* code */
+        }
+        
+    }
+    
+
+    return menor;
+
+/*     CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *menorInfo = (CaixaStruct *)menor->Info;
     if (menorInfo->aberta == 0){ // se o primeiro caixa estiver fechado, procura o primeiro aberto
         menorInfo = caixaAuxInfo;
@@ -104,7 +133,7 @@ int CaixaIndex(Lista *caixa){ // o melhor index que tem o menor tempo
         caixaAux = caixaAux->next;
         pos++;
     }
-    return index;
+    return index; */
 }
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
