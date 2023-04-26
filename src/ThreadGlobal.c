@@ -21,6 +21,10 @@ void changeStateThreadGlobal(){
 
 void *ThreadGlobal(){
     srand(time(NULL));
+    Global.caixas = criarLista();
+    for (int i = 0; i < 5; i++)
+        AddElementoFim(Global.caixas, criarElemento(criarCaixa(i)));
+
     Global.PessoasAcabaramTempoDeCompra = criarLista();
     Global.PessoasAtendidas = criarLista();
 
@@ -29,11 +33,12 @@ void *ThreadGlobal(){
 
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
-            ThreadTempoDeCompra(Global.PessoasAcabaramTempoDeCompra, escolherCliente());
-            SelecionarCaixa(Global.caixas, Global.PessoasAcabaramTempoDeCompra->head);
-            RemElementoInicio(Global.PessoasAcabaramTempoDeCompra);
+            ThreadTempoDeCompra(escolherCliente());
+            printf("\n2\n");
+            SelecionarCaixa();
         }
         if(Global.PessoasAtendidas->quantidadeElementos > 0){ //Libertar pessoa
+            printc("\n\n\t[green]PESSOA LIBERTADA[/green]\n");
             DesocuparCliente((ClienteStruct *)Global.PessoasAtendidas->head->Info);
             destruirElemento(RemElementoInicio(Global.PessoasAtendidas), destruirCliente);
         }
@@ -43,7 +48,7 @@ void *ThreadGlobal(){
 }
 
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
-void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa){
+void ThreadTempoDeCompra(ClienteStruct *pessoa){
     if(!pessoa){
         printf("\n\t[red]Error![/red] Given pessoa is NULL\n");
         return;
@@ -51,7 +56,7 @@ void ThreadTempoDeCompra(Lista *ListaClientesNaFila, ClienteStruct *pessoa){
     pthread_t thread;
     Argumentos *dados = (Argumentos *) malloc(sizeof(Argumentos));
     dados->cliente = pessoa;
-    dados->ListaClientesNaFila = ListaClientesNaFila;
+    dados->ListaClientesNaFila = Global.PessoasAcabaramTempoDeCompra;
     pthread_create(&thread, NULL, ThreadEsperaTempoCompra, dados);
 }
 
@@ -85,6 +90,7 @@ void *ThreadEsperaTempoCompra(void *args){
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     /* pthread_mutex_unlock(&listaLock); */
     pthread_exit(NULL);
+    printf("\n1\n");
     return NULL;
 }
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/

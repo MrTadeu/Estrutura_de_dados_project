@@ -170,6 +170,7 @@
     //TipoDadosFuncoes.c
     int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
     ClienteStruct *criarGuest();
+    CaixaStruct *criarCaixa(int id);
     FuncionarioStruct *escolherFuncionarios();
     ProdutoStruct *escolherProduto();
     void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);
