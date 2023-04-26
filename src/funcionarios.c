@@ -122,7 +122,7 @@ void removerFuncionario(){
         getchar();
         getchar();
     }
-    // mexe com batente ver com joao
+/*     // mexe com batente ver com joao
     int QuantidadeFuncionarios_NaoAtivos = n_funcionarios - n_funcionariosAtivos;
     else if (Funcionarios[pos].ativo == 1 && QuantidadeFuncionarios_NaoAtivos > 1){
         Funcionarios[pos].ativo = 0;
@@ -142,18 +142,11 @@ void removerFuncionario(){
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         getchar();
         getchar();
-    }
-        
-    }
-    
-    /* else if (Funcionarios[pos].ativo == 1){
-        
-    }
-    else{
-
     } */
-    
+            
 }
+    
+
 
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
     float salario = (getNivelFuncionario(funcionario)).salario;

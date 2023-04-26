@@ -19,7 +19,13 @@ void importOpcoes(){
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 1;
-        Opcoes.threadGlobalAranque = 0;  
+        Opcoes.threadGlobalAranque = 0;
+        Opcoes.nivelFuncionario[0].n_vendas = 10000;  
+        Opcoes.nivelFuncionario[1].n_vendas = 30000;  
+        Opcoes.nivelFuncionario[2].n_vendas = 60000;  
+        Opcoes.nivelFuncionario[0].salario = 850.0;
+        Opcoes.nivelFuncionario[1].salario = 900.0;
+        Opcoes.nivelFuncionario[2].salario = 950.0;
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;
@@ -176,7 +182,7 @@ int importarCount(char *filename){
 }
 
 void exportarDados(void (guardarDadosTxt)(FILE *, int), TipoDados tipo){
-    char *filename = malloc(40);
+    char *filename = (char *) malloc(sizeof(char)*40);
     int n_elementos = 0;
    
     if(tipo == CLIENTES){
