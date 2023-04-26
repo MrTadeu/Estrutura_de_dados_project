@@ -14,7 +14,7 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
-atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
+atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){ // int ???? void??????? ERRRRORRRRR
     float salario = (getNivelFuncionario(funcionario)).salario;
     funcionario->n_vendas += n_vendas;
     if(Opcoes.VerTransacoes == 1){
