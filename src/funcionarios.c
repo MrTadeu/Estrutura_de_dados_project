@@ -122,11 +122,28 @@ void removerFuncionario(){
         getchar();
         getchar();
     }
-    
     // mexe com batente ver com joao
-    else if (pos)
-    {
-        /* code */
+    int QuantidadeFuncionarios_NaoAtivos = n_funcionarios - n_funcionariosAtivos;
+    else if (Funcionarios[pos].ativo == 1 && QuantidadeFuncionarios_NaoAtivos > 1){
+        Funcionarios[pos].ativo = 0;
+        n_funcionariosAtivos--;
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+        getchar();
+        getchar();
+    }
+    else if (Funcionarios[pos].ativo == 1 && QuantidadeFuncionarios_NaoAtivos == 0){
+        printf("Não é possivel remover o ultimo funcionario ativo!\n");
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+        getchar();
+        getchar();
+    }
+    else{
+
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+        getchar();
+        getchar();
+    }
+        
     }
     
     /* else if (Funcionarios[pos].ativo == 1){
