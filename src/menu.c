@@ -145,7 +145,7 @@ void menuFuncionarios(){
         /* printf("n_caixas: %d\n", Opcoes.numCaixasTotal); */
         int i = 0;
         printc("**************************************************\n");
-        printc("****************    [blue]Menu Funcionário[/blue]    *************\n");
+        printc("****************   [blue]Menu Funcionário[/blue]  *************\n");
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Funcionários Inativos        **\n", i++);
@@ -154,8 +154,8 @@ void menuFuncionarios(){
         printc("**        [blue]%d [/blue]-> Adicionar Funcionário            **\n", i++);
         printc("**        [blue]%d [/blue]-> Editar Funcionário               **\n", i++);
         printc("**        [blue]%d [/blue]-> Remover Funcionário              **\n", i++);
-        printc("**        [blue]%d [/blue]-> Trocar Funcionário da Caixa      **\n", i++);
-        printc("**        [blue]%d [/blue]-> Alterar Salários                 **\n", i++);
+        /* printc("**        [blue]%d [/blue]-> Trocar Funcionário da Caixa      **\n", i++);
+        printc("**        [blue]%d [/blue]-> Alterar Salários                 **\n", i++); */
         printc("**************************************************\n");
         printc("Qual a opção que pretende? ");
         scanf("%d", &opcao);
@@ -177,14 +177,14 @@ void menuFuncionarios(){
             editarFuncionarios();
         }
         if (opcao == i++){
-            /* removerFuncionario(); */
+            removerFuncionario();
+        }
+        /* if (opcao == i++){
+            trocarFuncionario();
         }
         if (opcao == i++){
-            /* trocarFuncionario(); */
-        }
-        if (opcao == i++){
-            /* alterarSalario(); */
-        }
+            alterarSalario();
+        } */
     } while (opcao != 0);
 }
 /* 

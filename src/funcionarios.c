@@ -111,8 +111,9 @@ void adicionarFuncionario(){
 void removerFuncionario(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
+    verFuncionariosInativos();
     int id;
-    printf("Insira o ID do funcionario que pretende remover: ");
+    printf("\nInsira o ID do funcionario que pretende remover: ");
     scanf("%d", &id);
     int pos = encontrarIdFuncionario(id);
 
@@ -122,28 +123,24 @@ void removerFuncionario(){
         getchar();
         getchar();
     }
-/*     // mexe com batente ver com joao
-    int QuantidadeFuncionarios_NaoAtivos = n_funcionarios - n_funcionariosAtivos;
-    else if (Funcionarios[pos].ativo == 1 && QuantidadeFuncionarios_NaoAtivos > 1){
-        Funcionarios[pos].ativo = 0;
-        n_funcionariosAtivos--;
+    else if (Funcionarios[pos].ativo == 1){
+        printf("Funcionario está ativo não pode remove-lo!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         getchar();
         getchar();
-    }
-    else if (Funcionarios[pos].ativo == 1 && QuantidadeFuncionarios_NaoAtivos == 0){
-        printf("Não é possivel remover o ultimo funcionario ativo!\n");
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
-        getchar();
+        return;
     }
     else{
+        for (int i = pos; i < n_funcionarios; i++){
+            Funcionarios[i] = Funcionarios[i + 1];
+        }
 
+        n_funcionarios--;
+        Funcionarios = realloc(Funcionarios, sizeof(Funcionarios) * n_funcionarios);
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         getchar();
         getchar();
-    } */
-            
+    }
 }
     
 
