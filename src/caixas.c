@@ -139,30 +139,30 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             }
         } */
     }
-    printc("\n\n\t[blue]Entrou no while[/blue]\n");
+    /* printc("\n\n\t[blue]Entrou no while[/blue]\n");
     printc("\n\n\t[green]Menor[/green] funcionario: %s id: %d\n", menor->funcionario->nome, menor->id);
     printc("\n\n\t[green]Segundo menor[/green] funcionario: %s id: %d\n", menor->funcionario->nome, menor->id);
-    printc("\n\n\t[green]Maior[/green] funcionario: %s id: %d\n", menor->funcionario->nome, menor->id);
+    printc("\n\n\t[green]Maior[/green] funcionario: %s id: %d\n", menor->funcionario->nome, menor->id); */
 
     if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
-        printc("\n\n\t[blue]menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior[/blue]\n");
+        /* printc("\n\n\t[blue]menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior[/blue]\n"); */
         Opcoes.numCaixasAbertas++;
         primeiraCaixaFechada->aberta = 1;
         return primeiraCaixaFechada;
     }
     if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1){ // SegundaMenor == menor == maior??????? não pode fechar se todas forem iguais por isso Opcoes.numCaixasAbertas > 1
-        printc("\n\n\t[blue]maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1[/blue]\n");
+        /* printc("\n\n\t[blue]maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1[/blue]\n"); */
         Opcoes.numCaixasAbertas--;
         menor->aberta = 0;
         return SegundaMenor;
     }
     if (menor->aberta == 0){
-        printc("\n\n\t[blue]menor->aberta == 0[/blue]\n");
+        /* printc("\n\n\t[blue]menor->aberta == 0[/blue]\n"); */
         Opcoes.numCaixasAbertas++;
         menor->aberta = 1;
     }
     
-    printc("\n\n\t[blue]Retornou[/blue]\n");
+    /* printc("\n\n\t[blue]Retornou[/blue]\n"); */
     return menor;
 
 /*     CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
@@ -199,18 +199,15 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     if (pessoaEnviar == NULL) return;
 
     CaixaStruct* melhorCaixa;
-    printc("\n\n\t[green]OLa1[/green]\n");
-
     while(pessoaEnviar){
 
         melhorCaixa = MelhorCaixa();
         //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
-        printc("\n\n\t[green]TESTE[/green]\n");
-        printc("\n\n\t[red]pessoaEnviar: %s tempoDecompra: %d [/red] funcionario: %s id: %d tempoCaixa: %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->funcionario->nome, melhorCaixa->id, melhorCaixa->tempoTotalEspera);
-/*         ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = melhorCaixa->tempoTotalEspera + ((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa; */
-        /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso;  */ // O QUE ESTA MERDA ESTÁ A FAZER AQUI  ???????????????????????????????????? !!!!!!!!!!!!!!!!
-        
-        printc("\n\n\t[green]PESSSOA ADD Caixa[/green]\n");
+        if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
+            printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
+        }
+        /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso;  */ // O QUE ESTA MERDA ESTÁ A FAZER AQUI  ???????????????????????????????????? 
+
         AddElementoFim(melhorCaixa->listaPessoas, criarElemento(pessoaEnviar->Info));
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
         RemElementoInicio(Global.PessoasAcabaramTempoDeCompra);
