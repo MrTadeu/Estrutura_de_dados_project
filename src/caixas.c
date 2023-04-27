@@ -2,7 +2,7 @@
 
 
 void criarCaixaInit(){
-    for (size_t i = 0; i < Opcoes.numCaixasTotal; i++){
+    for (int i = 0; i < Opcoes.numCaixasTotal; i++){
         CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
         caixa->id = i;
         caixa->aberta = 0;
@@ -105,7 +105,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             SegundaMenor = menor;
             menor = caixaAuxInfo;
         }
-        else if (caixaAuxInfo->tempoTotalEspera < SegundaMenor->tempoTotalEspera || menor->tempoTotalEspera == SegundaMenor->tempoTotalEspera && caixaAuxInfo->aberta == 1){
+        else if ((caixaAuxInfo->tempoTotalEspera < SegundaMenor->tempoTotalEspera || menor->tempoTotalEspera == SegundaMenor->tempoTotalEspera) && caixaAuxInfo->aberta == 1){
             SegundaMenor = caixaAuxInfo;
         }
         
@@ -171,11 +171,10 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
     printc("\n\n\t[green]OLa1[/green]\n");
-    CaixaStruct melhorCaixa;
+    CaixaStruct* melhorCaixa;
     while(pessoaEnviar){
 
         melhorCaixa = MelhorCaixa();
-
         //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
         printc("\n\n\t[greenTESTE[/green]\n");
         ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso; 
