@@ -93,13 +93,3 @@ void *ThreadEsperaTempoCompra(void *args){
     return NULL;
 }
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
-
-
-
-
-/* void *ThreadCaixa(void *args){ // EM DESENVOLVIMENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    while(caixa->aberta){
-        
-    }
-    return NULL;
-} */

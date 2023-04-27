@@ -139,7 +139,7 @@
     void DesocuparCliente(ClienteStruct *pessoa);
 
     //caixas.c
-    int CaixaIndex(Lista *caixa);
+    CaixaStruct *MelhorCaixa();
     void SelecionarCaixa();
     Elemento *atenderPessoa(CaixaStruct *caixa);
 

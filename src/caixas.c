@@ -88,9 +88,7 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
     
 }*/
 
-CaixaStruct *CaixaIndex(){ // o melhor index que tem o menor tempo
-    if (Global.caixas->head == NULL) return NULL;
-
+CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     Elemento *caixaAux = Global.caixas->head;
     CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
@@ -104,17 +102,13 @@ CaixaStruct *CaixaIndex(){ // o melhor index que tem o menor tempo
 
         
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
+            SegundaMenor = menor;
             menor = caixaAuxInfo;
         }
-        if (menor == ((CaixaStruct *)caixaAux->Info) && caixaAux->next == NULL){
-            SegundaMenor = temp;
+        else if (caixaAuxInfo->tempoTotalEspera < SegundaMenor->tempoTotalEspera || menor->tempoTotalEspera == SegundaMenor->tempoTotalEspera && caixaAuxInfo->aberta == 1){
+            SegundaMenor = caixaAuxInfo;
         }
-        else{
-            if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < SegundaMenor->tempoTotalEspera){
-                temp = menor;
-                SegundaMenor = caixaAuxInfo;
-            }
-        }
+        
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera > maior->tempoTotalEspera && maior->aberta == 1){
             maior = caixaAuxInfo;
         }
@@ -122,18 +116,27 @@ CaixaStruct *CaixaIndex(){ // o melhor index que tem o menor tempo
             primeiraCaixaFechada = caixaAuxInfo;
         }
         caixaAux = caixaAux->next;
+        /* if (menor == ((CaixaStruct *)caixaAux->Info) && caixaAux->next == NULL){
+            SegundaMenor = temp;
+        }
+        else{
+            if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < SegundaMenor->tempoTotalEspera){
+                temp = menor;
+                SegundaMenor = caixaAuxInfo;
+            }
+        } */
     }
 
     if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
+        Opcoes.numCaixasAbertas++;
         primeiraCaixaFechada->aberta = 1;
         return primeiraCaixaFechada;
     }
-    
-    if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor){
+    if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1){
+        Opcoes.numCaixasAbertas--;
         menor->aberta = 0;
         return SegundaMenor;
     }
-
     return menor;
 
 /*     CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
@@ -168,25 +171,17 @@ CaixaStruct *CaixaIndex(){ // o melhor index que tem o menor tempo
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
     printc("\n\n\t[green]OLa1[/green]\n");
+    CaixaStruct melhorCaixa;
     while(pessoaEnviar){
-        printc("\n\n\t[green]OLA2[/green]\n");
-        int index = CaixaIndex(Global.caixas);
-        printc("\n\n\t[green]Index = %d[/green]\n", index);
-        Elemento *caixaAux = Global.caixas->head;
-        
-        while(index){
-            caixaAux = caixaAux->next;
-            index--;
-        }
 
-        CaixaStruct *caixaAuxInfo = (CaixaStruct *) caixaAux->Info;
+        melhorCaixa = MelhorCaixa();
 
         //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
         printc("\n\n\t[greenTESTE[/green]\n");
-        ((ClienteStruct *)Global.PessoasAcabaramTempoDeCompra->head->Info)->tempoAtraso = ((ClienteStruct *)caixaAuxInfo->listaPessoas->head->Info)->tempoAtraso; 
+        ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso; 
 
         printc("\n\n\t[green]PESSSOA ADD Caixa[/green]\n");
-        AddElementoFim(caixaAuxInfo->listaPessoas, criarElemento(pessoaEnviar->Info));
+        AddElementoFim(melhorCaixa->listaPessoas, criarElemento(pessoaEnviar->Info));
         RemElementoInicio(Global.PessoasAcabaramTempoDeCompra);
 
         pessoaEnviar = pessoaEnviar->next;
