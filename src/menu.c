@@ -194,7 +194,7 @@ void menuProdutos(){
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         int i = 0;
         printc("**************************************************\n");
-        printc("****************     [blue]Menu Protudo[/blue]    *************\n");
+        printc("****************     [blue]Menu Produto[/blue]    *************\n");
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Produtos                     **\n", i++);
