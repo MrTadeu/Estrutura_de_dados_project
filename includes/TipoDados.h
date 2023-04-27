@@ -161,6 +161,7 @@
     void pesquisarProduto();
     void adicionarProduto();
     void editarProduto();
+    void removerProduto();
 
     //ImportExport.c
     int importarCount(char *filename);

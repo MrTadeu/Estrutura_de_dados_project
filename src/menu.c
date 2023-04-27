@@ -220,7 +220,7 @@ void menuProdutos(){
             editarProduto();
         }
         if (opcao == i++){
-            //removerProduto();
+            removerProduto();
         }
     } while (opcao != 0);
 }
