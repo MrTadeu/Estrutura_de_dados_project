@@ -64,6 +64,8 @@ void pesquisarFuncionarios(){
 void editarFuncionarios(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     
+    verFuncionariosInativos();
+    verFuncionariosCaixa();
     int id;
     printf("Insira o ID do funcionario que pretende editar: ");
     scanf("%d", &id);

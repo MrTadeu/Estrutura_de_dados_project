@@ -113,6 +113,7 @@
     void menu();
     void menuClientes();
     void menuFuncionarios();
+    void menuProdutos();
     void menuConfig();
 
     //opcoes.c
@@ -154,6 +155,12 @@
     void adicionarFuncionario();
     void removerFuncionario();
     void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas);
+
+    //produtos.c
+    void verProdutos();
+    void pesquisarProduto();
+    void adicionarProduto();
+    void editarProduto();
 
     //ImportExport.c
     int importarCount(char *filename);
