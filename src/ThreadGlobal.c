@@ -22,8 +22,7 @@ void changeStateThreadGlobal(){
 void *ThreadGlobal(){
     srand(time(NULL));
     Global.caixas = criarLista();
-    for (int i = 0; i < 5; i++)
-        AddElementoFim(Global.caixas, criarElemento(criarCaixa(i)));
+    
 
     Global.PessoasAcabaramTempoDeCompra = criarLista();
     Global.PessoasAtendidas = criarLista();

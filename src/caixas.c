@@ -1,5 +1,19 @@
 #include "../includes/TipoDados.h"
 
+
+void criarCaixaInit(){
+    for (size_t i = 0; i < Opcoes.numCaixasTotal; i++){
+        CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
+        caixa->id = i;
+        caixa->aberta = 0;
+        caixa->fecharUrgencia = 0;
+        caixa->tempoTotalEspera = 0;
+        caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
+        caixa->listaPessoas = criarLista(); 
+        AddElementoFim(Global.caixas, criarElemento(caixa));
+    }
+}
+
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 void atualizarAtrasos(Lista *lista, int atraso){
     if(!lista){
@@ -67,43 +81,58 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
     return RemElementoInicio(caixa->listaPessoas);
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
-/* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
 
-
-/* ------------------------------#< ATRIBUIÇAO DE DADOS CAIXA >#------------------------------*/
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-CaixaStruct gerarCaixa(){ // gerarCaixa na ordem
-    Elemento *caixaAux = Global.caixas->head;
-    int cont = 0;
-    while (caixaAux){
-        CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
+/* CaixaStruct gerarCaixa(){ // gerarCaixa na ordem
+    
+}*/
 
-        cont++;
-        caixaAux = caixaAux->next;
-    }
-}
+CaixaStruct *CaixaIndex(){ // o melhor index que tem o menor tempo
+    if (Global.caixas->head == NULL) return NULL;
 
-CaixaStruct CaixaIndex(){ // o melhor index que tem o menor tempo
-    int pos = 0, index = 0;
     Elemento *caixaAux = Global.caixas->head;
     CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
+    CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
+    CaixaStruct *temp = (CaixaStruct *)caixaAux->Info;
+    CaixaStruct *maior = (CaixaStruct *)caixaAux->Info;
+    CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
 
     while (caixaAux){
         CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
+        
+
+        
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
             menor = caixaAuxInfo;
         }
+        if (menor == ((CaixaStruct *)caixaAux->Info) && caixaAux->next == NULL){
+            SegundaMenor = temp;
+        }
+        else{
+            if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < SegundaMenor->tempoTotalEspera){
+                temp = menor;
+                SegundaMenor = caixaAuxInfo;
+            }
+        }
+        if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera > maior->tempoTotalEspera && maior->aberta == 1){
+            maior = caixaAuxInfo;
+        }
+        if (caixaAuxInfo->aberta == 0 && primeiraCaixaFechada == (CaixaStruct *)Global.caixas->head->Info){
+            primeiraCaixaFechada = caixaAuxInfo;
+        }
         caixaAux = caixaAux->next;
     }
-    
-    if (menor->aberta == 0){
-        if (){
-            /* code */
-        }
-        
+
+    if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
+        primeiraCaixaFechada->aberta = 1;
+        return primeiraCaixaFechada;
     }
     
+    if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor){
+        menor->aberta = 0;
+        return SegundaMenor;
+    }
 
     return menor;
 

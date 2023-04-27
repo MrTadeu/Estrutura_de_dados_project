@@ -6,16 +6,10 @@ int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t t
     return indice;
 } 
 
-CaixaStruct *criarCaixa(int id){
-    CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
-    caixa->id = id;
-    caixa->aberta = 1;
-    caixa->fecharUrgencia = 0;
-    caixa->tempoTotalEspera = 0;
-    caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
-    caixa->listaPessoas = criarLista(); 
-    return caixa;
-}
+/* for (int i = 0; i < 5; i++)
+        AddElementoFim(Global.caixas, criarElemento(criarCaixa(i))); */
+
+
 
 ClienteStruct *criarGuest(){
     ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));

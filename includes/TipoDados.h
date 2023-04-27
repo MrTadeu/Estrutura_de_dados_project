@@ -81,7 +81,7 @@
     }NivelFuncionarioStruct;
 
     typedef struct{
-        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque;
+        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, TempoLimiteSuperior, TempoLimiteInferior;
         float eurosPorSegundoAdiantamentoFuncinario;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
@@ -172,7 +172,7 @@
     //TipoDadosFuncoes.c
     int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
     ClienteStruct *criarGuest();
-    CaixaStruct *criarCaixa(int id);
+    void criarCaixaInit();
     FuncionarioStruct *escolherFuncionarios();
     ProdutoStruct *escolherProduto();
     void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);

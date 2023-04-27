@@ -7,6 +7,7 @@ void Init(){
     importarDados(importarClientes, CLIENTES);
     importarDados(importarFuncionarios, FUNCIONARIOS);
     importarDados(importarProdutos, PRODUTOS);
+    criarCaixaInit();
     if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();
     }

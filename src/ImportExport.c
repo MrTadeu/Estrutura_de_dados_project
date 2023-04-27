@@ -26,6 +26,8 @@ void importOpcoes(){
         Opcoes.nivelFuncionario[0].salario = 850.0;
         Opcoes.nivelFuncionario[1].salario = 900.0;
         Opcoes.nivelFuncionario[2].salario = 950.0;
+        Opcoes.TempoLimiteInferior = 180;
+        Opcoes.TempoLimiteSuperior = 600;
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;
