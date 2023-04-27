@@ -21,7 +21,6 @@ void changeStateThreadGlobal(){
 
 void *ThreadGlobal(){
     srand(time(NULL));
-    Global.caixas = criarLista();
     
 
     Global.PessoasAcabaramTempoDeCompra = criarLista();
@@ -33,7 +32,6 @@ void *ThreadGlobal(){
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
             ThreadTempoDeCompra(escolherCliente());
-            printf("\n2\n");
             SelecionarCaixa();
         }
         if(Global.PessoasAtendidas->quantidadeElementos > 0){ //Libertar pessoa
@@ -88,7 +86,6 @@ void *ThreadEsperaTempoCompra(void *args){
     /* pthread_mutex_lock(&listaLock); */
     AddElementoFim(ListaClientesNaFila, criarElemento(cliente));
     /* pthread_mutex_unlock(&listaLock); */
-    printf("\n1\n");
     /* pthread_exit(NULL); */
     return NULL;
 }
