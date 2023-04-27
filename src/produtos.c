@@ -10,18 +10,15 @@ int encontrarIdProdutos(int id){
     return -1;
 }
 
-/* int minimo(int a, int b, int c) {
+ int minimo(int a, int b, int c) {
     int menor = a;
-    if (b < menor) {
-        menor = b;
-    }
-    if (c < menor) {
-        menor = c;
-    }
+    if (b < menor)  menor = b;
+    if (c < menor) menor = c;
+    
     return menor;
 }
 
-int nomeIncompleto(char* str1, char* str2){ // Levenshtein Distance é para ver a distancia de diferença entre as palavras não esquecer de po-las em maiúsculas (para a minha comparaçao dar certo)
+/*int nomeIncompleto(char* str1, char* str2){ // Levenshtein Distance é para ver a distancia de diferença entre as palavras não esquecer de po-las em maiúsculas (para a minha comparaçao dar certo)
     if (str1 == NULL || str2 == NULL) return 999;
     
     int distancia, custo;
@@ -107,10 +104,7 @@ int nomeIncompleto(char* str1, char* str2){ // Levenshtein Distance é para ver 
     return distancia;
 } */
 
-int minimum(int a, int b, int c) {
-    return (a < b) ? ((a < c) ? a : c) : ((b < c) ? b : c);
-}
-int nomeIncompleto(char *s1, char *s2) {
+int PesquisaParecido(char *s1, char *s2) {
     int len1 = strlen(s1);
     int len2 = strlen(s2);
     int* distance = (int*) calloc((len1+1)*(len2+1), sizeof(int));
@@ -124,7 +118,7 @@ int nomeIncompleto(char *s1, char *s2) {
             } else {
                 int substitutionCost = (s1[i-1] == s2[j-1]) ? 0 : 1;
                 distance[i*(len2+1) + j] = 
-                    minimum(distance[(i-1)*(len2+1) + j] + 1, // deletion
+                    minimo(distance[(i-1)*(len2+1) + j] + 1, // deletion
                             distance[i*(len2+1) + j-1] + 1, // insertion
                             distance[(i-1)*(len2+1) + j-1] + substitutionCost); // substitution
             }
@@ -171,11 +165,12 @@ void pesquisarProduto(){
 
     char nome[100];
     printf("Insira o nome do produto que pretende pesquisar: ");
-    scanf("%s", nome);
+    getchar();
+    scanf("%[^\n]", nome);
     printf("%s\n", nome);
     printf("Resultados semelhantes: \n");
     for (int i = 0; i < n_produtos; i++){
-        if (nomeIncompleto(nome, Produtos[i].nome) <= 35){
+        if (PesquisaParecido(nome, Produtos[i].nome) <= 26){
             printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco);
         }
     }
