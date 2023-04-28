@@ -80,6 +80,7 @@ void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
 void importarProdutos(char **linhaString, int n_linha, int n_colunas){
     if(n_colunas == 5){
         Produtos[n_linha].id = atoi(linhaString[0]);
+        Produtos[n_linha].quantidadeProdutosRepetidos = 1;
         Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
         strcpy(Produtos[n_linha].nome, linhaString[1]);
         Produtos[n_linha].preco = atof(linhaString[2]);

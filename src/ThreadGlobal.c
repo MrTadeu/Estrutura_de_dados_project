@@ -70,6 +70,7 @@ void changeStateThreadGlobal(){
         Opcoes.lojaAberta = 1;
         pthread_t GlobalThread;
 
+        pthread_mutex_init(&vetorLock);
         if (pthread_create(&GlobalThread, NULL, ThreadGlobal, NULL) != 0){
             printc("[red]Erro[/red] ao criar thread global!!!\n");
             exit(1);

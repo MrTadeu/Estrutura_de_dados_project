@@ -112,25 +112,6 @@ int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
     return 1;
 }
 
-int pesquisarProdutoListaRealizarAcao(Lista *lista1, ProdutoStruct *produto, void(acao)(void *)){
-    if(!lista1){
-        printf("\n\t[red]Error![/red] Given list is NULL\n");
-        return -1;
-    }
-    if(!produto){
-        printf("\n\t[red]Error![/red] given produto is NULL\n");
-        return -1;
-    }
-        
-    Elemento *aux1 = lista1->head;
-    while(aux1){
-        if(compararProduto(aux1->Info, produto))
-
-        aux1 = aux1->next;
-    }
-    return 1;
-}
-
 int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
     ClienteStruct *cliente1 = (ClienteStruct *) ptrCliente1_Info, *cliente2 = (ClienteStruct *) ptrCliente2_Info;
     if(cliente1->id != cliente2->id || cliente1->listaProdutos->quantidadeElementos != cliente2->listaProdutos->quantidadeElementos)

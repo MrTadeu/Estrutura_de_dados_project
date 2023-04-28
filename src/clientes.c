@@ -178,10 +178,13 @@ void removerCliente(){
     getchar();
 }
 
-void criarProdutosAddCliente(Lista *lista){
-    for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++)
-        AddElementoFim(lista, criarElemento((void *)escolherProduto()));
-    
+void criarProdutosAddCliente(ClienteStruct *cliente){
+    ProdutoStruct *produtoEscolhido;
+    for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++){
+        produtoEscolhido = escolherProduto();
+        if(pesquisarProdutoListaRealizarAcao(cliente->listaProdutos, produtoEscolhido, aumentarNumProdutosrepetidos) == 0)
+            AddElementoFim(cliente->listaProdutos, criarElemento((void *)produtoEscolhido));
+    }
 }
 
 void calculoTemposCliente(ClienteStruct *cliente){
@@ -219,12 +222,10 @@ void *escolherCliente(void *clienteArg){
         pthread_mutex_unlock(&vetorLock);
     }
     cliente->listaProdutos = criarLista();
-    criarProdutosAddCliente(cliente->listaProdutos);
+    criarProdutosAddCliente(cliente);
     calculoTemposCliente(cliente);
     return cliente;
 }
-
-
 
 void DesocuparCliente(ClienteStruct *pessoa){
     int index = pesquisarClienteVetorBatente(pessoa);

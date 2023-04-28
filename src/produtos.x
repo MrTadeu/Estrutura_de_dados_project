@@ -2,7 +2,28 @@
 
 void aumentarNumProdutosrepetidos(void *produtoArg){
     ProdutoStruct *produto = (ProdutoStruct *) produtoArg;
-    
+    produto.quantidadeProdutosRepetidos++;
+}
+
+int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto, void(acao)(void *)){
+    if(!lista){
+        printf("\n\t[red]Error![/red] Given list is NULL\n");
+        return -1;
+    }
+    if(!produto){
+        printf("\n\t[red]Error![/red] given produto is NULL\n");
+        return -1;
+    }
+        
+    Elemento *aux = lista->head;
+    while(aux){
+        if(compararProduto(aux->Info, produto)){
+            acao(aux->Info);
+            return 1;
+        }
+        aux = aux->next;
+    }
+    return 0;
 }
 
 int encontrarIdProdutos(int id){

@@ -136,7 +136,7 @@
     void adicionarCliente();
     void editarCliente();
     void removerCliente();
-    void criarProdutosAddCliente(Lista *lista);
+    void criarProdutosAddCliente(ClienteStruct *cliente);
     void calculoTemposCliente(ClienteStruct *cliente);
     void *escolherCliente(void *clienteArg);
     void DesocuparCliente(ClienteStruct *pessoa);
@@ -163,6 +163,8 @@
     void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas);
 
     //produtos.c
+    void aumentarNumProdutosrepetidos(void *produtoArg);
+    int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto, void(acao)(void *));
     void verProdutos();
     void pesquisarProduto();
     void adicionarProduto();
