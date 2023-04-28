@@ -29,7 +29,7 @@ void importOpcoes(){
         Opcoes.TempoLimiteInferior = 180;
         Opcoes.TempoLimiteSuperior = 600;
         Opcoes.QuantMinProd = 1;
-        Opcoes.QuantMaxProd = 5;
+        Opcoes.QuantMaxProd = 1;
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;
