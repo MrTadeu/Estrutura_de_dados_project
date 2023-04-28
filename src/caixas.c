@@ -196,7 +196,6 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
-    if (pessoaEnviar == NULL) return;
 
     CaixaStruct* melhorCaixa;
     while(pessoaEnviar){

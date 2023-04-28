@@ -200,11 +200,11 @@ void calculoTemposCliente(ClienteStruct *cliente){
 
 ClienteStruct *escolherCliente(){
     ClienteStruct *cliente;
-    if(Aleatorio(1, 100) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
+    if(Aleatorio(1, 5) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
         cliente->listaProdutos = criarLista();
     }
-    else if(n_clientesAtivos >= n_clientes || n_clientesAtivos >= Opcoes.lotacaoMaxima){
+    else if(n_clientesAtivos >= n_clientes){
         /* printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n"); */
         return NULL;
     }    
