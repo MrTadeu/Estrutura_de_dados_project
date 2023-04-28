@@ -209,13 +209,8 @@
     
 
     //ThreadGlobal.c
-    typedef struct{
-        Lista *ListaClientesNaFila;
-        ClienteStruct *cliente;
-    }Argumentos;
     void changeStateThreadGlobal();
     void *ThreadGlobal();
-    void ThreadTempoDeCompra(ClienteStruct *pessoa);
     void *ThreadEsperaTempoCompra(void *args);
 
     

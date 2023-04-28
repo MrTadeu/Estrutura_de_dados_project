@@ -196,7 +196,6 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
-    if (pessoaEnviar == NULL) return;
 
     CaixaStruct* melhorCaixa;
     while(pessoaEnviar){
@@ -206,7 +205,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
         }
-        /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso;  */ // O QUE ESTA MERDA ESTÁ A FAZER AQUI  ???????????????????????????????????? 
+        /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso; */  // O QUE ESTA MERDA ESTÁ A FAZER AQUI  ???????????????????????????????????? 
 
         AddElementoFim(melhorCaixa->listaPessoas, criarElemento(pessoaEnviar->Info));
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
