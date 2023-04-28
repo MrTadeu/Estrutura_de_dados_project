@@ -28,6 +28,8 @@ void importOpcoes(){
         Opcoes.nivelFuncionario[2].salario = 950.0;
         Opcoes.TempoLimiteInferior = 180;
         Opcoes.TempoLimiteSuperior = 600;
+        Opcoes.QuantMinProd = 1;
+        Opcoes.QuantMaxProd = 5;
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;
@@ -205,7 +207,7 @@ void exportarDados(void (guardarDadosTxt)(FILE *, int), TipoDados tipo){
         printc("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
         exit(1);
     }
-    fprintf(file, "%d\n", n_elementos);
+    fprintf(file, "%d", n_elementos);
     for (int i = 0; i < n_elementos; i++){
         guardarDadosTxt(file, i);
     }
@@ -215,15 +217,15 @@ void exportarDados(void (guardarDadosTxt)(FILE *, int), TipoDados tipo){
 }
 
 void guardarClienteTxt(FILE *file, int i){
-    fprintf(file, "%d\t%s\t%f\t%d\t%d\t%d\n", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+    fprintf(file, "\n%d\t%s\t%f\t%d\t%d\t%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
 }
 
 void guardarFuncionarioTxt(FILE *file, int i){
-    fprintf(file, "%d\t%s\t%f\t%d\t%f\n", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio);
+    fprintf(file, "\n%d\t%s\t%f\t%d\t%f", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio);
 }
 
 void guardarProdutoTxt(FILE *file, int i){
-    fprintf(file, "%d\t%s\t%f\t%f\t%f\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
+    fprintf(file, "\n%d\t%s\t%f\t%f\t%f", Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
 }
 
 void exportarOpcoes(){

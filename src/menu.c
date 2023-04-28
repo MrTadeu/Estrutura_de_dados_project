@@ -110,6 +110,7 @@ void menuClientes(){
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Clientes                     **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Clientes na Caixa            **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Clientes               **\n", i++);
         printc("**        [blue]%d [/blue]-> Adicionar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Editar Cliente                   **\n", i++);
@@ -121,6 +122,9 @@ void menuClientes(){
         i = 1;
         if (opcao == i++){
             verClientes();
+        }
+        if (opcao == i++){
+            verClientesCaixa();
         }
         if (opcao == i++){
             pesquisarClientes();
@@ -207,7 +211,7 @@ void menuProdutos(){
         scanf("%d", &opcao);
 
         i = 1;
-        if (opcao == i++){
+        /* if (opcao == i++){
             verProdutos();
         }
         if (opcao == i++){
@@ -221,6 +225,6 @@ void menuProdutos(){
         }
         if (opcao == i++){
             removerProduto();
-        }
+        } */
     } while (opcao != 0);
 }

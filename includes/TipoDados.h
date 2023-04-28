@@ -81,7 +81,7 @@
     }NivelFuncionarioStruct;
 
     typedef struct{
-        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, TempoLimiteSuperior, TempoLimiteInferior;
+        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, TempoLimiteSuperior, TempoLimiteInferior, QuantMaxProd, QuantMinProd;
         float eurosPorSegundoAdiantamentoFuncinario;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
@@ -127,6 +127,7 @@
 
     //clientes.c
     void verClientes();
+    void verClientesCaixa();
     int checkIfUserExists(int id);
     int generateUserID();
     void pesquisarClientes();
@@ -136,20 +137,23 @@
     void criarProdutosAddCliente(Lista *lista);
     void calculoTemposCliente(ClienteStruct *cliente);
     ClienteStruct *escolherCliente();
-    
     void DesocuparCliente(ClienteStruct *pessoa);
 
     //caixas.c
     CaixaStruct *MelhorCaixa();
     void SelecionarCaixa();
     Elemento *atenderPessoa(CaixaStruct *caixa);
+    void criarCaixaInit();
+    void *ThreadCaixa(CaixaStruct *caixa);
+
+
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);
-    float convertNumeroDeVendasSalario_vetor(int pos);
-    NivelFuncionarioStruct getNivelFuncionario(FuncionarioStruct *funcionario);
+    //float convertNumeroDeVendasSalario_vetor(int pos);  //Nao esta a ser usada
+    //NivelFuncionarioStruct getNivelFuncionario(FuncionarioStruct *funcionario); //Nao esta a ser usada
     void verFuncionariosCaixa();
-    void verFuncionariosInativos();
+    void verFuncionariosInativos(); 
     void pesquisarFuncionarios();
     void editarFuncionarios();
     void adicionarFuncionario();
@@ -178,9 +182,8 @@
 
 
     //TipoDadosFuncoes.c
-    int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento); // Funcional
+    int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento);
     ClienteStruct *criarGuest();
-    void criarCaixaInit();
     FuncionarioStruct *escolherFuncionarios();
     ProdutoStruct *escolherProduto();
     void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);
@@ -204,8 +207,6 @@
     int checkIFfileExists(char *filepath);
     int generateID(int (*checkIfExists)(int), int x);
     
-    //FuncoesCaixa.c
-    void *ThreadCaixa(CaixaStruct *caixa);
 
     //ThreadGlobal.c
     typedef struct{

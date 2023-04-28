@@ -28,6 +28,42 @@ void verClientes(){
     getchar();
 }
 
+void verClientesCaixa(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    if(Opcoes.lojaAberta == 0){
+        printc("\n\n[yellow]A loja está fechada! Não é possível ver os clientes em caixa.[/yellow]");
+    }
+    else{
+        Elemento *Caixa = Global.caixas->head;
+        while(Caixa){
+            if(((CaixaStruct *)Caixa->Info)->aberta == 1){
+                printc("[red]%d ºCaixa [green]ABERTA[/green] Tempo Espera: %ds [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
+            }
+            else{
+                printc("[red]%d ºCaixa FECHADA[/red]\n", ((CaixaStruct *)Caixa->Info)->id);
+            }
+            Elemento *Cliente = ((CaixaStruct *)Caixa->Info)->listaPessoas->head;
+            while (Cliente){
+                ClienteStruct ClienteInfo = *((ClienteStruct *)Cliente->Info);
+                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d[/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano);
+                Elemento *Produtos = ClienteInfo.listaProdutos->head;
+                while(Produtos){
+                    ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
+                    printc("\n\t\t[blue]%s FALTA QUANTIDADE DE PROD %.2f€[/blue]", ProdutoInfo->nome, /* ProdutoInfo., */ ProdutoInfo->preco);
+                    Produtos = Produtos->next;
+                }
+                printc("\n");
+                Cliente = Cliente->next;
+            }
+            printf("\n\n");
+            Caixa = Caixa->next; 
+        }
+    }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    getchar();
+    getchar();
+}
+
 /* void verClientes(){ // VER CLIENTES INATIVOS / LOJA
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     for(int i = 0; i < n_clientes; i++){
@@ -143,7 +179,7 @@ void removerCliente(){
 }
 
 void criarProdutosAddCliente(Lista *lista){
-    for(int i = 0; i < Aleatorio(1, 100); i++)
+    for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++)
         AddElementoFim(lista, criarElemento((void *)escolherProduto()));
 }
 

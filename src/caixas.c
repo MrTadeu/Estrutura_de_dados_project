@@ -5,7 +5,7 @@ void criarCaixaInit(){
     Global.caixas = criarLista();
     for (int i = 0; i < Opcoes.numCaixasTotal; i++){
         CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
-        caixa->id = i;
+        caixa->id = i+1;
         caixa->aberta = 0;
         caixa->fecharUrgencia = 0;
         caixa->tempoTotalEspera = 0;
@@ -104,7 +104,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
     printc("\n\n\t[red]Entrou no AQUI2222[/red] funcionario: %s id: %d\n", ((CaixaStruct *)caixaAux->Info)->funcionario->nome, ((CaixaStruct *)caixaAux->Info)->id);
     CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
-    CaixaStruct *temp = (CaixaStruct *)caixaAux->Info;
+    /* CaixaStruct *temp = (CaixaStruct *)caixaAux->Info; */
     CaixaStruct *maior = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
 
