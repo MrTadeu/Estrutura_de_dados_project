@@ -181,6 +181,7 @@ void removerCliente(){
 void criarProdutosAddCliente(Lista *lista){
     for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++)
         AddElementoFim(lista, criarElemento((void *)escolherProduto()));
+    
 }
 
 void calculoTemposCliente(ClienteStruct *cliente){
@@ -211,7 +212,8 @@ ClienteStruct *escolherCliente(){
     else{
         cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
         int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
-        Clientes[indice].ativo = 1;                                                                           
+        Clientes[indice].ativo = 1;         
+                                                                          
         batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
     }
     cliente->listaProdutos = criarLista();

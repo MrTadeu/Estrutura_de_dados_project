@@ -93,7 +93,7 @@
     } TipoDados;
 
     typedef struct{
-        Lista *caixas, *PessoasAcabaramTempoDeCompra, *PessoasAtendidas;
+        Lista *caixas, *PessoasAcabaramTempoDeCompra;
     }GlobalStruct;
 
     typedef struct{
@@ -102,8 +102,9 @@
     }HistoricoStruct;
 
     //GLOBAL VARIABLES
-    extern GlobalStruct Global;
     extern OpcaoStruct Opcoes;
+    extern GlobalStruct Global;
+    extern pthread_mutex_t vetorLock, listaLock;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
     extern ProdutoStruct *Produtos;

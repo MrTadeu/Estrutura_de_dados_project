@@ -1,6 +1,5 @@
 #include "../includes/TipoDados.h"
 
-
 void criarCaixaInit(){
     Global.caixas = criarLista();
     for (int i = 0; i < Opcoes.numCaixasTotal; i++){
@@ -84,6 +83,11 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = 0;
 
+    pthread_mutex_lock(&lockThread);
+    DesocuparCliente(cliente);
+    pthread_mutex_unlock(&lockThread);
+
+
     //Remover da fila
     return RemElementoInicio(caixa->listaPessoas);
 }
@@ -97,6 +101,8 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
 
 CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     if (Global.caixas->head == NULL) return NULL;
+
+    pthread_mutex_init(&vetorLock, NULL);
     
     Elemento *caixaAux = Global.caixas->head;
     printc("\n\n\t[red]Entrou no1 AQUI[/red]\n");
@@ -205,12 +211,16 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
         }
+
         //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
         ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
 
-        AddElementoFim(melhorCaixa->listaPessoas, criarElemento(pessoaEnviar->Info));
+        AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
-        RemElementoInicio(Global.PessoasAcabaramTempoDeCompra); // 
+
+        pthread_mutex_lock(&lockThread);
+        RemElementoInicio(Global.PessoasAcabaramTempoDeCompra); 
+        pthread_mutex_unlock(&lockThread);
 
         pessoaEnviar = pessoaEnviar->next;
     }
@@ -235,7 +245,9 @@ void *ThreadCaixa(CaixaStruct *caixa){
         atualizarAtrasos(caixa->listaPessoas, atraso);
         printc("\n\n\t[green]ATRASOS ATUALIZADOS[/green]\n");
 
-        AddElementoFim(Global.PessoasAtendidas, atenderPessoa(caixa));
+        //<-----Atualizar Historico Aqui  (tem de ser antes de atender pessoa) ----->//
+
+        destruirElemento(atenderPessoa(caixa), destruirCliente);
         printc("\n\n\t[green]PESSOA ATENDIDA[/green]\n");
 
         atrasoMedio += atraso;

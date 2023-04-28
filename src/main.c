@@ -4,6 +4,7 @@
 //GLOBAL VARIABLES
 OpcaoStruct Opcoes;
 GlobalStruct Global;
+pthread_mutex_t lockVetor;
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
 ProdutoStruct *Produtos;

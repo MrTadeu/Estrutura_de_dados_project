@@ -153,7 +153,7 @@ void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio
             float novoSalario = (getNivelFuncionario(funcionario)).salario;
             for (int  i = 1; i < 3; i++){
                 if((Opcoes.nivelFuncionario[i]).salario == novoSalario)
-                    printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para nível %d com novo salario de %.2f euros\n", funcionario->id, i+1, novoSalario);
+                    printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para o nível %d com novo salario de %.2f euros\n", funcionario->id, Opcoes.nivelFuncionario->nivel, Opcoes.nivelFuncionario->salario);
             }
         }
     }
