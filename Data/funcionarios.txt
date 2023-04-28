@@ -1,17 +1,17 @@
 90
-7904	Ana Seixas Garcia 	0.000000	0	0.000000
-1670	Ana Francisca Lemos Martins	0.000000	0	0.000000
-9162	Simao Daniela Pereira Lima	0.000000	0	0.000000
-6393	Mariana Ghilas Pereira Almeida	0.000000	0	0.000000
-8922	Mariana Sofia Braga 	0.000000	0	0.000000
-3506	Maria da Silva Tavares	0.000000	0	0.000000
-5130	Joana Sofia Marques 	0.000000	0	0.000000
-7662	Sara de Abreu Conde	0.000000	0	0.000000
-4698	Raquel Ines Silva Henriques	0.000000	0	0.000000
-9511	Sara Rocha Silva 	0.000000	0	0.000000
+5727	Sara Milheiro Dezerto Ramalho	0.000000	0	0.000000
+7000	Ana Santos Oliveira Neves	0.000000	0	0.000000
+9164	Carolina Rita Cruz Almeida	0.000000	0	0.000000
+9945	António Alexandre Carvalho	0.000000	0	0.000000
+9903	Sandra Maria Pereira 	0.000000	0	0.000000
+2040	Vladimir Fonseca Martins Moura	0.000000	0	0.000000
+1336	Goncalo Margarido da Costa	0.000000	0	0.000000
+8158	Maria Joao Correia Reis	0.000000	0	0.000000
+3666	Marcia Artur Pandeirada Vaz	0.000000	0	0.000000
+1629	Madalena Leal  Aguiar	0.000000	0	0.000000
 5919	Fabiana Costa Silva Coelho	0.000000	0	0.000000
 7353	Ines Emanuel Munhoz 	0.000000	0	0.000000
-1336	Goncalo Margarido da Costa	0.000000	0	0.000000
+5130	Joana Sofia Marques 	0.000000	0	0.000000
 3100	Joao Maria Marques 	0.000000	0	0.000000
 2856	Ana Beatriz Campos Pereira	0.000000	0	0.000000
 8525	Rita Goncalves Lourenco	0.000000	0	0.000000
@@ -19,15 +19,15 @@
 1639	Bruna Cristina Pedreiro Silva	0.000000	0	0.000000
 4100	Barbara Maria Mendonca Barbosa	0.000000	0	0.000000
 9252	Filipa Liliana Meira Soares	0.000000	0	0.000000
-1629	Madalena Leal  Aguiar	0.000000	0	0.000000
+9511	Sara Rocha Silva 	0.000000	0	0.000000
 1967	Ana Claro Belo Soeiro	0.000000	0	0.000000
 1478	Mariana Rita Lopes Cabral	0.000000	0	0.000000
 7125	Sergio Vidinha Canteiro Silva	0.000000	0	0.000000
 7589	Diana Duarte Afonso Monteiro	0.000000	0	0.000000
-3666	Marcia Artur Pandeirada Vaz	0.000000	0	0.000000
+4698	Raquel Ines Silva Henriques	0.000000	0	0.000000
 5410	Eva Filipa Guia Afonso	0.000000	0	0.000000
 3855	Goncalo Branco Sequeira 	0.000000	0	0.000000
-9903	Sandra Maria Pereira 	0.000000	0	0.000000
+8922	Mariana Sofia Braga 	0.000000	0	0.000000
 4158	Ana Miguel Pereira Bastos	0.000000	0	0.000000
 9850	Rodrigo Agnes Ferro Ferreira	0.000000	0	0.000000
 7791	Ana Carolina Patricio 	0.000000	0	0.000000
@@ -36,7 +36,7 @@
 3044	Ana Beatriz Campos Pereira	0.000000	0	0.000000
 6697	Maria Garcia Osório Novo	0.000000	0	0.000000
 5536	Joana Gomes Borges 	0.000000	0	0.000000
-9164	Carolina Rita Cruz Almeida	0.000000	0	0.000000
+9162	Simao Daniela Pereira Lima	0.000000	0	0.000000
 6447	Mariana Martinho Miranda Ribeiro	0.000000	0	0.000000
 1365	Carolina Guerreiro Figueiredo	0.000000	0	0.000000
 2488	Eva Mangas Rocha 	0.000000	0	0.000000
@@ -54,11 +54,11 @@
 5037	Beatriz Manuel dos Antos	0.000000	0	0.000000
 5266	Ines Afonso Oliveira Silva	0.000000	0	0.000000
 9550	Beatriz Prata Magalhaes 	0.000000	0	0.000000
-5727	Sara Milheiro Dezerto Ramalho	0.000000	0	0.000000
+7904	Ana Seixas Garcia 	0.000000	0	0.000000
 8736	Iria Lourenco Oliveira 	0.000000	0	0.000000
 8839	Roberto Maria Silva Pina	0.000000	0	0.000000
 5146	Mariana Rebelo Santos Conceicao	0.000000	0	0.000000
-9945	António Alexandre Carvalho	0.000000	0	0.000000
+6393	Mariana Ghilas Pereira Almeida	0.000000	0	0.000000
 5722	Sónia Saraiva Nunes 	0.000000	0	0.000000
 9140	Ines Fernandes Guilherme Silva	0.000000	0	0.000000
 6683	Teodora Margarida Barros Mestre	0.000000	0	0.000000
@@ -68,12 +68,12 @@
 7547	Mafalda Vanessa Silva Lucas	0.000000	0	0.000000
 3562	Catarina Nicole Silva Silva	0.000000	0	0.000000
 6095	Catarina Sofia Abreu Moura	0.000000	0	0.000000
-2040	Vladimir Fonseca Martins Moura	0.000000	0	0.000000
+3506	Maria da Silva Tavares	0.000000	0	0.000000
 4943	Catarina Sofia Figueiredo Reis	0.000000	0	0.000000
 6129	Maria Soraia Bullitta Portela	0.000000	0	0.000000
 1273	Francisco Goncalves Castro	0.000000	0	0.000000
-7000	Ana Santos Oliveira Neves	0.000000	0	0.000000
-8158	Maria Joao Correia Reis	0.000000	0	0.000000
+1670	Ana Francisca Lemos Martins	0.000000	0	0.000000
+7662	Sara de Abreu Conde	0.000000	0	0.000000
 2918	Helena Tomas dos Santos	0.000000	0	0.000000
 3251	Monica Diogo Santos Fardilha	0.000000	0	0.000000
 4650	Mariana Nogueira Silva Pinto	0.000000	0	0.000000
