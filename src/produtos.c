@@ -12,77 +12,14 @@ int encontrarIdProdutos(int id){
 
  int minimo(int a, int b, int c) {
     int menor = a;
+
     if (b < menor)  menor = b;
     if (c < menor) menor = c;
     
     return menor;
 }
 
-int PesquisaParecido(char *s1, char *s2){ // Levenshtein Distance é para ver a distancia de diferença entre as palavras não esquecer de po-las em maiúsculas (para a minha comparaçao dar certo)
-    int distancia, custo, **matriz = calloc(linha + 1, sizeof(int));
-    int linha = strlen(str1); 
-    int coluna = strlen(str2);
-
-    for (int i = 0; i <= linha; i++){
-    }
-    for (int i = 1; i < coluna; i++){
-        matriz[0][i] = i;
-    }
-    for (int i = 1; i < linha; i++){
-        matriz[i][0] = i;
-    }
-
-    for (int i = 1; i < linha + 1; i++){ // Distancia
-        matriz[i] = calloc(coluna + 1, sizeof(int));
-        matriz[i][0] = i;
-
-        for (int j = 1; j < coluna; j++){
-            int custo = (str1[i - 1] == str2[j - 1]) ? 0 : 1;
-            
-            int num = minimo(matriz[i - 1][j] + 1, matriz[i][j - 1] + 1, matriz[i - 1][j - 1] + custo);
-            printf("num: %d\n", num);
-            matriz[i][j] = num;
-            printc("\n\n\t\t Num:[red]%d[/red][green]i: %d j: %d[/green]\n", num, i, j);
-            for (int i = 0; i < linha; i++){
-
-                for (int j = 0; j < coluna; j++){
-                    printf("%d ", matriz[i][j]);
-                    if (matriz[i][j] < 10 && j >= 9 && i != 0){
-                        printf(" ");
-                    }
-                    if (i == 0 && j > 9){
-                        printf(" ");
-                    }
-                    
-                }
-                printf("\n");
-            }
-        }
-        for (int i = 0; i < linha; i++){
-
-        for (int j = 0; j < coluna; j++){
-            printf("%d ", matriz[i][j]);
-            if (j >= 9 && i != 0){
-                printf(" ");
-            }
-            
-        }
-        printf("\n");
-        }
-        printc("[red]hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh[/red]\n");
-    }
-    printf("str1: %s      %d   |str2: %s     %d\n", str1, linha, str2, coluna);
-    printf("-----------------------------------------Acabou-----------------------------------------------\n");
-    distancia = matriz[linha][coluna];
-    for (int i = 0; i <= coluna; i++){
-        free(matriz[i]);
-    }
-    free(matriz);
-    printc("[green]\nPassou[/green]");
-    return distancia;
-}
-
-/* int PesquisaParecido(char *s1, char *s2) {
+int PesquisaParecido(char *s1, char *s2) {// Levenshtein Distance é para ver a distancia de diferença entre as palavras não esquecer de po-las em maiúsculas (para a minha comparaçao dar certo)
     int len1 = strlen(s1);
     int len2 = strlen(s2);
     int* distance = (int*) calloc((len1+1)*(len2+1), sizeof(int));
@@ -106,7 +43,7 @@ int PesquisaParecido(char *s1, char *s2){ // Levenshtein Distance é para ver a 
     int result = distance[len1*(len2+1) + len2];
     free(distance);
     return result;
-} */
+}
 
 
 void verProdutos(){
@@ -148,7 +85,7 @@ void pesquisarProduto(){
     printf("%s\n", nome);
     printf("Resultados semelhantes: \n");
     for (int i = 0; i < n_produtos; i++){
-        if (PesquisaParecido(nome, Produtos[i].nome) <= 26){
+        if (PesquisaParecido(nome, Produtos[i].nome) <= /* 26 */36){
             printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco);
         }
     }
