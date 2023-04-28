@@ -202,15 +202,16 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     while(pessoaEnviar){
 
         melhorCaixa = MelhorCaixa();
-        //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
+        
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
         }
-        /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso;  */ // O QUE ESTA MERDA ESTÁ A FAZER AQUI  ???????????????????????????????????? 
+        //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
+        ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
 
         AddElementoFim(melhorCaixa->listaPessoas, criarElemento(pessoaEnviar->Info));
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
-        RemElementoInicio(Global.PessoasAcabaramTempoDeCompra);
+        RemElementoInicio(Global.PessoasAcabaramTempoDeCompra); // 
 
         pessoaEnviar = pessoaEnviar->next;
     }

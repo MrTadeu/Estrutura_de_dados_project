@@ -145,8 +145,6 @@ void removerFuncionario(){
     }
 }
     
-
-
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
     float salario = (getNivelFuncionario(funcionario)).salario;
     funcionario->n_vendas += n_vendas;
