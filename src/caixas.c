@@ -8,7 +8,7 @@ void criarCaixaInit(){
         caixa->aberta = 0;
         caixa->fecharUrgencia = 0;
         caixa->tempoTotalEspera = 0;
-        caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
+        caixa->funcionario =  NULL/* (FuncionarioStruct *) escolherFuncionarios() */;
         caixa->listaPessoas = criarLista(); 
         AddElementoFim(Global.caixas, criarElemento(caixa));
     }
@@ -152,6 +152,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
         return SegundaMenor;
     }
+    return menor;
 }
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
