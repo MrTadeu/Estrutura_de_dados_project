@@ -107,39 +107,33 @@ void mostrarCliente(void *clienteArg, int indentLevel){
 
 int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
     ProdutoStruct *produto1 = (ProdutoStruct *) ptrProduto1_Info, *produto2 = (ProdutoStruct *) ptrProduto2_Info;
-    if(produto1->tempoCaixa != produto2->tempoCaixa || produto1->tempoCompra != produto2->tempoCompra ||
-        produto1->preco != produto2->preco || produto1->id != produto2->id || strcpy(produto1->nome, produto2->nome) != 0)
+    if(produto1->id != produto2->id)
         return 0;
     return 1;
 }
 
-int compararListaProdutos(Lista *lista1, Lista *lista2){
-    if(!lista1||!lista2){
-        printf("\n\t[red]Error![/red] List is NULL\n");
+int pesquisarProdutoListaRealizarAcao(Lista *lista1, ProdutoStruct *produto, void(acao)(void *)){
+    if(!lista1){
+        printf("\n\t[red]Error![/red] Given list is NULL\n");
         return -1;
     }
-    if(lista1->quantidadeElementos != lista2->quantidadeElementos){
-        printf("\n\t[red]Error![/red] Lists have different sizes.\n");
+    if(!produto){
+        printf("\n\t[red]Error![/red] given produto is NULL\n");
         return -1;
     }
         
-    Elemento *aux1 = lista1->head, *aux2 = lista2->head;
-    while(!aux1||!aux2){
-        if(!compararProduto(aux1->Info, aux2->Info))
-            return 0;
+    Elemento *aux1 = lista1->head;
+    while(aux1){
+        if(compararProduto(aux1->Info, produto))
+
         aux1 = aux1->next;
-        aux2 = aux2->next;
     }
     return 1;
 }
 
 int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
     ClienteStruct *cliente1 = (ClienteStruct *) ptrCliente1_Info, *cliente2 = (ClienteStruct *) ptrCliente2_Info;
-    if(cliente1->id != cliente2->id || cliente1->ativo != cliente2->ativo || cliente1->dataNascimento.ano != cliente2->dataNascimento.ano ||
-        cliente1->dataNascimento.mes != cliente2->dataNascimento.mes || cliente1->dataNascimento.dia != cliente2->dataNascimento.dia ||
-        strcpy(cliente1->nome, cliente2->nome) != 0 || cliente1->saldoCartaoCliente != cliente2->saldoCartaoCliente || cliente1->tempoAtraso != cliente2->tempoAtraso ||
-        cliente1->tempoEstimadoCaixa != cliente2->tempoEstimadoCaixa || cliente1->tempoEstimadoCompra != cliente2->tempoEstimadoCompra ||
-        cliente1->tempoEstimadoFila != cliente2->tempoEstimadoFila || cliente1->listaProdutos->quantidadeElementos != cliente2->listaProdutos->quantidadeElementos)
+    if(cliente1->id != cliente2->id || cliente1->listaProdutos->quantidadeElementos != cliente2->listaProdutos->quantidadeElementos)
         return 0;
 
     Elemento *produto1 = cliente1->listaProdutos->head, *produto2 = cliente2->listaProdutos->head;

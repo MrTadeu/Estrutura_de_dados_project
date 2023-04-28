@@ -51,7 +51,7 @@
     }CaixaStruct;
 
     typedef struct{
-        int id;
+        int id, quantidadeProdutosRepetidos;
         char *nome;
         float preco, tempoCompra, tempoCaixa;
     }ProdutoStruct;
@@ -73,6 +73,7 @@
         int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
 
         Lista *listaProdutos;           // lista dos produtos
+        float precoTotalProdutos;        
     }ClienteStruct;
 
     typedef struct{
@@ -137,7 +138,7 @@
     void removerCliente();
     void criarProdutosAddCliente(Lista *lista);
     void calculoTemposCliente(ClienteStruct *cliente);
-    ClienteStruct *escolherCliente();
+    void *escolherCliente(void *clienteArg);
     void DesocuparCliente(ClienteStruct *pessoa);
 
     //caixas.c

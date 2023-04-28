@@ -199,9 +199,9 @@ void calculoTemposCliente(ClienteStruct *cliente){
     }
 }
 
-ClienteStruct *escolherCliente(){
-    ClienteStruct *cliente;
-    if(Aleatorio(1, 5) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
+void *escolherCliente(void *clienteArg){
+    ClienteStruct *cliente = (ClienteStruct *) clienteArg;
+    if(Aleatorio(1, 75) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
         cliente->listaProdutos = criarLista();
     }
@@ -213,8 +213,10 @@ ClienteStruct *escolherCliente(){
         cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
         int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
         Clientes[indice].ativo = 1;         
-                                                                          
+
+        pthread_mutex_lock(&vetorLock);
         batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
+        pthread_mutex_unlock(&vetorLock);
     }
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente->listaProdutos);

@@ -1,5 +1,9 @@
 #include "../includes/TipoDados.h"
 
+void aumentarNumProdutosrepetidos(void *produtoArg){
+    ProdutoStruct *produto = (ProdutoStruct *) produtoArg;
+    
+}
 
 int encontrarIdProdutos(int id){
     for (int i = 0; i < n_produtos; i++){

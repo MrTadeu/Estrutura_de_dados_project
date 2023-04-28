@@ -83,9 +83,9 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = 0;
 
-    pthread_mutex_lock(&lockThread);
+    pthread_mutex_lock(&vetorLock);
     DesocuparCliente(cliente);
-    pthread_mutex_unlock(&lockThread);
+    pthread_mutex_unlock(&vetorLock);
 
 
     //Remover da fila
@@ -218,9 +218,9 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
 
-        pthread_mutex_lock(&lockThread);
+        pthread_mutex_lock(&listaLock);
         RemElementoInicio(Global.PessoasAcabaramTempoDeCompra); 
-        pthread_mutex_unlock(&lockThread);
+        pthread_mutex_unlock(&listaLock);
 
         pessoaEnviar = pessoaEnviar->next;
     }
