@@ -134,7 +134,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         return menor;
     }
     
-    if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
+    if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTotal){
         /* if(Opcoes.numCaixasAbertas == Opcoes.numCaixasTotal){
             printc("\n\tmenor [red]Não é possivel abrir mais caixas! ID:%d  aberta?%d[/red]", menor->id, menor->aberta);
             return NULL;
