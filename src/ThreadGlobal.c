@@ -27,11 +27,11 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
-        /* if(Global.PessoasAtendidas->quantidadeElementos > 0){ //Libertar pessoa
+        if(Global.PessoasAtendidas->quantidadeElementos > 0){ //Libertar pessoa
             printc("\n\n\t[green]PESSOA LIBERTADA[/green]\n");
             DesocuparCliente((ClienteStruct *)Global.PessoasAtendidas->head->Info);
             destruirElemento(RemElementoInicio(Global.PessoasAtendidas), destruirCliente);
-        } */
+        }
         dormir(100);
     }
     return NULL;
