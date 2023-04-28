@@ -8,21 +8,28 @@ void *ThreadGlobal(){
 
     /* ClienteStruct *clienteAux; */
     pthread_mutex_init(&listaLock, NULL);
+    pthread_mutex_init(&vetorLock, NULL);
     int x  = 0;
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
               
-            for (; x < 4000; x++){
+            /* for (; x < 4000; x++){
                 pthread_t thread_escolherCliente;
                 ClienteStruct *pessoa;
                 pthread_create(&thread_escolherCliente, NULL, escolherCliente, pessoa);
                 pthread_join(thread_escolherCliente, NULL);
+ */
+            /* for (; x < 4000; x++){ */
+                ClienteStruct *pessoa = escolherCliente();
                 if(pessoa){
                     pthread_t thread;
                     pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
                     pthread_detach(thread);
                 }
-            }
+            /* } */
+            /* } */
+          
+            
             SelecionarCaixa();
         }
         dormir(100);

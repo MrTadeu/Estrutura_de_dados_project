@@ -202,8 +202,8 @@ void calculoTemposCliente(ClienteStruct *cliente){
     }
 }
 
-void *escolherCliente(void *clienteArg){
-    ClienteStruct *cliente = (ClienteStruct *) clienteArg;
+ClienteStruct *escolherCliente(){
+    ClienteStruct *cliente;
     if(Aleatorio(1, 75) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
         cliente->listaProdutos = criarLista();

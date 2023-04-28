@@ -138,7 +138,7 @@
     void removerCliente();
     void criarProdutosAddCliente(ClienteStruct *cliente);
     void calculoTemposCliente(ClienteStruct *cliente);
-    void *escolherCliente(void *clienteArg);
+    ClienteStruct *escolherCliente();
     void DesocuparCliente(ClienteStruct *pessoa);
 
     //caixas.c

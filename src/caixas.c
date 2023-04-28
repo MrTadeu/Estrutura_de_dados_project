@@ -100,26 +100,14 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
 }*/
 
 CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
-    if (Global.caixas->head == NULL) return NULL;
-
-    pthread_mutex_init(&vetorLock, NULL);
-    
     Elemento *caixaAux = Global.caixas->head;
-    printc("\n\n\t[red]Entrou no1 AQUI[/red]\n");
-    printc("\n\n\t[red]Entrou no AQUI2222[/red]\n");
-    CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
-    printc("\n\n\t[red]Entrou no AQUI2222[/red] funcionario: %s id: %d\n", ((CaixaStruct *)caixaAux->Info)->funcionario->nome, ((CaixaStruct *)caixaAux->Info)->id);
-    CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
-    /* CaixaStruct *temp = (CaixaStruct *)caixaAux->Info; */
     CaixaStruct *maior = (CaixaStruct *)caixaAux->Info;
+    CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
+    CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
-
 
     while (caixaAux){
         CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
-        
-
-        
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
             SegundaMenor = menor;
             menor = caixaAuxInfo;
@@ -134,70 +122,36 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         if (caixaAuxInfo->aberta == 0 && primeiraCaixaFechada == (CaixaStruct *)Global.caixas->head->Info){
             primeiraCaixaFechada = caixaAuxInfo;
         }
-        caixaAux = caixaAux->next;
-        /* if (menor == ((CaixaStruct *)caixaAux->Info) && caixaAux->next == NULL){
-            SegundaMenor = temp;
-        }
-        else{
-            if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < SegundaMenor->tempoTotalEspera){
-                temp = menor;
-                SegundaMenor = caixaAuxInfo;
-            }
-        } */
-    }
-    /* printc("\n\n\t[blue]Entrou no while[/blue]\n");
-    printc("\n\n\t[green]Menor[/green] funcionario: %s id: %d\n", menor->funcionario->nome, menor->id);
-    printc("\n\n\t[green]Segundo menor[/green] funcionario: %s id: %d\n", menor->funcionario->nome, menor->id);
-    printc("\n\n\t[green]Maior[/green] funcionario: %s id: %d\n", menor->funcionario->nome, menor->id); */
 
+        caixaAux = caixaAux->next;
+    }
+
+    if(Opcoes.numCaixasAbertas == 0){
+        menor->aberta = 1;
+        Opcoes.numCaixasAbertas++;
+        printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
+        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
+        return menor;
+    }
+    
     if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
-        /* printc("\n\n\t[blue]menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior[/blue]\n"); */
+        /* if(Opcoes.numCaixasAbertas == Opcoes.numCaixasTotal){
+            printc("\n\tmenor [red]Não é possivel abrir mais caixas! ID:%d  aberta?%d[/red]", menor->id, menor->aberta);
+            return NULL;
+        } */
         Opcoes.numCaixasAbertas++;
         primeiraCaixaFechada->aberta = 1;
+        printc("\n\tprimeiraCaixaFechada [green]Caixa aberta! ID:%d  aberta?%d[/green]", primeiraCaixaFechada->id, primeiraCaixaFechada->aberta);
+        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
         return primeiraCaixaFechada;
     }
     if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1){ // SegundaMenor == menor == maior??????? não pode fechar se todas forem iguais por isso Opcoes.numCaixasAbertas > 1
-        /* printc("\n\n\t[blue]maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1[/blue]\n"); */
         Opcoes.numCaixasAbertas--;
         menor->aberta = 0;
+        printc("\n\tSegundaMenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", SegundaMenor->id, SegundaMenor->aberta);
+        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
         return SegundaMenor;
     }
-    if (menor->aberta == 0){
-        /* printc("\n\n\t[blue]menor->aberta == 0[/blue]\n"); */
-        Opcoes.numCaixasAbertas++;
-        menor->aberta = 1;
-    }
-    
-    /* printc("\n\n\t[blue]Retornou[/blue]\n"); */
-    return menor;
-
-/*     CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
-    CaixaStruct *menorInfo = (CaixaStruct *)menor->Info;
-    if (menorInfo->aberta == 0){ // se o primeiro caixa estiver fechado, procura o primeiro aberto
-        menorInfo = caixaAuxInfo;
-        index = pos;
-        while (menorInfo->aberta == 0 && caixaAux){ // NÃO ESQUECER DE VERIFICAR SE TODAS ESTÃO FECHADAS TRATAR DO ASSUSNTO
-            caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
-            if(caixaAuxInfo->aberta == 1){
-                menorInfo = caixaAuxInfo;
-                index = pos;
-            }
-            caixaAux = caixaAux->next;
-            pos++;
-        }
-    }
-    
-    pos = 0;
-    while(caixaAux){ // procura o caixa com menos tempo
-        caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
-        if(caixaAuxInfo->tempoTotalEspera < menorInfo->tempoTotalEspera && caixaAuxInfo->aberta == 1){
-            menorInfo = caixaAuxInfo;
-            index = pos;
-        }
-        caixaAux = caixaAux->next;
-        pos++;
-    }
-    return index; */
 }
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
