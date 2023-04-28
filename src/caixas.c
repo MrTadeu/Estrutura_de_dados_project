@@ -5,7 +5,7 @@ void criarCaixaInit(){
     for (int i = 0; i < Opcoes.numCaixasTotal; i++){
         CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
         caixa->id = i+1;
-        caixa->aberta = 0;
+        caixa->aberta = 1;
         caixa->fecharUrgencia = 0;
         caixa->tempoTotalEspera = 0;
         caixa->funcionario =  NULL/* (FuncionarioStruct *) escolherFuncionarios() */;
@@ -129,11 +129,11 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     if(Opcoes.numCaixasAbertas == 0){
         menor->aberta = 1;
         Opcoes.numCaixasAbertas++;
-        printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
-        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
+        /* printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
+        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
         return menor;
     }
-    printf("numCaixasAbertas %d numCaixasTotal %d", Opcoes.numCaixasAbertas, Opcoes.numCaixasTotal);
+    /* printf("numCaixasAbertas %d numCaixasTotal %d", Opcoes.numCaixasAbertas, Opcoes.numCaixasTotal); */
     
     if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTotal){
         /* if(Opcoes.numCaixasAbertas == Opcoes.numCaixasTotal){
@@ -142,23 +142,23 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         } */
         Opcoes.numCaixasAbertas++;
         primeiraCaixaFechada->aberta = 1;
-        printc("\n\tprimeiraCaixaFechada [green]Caixa aberta! ID:%d  aberta?%d[/green]", primeiraCaixaFechada->id, primeiraCaixaFechada->aberta);
-        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
+        /* printc("\n\tprimeiraCaixaFechada [green]Caixa aberta! ID:%d  aberta?%d[/green]", primeiraCaixaFechada->id, primeiraCaixaFechada->aberta); */
+        /* printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
         return primeiraCaixaFechada;
     }
     if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1){ // SegundaMenor == menor == maior??????? não pode fechar se todas forem iguais por isso Opcoes.numCaixasAbertas > 1
         Opcoes.numCaixasAbertas--;
         menor->aberta = 0;
-        printc("\n\tSegundaMenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", SegundaMenor->id, SegundaMenor->aberta);
-        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
+       /*  printc("\n\tSegundaMenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", SegundaMenor->id, SegundaMenor->aberta);
+        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
         return SegundaMenor;
     }
-    printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
-    printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas);
-    if (Opcoes.numCaixasAbertas == Opcoes.numCaixasTotal && menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
-        /* printc("\n\tmenor [red]Não é possivel abrir mais caixas! ID:%d  aberta?%d[/red]", menor->id, menor->aberta); */
+    /* printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
+    printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
+    /* if (Opcoes.numCaixasAbertas == Opcoes.numCaixasTotal && menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
+        printc("\n\tmenor [red]Não é possivel abrir mais caixas! ID:%d  aberta?%d[/red]", menor->id, menor->aberta);
         return NULL;
-    }
+    } */
     return menor;
 }
 

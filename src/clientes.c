@@ -179,6 +179,7 @@ void removerCliente(){
 }
 
 void criarProdutosAddCliente(ClienteStruct *cliente){
+    srand(time(NULL));
     ProdutoStruct *produtoEscolhido;
     for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++){
         produtoEscolhido = escolherProduto();
