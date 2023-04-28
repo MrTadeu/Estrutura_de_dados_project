@@ -162,13 +162,13 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     while(pessoaEnviar){
 
         melhorCaixa = MelhorCaixa();
-        
+        printc("\n\tmelhorCaixa [green]Caixa aberta! ID:%d  aberta?%d[/green]", melhorCaixa->id, melhorCaixa->aberta);
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
         }
 
         //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
-        ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
+        /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso; */ // O FILHO DA PUTA TRAVA AQUI!!!! VER ISSO DPS
 
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;

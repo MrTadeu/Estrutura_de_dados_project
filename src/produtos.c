@@ -2,7 +2,7 @@
 
 void aumentarNumProdutosrepetidos(void *produtoArg){
     ProdutoStruct *produto = (ProdutoStruct *) produtoArg;
-    produto.quantidadeProdutosRepetidos++;
+    produto->quantidadeProdutosRepetidos++;
 }
 
 int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto, void(acao)(void *)){
