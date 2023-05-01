@@ -171,7 +171,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         melhorCaixa = MelhorCaixa();
         if (melhorCaixa == NULL) return;
         
-        printc("\n\tmelhorCaixa [green]Caixa aberta! ID:%d  aberta?%d[/green]", melhorCaixa->id, melhorCaixa->aberta);
+        /* printc("\n\tmelhorCaixa [green]Caixa aberta! ID:%d  aberta?%d[/green]", melhorCaixa->id, melhorCaixa->aberta); */
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
         }

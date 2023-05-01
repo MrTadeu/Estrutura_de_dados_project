@@ -211,7 +211,7 @@ void menuProdutos(){
         scanf("%d", &opcao);
 
         i = 1;
-        /* if (opcao == i++){
+        if (opcao == i++){
             verProdutos();
         }
         if (opcao == i++){
@@ -225,6 +225,6 @@ void menuProdutos(){
         }
         if (opcao == i++){
             removerProduto();
-        } */
+        }
     } while (opcao != 0);
 }
