@@ -4,3 +4,5 @@ simular Qt pessoas a circular no supermercado (pode ser o proprio vetor de 10000
 
 funcionario.C
 produtos.c (add remover ver verNoHistorico)
+
+fazer pausa

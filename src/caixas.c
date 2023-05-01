@@ -5,10 +5,19 @@ void criarCaixaInit(){
     for (int i = 0; i < Opcoes.numCaixasTotal; i++){
         CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
         caixa->id = i+1;
-        caixa->aberta = 1;
+
+        if(i < Opcoes.numCaixasAbertas){
+            caixa->aberta = 1;
+            caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
+        }
+        else{
+            caixa->aberta = 0;
+            caixa->funcionario = NULL;
+        }
+            
         caixa->fecharUrgencia = 0;
         caixa->tempoTotalEspera = 0;
-        caixa->funcionario =  NULL/* (FuncionarioStruct *) escolherFuncionarios() */;
+        
         caixa->listaPessoas = criarLista(); 
         AddElementoFim(Global.caixas, criarElemento(caixa));
     }
@@ -18,7 +27,7 @@ void criarCaixaInit(){
         printf("\n\tCaixa %d: %s", caixa->id, caixa->funcionario->nome);
         aux = aux->next;
     }*/
-} 
+}
 
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 void atualizarAtrasos(Lista *lista, int atraso){

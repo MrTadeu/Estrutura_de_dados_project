@@ -79,6 +79,7 @@ void changeStateThreadGlobal(){
         pthread_mutex_init(&vetorLock, NULL);
 
         if (pthread_create(&GlobalThread, NULL, ThreadGlobal, NULL) != 0){
+            
             printc("[red]Erro[/red] ao criar thread global!!!\n");
             exit(1);
         } 
