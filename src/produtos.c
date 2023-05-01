@@ -35,7 +35,7 @@ int encontrarIdProdutos(int id){
     return -1;
 }
 
- int minimo(int a, int b, int c) {
+int minimo(int a, int b, int c) {
     int menor = a;
 
     if (b < menor)  menor = b;
@@ -43,32 +43,6 @@ int encontrarIdProdutos(int id){
     
     return menor;
 }
-
-/* int PesquisaParecido(char *s1, char *s2) {// Levenshtein Distance é para ver a distancia de diferença entre as palavras não esquecer de po-las em maiúsculas (para a minha comparaçao dar certo)
-    int len1 = strlen(s1);
-    int len2 = strlen(s2);
-    int* distance = (int*) calloc((len1+1)*(len2+1), sizeof(int));
-
-    for (int i = 0; i <= len1; i++) {
-        for (int j = 0; j <= len2; j++) {
-            if (i == 0) {
-                distance[j] = j;
-            } else if (j == 0) {
-                distance[i*(len2+1)] = i;
-            } else {
-                int substitutionCost = (s1[i-1] == s2[j-1]) ? 0 : 1;
-                distance[i*(len2+1) + j] = 
-                    minimo(distance[(i-1)*(len2+1) + j] + 1, // deletion
-                            distance[i*(len2+1) + j-1] + 1, // insertion
-                            distance[(i-1)*(len2+1) + j-1] + substitutionCost); // substitution
-            }
-        }
-    }
-
-    int result = distance[len1*(len2+1) + len2];
-    free(distance);
-    return result;
-} */
 
 int PesquisaParecido(char *str1, char *str2){// Levenshtein Distance é para ver a distancia de diferença entre as palavras não esquecer de po-las em maiúsculas (para a minha comparaçao dar certo)!
     int **matriz = calloc(strlen(str1) + 1, sizeof(int*));
@@ -94,6 +68,9 @@ int PesquisaParecido(char *str1, char *str2){// Levenshtein Distance é para ver
         }
     }
     int resultado = matriz[strlen(str1)][strlen(str2)];
+    for (size_t i = 0; i < strlen(str1) + 1; i++){
+        free(matriz[i]);
+    }
     free(matriz);
     return resultado;
 }
@@ -110,10 +87,10 @@ void verProdutos(){
     getchar();
 }
 
-void pesquisarProduto(){
+void pesquisarProdutoID(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
-    /* int id;
+    int id;
     printf("Insira o ID do produto que pretende pesquisar: ");
     scanf("%d", &id);
     int pos = encontrarIdProdutos(id);
@@ -129,7 +106,11 @@ void pesquisarProduto(){
         getchar();
         getchar();
     } 
-    */
+   
+}
+
+void pesquisarProdutoNome(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
     char nome[100];
     printf("Insira o nome do produto que pretende pesquisar: ");
@@ -137,15 +118,45 @@ void pesquisarProduto(){
     scanf("%[^\n]", nome);
     printf("%s\n", nome);
     printf("Resultados semelhantes: \n");
+    int flag = 0;
     for (int i = 0; i < n_produtos; i++){
-        if (PesquisaParecido(nome, Produtos[i].nome) <= 10){
+        if (PesquisaParecido(nome, Produtos[i].nome) <= 14){
             printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco);
+            flag = 1;
         }
+    }
+    if (flag == 0){
+        printc("[red]Não foram encontrados resultados semelhantes![/red]\n");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     getchar();
     getchar();
     return;
+}
+
+void pesquisarProduto(){
+    int opcao = 0;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        printc("[blue]0[/blue] - Voltar\n");
+        printc("[blue]1[/blue] - Pesquisar por ID\n");
+        printc("[blue]2[/blue] - Pesquisar por nome\n");
+        printf("Opção: ");
+        scanf("%d", &opcao);
+    } while (opcao != 0 && opcao != 1  && opcao != 2);
+    switch (opcao){
+    case 0:
+        return;
+        break;
+    case 1:
+        pesquisarProdutoID();
+        break;
+    case 2:
+        pesquisarProdutoNome();
+        break;
+    default:
+        break;
+    }
 }
 
 void adicionarProduto(){

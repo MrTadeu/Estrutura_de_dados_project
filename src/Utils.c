@@ -85,6 +85,7 @@ struct tm getCurrentTime(){
 }
 
 
+
 /* int fileExists(const char* path) {
   struct stat st;
   if (stat(path, &st) == 0) {

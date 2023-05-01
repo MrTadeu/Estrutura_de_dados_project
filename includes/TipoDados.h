@@ -210,6 +210,8 @@
     struct tm getCurrentTime();
     int checkIFfileExists(char *filepath);
     int generateID(int (*checkIfExists)(int), int x);
+    int minimo(int a, int b, int c);
+    int PesquisaParecido(char *str1, char *str2);
     
 
     //ThreadGlobal.c

@@ -40,7 +40,7 @@ void verFuncionariosInativos(){
     getchar();
 }
 
-void pesquisarFuncionarios(){
+void pesquisarFuncionariosID(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     
     int id;
@@ -59,6 +59,55 @@ void pesquisarFuncionarios(){
         getchar();
         getchar();
     }
+}
+
+void pesquisarFuncionariosNome(){
+    char nome[100];
+    printf("Insira o nome do funcionário que pretende pesquisar: ");
+    getchar();
+    scanf("%[^\n]", nome);
+    printf("%s\n", nome);
+    printf("Resultados semelhantes: \n");
+    int flag = 0;
+    for (int i = 0; i < n_funcionarios; i++){
+        if (PesquisaParecido(nome, Funcionarios[i].nome) <= 4){
+            printf("\nID: %d Nome: %s Salário: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario);
+            flag = 1;
+        }
+    }
+    if (flag == 0){
+        printc("[red]Não foram encontrados resultados semelhantes![/red]\n");
+    }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    getchar();
+    getchar();
+    return;
+}
+
+void pesquisarFuncionarios(){
+    int opcao = 0;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        printc("[blue]0[/blue] - Voltar\n");
+        printc("[blue]1[/blue] - Pesquisar por ID\n");
+        printc("[blue]2[/blue] - Pesquisar por nome\n");
+        printf("Opção: ");
+        scanf("%d", &opcao);
+    } while (opcao != 0 && opcao != 1  && opcao != 2);
+    switch (opcao){
+    case 0:
+        return;
+        break;
+    case 1:
+        pesquisarFuncionariosID();
+        break;
+    case 2:
+        pesquisarFuncionariosNome();
+        break;
+    default:
+        break;
+    }
+    
 }
 
 void editarFuncionarios(){
