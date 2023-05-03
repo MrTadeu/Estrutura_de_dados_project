@@ -78,6 +78,47 @@ int generateID(int (*checkIfExists)(int), int x){
     }
 } */
 
+
+int minimo(int a, int b, int c) {
+    int menor = a;
+
+    if (b < menor)  menor = b;
+    if (c < menor) menor = c;
+    
+    return menor;
+}
+
+int PesquisaParecido(char *str1, char *str2){// Levenshtein Distance é para ver a distancia de diferença entre as palavras não esquecer de po-las em maiúsculas (para a minha comparaçao dar certo)!
+    int **matriz = calloc(strlen(str1) + 1, sizeof(int*));
+    int custo;
+    for (size_t i = 0; i < strlen(str1) + 1; i++){
+        matriz[i] = calloc(strlen(str2) + 1, sizeof(int));
+    }
+    for (size_t i = 0; i < strlen(str1) + 1; i++){
+        matriz[i][0] = i;
+    }
+    for (size_t i = 0; i < strlen(str2) + 1; i++){
+        matriz[0][i] = i;
+    }
+    for (size_t i = 1; i < strlen(str1) + 1; i++){
+        for (size_t j = 1; j < strlen(str2) + 1; j++){
+            if (str1[i] == str2[j]) {
+                custo = 0;
+            } else {
+                custo = 1;
+            }
+
+            matriz[i][j] = minimo(matriz[i-1][j] + 1, matriz[i][j-1] + 1, matriz[i-1][j-1] + custo);
+        }
+    }
+    int resultado = matriz[strlen(str1)][strlen(str2)];
+    for (size_t i = 0; i < strlen(str1) + 1; i++){
+        free(matriz[i]);
+    }
+    free(matriz);
+    return resultado;
+}
+
 struct tm getCurrentTime(){
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);

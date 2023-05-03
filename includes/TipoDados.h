@@ -160,6 +160,8 @@
     void editarFuncionarios();
     void adicionarFuncionario();
     void removerFuncionario();
+    void pesquisarFuncionariosNome();
+    void pesquisarFuncionariosID();
     void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas);
 
     //produtos.c
@@ -170,6 +172,8 @@
     void adicionarProduto();
     void editarProduto();
     void removerProduto();
+    void pesquisarProdutoID();
+    void pesquisarProdutoNome();
 
     //ImportExport.c
     int importarCount(char *filename);

@@ -192,6 +192,32 @@ void menuFuncionarios(){
     } while (opcao != 0);
 }
 
+void pesquisarFuncionarios(){
+    int opcao = 0;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        printc("[blue]0[/blue] - Voltar\n");
+        printc("[blue]1[/blue] - Pesquisar por ID\n");
+        printc("[blue]2[/blue] - Pesquisar por nome\n");
+        printf("Opção: ");
+        scanf("%d", &opcao);
+    } while (opcao != 0 && opcao != 1  && opcao != 2);
+    switch (opcao){
+    case 0:
+        return;
+        break;
+    case 1:
+        pesquisarFuncionariosID();
+        break;
+    case 2:
+        pesquisarFuncionariosNome();
+        break;
+    default:
+        break;
+    }
+    
+}
+
 void menuProdutos(){
     int opcao;
     do{
@@ -227,4 +253,29 @@ void menuProdutos(){
             removerProduto();
         }
     } while (opcao != 0);
+}
+
+void pesquisarProduto(){
+    int opcao = 0;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        printc("[blue]0[/blue] - Voltar\n");
+        printc("[blue]1[/blue] - Pesquisar por ID\n");
+        printc("[blue]2[/blue] - Pesquisar por nome\n");
+        printf("Opção: ");
+        scanf("%d", &opcao);
+    } while (opcao != 0 && opcao != 1  && opcao != 2);
+    switch (opcao){
+    case 0:
+        return;
+        break;
+    case 1:
+        pesquisarProdutoID();
+        break;
+    case 2:
+        pesquisarProdutoNome();
+        break;
+    default:
+        break;
+    }
 }
