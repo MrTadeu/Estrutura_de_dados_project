@@ -121,6 +121,8 @@ int PesquisaParecido(char *str1, char *str2){// Levenshtein Distance é para ver
     for (size_t i = 0; i < strlen(str1) + 1; i++){
         free(matriz[i]);
     }
+    free(Temp1);
+    free(Temp2);
     free(matriz);
     return resultado;
 }
