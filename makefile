@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -O3 -Wall -Wextra
 #--------------------------------------------------------------------------------------------------
 #----------------------DIRETÓRIOS------------------------------------------------------------------
-INCLUDES_DIR = includes
+#INCLUDES_DIR = includes
 SRC_DIR = src
 BUILD_DIR = build
 #--------------------------------------------------------------------------------------------------
@@ -22,14 +22,14 @@ PROGRAM = simulation
 .DEFAULT_GOAL = build
 
 build: setup $(PROGRAM)
-
+#-I $(INCLUDES_DIR)
 # isto vai criar ./simulation.o
 $(PROGRAM): $(OBJ)
-	$(CC) -I $(INCLUDES_DIR) $(CFLAGS) $(OBJ) -o $(PROGRAM)
-
+	$(CC) $(CFLAGS) $(OBJ) -o $(PROGRAM)
+#-I $(INCLUDES_DIR)
 # isto vai criar um arquivo .o para cada arquivo .c || a opção -c é para não criar um executavel e sim um arquivos  .o ou seja compilar individualmente
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) -c -I $(INCLUDES_DIR) $(CFLAGS) -o $@ $^
+	$(CC) -c $(CFLAGS) -o $@ $^
 
 # .PHONY - Não é um arquivo, é um comando usado para não dar erro de arquivo não encontrado
 .PHONY: setup
