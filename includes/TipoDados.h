@@ -8,7 +8,6 @@
     #include <math.h>
     #include <time.h>
     #include <locale.h>
-    #include <unistd.h>
 
     //Criar as threads
     #ifndef PTHREAD_H
@@ -21,7 +20,7 @@
         #define SET_UTF8_CODEPAGE system("chcp 65001 > nul");
     #endif
     #ifdef __linux__
-        #include <linux.h>
+        #include <unistd.h>
         #define SET_UTF8_CODEPAGE
     #endif
     

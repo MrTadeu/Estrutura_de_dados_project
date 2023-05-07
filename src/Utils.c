@@ -10,6 +10,15 @@
     void dormir(int tempo){
         usleep(tempo * 1000);
     }
+    #include <ctype.h>
+
+    void strupr(char *str) {
+        size_t i = 0;
+        while (str[i]) {
+            str[i] = toupper(str[i]);
+            i++;
+        }
+    }
 #endif
 
 void setPortugues(){
