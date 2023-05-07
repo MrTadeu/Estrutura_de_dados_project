@@ -42,8 +42,8 @@ setup:
 #run.o: $(SRC) $(HEADERS)
 #	$(CC) $(CFLAGS) $(SRC) -o run
 .PHONY: setupLinux
+#@-sudo chmod -R a+rwx .
 setupLinux:
-	@-sudo chmod -R a+rwx .
 	@-mkdir -p $(BUILD_DIR)
 	@-mkdir -p $(BIN)
 
