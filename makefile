@@ -27,6 +27,7 @@ PROGRAM = simulation
 build: setup $(PROGRAM) $(BIN)
 buildLinux: setupLinux $(PROGRAM)
 # isto vai criar ./simulation.o
+#por -g para o valgrind
 $(PROGRAM): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(PROGRAM)
 
