@@ -8,6 +8,7 @@
     #include <math.h>
     #include <time.h>
     #include <locale.h>
+    #include <unistd.h>
 
     //Criar as threads
     #ifndef PTHREAD_H
@@ -47,6 +48,7 @@
         int id, tempoTotalEspera, aberta, fecharUrgencia;
         FuncionarioStruct *funcionario;
         Lista *listaPessoas;
+        pthread_mutex_t lock;
     }CaixaStruct;
 
     typedef struct{

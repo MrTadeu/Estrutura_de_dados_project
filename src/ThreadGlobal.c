@@ -9,26 +9,17 @@ void *ThreadGlobal(){
     /* ClienteStruct *clienteAux; */
     pthread_mutex_init(&listaLock, NULL);
     pthread_mutex_init(&vetorLock, NULL);
-    int x  = 0;
+    
+    /* int x  = 0; */
     while(Opcoes.lojaAberta == 1){
+        printf("wiorking\n");
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
-              
-            /* for (; x < 4000; x++){
-                pthread_t thread_escolherCliente;
-                ClienteStruct *pessoa;
-                pthread_create(&thread_escolherCliente, NULL, escolherCliente, pessoa);
-                pthread_join(thread_escolherCliente, NULL);
- */
-            /* for (; x < 4000; x++){ */
-                ClienteStruct *pessoa = escolherCliente();
-                if(pessoa){
-                    pthread_t thread;
-                    pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
-                    pthread_detach(thread);
-                }
-            /* } */
-            /* } */
-          
+            ClienteStruct *pessoa = escolherCliente();
+            if(pessoa){
+                pthread_t thread;
+                pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
+                pthread_detach(thread);
+            }
             
             SelecionarCaixa();
         }
@@ -76,7 +67,6 @@ void changeStateThreadGlobal(){
     if(Opcoes.lojaAberta == 0){
         Opcoes.lojaAberta = 1;
         pthread_t GlobalThread;
-        pthread_mutex_init(&vetorLock, NULL);
 
         if (pthread_create(&GlobalThread, NULL, ThreadGlobal, NULL) != 0){
             
