@@ -173,14 +173,16 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
 }
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
+
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
-        pthread_mutex_lock(&listaLock);
 
     CaixaStruct* melhorCaixa;
+    int x = 0;
     while(pessoaEnviar != NULL){
+        
         melhorCaixa = MelhorCaixa();
         if (melhorCaixa == NULL) return;
-        
+        printc("[blue]-%d-[/blue]", x++);
         /* printc("\n\tmelhorCaixa [green]Caixa aberta! ID:%d  aberta?%d[/green]", melhorCaixa->id, melhorCaixa->aberta); */
         /* if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
@@ -189,16 +191,17 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
         /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso; */ // O FILHO DA PUTA TRAVA AQUI!!!! VER ISSO DPS
         
+        pthread_mutex_lock(&melhorCaixa->lock);
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
+        pthread_mutex_unlock(&melhorCaixa->lock);
 
-       /*  pthread_mutex_lock(&listaLock);
+        pthread_mutex_lock(&listaLock);
         RemElementoInicio(Global.PessoasAcabaramTempoDeCompra); 
-        pthread_mutex_unlock(&listaLock); */
+        pthread_mutex_unlock(&listaLock);
 
         pessoaEnviar = pessoaEnviar->next;
     }
-        pthread_mutex_unlock(&listaLock);
 
 }
 
