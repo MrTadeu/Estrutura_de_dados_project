@@ -194,6 +194,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         pthread_mutex_lock(&melhorCaixa->lock);
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
         melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
+        (ClienteStruct*(pessoaEnviar->Info))->tempoAtraso = (ClienteStruct* (melhorCaixa->listaPessoas->head->Info))->tempoAtraso;
         pthread_mutex_unlock(&melhorCaixa->lock);
 
         pthread_mutex_lock(&listaLock);
@@ -211,10 +212,10 @@ void *ThreadCaixa(CaixaStruct *caixa){
 
     int atraso, n_vendas = 0;
     float atrasoMaximo, atrasoMedio = 0;
+    int tolerancia = 10;    
     ClienteStruct *pessoaEmAtendimento;
 
     while(caixa->listaPessoas->quantidadeElementos > 0){
-        pthread_mutex_lock(&caixa->lock);
         if(caixa->fecharUrgencia){
             /* fecharUrgencia(caixa->listaPessoas); */
         }
@@ -222,17 +223,23 @@ void *ThreadCaixa(CaixaStruct *caixa){
 
         atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
+        pthread_mutex_lock(&caixa->lock);
         atualizarAtrasos(caixa->listaPessoas, atraso);
+        pthread_mutex_unlock(&caixa->lock);
         printc("\n\n\t[green]ATRASOS ATUALIZADOS[/green]\n");
 
-        //<-----Atualizar Historico Aqui  (tem de ser antes de atender pessoa) ----->//
-
-        destruirElemento(atenderPessoa(caixa), destruirCliente);
+        pthread_mutex_lock(&caixa->lock);
+        atenderPessoa(caixa); //precisamos de envolver esta funcao numa futura funcao guardarHistorico
+        pthread_mutex_unlock(&caixa->lock);
         printc("\n\n\t[green]PESSOA ATENDIDA[/green]\n");
 
         atrasoMedio += atraso;
         n_vendas++;
-        pthread_mutex_unlock(&caixa->lock);
+        while(caixa->listaPessoas->quantidadeElementos == 0 && tolerancia > 0){
+            sleep(1000);
+            tolerancia--;
+        }
+        tolerancia = 10;
     }
     atrasoMedio /= n_vendas;
     atualizarDadosFuncionario(caixa->funcionario, atrasoMedio, n_vendas);
