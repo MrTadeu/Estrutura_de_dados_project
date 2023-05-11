@@ -7,7 +7,6 @@ void criarCaixaInit(){
         caixa->id = i+1;
         pthread_mutex_init(&caixa->lock, NULL);
 
-        //???????????????????????????????????????????????????????????????????
         if(i < Opcoes.numCaixasAbertas){
             caixa->aberta = 1;
             caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
@@ -94,9 +93,7 @@ void atenderPessoa(CaixaStruct *caixa){
     cliente->tempoEstimadoCaixa = 0;
 
     pthread_mutex_lock(&vetorLock);
-    printc("\n\t[green]Cliente %s atendido no caixa %d[/green]\n", cliente->nome, caixa->id);
     DesocuparCliente(cliente);
-    printc("[red]QQQQQQQQQQQQQQQQQQQQ ISSSO[/red]\n"); // trava aqui NO BATENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     pthread_mutex_unlock(&vetorLock);
 
 
@@ -108,7 +105,6 @@ void atenderPessoa(CaixaStruct *caixa){
     caixa->listaPessoas->head = caixa->listaPessoas->head->next;
     caixa->listaPessoas->quantidadeElementos--;
     /* pthread_mutex_unlock(&caixa->lock); */
-    printc("\t\t\t\t\n[blue]saiuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL[/blue]");
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
@@ -233,43 +229,6 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
 
-/* void *ThreadCaixa(void *arg){
-    CaixaStruct *caixa = (CaixaStruct *) arg;
-    int atraso, n_vendas = 0;
-    float atrasoMaximo, atrasoMedio = 0;
-    ClienteStruct *pessoaEmAtendimento;
-
-    while(caixa->listaPessoas->quantidadeElementos > 0){
-        if(caixa->fecharUrgencia){
-            //fecharUrgencia(caixa->listaPessoas);
-        }
-        pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
-        
-        atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
-        atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
-        pthread_mutex_lock(&caixa->lock);
-        atualizarAtrasos(caixa->listaPessoas, atraso);
-        pthread_mutex_unlock(&caixa->lock);
-        printc("\n\n\t[green]ATRASOS ATUALIZADOS[/green]\n");
-
-        pthread_mutex_lock(&caixa->lock);
-        atenderPessoa(caixa); //precisamos de envolver esta funcao numa futura funcao guardarHistorico
-        pthread_mutex_unlock(&caixa->lock);
-        printc("\n\n\t[green]PESSOA ATENDIDAaaaaaaa[/green]\n");
-
-        atrasoMedio += atraso;
-        n_vendas++;
-        printf("teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\n");
-    }
-    atrasoMedio /= n_vendas;
-    printf("caixa->funcionario->n_vendas : %d\n", caixa->funcionario->n_vendas);
-    printf("n_vendas : %d\n", caixa->funcionario->n_vendas);
-    printf("\n\n\n\t\t\t\tAAAAAAAAAAAAAAA\n\n\n\n\n");
-    atualizarDadosFuncionario(caixa->funcionario, atrasoMedio, n_vendas);
-    printf("TRAVOU AQUI????");
-    return NULL;
-} */
-
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
     int atraso, n_vendas = 0;
@@ -291,12 +250,9 @@ void *ThreadCaixa(void *arg){
         pthread_mutex_lock(&caixa->lock);
         atenderPessoa(caixa); //precisamos de envolver esta funcao numa futura funcao guardarHistorico
         pthread_mutex_unlock(&caixa->lock);
-        printc("\n\n\t[green]PESSOA ATENDIDAaaaaaaa[/green]\n");
 
         atrasoSum += atraso;
         n_vendas++;
-        printc("\n\n\t[green]???????????????????????????[/green]\n");
-        printf("\ncaixa->funcionario->n_vendas: %d", caixa->funcionario->n_vendas);
         atrasoMedio = atrasoSum / n_vendas;
         printf("\ncaixa->funcionario->n_vendas: %d\n", caixa->funcionario->n_vendas);
         atualizarDadosFuncionario(caixa->funcionario, atrasoMedio, n_vendas);
