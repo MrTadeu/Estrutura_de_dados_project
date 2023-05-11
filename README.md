@@ -6,8 +6,9 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/MrTadeu/Estrutura_de_dados_project) ![GitHub last commit](https://img.shields.io/github/last-commit/MrTadeu/Estrutura_de_dados_project)
 
 
-
+<p style="text-align: justify;">
 O projeto "Simulação de Supermercado" é uma implementação em C que tem como objetivo simular o funcionamento de um supermercado. O projeto permite que os usuários entendam a dinâmica de um supermercado, incluindo aspectos como fluxo de clientes e gerenciamento de tempo. A simulação é baseada em um conjunto de dados fictícios que foram criados para representar as características do supermercado. Com esse projeto, os usuários podem ter uma experiência prática e interativa, permitindo que eles aprendam e experimentem como funciona um supermercado.
+</p>
 
 # 1. Instruções de execução
 ## 1.1. Instrução de execução via comando
@@ -19,6 +20,7 @@ O projeto "Simulação de Supermercado" é uma implementação em C que tem como
 ## 1.2. Instruçoes de execução com `Makefile` no Windows (recomendado)
 As instruções a seguir irão ajudá-lo a executar uma **compilação automática** do projeto. O Makefile é uma ferramenta útil que gerencia todo o processo e torna as coisas mais fáceis.\
 Para executar uma **compilação automátomaticamente** no windows, é obrigatório instalar `Makefile`. Neste projeto, foi utilizado o _Chocolatey_, uma ferramenta de gerenciamento de pacotes para o Windows, que irá facilitar o processo de instalação.
+
 >### 1.2.1. Instalando a ferramenta de gerenciamento de pacotes:
 >* Através do site da [Chocolatey](https://chocolatey.orginstall#individual)\
 >__**OU**__
