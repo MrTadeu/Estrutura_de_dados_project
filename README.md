@@ -6,9 +6,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/MrTadeu/Estrutura_de_dados_project) ![GitHub last commit](https://img.shields.io/github/last-commit/MrTadeu/Estrutura_de_dados_project)
 
 
-<p style="text-align: justify;">
 O projeto "Simulação de Supermercado" é uma implementação em C que tem como objetivo simular o funcionamento de um supermercado. O projeto permite que os usuários entendam a dinâmica de um supermercado, incluindo aspectos como fluxo de clientes e gerenciamento de tempo. A simulação é baseada em um conjunto de dados fictícios que foram criados para representar as características do supermercado. Com esse projeto, os usuários podem ter uma experiência prática e interativa, permitindo que eles aprendam e experimentem como funciona um supermercado.
-</p>
 
 # 1. Instruções de execução
 ## 1.1. Instrução de execução via comando
@@ -72,5 +70,5 @@ Uma vez que o Makefile tenha sido instalado com sucesso e você esteja na mesma 
 
 # 2. Como Usar
 
-# Contribuição
+# Créditos do trabalho
 * Este projeto foi desenvolvido por uma equipe composta por Benno Vasconcellos, João Falcão e Pedro Tavares. O objetivo do projeto foi desenvolver um sistema em C para gerenciamento de um supermercado. Cada membro da equipe contribuiu com suas habilidades e conhecimentos únicos para o projeto.
