@@ -63,7 +63,6 @@ void pesquisarFuncionariosID(){
 }
 
 void pesquisarFuncionariosNome(){
-    
     char nome[100];
     printf("Insira o nome do funcionário que pretende pesquisar: ");
     getchar();
