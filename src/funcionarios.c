@@ -181,8 +181,6 @@ void removerFuncionario(){
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
     funcionario->n_vendas++;
     float salario = (getNivelFuncionario(funcionario)).salario;
-    printf("Salario: %.2f\n", salario);
-    printc("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[red]NAOOOOOO AGUENTOOOOOOOO MAISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS[/red]\n");
     if(Opcoes.VerTransacoes == 1){
         if((getNivelFuncionario(funcionario)).salario != salario){
             float novoSalario = (getNivelFuncionario(funcionario)).salario;
