@@ -1,4 +1,4 @@
-<h2 align="left" dir="auto">
+<h2 align="center" dir="auto">
 <img src="Supermarket_Simulation.png" alt="">
 </h2>
 <hr>
