@@ -131,8 +131,12 @@
     //clientes.c
     void verClientes();
     void verClientesCaixa();
+    void verClientesInativos();
+    void verClientesAtivos();
     int checkIfUserExists(int id);
     int generateUserID();
+    void pesquisarClienteID();
+    void pesquisarClienteNome();
     void pesquisarClientes();
     void adicionarCliente();
     void editarCliente();

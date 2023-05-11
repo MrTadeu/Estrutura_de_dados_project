@@ -28,6 +28,26 @@ void verClientes(){
     getchar();
 }
 
+void verClientesAtivos(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    for(int i = 0; i < n_clientesAtivos; i++){
+        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+    }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    getchar();
+    getchar();
+}
+
+void verClientesInativos(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    for(int i = n_clientesAtivos; i < n_clientes; i++){
+        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+    }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    getchar();
+    getchar();
+}
+
 void verClientesCaixa(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     if(Opcoes.lojaAberta == 0){
@@ -74,7 +94,7 @@ void verClientesCaixa(){
     getchar();
 } */
 
-void pesquisarClientes(){
+void pesquisarClienteID(){
     int id , flag = 0;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("Qual o ID do cliente que pretende pesquisar? ");
@@ -87,6 +107,29 @@ void pesquisarClientes(){
     }
     if(flag == 0){
         printc("\n[yellow]Não existe nenhum cliente com esse ID![/yellow]");
+    }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    getchar();
+    getchar();
+}
+
+void pesquisarClienteNome(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    char nome[100];
+    printf("Insira o nome do cliente que pretende pesquisar: ");
+    getchar();
+    scanf("%[^\n]", nome);
+    printf("%s\n", nome);
+    printf("Resultados semelhantes: \n");
+    int flag = 0;
+    for (int i = 0; i < n_clientes; i++){
+        if (PesquisaParecido(nome, Clientes[i].nome) <= 4){
+            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+            flag = 1;
+        }
+    }
+    if (flag == 0){
+        printc("[red]Não foram encontrados resultados semelhantes![/red]\n");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     getchar();
@@ -229,11 +272,7 @@ ClienteStruct *escolherCliente(){
 }
 
 void DesocuparCliente(ClienteStruct *pessoa){
-    printc("[green]vixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx[/green]");
     int index = pesquisarClienteVetorBatente(pessoa);
-    printf("\n\n %d \n\n", index);
-    printc("[green]chambra[/green]");
     batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
     pessoa->ativo = 0;
-    printc("\n[green]SE ACABOU[/green]\n");
 }

@@ -144,13 +144,13 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     if(Opcoes.numCaixasAbertas == 0){
         menor->aberta = 1;
         Opcoes.numCaixasAbertas++;
-        if (menor->funcionario == NULL){
+        if (menor->funcionario == NULL){ // precisamos criar um funcionario para o caixa se não tiver uma vez que existe uma função de init caixa que cria sem ou com funcionario
             menor->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
         menor->aberta = 1;
-        pthread_t threadCaixa;
+       /*  pthread_t threadCaixa;
         pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
-        pthread_detach(threadCaixa);
+        pthread_detach(threadCaixa); */
 
         /* printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
         printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
@@ -168,10 +168,10 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             primeiraCaixaFechada->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
         primeiraCaixaFechada->aberta = 1;
-        pthread_t threadCaixa;
+        /* pthread_t threadCaixa;
         pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)primeiraCaixaFechada);
         pthread_detach(threadCaixa);
-
+ */
         
         /* printc("\n\tprimeiraCaixaFechada [green]Caixa aberta! ID:%d  aberta?%d[/green]", primeiraCaixaFechada->id, primeiraCaixaFechada->aberta); */
         /* printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
@@ -248,7 +248,7 @@ void *ThreadCaixa(void *arg){
 
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);
-        atenderPessoa(caixa); //precisamos de envolver esta funcao numa futura funcao guardarHistorico
+        atenderPessoa(caixa); //precisamos de envolver esta funcao numa futura funcao guardarHistorico // a pessoa não é removida da lista de pessoas em atendimento quando sai do caixa E o head é a proxima pessoa a ser atendida desse jeito o espaço de memoria pode ser reutilizado para a matriz de pessoas do historico
         pthread_mutex_unlock(&caixa->lock);
 
         atrasoSum += atraso;

@@ -1,17 +1,17 @@
 90
-1629	Madalena Leal  Aguiar	0.000000	0	0.000000
-7885	Henrique Carreiras Moraes 	0.000000	0	0.000000
+5130	Joana Sofia Marques 	0.000000	0	0.000000
+6129	Maria Soraia Bullitta Portela	0.000000	0	0.000000
 5536	Joana Gomes Borges 	0.000000	0	0.000000
-8977	Joao Rafael Caetano 	0.000000	0	0.000000
-2309	Ivo Cruz Cunha Domingues	0.000000	0	0.000000
-6697	Maria Garcia Osório Novo	0.000000	0	0.000000
-1336	Goncalo Margarido da Costa	0.000000	0	0.000000
-1613	Caroline Reis Silva Pinto	0.000000	0	0.000000
+6683	Teodora Margarida Barros Mestre	0.000000	0	0.000000
+1967	Ana Claro Belo Soeiro	0.000000	0	0.000000
+6267	Henrique Barbosa Rodrigues Lopes	0.000000	0	0.000000
+5727	Sara Milheiro Dezerto Ramalho	0.000000	0	0.000000
+2254	Jessica Jeremias Freitas 	0.000000	0	0.000000
 4520	Mariana Maria Moreira Andrade	0.000000	0	0.000000
 3251	Monica Diogo Santos Fardilha	0.000000	0	0.000000
 5919	Fabiana Costa Silva Coelho	0.000000	0	0.000000
 7353	Ines Emanuel Munhoz 	0.000000	0	0.000000
-6129	Maria Soraia Bullitta Portela	0.000000	0	0.000000
+7885	Henrique Carreiras Moraes 	0.000000	0	0.000000
 3100	Joao Maria Marques 	0.000000	0	0.000000
 5037	Beatriz Manuel dos Antos	0.000000	0	0.000000
 6477	Pedro Ferreira Alves Silva	0.000000	0	0.000000
@@ -23,7 +23,7 @@
 9162	Simao Daniela Pereira Lima	0.000000	0	0.000000
 1478	Mariana Rita Lopes Cabral	0.000000	0	0.000000
 7125	Sergio Vidinha Canteiro Silva	0.000000	0	0.000000
-1967	Ana Claro Belo Soeiro	0.000000	0	0.000000
+2309	Ivo Cruz Cunha Domingues	0.000000	0	0.000000
 3666	Marcia Artur Pandeirada Vaz	0.000000	0	0.000000
 5410	Eva Filipa Guia Afonso	0.000000	0	0.000000
 3855	Goncalo Branco Sequeira 	0.000000	0	0.000000
@@ -32,7 +32,7 @@
 5477	Camila Ferreira Pinto 	0.000000	0	0.000000
 7791	Ana Carolina Patricio 	0.000000	0	0.000000
 7589	Diana Duarte Afonso Monteiro	0.000000	0	0.000000
-6683	Teodora Margarida Barros Mestre	0.000000	0	0.000000
+8977	Joao Rafael Caetano 	0.000000	0	0.000000
 8922	Mariana Sofia Braga 	0.000000	0	0.000000
 4158	Ana Miguel Pereira Bastos	0.000000	0	0.000000
 1365	Carolina Guerreiro Figueiredo	0.000000	0	0.000000
@@ -43,10 +43,10 @@
 4487	Madalena Gouveia Simões Ribeiro	0.000000	0	0.000000
 7548	Mariana Maria Pinharandas 	0.000000	0	0.000000
 9252	Filipa Liliana Meira Soares	0.000000	0	0.000000
-5130	Joana Sofia Marques 	0.000000	0	0.000000
+1629	Madalena Leal  Aguiar	0.000000	0	0.000000
 3506	Maria da Silva Tavares	0.000000	0	0.000000
 4943	Catarina Sofia Figueiredo Reis	0.000000	0	0.000000
-2254	Jessica Jeremias Freitas 	0.000000	0	0.000000
+1613	Caroline Reis Silva Pinto	0.000000	0	0.000000
 4650	Mariana Nogueira Silva Pinto	0.000000	0	0.000000
 7963	Guilherme Jose Teixeira Tavares	0.000000	0	0.000000
 8736	Iria Lourenco Oliveira 	0.000000	0	0.000000
@@ -54,7 +54,7 @@
 8525	Rita Goncalves Lourenco	0.000000	0	0.000000
 5266	Ines Afonso Oliveira Silva	0.000000	0	0.000000
 9550	Beatriz Prata Magalhaes 	0.000000	0	0.000000
-5727	Sara Milheiro Dezerto Ramalho	0.000000	0	0.000000
+1336	Goncalo Margarido da Costa	0.000000	0	0.000000
 8945	Catarina Miguel Lema Pinheiro	0.000000	0	0.000000
 6944	Ana Maria Marques Santos	0.000000	0	0.000000
 4979	Filipa Clerigo Vaz 	0.000000	0	0.000000
@@ -80,7 +80,7 @@
 2918	Helena Tomas dos Santos	0.000000	0	0.000000
 9164	Carolina Rita Cruz Almeida	0.000000	0	0.000000
 7046	Carolina Gomes Moutinho	0.000000	0	0.000000
-6267	Henrique Barbosa Rodrigues Lopes	0.000000	0	0.000000
+6697	Maria Garcia Osório Novo	0.000000	0	0.000000
 5746	Miguel Marinho Domingos Santos	0.000000	0	0.000000
 1890	Mariana dos Santos Almeida	0.000000	0	0.000000
 1748	Ines Ferreira Fernandes Cerquido	0.000000	0	0.000000

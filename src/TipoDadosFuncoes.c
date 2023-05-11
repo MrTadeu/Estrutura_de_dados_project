@@ -133,17 +133,11 @@ int pesquisarClienteVetorBatente(ClienteStruct *pessoa){ // Devolve index do cli
         printf("[red]Error![/red] NULL ClienteStruct");
         return -1;
     }
-    printf("O FILHA DA P______ QUE FEZ ISSO QUERO SABER\n");
-    printf(" n_clientesAtivos %d\n", n_clientesAtivos);
     for (int i = 0; i < n_clientesAtivos; i++){
-        printf("i = %d\n", i);
         if(Clientes[i].nome == pessoa->nome && Clientes[i].id == pessoa->id){
-            printf("[blue]i = %d[/blue]\n", i);
             return i;
         }
-        printc("[red]i = %d[/red]\n", i);
     }
-    printf("ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh AJUDAAAAAAAAAAAAAA\n");
     return -1;
 }
 

@@ -10,21 +10,13 @@ int encontrarIdFuncionario(int id){
 }
 
 NivelFuncionarioStruct  getNivelFuncionario(FuncionarioStruct *funcionario){
-    printf("\nasasdwaeq2234awfzcdsf\n");
-    printf("\nasasdwaeq2234awfzcdsf :    || %d <= \n", Opcoes.nivelFuncionario[0].n_vendas);
     if (funcionario->n_vendas <= Opcoes.nivelFuncionario[0].n_vendas){
-        printf("\n11111111111asasdwaeq2234awfzcdsf\n");
         return Opcoes.nivelFuncionario[0];
     }
-    printf("\nXXXXXXXXXXXXXXXXXXXasasdwaeq2234awfzcdsf\n");
     if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1].n_vendas){
-        printf("\n2222222222221asasdwaeq2234awfzcdsf\n");
         return Opcoes.nivelFuncionario[1];
     }
-    printf("\nXXXXXXXXXXXXXXXXXXXasasdwaeq2234awfzcdsf\n");
-    printf("\n33333333333333333asasdwaeq2234awfzcdsf\n");
     return Opcoes.nivelFuncionario[2];
-    printf("\nXXXXXXXXXXXXXXXXXXXasasdwaeq2234awfzcdsf\n");
 }
 
 void verFuncionariosCaixa(){
@@ -71,6 +63,7 @@ void pesquisarFuncionariosID(){
 }
 
 void pesquisarFuncionariosNome(){
+    
     char nome[100];
     printf("Insira o nome do funcionário que pretende pesquisar: ");
     getchar();
