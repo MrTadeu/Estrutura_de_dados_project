@@ -148,9 +148,13 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             menor->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
         menor->aberta = 1;
-       /*  pthread_t threadCaixa;
-        pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
-        pthread_detach(threadCaixa); */
+        if (primeiraCaixaFechada->listaPessoas->head == NULL){
+            pthread_t threadCaixa;
+            pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
+            pthread_detach(threadCaixa);
+            
+        }
+        
 
         /* printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
         printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
@@ -168,10 +172,13 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             primeiraCaixaFechada->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
         primeiraCaixaFechada->aberta = 1;
-        /* pthread_t threadCaixa;
-        pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)primeiraCaixaFechada);
-        pthread_detach(threadCaixa);
- */
+        if (primeiraCaixaFechada->listaPessoas->head == NULL){
+            pthread_t threadCaixa;
+            pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)primeiraCaixaFechada);
+            pthread_detach(threadCaixa);
+            
+        }
+        
         
         /* printc("\n\tprimeiraCaixaFechada [green]Caixa aberta! ID:%d  aberta?%d[/green]", primeiraCaixaFechada->id, primeiraCaixaFechada->aberta); */
         /* printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */

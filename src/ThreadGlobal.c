@@ -20,6 +20,9 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
+        /* for (int i = 0; i < Opcoes.numCaixasAbertas; i++){
+        } */
+        
         dormir(1000);
     }
     return NULL;
