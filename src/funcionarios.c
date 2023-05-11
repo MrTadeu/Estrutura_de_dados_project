@@ -10,12 +10,21 @@ int encontrarIdFuncionario(int id){
 }
 
 NivelFuncionarioStruct  getNivelFuncionario(FuncionarioStruct *funcionario){
-    if (funcionario->n_vendas <= Opcoes.nivelFuncionario[0].n_vendas) 
+    printf("\nasasdwaeq2234awfzcdsf\n");
+    printf("\nasasdwaeq2234awfzcdsf :    || %d <= \n", Opcoes.nivelFuncionario[0].n_vendas);
+    if (funcionario->n_vendas <= Opcoes.nivelFuncionario[0].n_vendas){
+        printf("\n11111111111asasdwaeq2234awfzcdsf\n");
         return Opcoes.nivelFuncionario[0];
-    else if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1].n_vendas) 
+    }
+    printf("\nXXXXXXXXXXXXXXXXXXXasasdwaeq2234awfzcdsf\n");
+    if (funcionario->n_vendas<= Opcoes.nivelFuncionario[1].n_vendas){
+        printf("\n2222222222221asasdwaeq2234awfzcdsf\n");
         return Opcoes.nivelFuncionario[1];
-    else
-        return Opcoes.nivelFuncionario[2];
+    }
+    printf("\nXXXXXXXXXXXXXXXXXXXasasdwaeq2234awfzcdsf\n");
+    printf("\n33333333333333333asasdwaeq2234awfzcdsf\n");
+    return Opcoes.nivelFuncionario[2];
+    printf("\nXXXXXXXXXXXXXXXXXXXasasdwaeq2234awfzcdsf\n");
 }
 
 void verFuncionariosCaixa(){
@@ -170,8 +179,10 @@ void removerFuncionario(){
 }
     
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
+    funcionario->n_vendas++;
     float salario = (getNivelFuncionario(funcionario)).salario;
-    funcionario->n_vendas += n_vendas;
+    printf("Salario: %.2f\n", salario);
+    printc("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[red]NAOOOOOO AGUENTOOOOOOOO MAISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS[/red]\n");
     if(Opcoes.VerTransacoes == 1){
         if((getNivelFuncionario(funcionario)).salario != salario){
             float novoSalario = (getNivelFuncionario(funcionario)).salario;
