@@ -103,7 +103,8 @@ void atenderPessoa(CaixaStruct *caixa){
     if (caixa->listaPessoas->head->next != NULL){
         caixa->listaPessoas->head = caixa->listaPessoas->head->next;
     }
-    pthread_mutex_unlock(&caixa->lock); 
+    pthread_mutex_unlock(&caixa->lock);
+    printf("\t\t\t\t\nsaiuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
