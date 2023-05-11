@@ -1,5 +1,6 @@
+<h2 align="left" dir="auto">
 <img src="Supermarket_Simulation.png" alt="">
-
+</h2>
 <hr>
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/MrTadeu/Estrutura_de_dados_project) ![GitHub last commit](https://img.shields.io/github/last-commit/MrTadeu/Estrutura_de_dados_project)
