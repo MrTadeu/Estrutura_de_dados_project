@@ -145,9 +145,9 @@
     //caixas.c
     CaixaStruct *MelhorCaixa();
     void SelecionarCaixa();
-    Elemento *atenderPessoa(CaixaStruct *caixa);
+    void atenderPessoa(CaixaStruct *caixa);
     void criarCaixaInit();
-    void *ThreadCaixa(CaixaStruct *caixa);
+    void *ThreadCaixa(void *arg);
 
 
 

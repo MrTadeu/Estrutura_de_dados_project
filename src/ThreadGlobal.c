@@ -15,7 +15,7 @@ void *ThreadGlobal(){
             if(pessoa){
                 pthread_t thread;
                 pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
-                pthread_detach(thread);
+                pthread_detach(thread); // para não ficar alocando memoria assim que acabar é como um pthread join
             }
             
             SelecionarCaixa();
@@ -57,7 +57,7 @@ void *ThreadEsperaTempoCompra(void *pessoa){
     AddElementoFim(Global.PessoasAcabaramTempoDeCompra, criarElemento(cliente));
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
     while(pessoaEnviar != NULL){
-        printc("[green]-O-[/green]");
+        /* printc("[green]-O-[/green]"); */
         pessoaEnviar = pessoaEnviar->next;
     }
     pthread_mutex_unlock(&listaLock);

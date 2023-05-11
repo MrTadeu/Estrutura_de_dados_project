@@ -27,9 +27,9 @@ void importOpcoes(){
         Opcoes.nivelFuncionario[1].salario = 900.0;
         Opcoes.nivelFuncionario[2].salario = 950.0;
         Opcoes.TempoLimiteInferior = 180;
-        Opcoes.TempoLimiteSuperior = 600;
+        Opcoes.TempoLimiteSuperior = 200;
         Opcoes.QuantMinProd = 1;
-        Opcoes.QuantMaxProd = 1;
+        Opcoes.QuantMaxProd = 100;
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;

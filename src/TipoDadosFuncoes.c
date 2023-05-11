@@ -111,31 +111,39 @@ int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info){
         return 0;
     return 1;
 }
-
-int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){
+/* -------------------> FUNÇÃO INUTIL <-------------------*/
+int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info){ // mannnnnnooooooooooooooooooooooooooooooooooooooooooo SÓ RUIM
     ClienteStruct *cliente1 = (ClienteStruct *) ptrCliente1_Info, *cliente2 = (ClienteStruct *) ptrCliente2_Info;
-    if(cliente1->id != cliente2->id || cliente1->listaProdutos->quantidadeElementos != cliente2->listaProdutos->quantidadeElementos)
+    if((cliente1->id != cliente2->id) || (cliente1->listaProdutos->quantidadeElementos != cliente2->listaProdutos->quantidadeElementos))
         return 0;
 
-    Elemento *produto1 = cliente1->listaProdutos->head, *produto2 = cliente2->listaProdutos->head;
+    /* Elemento *produto1 = cliente1->listaProdutos->head, *produto2 = cliente2->listaProdutos->head;
     while(produto1 && produto2){
         if(!compararProduto(produto1->Info, produto2->Info))
             return 0;
         produto1 = produto1->next;
         produto2 = produto2->next;
-    }
+    } */
     return 1;
 }
+/* -------------------> FUNÇÃO INUTIL <-------------------*/
 
 int pesquisarClienteVetorBatente(ClienteStruct *pessoa){ // Devolve index do cliente dentro do intervalo de batente para o enviar para a funcao batetnteChange
     if(!pessoa){
         printf("[red]Error![/red] NULL ClienteStruct");
         return -1;
     }
+    printf("O FILHA DA P______ QUE FEZ ISSO QUERO SABER\n");
+    printf(" n_clientesAtivos %d\n", n_clientesAtivos);
     for (int i = 0; i < n_clientesAtivos; i++){
-        if(compararCliente(&Clientes[i], pessoa))
+        printf("i = %d\n", i);
+        if(Clientes[i].nome == pessoa->nome && Clientes[i].id == pessoa->id){
+            printf("[blue]i = %d[/blue]\n", i);
             return i;
+        }
+        printc("[red]i = %d[/red]\n", i);
     }
+    printf("ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh AJUDAAAAAAAAAAAAAA\n");
     return -1;
 }
 

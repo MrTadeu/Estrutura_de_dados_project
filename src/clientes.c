@@ -36,7 +36,7 @@ void verClientesCaixa(){
     else{
         Elemento *Caixa = Global.caixas->head;
         while(Caixa){
-            if(((CaixaStruct *)Caixa->Info)->aberta == 1){
+            if(((CaixaStruct *)Caixa->Info)->aberta == 1 || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL){
                 printc("[red]%d ºCaixa [green]ABERTA[/green] Tempo Espera: %ds [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
             }
             else{
@@ -229,7 +229,11 @@ ClienteStruct *escolherCliente(){
 }
 
 void DesocuparCliente(ClienteStruct *pessoa){
+    printc("[green]vixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx[/green]");
     int index = pesquisarClienteVetorBatente(pessoa);
+    printf("\n\n %d \n\n", index);
+    printc("[green]chambra[/green]");
     batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
     pessoa->ativo = 0;
+    printc("\n[green]SE ACABOU[/green]\n");
 }
