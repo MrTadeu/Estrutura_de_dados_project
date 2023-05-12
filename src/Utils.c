@@ -14,7 +14,7 @@
     }
     #include <ctype.h>
     #include <stdio_ext.h>
-    
+
     void strupr(char *str) {
         size_t i = 0;
         while (str[i]) {
@@ -26,15 +26,13 @@
     void bufferclear(){
         __fpurge(stdin);
     }
-    #else
-        #ifndef _WIN32
-            void bufferclear(){
-                char buffer[256];
-                fgets(buffer, 256, stdin);
-            }
-        #endif
 #endif
-
+#ifndef _WIN32 && __linux__
+    void bufferclear(){
+        char buffer[256];
+        fgets(buffer, 256, stdin);
+    }
+#endif
 
 void setPortugues(){
     SET_UTF8_CODEPAGE;
