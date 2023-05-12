@@ -23,7 +23,7 @@
     }
 
     void bufferclear(){
-        __fpurge();
+        __fpurge(stdin);
     }
     #else
         #ifndef _WIN32
