@@ -13,7 +13,8 @@
         usleep(tempo * 1000);
     }
     #include <ctype.h>
-
+    #include <stdio_ext.h>
+    
     void strupr(char *str) {
         size_t i = 0;
         while (str[i]) {
