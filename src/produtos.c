@@ -52,8 +52,12 @@ void pesquisarProdutoID(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
     int id;
-    printf("Insira o ID do produto que pretende pesquisar: ");
-    scanf("%d", &id);
+    int invalid = 0;
+    do{
+        printf("Insira o ID do produto que pretende pesquisar: ");
+        invalid = scanf("%d", &id);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
     int pos = encontrarIdProdutos(id);
     if (pos == -1){
         printf("Produto não encontrado!\n");
@@ -76,7 +80,7 @@ void pesquisarProdutoNome(){
     char nome[100];
     printf("Insira o nome do produto que pretende pesquisar: ");
     bufferclear();
-    scanf("%[^\n]", nome);
+    if(scanf("%[^\n]", nome) != 1) return;
     printf("%s\n", nome);
     printf("Resultados semelhantes: \n");
     int flag = 0;
@@ -101,12 +105,16 @@ void adicionarProduto(){
     char nome[100];
     printf("Insira o nome do produto: ");
     bufferclear();
-    scanf("%[^\n]", nome);
+    if(scanf("%[^\n]", nome) != 1) return;
     Produtos[n_produtos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Produtos[n_produtos].nome, nome);    
 
-    printf("Insira o preço do produto €: ");
-    scanf("%f", &Produtos[n_produtos].preco);
+    int invalid = 0;
+    do{
+        printf("Insira o preço do produto €: ");
+        invalid = scanf("%f", &Produtos[n_produtos].preco);
+        invalid != 1 ? printf("Apenas pode inserir números do tipo float!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
     Produtos[n_produtos].id = generateID(encontrarIdFuncionario, -1);
     n_produtos++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -119,8 +127,13 @@ void editarProduto(){
 
     verProdutos();
     int id;
-    printf("Insira o ID do Produto que pretende editar: ");
-    scanf("%d", &id);
+    int invalid = 0;
+    do{
+        printf("Insira o ID do Produto que pretende editar: ");
+        invalid = scanf("%d", &id);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+    invalid = 0;
     int pos = encontrarIdProdutos(id);
     if (pos == -1){
         printf("Produto não encontrado!\n");
@@ -134,13 +147,18 @@ void editarProduto(){
         char nome[100];
         printf("Insira o novo nome do produto: ");
         bufferclear();
-        scanf("%[^\n]", nome);
+        if(scanf("%[^\n]", nome) != 1) return;
         Produtos[pos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Produtos[pos].nome, nome);
 
-        printf("Insira o novo preço do produto €: ");
-        scanf("%f", &Produtos[pos].preco);
-
+        
+        int invalid = 0;
+        do{
+            printf("Insira o novo preço do produto €: ");
+            invalid = scanf("%f", &Produtos[pos].preco);
+            invalid != 1 ? printf("Apenas pode inserir números do tipo float!\n"),  bufferclear() : (void)NULL;
+        }while(invalid != 1);
+        
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         bufferclear();
         getchar();
@@ -152,8 +170,13 @@ void removerProduto(){
 
     verProdutos();
     int id;
-    printf("Insira o ID do Produto que pretende remover: ");
-    scanf("%d", &id);
+    int invalid = 0;
+    do{
+        printf("Insira o ID do Produto que pretende remover: ");
+        invalid = scanf("%d", &id);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
     int pos = encontrarIdProdutos(id);
     if (pos == -1){
         printf("Produto não encontrado!\n");

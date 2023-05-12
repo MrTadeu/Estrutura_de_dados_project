@@ -22,9 +22,15 @@ void closeAll(){
 }
 
 void editarLojaAbertaAranque(){
-    printc("\n\t[blue]Deseja que a loja esteja aberta no aranque? (0-NÃO OU 1-SIM)[/blue] ");
+    
     int n;
-    scanf("%d", &n);
+    int invalid = 0;
+    do{
+        printc("\n\t[blue]Deseja que a loja esteja aberta no aranque? (0-NÃO OU 1-SIM)[/blue] ");
+        invalid = scanf("%d", &n);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
     if(n == 0 || n == 1){
         Opcoes.threadGlobalAranque = n;
         if(n == 0){
@@ -43,9 +49,15 @@ void editarLojaAbertaAranque(){
 }
 
 void editarNumCaixas(){
-    printf("\n\t[blue]Quantos caixas deseja ter?[/blue] ");
+    
     int n;
-    scanf("%d", &n);
+    int invalid = 0;
+    do{
+        printf("\n\t[blue]Quantos caixas deseja ter?[/blue] ");
+        invalid = scanf("%d", &n);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
     if(n > 0 && n <= 50){
         Opcoes.numCaixasTotal = n;
         printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
@@ -59,9 +71,15 @@ void editarNumCaixas(){
 }
 
 void editarProbGerarPessoa(){
-    printf("\n\t[blue]Qual a probabilidade de gerar uma pessoa?[/blue] ");
+    
     int n;
-    scanf("%d", &n);
+    int invalid = 0;
+    do{
+        printf("\n\t[blue]Qual a probabilidade de gerar uma pessoa?[/blue] ");
+        invalid = scanf("%d", &n);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
     if(n > 0 && n <= 100){
         Opcoes.probGerarPessoa = n;
         printc("\n[green]A probabilidade foi alterada para %d%%[/green]", n);
@@ -76,9 +94,13 @@ void editarProbGerarPessoa(){
 }
 
 void editarLotacaoMax(){
-    printf("\n\t[blue]Qual a lotação máxima da loja?[/blue] ");
     int n;
-    scanf("%d", &n);
+    int invalid = 0;
+    do{
+        printf("\n\t[blue]Qual a lotação máxima da loja?[/blue] ");
+        invalid = scanf("%d", &n);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
     if(n > 0 && n <= 1000){
         Opcoes.lotacaoMaxima = n;
         printc("\n[green]A lotação máxima foi alterada para %d[/green]", n);
