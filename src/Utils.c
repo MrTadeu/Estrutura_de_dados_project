@@ -27,11 +27,13 @@
         __fpurge(stdin);
     }
 #endif
-#ifndef _WIN32 && __linux__
-    void bufferclear(){
-        char buffer[256];
-        fgets(buffer, 256, stdin);
-    }
+#ifndef _WIN32
+    #ifndef __linux__
+        void bufferclear(){
+            char buffer[256];
+            fgets(buffer, 256, stdin);
+        }
+    #endif
 #endif
 
 void setPortugues(){
