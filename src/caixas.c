@@ -79,7 +79,6 @@ void atenderPessoa(CaixaStruct *caixa){
     ClienteStruct *cliente = (ClienteStruct *) caixa->listaPessoas->head->Info;
     cliente->tempoEstimadoFila = 0;
     int tempo = cliente->tempoEstimadoCaixa + cliente->tempoAtraso;
-    printf("entrou plau");
     while(tempo){
         dormir(1000);
         tempo--;
@@ -201,7 +200,6 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
 }
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
-
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
 
     CaixaStruct* melhorCaixa;
@@ -231,7 +229,6 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
         pessoaEnviar = pessoaEnviar->next;
     }
-
 }
 
 /* ------------------------------#< SELEÇÃO DE CAIXA >#------------------------------*/
