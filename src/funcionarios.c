@@ -26,7 +26,7 @@ void verFuncionariosCaixa(){
         printf("\nID: %d Nome: %s Salario: %.2f €\n", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -37,7 +37,7 @@ void verFuncionariosInativos(){
         printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -45,19 +45,23 @@ void pesquisarFuncionariosID(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     
     int id;
-    printf("Insira o ID do funcionario que pretende pesquisar: ");
-    scanf("%d", &id);
+    int invalid = 0;
+    do{
+        printf("Insira o ID do funcionario que pretende pesquisar: ");
+        invalid = scanf("%d", &id);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
     int pos = encontrarIdFuncionario(id);
     if (pos == -1){
         printf("Funcionario não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
     else{
         printf("\nID: %d Nome: %s Salario: %.2f€\n", Funcionarios[pos].id, Funcionarios[pos].nome, (getNivelFuncionario(&Funcionarios[pos])).salario);
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
 }
@@ -65,8 +69,8 @@ void pesquisarFuncionariosID(){
 void pesquisarFuncionariosNome(){
     char nome[100];
     printf("Insira o nome do funcionário que pretende pesquisar: ");
-    getchar();
-    scanf("%[^\n]", nome);
+    bufferclear();
+    if(scanf("%[^\n]", nome) != 1) return;
     printf("%s\n", nome);
     printf("Resultados semelhantes: \n");
     int flag = 0;
@@ -80,7 +84,7 @@ void pesquisarFuncionariosNome(){
         printc("[red]Não foram encontrados resultados semelhantes![/red]\n");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
     return;
 }
@@ -92,13 +96,18 @@ void editarFuncionarios(){
     verFuncionariosInativos();
     verFuncionariosCaixa();
     int id;
-    printf("Insira o ID do funcionario que pretende editar: ");
-    scanf("%d", &id);
+    int invalid = 0;
+    do{
+        printf("Insira o ID do funcionario que pretende editar: ");
+        invalid = scanf("%d", &id);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
     int pos = encontrarIdFuncionario(id);
     if (pos == -1){
         printf("Funcionario não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
     else{
@@ -106,13 +115,13 @@ void editarFuncionarios(){
 
         char nome[100];
         printf("Insira o novo nome do funcionario: ");
-        getchar();
-        scanf("%[^\n]", nome);
+        bufferclear();
+        if(scanf("%[^\n]", nome) != 1) return;
         Funcionarios[pos].nome = malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Funcionarios[pos].nome, nome);
 
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
 }
@@ -122,8 +131,8 @@ void adicionarFuncionario(){
 
     char nome[100];
     printf("Insira o nome do funcionario: ");
-    getchar();
-    scanf("%[^\n]", nome);
+    bufferclear();
+    if(scanf("%[^\n]", nome) != 1) return;
     Funcionarios[n_funcionarios].nome = malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Funcionarios[n_funcionarios].nome, nome);
 
@@ -131,7 +140,7 @@ void adicionarFuncionario(){
     Funcionarios[n_funcionarios].ativo = 0;
     n_funcionarios++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -140,20 +149,25 @@ void removerFuncionario(){
 
     verFuncionariosInativos();
     int id;
-    printf("\nInsira o ID do funcionario que pretende remover: ");
-    scanf("%d", &id);
+    int invalid = 0;
+    do{
+        printf("\nInsira o ID do funcionario que pretende remover: ");
+        invalid = scanf("%d", &id);
+        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+    
     int pos = encontrarIdFuncionario(id);
 
     if (pos == -1){
         printf("Funcionario não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
     else if (Funcionarios[pos].ativo == 1){
         printf("Funcionario está ativo não pode remove-lo!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
         return;
     }
@@ -165,7 +179,7 @@ void removerFuncionario(){
         n_funcionarios--;
         Funcionarios = realloc(Funcionarios, sizeof(Funcionarios) * n_funcionarios);
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
 }

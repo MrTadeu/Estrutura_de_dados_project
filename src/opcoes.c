@@ -38,7 +38,7 @@ void editarLojaAbertaAranque(){
         printf("\n[red]A opção tem de ser 0 ou 1![/red]");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -54,7 +54,7 @@ void editarNumCaixas(){
         printf("\n[red]O número de caixas tem de ser maior que 0 e menor que 50![/red]");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -70,7 +70,7 @@ void editarProbGerarPessoa(){
         printf("\n[red]A probabilidade tem de ser maior que 0%% e menor que 100%%![/red]");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 
 }
@@ -87,7 +87,7 @@ void editarLotacaoMax(){
         printf("\n[red]A lotação máxima tem de ser maior que 0 e menor que 1000![/red]");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -100,14 +100,14 @@ void editarVerTransacoes(){
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]\n\n");
         Opcoes.VerTransacoes = 1;
-        getchar();
+        bufferclear();
         getchar();
         Opcoes.VerTransacoes = 0;
     }
     else{
         printc("\n[red]A loja tem de estar aberta para ver as transações![/red]");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
 }

@@ -44,7 +44,7 @@ void verProdutos(){
         printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -58,13 +58,13 @@ void pesquisarProdutoID(){
     if (pos == -1){
         printf("Produto não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
     else{
         printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[pos].id, Produtos[pos].nome, Produtos[pos].preco);
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     } 
    
@@ -75,7 +75,7 @@ void pesquisarProdutoNome(){
 
     char nome[100];
     printf("Insira o nome do produto que pretende pesquisar: ");
-    getchar();
+    bufferclear();
     scanf("%[^\n]", nome);
     printf("%s\n", nome);
     printf("Resultados semelhantes: \n");
@@ -90,7 +90,7 @@ void pesquisarProdutoNome(){
         printc("[red]Não foram encontrados resultados semelhantes![/red]\n");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
     return;
 }
@@ -100,7 +100,7 @@ void adicionarProduto(){
 
     char nome[100];
     printf("Insira o nome do produto: ");
-    getchar();
+    bufferclear();
     scanf("%[^\n]", nome);
     Produtos[n_produtos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Produtos[n_produtos].nome, nome);    
@@ -110,7 +110,7 @@ void adicionarProduto(){
     Produtos[n_produtos].id = generateID(encontrarIdFuncionario, -1);
     n_produtos++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
+    bufferclear();
     getchar();
 }
 
@@ -125,7 +125,7 @@ void editarProduto(){
     if (pos == -1){
         printf("Produto não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
     else{
@@ -133,7 +133,7 @@ void editarProduto(){
 
         char nome[100];
         printf("Insira o novo nome do produto: ");
-        getchar();
+        bufferclear();
         scanf("%[^\n]", nome);
         Produtos[pos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Produtos[pos].nome, nome);
@@ -142,7 +142,7 @@ void editarProduto(){
         scanf("%f", &Produtos[pos].preco);
 
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
 }
@@ -158,7 +158,7 @@ void removerProduto(){
     if (pos == -1){
         printf("Produto não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
     else{
@@ -167,7 +167,7 @@ void removerProduto(){
         }
         n_produtos--;
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        getchar();
+        bufferclear();
         getchar();
     }
 }

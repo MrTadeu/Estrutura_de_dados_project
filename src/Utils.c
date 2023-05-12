@@ -3,6 +3,9 @@
     void dormir(int tempo){
         Sleep(tempo);
     }
+    void bufferclear(){
+        fflush(stdin);
+    }
 #endif
 
 
@@ -18,6 +21,10 @@
             str[i] = toupper(str[i]);
             i++;
         }
+    }
+
+    void bufferclear(){
+        __fpurge(stdin);
     }
 #endif
 
