@@ -8,7 +8,6 @@
     }
 #endif
 
-
 #ifdef __linux__
     void dormir(int tempo){
         usleep(tempo * 1000);
@@ -24,9 +23,17 @@
     }
 
     void bufferclear(){
-        __fpurge(stdin);
+        __fpurge();
     }
+    #else
+        #ifndef _WIN32
+            void bufferclear(){
+                char buffer[256];
+                fgets(buffer, 256, stdin);
+            }
+        #endif
 #endif
+
 
 void setPortugues(){
     SET_UTF8_CODEPAGE;
