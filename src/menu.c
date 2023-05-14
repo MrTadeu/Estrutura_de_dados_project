@@ -109,10 +109,10 @@ void menuClientes(){
         printc("****************    [blue]Menu Clientes[/blue]    *************\n");
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
-        printc("**        [blue]%d [/blue]-> Ver Clientes                     **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Todos Clientes               **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Clientes Inativos            **\n", i++);
-        printc("**        [blue]%d [/blue]-> Ver Clientes Ativos              **\n", i++);
-        printc("**        [blue]%d [/blue]-> Ver Clientes na Caixa            **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Clientes na Loja             **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Clientes na Caixa (alterar)  **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Clientes               **\n", i++);
         printc("**        [blue]%d [/blue]-> Adicionar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Editar Cliente                   **\n", i++);
@@ -129,7 +129,7 @@ void menuClientes(){
             verClientesInativos();
         }
         if (opcao == i++){
-            verClientesAtivos();
+            verClientesEmLoja();
         }
         if (opcao == i++){
             verClientesCaixa();
@@ -150,30 +150,30 @@ void menuClientes(){
 }
 
 void pesquisarClientes(){
-    int opcao = 0;
+    int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-        printc("[blue]0[/blue] - Voltar\n");
-        printc("[blue]1[/blue] - Pesquisar por ID\n");
-        printc("[blue]2[/blue] - Pesquisar por nome\n");
-        printf("Opção: ");
+        int i = 0;
+        printc("**************************************************\n");
+        printc("****************    [blue]Menu Clientes[/blue]    *************\n");
+        printc("**************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar por ID                 **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar por nome               **\n", i++);
+        printc("**************************************************\n");
+        printc("Qual a opção que pretende? ");
         scanf("%d", &opcao);
-    } while (opcao != 0 && opcao != 1  && opcao != 2);
-    switch (opcao){
-    case 0:
-        return;
-        break;
-    case 1:
-        pesquisarClienteID();
-        break;
-    case 2:
-        pesquisarClienteNome();
-        break;
-    default:
-        break;
-    }
-    
+
+        i = 1;
+        if (opcao == i++){
+            pesquisarClienteID();
+        }
+        if (opcao == i++){
+            pesquisarClienteNome();
+        }
+    } while (opcao != 0);
 }
+
 void menuFuncionarios(){
     int opcao;
     do{
@@ -184,6 +184,7 @@ void menuFuncionarios(){
         printc("****************   [blue]Menu Funcionário[/blue]  *************\n");
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver Todos Funcionários           **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Funcionários Inativos        **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Funcionários em Caixa        **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Funcionários           **\n", i++);
@@ -197,6 +198,9 @@ void menuFuncionarios(){
         scanf("%d", &opcao);
 
         i = 1;
+        if (opcao == i++){
+            verFuncionarios();
+        }
         if (opcao == i++){
             verFuncionariosInativos();
         }
@@ -225,29 +229,28 @@ void menuFuncionarios(){
 }
 
 void pesquisarFuncionarios(){
-    int opcao = 0;
+    int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-        printc("[blue]0[/blue] - Voltar\n");
-        printc("[blue]1[/blue] - Pesquisar por ID\n");
-        printc("[blue]2[/blue] - Pesquisar por nome\n");
-        printf("Opção: ");
+        int i = 0;
+        printc("**************************************************\n");
+        printc("****************   [blue]Menu Funcionário[/blue]  *************\n");
+        printc("**************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar por ID                 **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar por nome               **\n", i++);
+        printc("**************************************************\n");
+        printc("Qual a opção que pretende? ");
         scanf("%d", &opcao);
-    } while (opcao != 0 && opcao != 1  && opcao != 2);
-    switch (opcao){
-    case 0:
-        return;
-        break;
-    case 1:
-        pesquisarFuncionariosID();
-        break;
-    case 2:
-        pesquisarFuncionariosNome();
-        break;
-    default:
-        break;
-    }
-    
+
+        i = 1;
+        if (opcao == i++){
+            pesquisarFuncionariosID();
+        }
+        if (opcao == i++){
+            pesquisarFuncionariosNome();
+        }
+    } while (opcao != 0);
 }
 
 void menuProdutos(){

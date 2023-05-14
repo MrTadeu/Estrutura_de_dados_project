@@ -1,25 +1,17 @@
 #include "../includes/TipoDados.h"
 
-int checkIfUserExists(int id){
+int encontrarIdCliente(int id){
     for (int i = 0; i < n_clientes; i++){
         if (id == Clientes[i].id){
-            return 1;            
+            return i;            
         }
     }
-    return 0;
-}
-
-int generateUserID(){
-    int id = 0;
-    srand(time(NULL));
-    do{
-        id = rand() % 1000000;
-    }while(checkIfUserExists(id) == 1);
-    return id;
+    return -1;
 }
 
 void verClientes(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    printc("[yellow]Listar Todos Clientes:[/yellow]\n");
     for(int i = 0; i < n_clientes; i++){
         printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
     }
@@ -28,10 +20,15 @@ void verClientes(){
     getchar();
 }
 
-void verClientesAtivos(){
+void verClientesEmLoja(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    for(int i = 0; i < n_clientesAtivos; i++){
-        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+    if(Opcoes.lojaAberta == 0){
+        printc("\n\n[yellow]A loja está fechada! Não é possível ver os clientes em caixa.[/yellow]");
+    }else{
+        printc("[yellow]Listar Todos Clientes na Loja:[/yellow]\n");
+        for(int i = 0; i < n_clientesAtivos; i++){
+            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+        }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -40,6 +37,7 @@ void verClientesAtivos(){
 
 void verClientesInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    printc("[yellow]Listar Todos Clientes Inativos:[/yellow]\n");
     for(int i = n_clientesAtivos; i < n_clientes; i++){
         printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
     }
@@ -84,23 +82,13 @@ void verClientesCaixa(){
     getchar();
 }
 
-/* void verClientes(){ // VER CLIENTES INATIVOS / LOJA
-    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    for(int i = 0; i < n_clientes; i++){
-        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
-    }
-    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-    getchar();
-    getchar();
-} */
-
 void pesquisarClienteID(){
     int id , flag = 0, invalid = 0;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     do{
-        printc("Qual o ID do cliente que pretende pesquisar? ");
+        printc("Insira o ID do cliente que pretende pesquisar: ");
         invalid = scanf("%d", &id);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
     for(int i = 0; i < n_clientes; i++){
         if(Clientes[i].id == id){
@@ -122,8 +110,7 @@ void pesquisarClienteNome(){
     printf("Insira o nome do cliente que pretende pesquisar: ");
     bufferclear();
     if(scanf("%[^\n]", nome) != 1) return;
-    printf("%s\n", nome);
-    printf("Resultados semelhantes: \n");
+    printc("\n[blue]Resultados semelhantes:[/blue] \n");
     int flag = 0;
     for (int i = 0; i < n_clientes; i++){
         if (PesquisaParecido(nome, Clientes[i].nome) <= 4){
@@ -141,36 +128,52 @@ void pesquisarClienteNome(){
 
 void adicionarCliente(){
     char nome[100];
+    int invalid = 0, invalidDate = 0;
     Clientes = (ClienteStruct*) realloc(Clientes, (n_clientes + 1) * sizeof(ClienteStruct));
+    Clientes[n_clientes].id = generateID(encontrarIdCliente);
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    printc("Qual o nome do cliente que pretende adicionar? ");
+    printc("[blue]Introduza os dados do Cliente:[/blue]\n");
+    printc("\n\n[yellow]ID CLIENTE: %d[/yellow]\n", Clientes[n_clientes].id);
+    
+    printc("\nNome: ");
     bufferclear();
     if(scanf("%[^\n]", nome) != 1) return;
-    Clientes[n_clientes].id = generateUserID();
     Clientes[n_clientes].nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
     strcpy(Clientes[n_clientes].nome, nome);
-    Clientes[n_clientes].saldoCartaoCliente = 0;
-    /* printc("\n\nQual a data de nascimento do cliente? "); //falta validar data //falta validar data //falta validar data //falta validar data //falta validar data
-    scanf("%d", &Clientes[n_clientes].dataNascimento.dia); */
-    int invalid = 0;
+
     do{
-        printc("\nDia: ");
-        invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.dia);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+        printf("\nSaldo do cliente: ");
+        invalid = scanf("%f", &Clientes[n_clientes].saldoCartaoCliente);
+        invalid != 1 ? printc("[red]Apenas pode inserir números![/red]\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
-    invalid = 0;
+
+    printc("\nData de nascimento:");
+    struct tm tm = getCurrentTime();
     do{
-        printc("\nMês: ");
-        invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.mes);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-    invalid = 0;
-    do{
-        printc("\nAno: ");
-        invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.ano);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-    Clientes[n_clientes].id = n_clientes;
+        invalidDate++;
+        if(invalidDate >=2){
+            printc("\n[red]Data Invalida![/red]\n");
+        }
+        invalid = 0;
+        do{
+            printc("\nDia: ");
+            invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.dia);
+            invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
+        }while(invalid != 1);
+        invalid = 0;
+        do{
+            printc("\nMês: ");
+            invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.mes);
+            invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
+        }while(invalid != 1);
+        invalid = 0;
+        do{
+            printc("\nAno: ");
+            invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.ano);
+            invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
+        }while(invalid != 1);
+    } while (validarData(Clientes[n_clientes].dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
+    
     n_clientes++;
     printc("\n[yellow]Cliente adicionado com sucesso![/yellow]");
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -179,67 +182,74 @@ void adicionarCliente(){
 }
 
 void editarCliente(){
-    int id, flag = 0;
+    int id, index, invalid = 0, invalidDate = 0;
     char nome[100];
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    int invalid = 0;
     do{
-        printc("Qual o ID do cliente que pretende editar? ");
+        printc("Insira o ID do cliente que pretende editar: ");
         invalid = scanf("%d", &id);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+        invalid != 1 ? printf("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
     invalid = 0;
 
-    for(int i = 0; i < n_clientes; i++){
-        if(Clientes[i].id == id){
-            flag = 1;
-            printc("\nQual o novo nome do cliente? ");
-            bufferclear();
-            if(scanf("%[^\n]", nome) != 1) return;
-            Clientes[i].nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
-            strcpy(Clientes[i].nome, nome);
+    index = encontrarIdCliente(id);
+    if(index == -1){
+        printc("[red]\nCliente não encontrado![/red]\n");
+    }
+    else{
+        printc("[yellow]Listar Dados do Cliente a editar:[/yellow]\n");
+        printf("\nID: %d \nNome: %s \nSaldo do Cartão: %.2f€ \nData Nascimento: %d/%d/%d", Clientes[index].id, Clientes[index].nome, Clientes[index].saldoCartaoCliente, Clientes[index].dataNascimento.dia, Clientes[index].dataNascimento.mes, Clientes[index].dataNascimento.ano);
+        printc("\n[blue]Introduza os novos dados do cliente a editar[/blue]\n");
+        printc("\n\nNome do cliente: ");
+        bufferclear();
+        if(scanf("%[^\n]", nome) != 1) return;
+        free(Clientes[index].nome);
+        Clientes[index].nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
+        strcpy(Clientes[index].nome, nome);
 
-            do{
-                printc("\n\nQual o novo saldo do cartão do cliente? ");
-                invalid = scanf("%f", &Clientes[i].saldoCartaoCliente);
-                invalid != 1 ? printf("Apenas pode inserir números do tipo float!\n"),  bufferclear() : (void)NULL;
-            }while(invalid != 1);
+        do{
+            printf("\nSaldo do cliente: ");
+            invalid = scanf("%f", &Clientes[index].saldoCartaoCliente);
+            invalid != 1 ? printc("[red]Apenas pode inserir números![/red]\n"),  bufferclear() : (void)NULL;
+        }while(invalid != 1);
+
+        printc("\nData de nascimento:");
+        struct tm tm = getCurrentTime();
+        do{
+            invalidDate++;
+            if(invalidDate >=2){
+                printc("\n[red]Data Invalida![/red]\n");
+            }
             invalid = 0;
-
-            printc("\n\nQual a nova data de nascimento do cliente? "); //falta validar data //falta validar data //falta validar data //falta validar data
             do{
                 printc("\nDia: ");
-                invalid = scanf("%d", &Clientes[i].dataNascimento.dia);
-                invalid != 1 ? printf("Apenas pode inserir inteiros!\n"),  bufferclear() : (void)NULL;
+                invalid = scanf("%d", &Clientes[index].dataNascimento.dia);
+                invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
             }while(invalid != 1);
             invalid = 0;
-            
             do{
                 printc("\nMês: ");
-                invalid = scanf("%d", &Clientes[i].dataNascimento.mes);
-                invalid != 1 ? printf("Apenas pode inserir inteiros!\n"),  bufferclear() : (void)NULL;
+                invalid = scanf("%d", &Clientes[index].dataNascimento.mes);
+                invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
             }while(invalid != 1);
             invalid = 0;
-            
             do{
                 printc("\nAno: ");
-                invalid = scanf("%d", &Clientes[i].dataNascimento.ano);
-                invalid != 1 ? printf("Apenas pode inserir inteiros!\n"),  bufferclear() : (void)NULL;
+                invalid = scanf("%d", &Clientes[index].dataNascimento.ano);
+                invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
             }while(invalid != 1);
-            invalid = 0;
-            printc("\n[yellow]Cliente editado com sucesso![/yellow]");
-        }
+        } while (validarData(Clientes[index].dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
+
+        printc("\n[yellow]Cliente editado com sucesso![/yellow]");
     }
-    if(flag == 0){
-        printc("\n[yellow]Não existe nenhum cliente com esse ID![/yellow]");
-    }
+   
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
 }
 
 void removerCliente(){
-    int id, flag = 0;
+    int id, index;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     int invalid = 0;
     do{
@@ -248,21 +258,20 @@ void removerCliente(){
         invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
 
-    for(int i = 0; i < n_clientes; i++){
-        if(Clientes[i].id == id){
-            flag = 1;
-            for(int j = i; j < n_clientes; j++){
-                Clientes[j] = Clientes[j + 1];
-            }
-            n_clientes--;
-            printc("\n[yellow]Cliente removido com sucesso![/yellow]");
-            continue;
-        }
-    }
-    Clientes = (ClienteStruct*) realloc(Clientes, n_clientes * sizeof(ClienteStruct));
-    if(flag == 0){
+    index = encontrarIdCliente(id);
+    if(index == -1){
         printc("\n[yellow]Não existe nenhum cliente com esse ID![/yellow]");
     }
+    else{
+        free(Clientes[index].nome);
+        for(int j = index; j < n_clientes; j++){
+            Clientes[j] = Clientes[j + 1];
+        }
+        n_clientes--;
+        printc("\n[yellow]Cliente removido com sucesso![/yellow]");
+    }
+    Clientes = (ClienteStruct*) realloc(Clientes, n_clientes * sizeof(ClienteStruct));
+
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();

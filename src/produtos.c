@@ -26,7 +26,7 @@ int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto, void
     return 0;
 }
 
-int encontrarIdProdutos(int id){
+int encontrarIdProduto(int id){
     for (int i = 0; i < n_produtos; i++){
         if (Produtos[i].id == id){
             return i;
@@ -34,8 +34,6 @@ int encontrarIdProdutos(int id){
     }
     return -1;
 }
-
-
 
 void verProdutos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
@@ -58,7 +56,7 @@ void pesquisarProdutoID(){
         invalid = scanf("%d", &id);
         invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
-    int pos = encontrarIdProdutos(id);
+    int pos = encontrarIdProduto(id);
     if (pos == -1){
         printf("Produto não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -115,7 +113,7 @@ void adicionarProduto(){
         invalid = scanf("%f", &Produtos[n_produtos].preco);
         invalid != 1 ? printf("Apenas pode inserir números do tipo float!\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
-    Produtos[n_produtos].id = generateID(encontrarIdFuncionario, -1);
+    Produtos[n_produtos].id = generateID(encontrarIdFuncionario);
     n_produtos++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -134,7 +132,7 @@ void editarProduto(){
         invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
     invalid = 0;
-    int pos = encontrarIdProdutos(id);
+    int pos = encontrarIdProduto(id);
     if (pos == -1){
         printf("Produto não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -177,7 +175,7 @@ void removerProduto(){
         invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
 
-    int pos = encontrarIdProdutos(id);
+    int pos = encontrarIdProduto(id);
     if (pos == -1){
         printf("Produto não encontrado!\n");
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");

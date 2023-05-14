@@ -132,9 +132,8 @@
     void verClientes();
     void verClientesCaixa();
     void verClientesInativos();
-    void verClientesAtivos();
-    int checkIfUserExists(int id);
-    int generateUserID();
+    void verClientesEmLoja();
+    int encontrarIdCliente(int id);
     void pesquisarClienteID();
     void pesquisarClienteNome();
     void pesquisarClientes();
@@ -168,6 +167,7 @@
     void pesquisarFuncionariosNome();
     void pesquisarFuncionariosID();
     void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas);
+    void verFuncionarios();
 
     //produtos.c
     void aumentarNumProdutosrepetidos(void *produtoArg);
@@ -218,10 +218,11 @@
     void dormir(int tempo);
     struct tm getCurrentTime();
     int checkIFfileExists(char *filepath);
-    int generateID(int (*checkIfExists)(int), int x);
+    int generateID(int (*checkIfExists)(int));
     int minimo(int a, int b, int c);
     int PesquisaParecido(char *str1, char *str2);
     void bufferclear();
+    int validarData(DataStruct date, int minAno, int maxAno);
     
 
     //ThreadGlobal.c

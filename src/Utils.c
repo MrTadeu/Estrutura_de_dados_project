@@ -81,27 +81,14 @@ int checkIFfileExists(char *filepath){
     return 0;
 }
 
-int generateID(int (*checkIfExists)(int), int x){
+int generateID(int (*checkIfExists)(int)){
     int id = 0;
     srand(time(NULL));
     do{
-        id = rand() % 1000000;
-    }while(checkIfExists(id) != x);
+        id = rand() % 10000000;
+    }while(checkIfExists(id) != -1);
     return id;
 }
-
-/* void *ThreadTempo(){
-    while(1){
-        time_t tempoTot;
-        struct tm * timeinfo;
-        time (&tempoTot);
-        timeinfo = localtime (&tempoTot);
-        printf("%d", timeinfo->tm_sec);
-        //printf ( "Current local time and date: %s", asctime (timeinfo) );
-        dormir(1000);
-    }
-} */
-
 
 int minimo(int a, int b, int c) {
     int menor = a;
@@ -157,15 +144,34 @@ struct tm getCurrentTime(){
     return tm;
 }
 
+int validarData(DataStruct date, int minAno, int maxAno) {
+    if (date.ano < minAno || date.ano > maxAno) {
+        return 0;
+    }
+    if (date.mes < 1 || date.mes > 12) {
+        return 0;
+    }
+    int daysInMonth = 31;
+    
+    if (date.mes == 4 || date.mes == 6 || date.mes == 9 || date.mes == 11) {
+        daysInMonth = 30;
+    } else if (date.mes == 2) {
+        if (date.ano % 4 == 0 && (date.ano % 100 != 0 || date.ano % 400 == 0)) {
+            daysInMonth = 29;
+        } else {
+            daysInMonth = 28;
+        }
+    }
 
+    if (date.dia < 1 || date.dia > daysInMonth) {
+        return 0;
+    }
 
-/* int fileExists(const char* path) {
-  struct stat st;
-  if (stat(path, &st) == 0) {
     return 1;
-  }
-  return 0;
 }
+
+
+/*
 
 int fileExistAll(){
   if(fileExists("data/bin/alunos.bin") && fileExists("data/bin/cursosdisciplina.bin") && fileExists("data/bin/disciplinas.bin") && fileExists("data/bin/permission.bin") && fileExists("data/bin/professores.bin") && fileExists("data/bin/regimes.bin") && fileExists("data/bin/salas.bin")){
