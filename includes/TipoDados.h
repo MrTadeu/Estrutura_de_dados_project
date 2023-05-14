@@ -98,11 +98,6 @@
         Lista *caixas, *PessoasAcabaramTempoDeCompra;
     }GlobalStruct;
 
-    typedef struct{
-        CaixaStruct *caixa;
-        ClienteStruct *pessoa;
-    }HistoricoStruct;
-
     //GLOBAL VARIABLES
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;

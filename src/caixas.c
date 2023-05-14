@@ -95,15 +95,11 @@ void atenderPessoa(CaixaStruct *caixa){
     DesocuparCliente(cliente);
     pthread_mutex_unlock(&vetorLock);
 
-
-    //CHAMAR O HISTORICO
-
     //Remover da fila
-    /* pthread_mutex_lock(&caixa->lock); */
-    /* RemElementoInicio(caixa->listaPessoas);*/
-    caixa->listaPessoas->head = caixa->listaPessoas->head->next;
-    caixa->listaPessoas->quantidadeElementos--;
-    /* pthread_mutex_unlock(&caixa->lock); */
+    pthread_mutex_lock(&caixa->lock);
+    Elemento* pessoaAtendida = RemElementoInicio(caixa->listaPessoas);
+    pthread_mutex_unlock(&caixa->lock);
+    return pessoaAtendida;
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
@@ -252,13 +248,12 @@ void *ThreadCaixa(void *arg){
 
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);
-        atenderPessoa(caixa); //precisamos de envolver esta funcao numa futura funcao guardarHistorico // a pessoa não é removida da lista de pessoas em atendimento quando sai do caixa E o head é a proxima pessoa a ser atendida desse jeito o espaço de memoria pode ser reutilizado para a matriz de pessoas do historico
+        guardarHistorico(atenderPessoa(caixa)); //precisamos de envolver esta funcao numa futura funcao guardarHistorico
         pthread_mutex_unlock(&caixa->lock);
 
         atrasoSum += atraso;
         n_vendas++;
         atrasoMedio = atrasoSum / n_vendas;
-        printf("\ncaixa->funcionario->n_vendas: %d\n", caixa->funcionario->n_vendas);
         atualizarDadosFuncionario(caixa->funcionario, atrasoMedio, n_vendas);
     }
     return NULL;
