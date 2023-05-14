@@ -161,26 +161,48 @@ void editarFuncionarios(){
 }
 
 void adicionarFuncionario(){
-    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    Funcionarios[n_funcionarios].id = generateID(encontrarIdFuncionario);
-
-    printc("\n\n[yellow]ID FUNCIONÁRIO: %d[/yellow]\n", Funcionarios[n_funcionarios].id);
     char nome[100];
-    printf("Insira o nome do funcionario: ");
+    int invalid = 0;
+    Funcionarios = realloc(Funcionarios, sizeof(FuncionarioStruct) * (n_funcionarios + 1));
+    Funcionarios[n_funcionarios].id = generateID(encontrarIdFuncionario);
+    Funcionarios[n_funcionarios].ativo = 0;
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    printc("[blue]Introduza os dados do Funcionario:[/blue]\n");
+    printc("\n\n[yellow]ID FUNCIONARIO: %d[/yellow]\n", Funcionarios[n_funcionarios].id);
+
+    printf("Nome: ");
     bufferclear();
     if(scanf("%[^\n]", nome) != 1) return;
-    Funcionarios[n_funcionarios].nome = malloc(sizeof(char) * (strlen(nome) + 1));
-    strcpy(Funcionarios[n_funcionarios].nome, nome);
+    Funcionarios[n_funcionarios].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
+    strcpy(Funcionarios[n_funcionarios].nome, nome);    
 
-    Funcionarios[n_funcionarios].ativo = 0;
-    Funcionarios[n_funcionarios].n_vendas = 0;
-    Funcionarios[n_funcionarios].atrasoMedio = 0;
-    Funcionarios[n_funcionarios].bonus = 0;
+    do{
+        printf("Numero de vendas: ");
+        invalid = scanf("%d", &Funcionarios[n_funcionarios].n_vendas);
+        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
+    invalid = 0;
+    do{
+        printf("Atraso medio: ");
+        invalid = scanf("%f", &Funcionarios[n_funcionarios].atrasoMedio);
+        invalid != 1 ? printc("[red]Apenas pode inserir números do tipo float![/red]\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
+    invalid = 0;
+    do{
+        printf("Bonus: ");
+        invalid = scanf("%f", &Funcionarios[n_funcionarios].bonus);
+        invalid != 1 ? printc("[red]Apenas pode inserir números do tipo float![/red]\n"),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+
     n_funcionarios++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
 }
+
+
 
 void removerFuncionario(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
@@ -210,7 +232,7 @@ void removerFuncionario(){
         return;
     }
     else{
-        /* free(Funcionarios[pos].nome); */
+        free(Funcionarios[pos].nome);
         for (int i = pos; i < n_funcionarios; i++){
             Funcionarios[i] = Funcionarios[i + 1];
         }

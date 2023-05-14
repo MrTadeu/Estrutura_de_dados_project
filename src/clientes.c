@@ -144,7 +144,15 @@ void adicionarCliente(){
     do{
         printf("\nSaldo do cliente: ");
         invalid = scanf("%f", &Clientes[n_clientes].saldoCartaoCliente);
-        invalid != 1 ? printc("[red]Apenas pode inserir números![/red]\n"),  bufferclear() : (void)NULL;
+        if(invalid != 1){
+            printc("[red]Apenas pode inserir números![/red]\n");
+            bufferclear();
+        }
+        if(Clientes[n_clientes].saldoCartaoCliente <= 0){
+            printc("[red]Saldo do cliente >= 0[/red]\n");
+            bufferclear();
+            invalid = -1;
+        }
     }while(invalid != 1);
 
     printc("\nData de nascimento:");
@@ -210,6 +218,11 @@ void editarCliente(){
         do{
             printf("\nSaldo do cliente: ");
             invalid = scanf("%f", &Clientes[index].saldoCartaoCliente);
+            if(Clientes[index].saldoCartaoCliente <= 0){
+                printc("[red]Saldo do cliente >= 0[/red]\n");
+                bufferclear();
+                invalid = -1;
+            }
             invalid != 1 ? printc("[red]Apenas pode inserir números![/red]\n"),  bufferclear() : (void)NULL;
         }while(invalid != 1);
 
