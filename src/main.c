@@ -1,9 +1,11 @@
 #include "../includes/TipoDados.h"
 #include "../includes/ListaLigada.h"
+#include "../includes/Historico.h"
 
 //GLOBAL VARIABLES
 OpcaoStruct Opcoes;
 GlobalStruct Global;
+HistoricoHashTable Historico;
 pthread_mutex_t vetorLock, listaLock;
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
