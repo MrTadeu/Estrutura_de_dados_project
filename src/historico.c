@@ -30,7 +30,7 @@ void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa, float movime
     TransacaoHistoricoStruct *infoHistorico = (TransacaoHistoricoStruct*) malloc(sizeof(TransacaoHistoricoStruct));
     infoHistorico->funcionario = caixa->funcionario;
     infoHistorico->listaProdutos = pessoa->listaProdutos;
-    
+
     infoHistorico->tempoEstimadoCaixa = pessoa->tempoEstimadoCaixa;
     infoHistorico->tempoAtraso = pessoa->tempoAtraso;
     infoHistorico->movimentoCartaoCliente = movimentoSaldoCartao;
@@ -59,7 +59,7 @@ int inserirNoHistorico(int hashIndex, CaixaStruct *caixa, ClienteStruct *cliente
     }
 }
 
-void guardarHistorico(Elemento * pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao){
+void guardarHistorico(Elemento *pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao){//enviar isto e o saldo antigo e atualizado em estrutura
     if(!pessoaAtendida){
         printf("\n\t[red]Error![/red] Given elemento is NULL\n");
         return;
