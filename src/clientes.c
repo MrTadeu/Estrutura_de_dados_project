@@ -48,7 +48,7 @@ void verClientesInativos(){
 
 void verClientesCaixa(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    if(Opcoes.lojaAberta == 0){
+    if(/* Opcoes.lojaAberta ==  */0){
         printc("\n\n[yellow]A loja está fechada! Não é possível ver os clientes em caixa.[/yellow]");
     }
     else{
@@ -67,7 +67,7 @@ void verClientesCaixa(){
                 Elemento *Produtos = ClienteInfo.listaProdutos->head;
                 while(Produtos){
                     ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
-                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue]", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco);
+                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue] tcompra:%f", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco, ProdutoInfo->tempoCaixa);
                     Produtos = Produtos->next;
                 }
                 printf("\n");
@@ -291,7 +291,6 @@ void removerCliente(){
 }
 
 void criarProdutosAddCliente(ClienteStruct *cliente){
-    srand(time(NULL));
     ProdutoStruct *produtoEscolhido;
     for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++){
         produtoEscolhido = escolherProduto();
@@ -305,19 +304,20 @@ void calculoTemposCliente(ClienteStruct *cliente){
         printf("[red]Error![/red] Given client is NULL");
         return;
     }
-
     Elemento *Aux = cliente->listaProdutos->head;
     while(Aux){
         ProdutoStruct *produto = (ProdutoStruct *) Aux->Info;
         cliente->tempoEstimadoCaixa += produto->tempoCaixa;
         cliente->tempoEstimadoCompra += produto->tempoCompra;
+        cliente->precoTotalProdutos += produto->preco; 
+
         Aux = Aux->next;
     }
 }
 
 ClienteStruct *escolherCliente(){
     ClienteStruct *cliente;
-    if(Aleatorio(1, 75) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
+    if(Aleatorio(1, 75) >= 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
         cliente->listaProdutos = criarLista();
     }

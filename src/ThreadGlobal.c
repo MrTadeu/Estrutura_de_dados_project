@@ -2,7 +2,6 @@
 
 
 void *ThreadGlobal(){
-    srand(time(NULL));
 
     Global.PessoasAcabaramTempoDeCompra = criarLista();
 
@@ -20,10 +19,7 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
-        /* for (int i = 0; i < Opcoes.numCaixasAbertas; i++){
-        } */
-        
-        dormir(1000);
+        dormir(100);
     }
     return NULL;
 }
@@ -39,10 +35,10 @@ void *ThreadEsperaTempoCompra(void *pessoa){
     if(Opcoes.VerTransacoes == 1){
         printf("\n\nPessoa Gerada: ");
         printf("\nNome: %s", cliente->nome);
-        printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
-        printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
-        printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
-        printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
+        printf("\nTempo de Compra: %f", cliente->tempoEstimadoCompra);
+        printf("\nTempo de Estimado Fila: %f", cliente->tempoEstimadoFila);
+        printf("\nTempo de Estimado Caixa: %f", cliente->tempoEstimadoCaixa);
+        printf("\nTempo de tempoAtraso: %f", cliente->tempoAtraso);
         /* printf("\nLista de Produtos:");
          Elemento *Aux = cliente->listaProdutos->head;
         while(Aux){
@@ -54,7 +50,7 @@ void *ThreadEsperaTempoCompra(void *pessoa){
    
     dormir(cliente->tempoEstimadoCompra * 1000);
     if(Opcoes.VerTransacoes == 1){
-        printf("\n\n%s acabou de comprar todos os produtos em %ds",cliente->nome, cliente->tempoEstimadoCompra);
+        printf("\n\n%s acabou de comprar todos os produtos em %fs",cliente->nome, cliente->tempoEstimadoCompra);
     }
     pthread_mutex_lock(&listaLock);
     AddElementoFim(Global.PessoasAcabaramTempoDeCompra, criarElemento(cliente));

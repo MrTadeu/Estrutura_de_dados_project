@@ -67,11 +67,11 @@
         DataStruct dataNascimento;      // guests: -1/-1/-1
         float saldoCartaoCliente;       // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
 
-        int tempoEstimadoCompra;        // soma do tempo de compra dos proprios produtos
-        int tempoEstimadoFila;          // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
-        int tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtos
+        float tempoEstimadoCompra;        // soma do tempo de compra dos proprios produtos
+        float tempoEstimadoFila;          // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
+        float tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtoOpcaoStructs
 
-        int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
+        float tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
 
         Lista *listaProdutos;           // lista dos produtos
         float precoTotalProdutos;        

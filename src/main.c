@@ -13,6 +13,8 @@ int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, 
 
 
 int main(){
+    srand(time(NULL));
+
     Init();
     menu();
     closeAll();

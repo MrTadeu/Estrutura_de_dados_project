@@ -83,7 +83,6 @@ int checkIFfileExists(char *filepath){
 
 int generateID(int (*checkIfExists)(int)){
     int id = 0;
-    srand(time(NULL));
     do{
         id = rand() % 10000000;
     }while(checkIfExists(id) != -1);
