@@ -98,7 +98,7 @@
         Lista *caixas, *PessoasAcabaramTempoDeCompra;
     }GlobalStruct;
 
-    /* typedef struct{
+    typedef struct{
         //funcionario LISTAprod data temposNecessarios li
     }TransacaoHistoricoStruct;
 
@@ -110,14 +110,14 @@
     }ClienteHistoricoStruct;
 
     typedef struct{
-        Lista *Historico[26];
+        Lista *historico[26];
         //Dados enunciado
-    }HistoricoDadosEstatisticosStruct; */
+    }HistoricoDadosEstatisticosStruct;
 
     //GLOBAL VARIABLES
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
-    /* extern HistoricoDadosEstatisticos HistoricoDados; */
+    extern HistoricoDadosEstatisticosStruct HistoricoDados;
     extern pthread_mutex_t vetorLock, listaLock;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
@@ -160,7 +160,7 @@
     //caixas.c
     CaixaStruct *MelhorCaixa();
     void SelecionarCaixa();
-    void atenderPessoa(CaixaStruct *caixa);
+    Elemento *atenderPessoa(CaixaStruct *caixa);
     void criarCaixaInit();
     void *ThreadCaixa(void *arg);
 

@@ -4,7 +4,7 @@
 //GLOBAL VARIABLES
 OpcaoStruct Opcoes;
 GlobalStruct Global;
-/* Lista *Historico[26]; */
+HistoricoDadosEstatisticosStruct HistoricoDados;
 pthread_mutex_t vetorLock, listaLock;
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;
