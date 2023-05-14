@@ -12,7 +12,7 @@ O projeto "Simulação de Supermercado" é uma implementação em C que tem como
 ## 1.1. Instrução de execução via comando
 >&nbsp;
 >```cmd
->> gcc -o3 -Wall .\src\main.c .\includes\TipoDados.h .\src\TipoDadosFuncoes.c .\src\Utils.c .\includes\ListaLigada.h .\src\ListaLigadaFuncoes.c .\src\Import_Export.c -o  run.exe
+>> gcc -fdiagnostics-color=always -o3 -Wall -Wextra src/*.c -o simulation.exe
 >```
 >&nbsp;
 ## 1.2. Instruçoes de execução com `Makefile` no Windows (recomendado)
