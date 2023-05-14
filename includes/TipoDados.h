@@ -69,7 +69,7 @@
 
         int tempoEstimadoCompra;        // soma do tempo de compra dos proprios produtos
         int tempoEstimadoFila;          // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila
-        int tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtoOpcaoStructs
+        int tempoEstimadoCaixa;         // soma do tempo de caixa dos proprios produtos
 
         int tempoAtraso;                // soma do atraso aleatorio de cada pessoa a sua frente
 
@@ -83,8 +83,8 @@
     }NivelFuncionarioStruct;
 
     typedef struct{
-        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, percentagemParaAtraso, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, TempoLimiteSuperior, TempoLimiteInferior, QuantMaxProd, QuantMinProd;
-        float eurosPorSegundoAdiantamentoFuncinario;
+        int numCaixasTotal, numCaixasAbertas, probGerarPessoa, probUsarSaldoCartao, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, TempoLimiteSuperior, TempoLimiteInferior, QuantMaxProd, QuantMinProd;
+        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
 
@@ -99,7 +99,11 @@
     }GlobalStruct;
 
     typedef struct{
-        //funcionario LISTAprod data temposNecessarios li
+        FuncionarioStruct *funcionario;
+        Lista *listaProdutos;
+        int tempoEstimadoCaixa, tempoAtraso;
+        float movimentoCartaoCliente, precoTotal;
+        /* DataStruct *dataTransacao; */
     }TransacaoHistoricoStruct;
 
     typedef struct{

@@ -234,7 +234,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
     int atraso, n_vendas = 0;
-    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0;
+    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, movimentoSaldoCartao;
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
@@ -248,9 +248,17 @@ void *ThreadCaixa(void *arg){
         atualizarAtrasos(caixa->listaPessoas, atraso);
         pthread_mutex_unlock(&caixa->lock);
 
+        movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente;
+        //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
+        if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao)
+            pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, pessoaEmAtendimento->saldoCartaoCliente);
+        else
+            pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
+        movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
+
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);
-        guardarHistorico(atenderPessoa(caixa), caixa);
+        guardarHistorico(atenderPessoa(caixa), caixa, movimentoSaldoCartao);
         pthread_mutex_unlock(&caixa->lock);
 
         atrasoSum += atraso;
@@ -258,5 +266,6 @@ void *ThreadCaixa(void *arg){
         atrasoMedio = atrasoSum / n_vendas;
         atualizarDadosFuncionario(caixa->funcionario, atrasoMedio, n_vendas);
     }
+    //Por a zero os tempos para reutilizacao da caixa
     return NULL;
 }

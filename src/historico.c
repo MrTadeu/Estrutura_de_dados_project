@@ -16,32 +16,50 @@ int alfabetoIndex(char *nome){
         return nome[0] - 97;
 }
 
-void criarElementoClienteHistorico(ClienteStruct *cliente){
+ClienteHistoricoStruct *criarElementoClienteHistorico(ClienteStruct *cliente){
     ClienteHistoricoStruct *elementoCliente = (ClienteHistoricoStruct *) malloc(sizeof(ClienteHistoricoStruct));
     strcpy(elementoCliente->nome, cliente->nome);
     elementoCliente->id = cliente->id;
     elementoCliente->caixas = (Lista**) malloc(sizeof(Lista*)*Opcoes.numCaixasTotal);
     for (int i = 0; i < Opcoes.numCaixasTotal; i++)
         elementoCliente->caixas[i] = criarLista();
+    return elementoCliente;
 }
 
-/* void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa){
+void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa, float movimentoSaldoCartao){
     TransacaoHistoricoStruct *infoHistorico = (TransacaoHistoricoStruct*) malloc(sizeof(TransacaoHistoricoStruct));
-    infoHistorico->caixa = caixa;
-    infoHistorico->pessoa = pessoa;
+    infoHistorico->funcionario = caixa->funcionario;
+    infoHistorico->listaProdutos = pessoa->listaProdutos;
+    
+    infoHistorico->tempoEstimadoCaixa = pessoa->tempoEstimadoCaixa;
+    infoHistorico->tempoAtraso = pessoa->tempoAtraso;
+    infoHistorico->movimentoCartaoCliente = movimentoSaldoCartao;
+    /* infoHistorico->dataTransacao =  */
     return infoHistorico;
-} */
+}
 
-int inserirNoHistorico(CaixaStruct *caixa, ClienteStruct *cliente){
+int inserirNoHistorico(int hashIndex, CaixaStruct *caixa, ClienteStruct *cliente, float movimentoSaldoCartao){
     if(!cliente){
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
         return 0;
     }
-    
-    HistoricoDados.historico[]
+
+    int flag = 0;
+    Elemento *Aux = HistoricoDados.historico[hashIndex]->head;
+    while(Aux){
+        ClienteHistoricoStruct *guardado = Aux->Info;
+        if(strcmp(cliente->nome, guardado->nome) == 0 && cliente->id == guardado->id){
+            AddElementoInicio(guardado->caixas[caixa->id-1], criarElemento(criarInfoHistorico(caixa, cliente, movimentoSaldoCartao)));
+            flag = 1;
+            break;
+        }
+    }
+    if(!flag){
+        AddElementoInicio(HistoricoDados.historico[hashIndex], criarElemento(criarElementoClienteHistorico(cliente)));
+    }
 }
 
-void guardarHistorico(Elemento * pessoaAtendida, CaixaStruct *caixa){
+void guardarHistorico(Elemento * pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao){
     if(!pessoaAtendida){
         printf("\n\t[red]Error![/red] Given elemento is NULL\n");
         return;
@@ -50,6 +68,7 @@ void guardarHistorico(Elemento * pessoaAtendida, CaixaStruct *caixa){
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");
         return;
     }
+
 
 
 }

@@ -16,6 +16,9 @@ void importOpcoes(){
         Opcoes.numCaixasTotal = 10;
         Opcoes.numCaixasAbertas = 0;
         Opcoes.probGerarPessoa = 100;
+        Opcoes.probUsarSaldoCartao = 30;
+        Opcoes.percentagemPrecoAngariarSaldo = 0.5;
+        Opcoes.percentagemParaAtraso = 0.5;
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 0;
