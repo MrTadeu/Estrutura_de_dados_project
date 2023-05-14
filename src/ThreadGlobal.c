@@ -18,12 +18,9 @@ void *ThreadGlobal(){
                 pthread_detach(thread); // para não ficar alocando memoria assim que acabar é como um pthread join
             }
             
-            SelecionarCaixa();
+            /* SelecionarCaixa(); */
         }
-        /* for (int i = 0; i < Opcoes.numCaixasAbertas; i++){
-        } */
-        
-        dormir(1000);
+        dormir(100);
     }
     return NULL;
 }

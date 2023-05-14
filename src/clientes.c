@@ -291,7 +291,6 @@ void removerCliente(){
 }
 
 void criarProdutosAddCliente(ClienteStruct *cliente){
-    srand(time(NULL));
     ProdutoStruct *produtoEscolhido;
     for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++){
         produtoEscolhido = escolherProduto();
@@ -317,7 +316,9 @@ void calculoTemposCliente(ClienteStruct *cliente){
 
 ClienteStruct *escolherCliente(){
     ClienteStruct *cliente;
-    if(Aleatorio(1, 75) > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
+    int x = Aleatorio(1, 75);
+    printc("\n\n[yellow]Probabilidade de gerar uma pessoa: %d%%[/yellow]", x);
+    if(x > 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
         cliente->listaProdutos = criarLista();
     }
