@@ -99,14 +99,14 @@
     }GlobalStruct;
 
     typedef struct{
-        CaixaStruct *caixa;
-        ClienteStruct *pessoa;
+        //funcionario LISTAprod data temposNecessarios li
     }TransacaoHistoricoStruct;
 
     typedef struct{
         char *nome;
         int id;
-        Lista **caixas;
+        //todos os dados do clientes
+        Lista **caixas; //TransacoesHistoricoStruct
     }ClienteHistoricoStruct;
 
     typedef struct{
