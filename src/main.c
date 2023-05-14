@@ -4,7 +4,7 @@
 //GLOBAL VARIABLES
 OpcaoStruct Opcoes;
 GlobalStruct Global;
-HistoricoHashTable Historico;
+Lista *Historico[26];
 pthread_mutex_t vetorLock, listaLock;
 ClienteStruct *Clientes;
 FuncionarioStruct *Funcionarios;

@@ -101,18 +101,25 @@
     typedef struct{
         CaixaStruct *caixa;
         ClienteStruct *pessoa;
-    }HistoricoStruct;
+    }TransacaoHistoricoStruct;
 
-    typedef struct{ 
-        // Vetor de listas
-        Lista **alfabeto; // Vai servir para procurar pelo nome do ciente
-        Lista **caixasHistorico; // Vai servir para procurar pelo id de caixa
-    }HistoricoHashTable;
+    typedef struct{
+        char *nome;
+        int id;
+        Lista **caixas;
+    }ClienteHistoricoStruct;
+
+    typedef struct{
+        Lista *Historico[26];
+
+
+        //Dados enunciado
+    }HistoricoDadosEstatisticosStruct;
 
     //GLOBAL VARIABLES
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
-    extern HistoricoHashTable Historico;
+    extern HistoricoDadosEstatisticos HistoricoDados;
     extern pthread_mutex_t vetorLock, listaLock;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;

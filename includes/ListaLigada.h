@@ -1,5 +1,6 @@
 #ifndef LISTALIGADA_H_INCLUDED
 #define LISTALIGADA_H_INCLUDED
+
     typedef struct elementoG{
         void *Info;
         struct elementoG *next;
@@ -9,6 +10,8 @@
         Elemento *head, *tail;
         int quantidadeElementos;
     }Lista;
+
+
 
     Lista *criarLista();
     Elemento *criarElemento(void *elemento);
