@@ -2,7 +2,6 @@
 
 
 void *ThreadGlobal(){
-    srand(time(NULL));
 
     Global.PessoasAcabaramTempoDeCompra = criarLista();
 
