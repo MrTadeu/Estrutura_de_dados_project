@@ -1,4 +1,4 @@
-#include "../includes/Historico.h"
+#include "../includes/TipoDados.h"
 
 void initHistorico(){
      = (Lista**) malloc(sizeof(Lista*)*26); // 26 é o numero de letras no alfabeto
