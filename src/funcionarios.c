@@ -162,7 +162,9 @@ void editarFuncionarios(){
 
 void adicionarFuncionario(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    Funcionarios[n_funcionarios].id = generateID(encontrarIdFuncionario);
 
+    printc("\n\n[yellow]ID FUNCIONÁRIO: %d[/yellow]\n", Funcionarios[n_funcionarios].id);
     char nome[100];
     printf("Insira o nome do funcionario: ");
     bufferclear();
@@ -170,8 +172,10 @@ void adicionarFuncionario(){
     Funcionarios[n_funcionarios].nome = malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Funcionarios[n_funcionarios].nome, nome);
 
-    Funcionarios[n_funcionarios].id = generateID(encontrarIdFuncionario);
     Funcionarios[n_funcionarios].ativo = 0;
+    Funcionarios[n_funcionarios].n_vendas = 0;
+    Funcionarios[n_funcionarios].atrasoMedio = 0;
+    Funcionarios[n_funcionarios].bonus = 0;
     n_funcionarios++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -206,7 +210,7 @@ void removerFuncionario(){
         return;
     }
     else{
-        free(Funcionarios[pos].nome);
+        /* free(Funcionarios[pos].nome); */
         for (int i = pos; i < n_funcionarios; i++){
             Funcionarios[i] = Funcionarios[i + 1];
         }
