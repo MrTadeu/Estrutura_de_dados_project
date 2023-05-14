@@ -1,7 +1,6 @@
 #include "../includes/TipoDados.h"
 
 void Init(){
-    srand(time(NULL));
     setPortugues();
     importOpcoes();
     importarDados(importarClientes, CLIENTES);

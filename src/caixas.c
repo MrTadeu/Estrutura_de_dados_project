@@ -78,7 +78,7 @@ void atenderPessoa(CaixaStruct *caixa){
     }
     ClienteStruct *cliente = (ClienteStruct *) caixa->listaPessoas->head->Info;
     cliente->tempoEstimadoFila = 0;
-    int tempo = cliente->tempoEstimadoCaixa + cliente->tempoAtraso;
+    int tempo = round(cliente->tempoEstimadoCaixa + cliente->tempoAtraso);
     while(tempo){
         dormir(1000);
         tempo--;
@@ -136,62 +136,51 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         caixaAux = caixaAux->next;
     }
 
+    //SE NÃO HOUVER CAIXAS ABERTAS ABRIR A PRIMEIRA
     if(Opcoes.numCaixasAbertas == 0){
         menor->aberta = 1;
         Opcoes.numCaixasAbertas++;
-        if (menor->funcionario == NULL){ // precisamos criar um funcionario para o caixa se não tiver uma vez que existe uma função de init caixa que cria sem ou com funcionario
+        if (menor->funcionario == NULL){ 
             menor->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
-        menor->aberta = 1;
-        if (primeiraCaixaFechada->listaPessoas->head == NULL){
+        if (menor->listaPessoas->head == NULL){
             pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
             pthread_detach(threadCaixa);
             
         }
-
         return menor;
     }
-    /* printf("numCaixasAbertas %d numCaixasTotal %d", Opcoes.numCaixasAbertas, Opcoes.numCaixasTotal); */
-    
-    if (menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTotal){ //ABRIR CAIXA SE O TEMPO DA MENOR CAIXA FOR MAIOR QUE O LIMITE SUPERIOR (CASO EXISTA CAIXAS FECHADAS)
-        /* if(Opcoes.numCaixasAbertas == Opcoes.numCaixasTotal){
-            printc("\n\tmenor [red]Não é possivel abrir mais caixas! ID:%d  aberta?%d[/red]", menor->id, menor->aberta);
-            return NULL;
-        } */
+
+    //ABRIR CAIXA SE O TEMPO DA MENOR CAIXA FOR MAIOR QUE O LIMITE SUPERIOR (CASO EXISTA AINDA CAIXAS FECHADAS)
+    if (menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTotal){ 
+        primeiraCaixaFechada->aberta = 1;
         Opcoes.numCaixasAbertas++;
         if (primeiraCaixaFechada->funcionario == NULL){
             primeiraCaixaFechada->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
-        primeiraCaixaFechada->aberta = 1;
         if (primeiraCaixaFechada->listaPessoas->head == NULL){
             pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)primeiraCaixaFechada);
             pthread_detach(threadCaixa);
             
         }
-        
-        
-        /* printc("\n\tprimeiraCaixaFechada [green]Caixa aberta! ID:%d  aberta?%d[/green]", primeiraCaixaFechada->id, primeiraCaixaFechada->aberta); */
-        /* printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
         return primeiraCaixaFechada;
     }
 
-
-    if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && menor != SegundaMenor && Opcoes.numCaixasAbertas > 1){ // SegundaMenor == menor == maior??????? não pode fechar se todas forem iguais por isso Opcoes.numCaixasAbertas > 1
+    // FECHAR CAIXA SE O TEMPO DA MAIOR CAIXA FOR MENOR QUE O LIMITE INFERIOR (CASO EXISTA MAIS QUE UMA CAIXA ABERTA)
+    if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && Opcoes.numCaixasAbertas > 1){
         Opcoes.numCaixasAbertas--;
         menor->aberta = 0;
-       /*  printc("\n\tSegundaMenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", SegundaMenor->id, SegundaMenor->aberta);
-        printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
         return SegundaMenor;
     }
-    /* printc("\n\tmenor [green]Caixa aberta! ID:%d  aberta?%d[/green]", menor->id, menor->aberta);
-    printf("\nTempoLimiteSuperior %d TempoLimiteInferior %d Menor tempo: %d Maior tempo: %d SegundaMenor tempo: %d Caixa Abertas %d",Opcoes.TempoLimiteSuperior, Opcoes.TempoLimiteInferior, menor->tempoTotalEspera, maior->tempoTotalEspera, SegundaMenor->tempoTotalEspera, Opcoes.numCaixasAbertas); */
-    /* if (Opcoes.numCaixasAbertas == Opcoes.numCaixasTotal && menor->tempoTotalEspera > Opcoes.TempoLimiteSuperior){
-        printc("\n\tmenor [red]Não é possivel abrir mais caixas! ID:%d  aberta?%d[/red]", menor->id, menor->aberta);
-        return NULL;
-    } */
-    return menor;
+
+    if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior){
+        return menor;
+    }
+
+    printc("\n\t[red]Error![/red] Não foi possivel selecionar a melhor caixa\n");
+    return NULL;
 }
 
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
@@ -213,7 +202,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         
         pthread_mutex_lock(&melhorCaixa->lock);
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
-        melhorCaixa->tempoTotalEspera +=((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
+        melhorCaixa->tempoTotalEspera += ((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
         ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
         pthread_mutex_unlock(&melhorCaixa->lock);
 

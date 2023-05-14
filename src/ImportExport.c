@@ -52,7 +52,7 @@ void importarClientes(char **linhaString, int n_linha, int n_colunas){
         struct tm tm = getCurrentTime();
         Clientes[n_linha].dataNascimento = gerarData(tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10);
     }
-    
+    Clientes[n_linha].precoTotalProdutos = 0;
     Clientes[n_linha].tempoEstimadoCompra = 0;
     Clientes[n_linha].tempoEstimadoFila = 0;
     Clientes[n_linha].tempoEstimadoCaixa = 0;
