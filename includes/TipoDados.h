@@ -98,7 +98,7 @@
         Lista *caixas, *PessoasAcabaramTempoDeCompra;
     }GlobalStruct;
 
-    typedef struct{
+    /* typedef struct{
         //funcionario LISTAprod data temposNecessarios li
     }TransacaoHistoricoStruct;
 
@@ -111,15 +111,13 @@
 
     typedef struct{
         Lista *Historico[26];
-
-
         //Dados enunciado
-    }HistoricoDadosEstatisticosStruct;
+    }HistoricoDadosEstatisticosStruct; */
 
     //GLOBAL VARIABLES
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
-    extern HistoricoDadosEstatisticos HistoricoDados;
+    /* extern HistoricoDadosEstatisticos HistoricoDados; */
     extern pthread_mutex_t vetorLock, listaLock;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;

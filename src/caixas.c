@@ -99,7 +99,7 @@ void atenderPessoa(CaixaStruct *caixa){
     pthread_mutex_lock(&caixa->lock);
     Elemento* pessoaAtendida = RemElementoInicio(caixa->listaPessoas);
     pthread_mutex_unlock(&caixa->lock);
-    return pessoaAtendida;
+    /* return pessoaAtendida; */
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
@@ -248,7 +248,7 @@ void *ThreadCaixa(void *arg){
 
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);
-        guardarHistorico(atenderPessoa(caixa)); //precisamos de envolver esta funcao numa futura funcao guardarHistorico
+        /* guardarHistorico( */atenderPessoa(caixa)/* ) */; //precisamos de envolver esta funcao numa futura funcao guardarHistorico
         pthread_mutex_unlock(&caixa->lock);
 
         atrasoSum += atraso;

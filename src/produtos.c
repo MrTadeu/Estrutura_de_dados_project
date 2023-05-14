@@ -37,9 +37,9 @@ int encontrarIdProduto(int id){
 
 void verProdutos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-
+    printc("[yellow]Listar Todos Produtos:[/yellow]\n");
     for (int i = 0; i < n_produtos; i++){
-        printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[i].id, Produtos[i].nome, Produtos[i].preco);
+        printf("\nID: %d Nome: %s Preço: %.2f€", Produtos[i].id, Produtos[i].nome, Produtos[i].preco);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -48,28 +48,23 @@ void verProdutos(){
 
 void pesquisarProdutoID(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-
-    int id;
-    int invalid = 0;
+    int id, invalid = 0;
     do{
         printf("Insira o ID do produto que pretende pesquisar: ");
         invalid = scanf("%d", &id);
         invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
+
     int pos = encontrarIdProduto(id);
     if (pos == -1){
-        printf("Produto não encontrado!\n");
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        bufferclear();
-        getchar();
+        printc("[red]Produto não encontrado![/red]\n");
     }
     else{
         printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[pos].id, Produtos[pos].nome, Produtos[pos].preco);
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        bufferclear();
-        getchar();
     } 
-   
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
 }
 
 void pesquisarProdutoNome(){
@@ -94,7 +89,6 @@ void pesquisarProdutoNome(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
-    return;
 }
 
 void adicionarProduto(){
@@ -112,8 +106,13 @@ void adicionarProduto(){
         printf("Insira o preço do produto €: ");
         invalid = scanf("%f", &Produtos[n_produtos].preco);
         invalid != 1 ? printf("Apenas pode inserir números do tipo float!\n"),  bufferclear() : (void)NULL;
+        if(Produtos[n_produtos].preco < 0){
+            printc("[red]O preço não pode ser negativo![/red]\n");
+            invalid = -1;
+        }
     }while(invalid != 1);
-    Produtos[n_produtos].id = generateID(encontrarIdFuncionario);
+
+    Produtos[n_produtos].id = generateID(encontrarIdProduto);
     n_produtos++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -122,73 +121,66 @@ void adicionarProduto(){
 
 void editarProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-
-    verProdutos();
-    int id;
-    int invalid = 0;
+    int id, invalid = 0;
     do{
         printf("Insira o ID do Produto que pretende editar: ");
         invalid = scanf("%d", &id);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
     invalid = 0;
     int pos = encontrarIdProduto(id);
     if (pos == -1){
-        printf("Produto não encontrado!\n");
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        bufferclear();
-        getchar();
+        printc("[red]Produto não encontrado![/red]\n");        
     }
     else{
-        printf("\nID: %d Nome: %s Preço: %.2f€\n", Produtos[pos].id, Produtos[pos].nome, Produtos[pos].preco);
+        printc("[yellow]Listar Dados do Produto a Editar:[/yellow]\n");
+        printf("\nID: %d \nNome: %s \nPreço: %.2f€", Produtos[pos].id, Produtos[pos].nome, Produtos[pos].preco);
 
         char nome[100];
-        printf("Insira o novo nome do produto: ");
+        printf("\n\nNome do produto: ");
         bufferclear();
         if(scanf("%[^\n]", nome) != 1) return;
+        free(Produtos[pos].nome);
         Produtos[pos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Produtos[pos].nome, nome);
 
-        
         int invalid = 0;
         do{
-            printf("Insira o novo preço do produto €: ");
+            printf("\nPreço do produto €: ");
             invalid = scanf("%f", &Produtos[pos].preco);
-            invalid != 1 ? printf("Apenas pode inserir números do tipo float!\n"),  bufferclear() : (void)NULL;
+            invalid != 1 ? printf("[red]Apenas pode inserir números do tipo float![/red]\n"),  bufferclear() : (void)NULL;
+            if(Produtos[n_produtos].preco < 0){
+                printc("[red]O preço não pode ser negativo![/red]\n");
+                invalid = -1;
+            }
         }while(invalid != 1);
-        
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        bufferclear();
-        getchar();
     }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
 }
 
 void removerProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-
-    verProdutos();
-    int id;
-    int invalid = 0;
+    int id, invalid = 0;
     do{
         printf("Insira o ID do Produto que pretende remover: ");
         invalid = scanf("%d", &id);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
+        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
 
     int pos = encontrarIdProduto(id);
     if (pos == -1){
-        printf("Produto não encontrado!\n");
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        bufferclear();
-        getchar();
+        printc("[red]Produto não encontrado![/red]\n");
     }
     else{
+        free(Produtos[pos].nome);
         for (int i = pos; i < n_produtos - 1; i++){
             Produtos[i] = Produtos[i + 1];
         }
         n_produtos--;
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        bufferclear();
-        getchar();
     }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
 }
