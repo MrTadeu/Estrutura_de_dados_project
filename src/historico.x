@@ -16,8 +16,8 @@ int alfabetoIndex(char *nome){
         return nome[0] - 97;
 }
 
-ClienteHistoricoStruct *criarElementoClienteHistorico(ClienteStruct *cliente){
-    ClienteHistoricoStruct *elementoCliente = (ClienteHistoricoStruct *) malloc(sizeof(ClienteHistoricoStruct));
+void *criarSubStructClienteHistorico(ClienteStruct *cliente){
+    HistoricoSubStructCliente *elementoCliente = (HistoricoSubStructCliente *) malloc(sizeof(HistoricoSubStructCliente));
     strcpy(elementoCliente->nome, cliente->nome);
     elementoCliente->id = cliente->id;
     elementoCliente->caixas = (Lista**) malloc(sizeof(Lista*)*Opcoes.numCaixasTotal);
@@ -26,49 +26,38 @@ ClienteHistoricoStruct *criarElementoClienteHistorico(ClienteStruct *cliente){
     return elementoCliente;
 }
 
-void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa, float movimentoSaldoCartao){
-    TransacaoHistoricoStruct *infoHistorico = (TransacaoHistoricoStruct*) malloc(sizeof(TransacaoHistoricoStruct));
+void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa, float movimentoSaldoCartao, float precoTotal){
+    HistoricoSubStructInfo *infoHistorico = (HistoricoSubStructInfo*) malloc(sizeof(HistoricoSubStructInfo));
     infoHistorico->funcionario = caixa->funcionario;
     infoHistorico->listaProdutos = pessoa->listaProdutos;
-
     infoHistorico->tempoEstimadoCaixa = pessoa->tempoEstimadoCaixa;
     infoHistorico->tempoAtraso = pessoa->tempoAtraso;
     infoHistorico->movimentoCartaoCliente = movimentoSaldoCartao;
-    /* infoHistorico->dataTransacao =  */
+    infoHistorico->precoTotal = precoTotal;
+    infoHistorico->dataTransacao = convertTimeDate(getDataMilliseconds()); 
     return infoHistorico;
 }
 
-int inserirNoHistorico(int hashIndex, CaixaStruct *caixa, ClienteStruct *cliente, float movimentoSaldoCartao){
-    if(!cliente){
-        printf("\n\t[red]Error![/red] Given cliente is NULL\n");
-        return 0;
+void guardarHistorico(ClienteStruct *pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao, float precoTotal){
+    if(!pessoaAtendida){
+        printf("\n\t[red]Error![/red] Given cliente is NULL\n");        //    |a|b|c|d|...        __ HistoricoSubStructCliente 
+        return;                                                         //     |       __________/      /
+    }                                                                   //     |      V                V
+    if(!caixa){                                                         //   |Nome, Id|  --> |1|2|3|4|5|...
+        printf("\n\t[red]Error![/red] Given caixa is NULL\n");          //                    | 
+        return;                                                         //                  |Info|  <--- HistoricoSubStructInfo
     }
 
-    int flag = 0;
+    int flag = 0, hashIndex = alfabetoIndex(pessoaAtendida->nome); 
     Elemento *Aux = HistoricoDados.historico[hashIndex]->head;
     while(Aux){
-        ClienteHistoricoStruct *guardado = Aux->Info;
+        HistoricoSubStructCliente *guardado = (HistoricoSubStructCliente*) Aux->Info;
         if(strcmp(cliente->nome, guardado->nome) == 0 && cliente->id == guardado->id){
-            AddElementoInicio(guardado->caixas[caixa->id-1], criarElemento(criarInfoHistorico(caixa, cliente, movimentoSaldoCartao)));
+            AddElementoInicio(guardado->caixas[caixa->id-1], criarElemento(criarInfoHistorico(caixa, pessoaAtendida, movimentoSaldoCartao, precoTotal)));
             flag = 1;
             break;
         }
     }
-    if(!flag){
-        AddElementoInicio(HistoricoDados.historico[hashIndex], criarElemento(criarElementoClienteHistorico(cliente)));
-    }
-}
-
-void guardarHistorico(Elemento *pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao){//enviar isto e o saldo antigo e atualizado em estrutura
-    if(!pessoaAtendida){
-        printf("\n\t[red]Error![/red] Given elemento is NULL\n");
-        return;
-    }
-    if(!caixa){
-        printf("\n\t[red]Error![/red] Given caixa is NULL\n");
-        return;
-    }
-
-
-
+    if(!flag)
+        AddElementoInicio(HistoricoDados.historico[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
 }
