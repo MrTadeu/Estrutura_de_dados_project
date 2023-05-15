@@ -342,6 +342,17 @@ ClienteStruct *escolherCliente(){
 
 void DesocuparCliente(ClienteStruct *pessoa){
     int index = pesquisarClienteVetorBatente(pessoa);
+    Clientes[index].ativo = 0;
+    Clientes[index].saldoCartaoCliente = pessoa->saldoCartaoCliente;
     batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
-    pessoa->ativo = 0;
+}
+
+float atualizarSaldoCliente(ClienteStruct *cliente){
+    int movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente;
+    if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao)
+        pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, pessoaEmAtendimento->saldoCartaoCliente);
+    else
+        pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
+    movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
+    return movimentoSaldoCartao;
 }

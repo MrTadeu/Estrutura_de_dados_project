@@ -68,7 +68,7 @@ void atualizarAtrasos(Lista *lista, int atraso){
     caixa->tempoTotalEspera = countTempoEstimadoCaixa;
 } */
 
-Elemento *atenderPessoa(CaixaStruct *caixa){
+ClienteStruct *atenderPessoa(CaixaStruct *caixa){
     if (!caixa){
         printc("\n\t[red]Error![/red] Given caixa is NULL\n");
         return;
@@ -100,8 +100,9 @@ Elemento *atenderPessoa(CaixaStruct *caixa){
 
     //Remover da fila
     pthread_mutex_lock(&caixa->lock);
-    Elemento* pessoaAtendida = RemElementoInicio(caixa->listaPessoas);
+    Elemento* pessoaAtendidaElemento = RemElementoInicio(caixa->listaPessoas);
     pthread_mutex_unlock(&caixa->lock);
+    ClienteStruct *pessoaAtendida = (ClienteStruct *) pessoaAtendidaElemento->Info;
     return pessoaAtendida;
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
@@ -222,7 +223,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
     int atraso, n_vendas = 0;
-    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, movimentoSaldoCartao;
+    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0;
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
@@ -236,17 +237,13 @@ void *ThreadCaixa(void *arg){
         atualizarAtrasos(caixa->listaPessoas, atraso);
         pthread_mutex_unlock(&caixa->lock);
 
-        movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente;
+        
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
-        if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao)
-            pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, pessoaEmAtendimento->saldoCartaoCliente);
-        else
-            pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
-        movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
+        float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);
-        guardarHistorico(atenderPessoa(caixa), caixa, movimentoSaldoCartao);
+        guardarHistorico(atenderPessoa(caixa), caixa, movimentoSaldoCliente, pessoaEmAtendimento->precoTotalProdutos);
         pthread_mutex_unlock(&caixa->lock);
 
         atrasoSum += atraso;
