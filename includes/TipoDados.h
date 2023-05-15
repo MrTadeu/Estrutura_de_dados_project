@@ -41,7 +41,7 @@
     typedef struct{
         char *nome;
         int id, n_vendas, ativo;                    // A experiencia é a quantidade de vendas realizadas e influencia o salário.
-        float atrasoMedio, bonus;                   // O atraso medio pode ser negativo ou positivo e influencia o bonus.
+        float atrasoMedio;                   // O atraso medio pode ser negativo ou positivo e influencia o bonus.
     }FuncionarioStruct;
 
     typedef struct{
@@ -103,25 +103,25 @@
         Lista *listaProdutos;
         int tempoEstimadoCaixa, tempoAtraso;
         float movimentoCartaoCliente, precoTotal;
-        /* DataStruct *dataTransacao; */
-    }TransacaoHistoricoStruct;
+        DataStruct dataTransacao;
+    }HistoricoSubStructInfo;
 
     typedef struct{
         char *nome;
         int id;
         //todos os dados do clientes
         Lista **caixas; //TransacoesHistoricoStruct
-    }ClienteHistoricoStruct;
+    }HistoricoSubStructCliente;
 
     typedef struct{
         Lista *historico[26];
         //Dados enunciado
-    }HistoricoDadosEstatisticosStruct;
+    }HistoricoStruct;
 
     //GLOBAL VARIABLES
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
-    extern HistoricoDadosEstatisticosStruct HistoricoDados;
+    extern HistoricoStruct HistoricoDados;
     extern pthread_mutex_t vetorLock, listaLock;
     extern ClienteStruct *Clientes;
     extern FuncionarioStruct *Funcionarios;
@@ -160,11 +160,12 @@
     void calculoTemposCliente(ClienteStruct *cliente);
     ClienteStruct *escolherCliente();
     void DesocuparCliente(ClienteStruct *pessoa);
+    float atualizarSaldoCliente(ClienteStruct *cliente);
 
     //caixas.c
     CaixaStruct *MelhorCaixa();
     void SelecionarCaixa();
-    Elemento *atenderPessoa(CaixaStruct *caixa);
+    ClienteStruct *atenderPessoa(CaixaStruct *caixa);
     void criarCaixaInit();
     void *ThreadCaixa(void *arg);
 
@@ -182,7 +183,7 @@
     void removerFuncionario();
     void pesquisarFuncionariosNome();
     void pesquisarFuncionariosID();
-    void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas);
+    void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio);
     void verFuncionarios();
 
     //produtos.c
@@ -247,9 +248,10 @@
     void *ThreadEsperaTempoCompra(void *args);
 
     //historico.c
-    void initinitHistorico();
+    void initHistorico();
     int alfabetoIndex(char *nome);
-    void *criarHistorico();
-
+    void *criarElementoClienteHistorico(ClienteStruct *cliente);
+    void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa, float movimentoSaldoCartao, float precoTotal);
+    void guardarHistorico(ClienteStruct *pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao, float precoTotal);
     
 #endif
