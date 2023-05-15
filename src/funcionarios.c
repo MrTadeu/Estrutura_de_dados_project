@@ -1,5 +1,12 @@
 #include "../includes/TipoDados.h"
 
+float getBonusFuncionario(FuncionarioStruct *funcionario){
+    if(funcionario->atrasoMedio < 0)
+        return Opcoes.eurosPorSegundoAdiantamentoFuncinario * fabs(funcionario->atrasoMedio);
+    else
+        return 0;
+}
+
 int encontrarIdFuncionario(int id){
     for (int i = 0; i < n_funcionarios; i++){
         if (Funcionarios[i].id == id){
@@ -23,7 +30,7 @@ void verFuncionarios(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[yellow]Listar Todos Funcionarios:[/yellow]\n");
     for (int i = 0; i < n_funcionarios; i++){
-        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, Funcionarios[i].bonus);
+        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, getBonusFuncionario(&Funcionarios[i]));
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -38,7 +45,7 @@ void verFuncionariosCaixa(){
     else{
         printc("[yellow]Listar Todos Funcionarios em caixa:[/yellow]\n");
         for (int i = 0; i < n_funcionariosAtivos; i++){
-            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, Funcionarios[i].bonus);
+            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, getBonusFuncionario(&Funcionarios[i]));
         }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -50,7 +57,7 @@ void verFuncionariosInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[yellow]Listar Todos Funcionarios Inativos:[/yellow]\n");
     for (int i = n_funcionariosAtivos; i < n_funcionarios; i++){
-        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, Funcionarios[i].bonus);
+        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, getBonusFuncionario(&Funcionarios[i]));
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -75,7 +82,7 @@ void pesquisarFuncionariosID(){
         getchar();
     }
     else{
-        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[pos].id, Funcionarios[pos].nome, (getNivelFuncionario(&Funcionarios[pos])).salario, Funcionarios[pos].n_vendas, Funcionarios[pos].atrasoMedio, Funcionarios[pos].bonus);
+        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[pos].id, Funcionarios[pos].nome, (getNivelFuncionario(&Funcionarios[pos])).salario, Funcionarios[pos].n_vendas, Funcionarios[pos].atrasoMedio, getBonusFuncionario(&Funcionarios[pos]));
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         bufferclear();
         getchar();
@@ -91,7 +98,7 @@ void pesquisarFuncionariosNome(){
     int flag = 0;
     for (int i = 0; i < n_funcionarios; i++){
         if (PesquisaParecido(nome, Funcionarios[i].nome) <= 4){
-            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, Funcionarios[i].bonus);
+            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i].id, Funcionarios[i].nome, (getNivelFuncionario(&Funcionarios[i])).salario, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio, getBonusFuncionario(&Funcionarios[i]));
             flag = 1;
         }
     }
@@ -123,7 +130,7 @@ void editarFuncionarios(){
     }
     else{
         printc("[yellow]Listar Dados do Funcionario a editar:[/yellow]\n");
-        printf("\nID: %d \nNome: %s \nSalario: %.2f€ \nNumero Vendas: %d \nAtraso medio: %.2f \nBonus: %.2f", Funcionarios[pos].id, Funcionarios[pos].nome, (getNivelFuncionario(&Funcionarios[pos])).salario, Funcionarios[pos].n_vendas, Funcionarios[pos].atrasoMedio, Funcionarios[pos].bonus);
+        printf("\nID: %d \nNome: %s \nSalario: %.2f€ \nNumero Vendas: %d \nAtraso medio: %.2f \nBonus: %.2f", Funcionarios[pos].id, Funcionarios[pos].nome, (getNivelFuncionario(&Funcionarios[pos])).salario, Funcionarios[pos].n_vendas, Funcionarios[pos].atrasoMedio, getBonusFuncionario(&Funcionarios[pos]));
 
         char nome[100];
         printf("\n\nNome do funcionario: ");
@@ -144,13 +151,6 @@ void editarFuncionarios(){
         do{
             printf("\nAtraso medio do funcionario: ");
             invalid = scanf("%f", &Funcionarios[pos].atrasoMedio);
-            invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-        }while(invalid != 1);
-
-        invalid = 0;
-        do{
-            printf("\nBonus do funcionario: ");
-            invalid = scanf("%f", &Funcionarios[pos].bonus);
             invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
         }while(invalid != 1);
 
@@ -186,13 +186,6 @@ void adicionarFuncionario(){
     do{
         printf("Atraso medio: ");
         invalid = scanf("%f", &Funcionarios[n_funcionarios].atrasoMedio);
-        invalid != 1 ? printc("[red]Apenas pode inserir números do tipo float![/red]\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-
-    invalid = 0;
-    do{
-        printf("Bonus: ");
-        invalid = scanf("%f", &Funcionarios[n_funcionarios].bonus);
         invalid != 1 ? printc("[red]Apenas pode inserir números do tipo float![/red]\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
 
@@ -245,19 +238,14 @@ void removerFuncionario(){
     }
 }
     
-void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas){
-    funcionario->n_vendas++;
+void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio){
     float salario = (getNivelFuncionario(funcionario)).salario;
+    funcionario->n_vendas++;
     if(Opcoes.VerTransacoes == 1){
         if((getNivelFuncionario(funcionario)).salario != salario){
-            float novoSalario = (getNivelFuncionario(funcionario)).salario;
-            for (int  i = 1; i < 3; i++){
-                if((Opcoes.nivelFuncionario[i]).salario == novoSalario)
-                    printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para o nível %d com novo salario de %.2f euros\n", funcionario->id, Opcoes.nivelFuncionario->nivel, Opcoes.nivelFuncionario->salario);
-            }
+            NivelFuncionarioStruct nivelFuncionario = getNivelFuncionario(funcionario);
+            printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para o nível %d com novo salario de %.2f euros\n", funcionario->id, nivelFuncionario.nivel, nivelFuncionario.salario);
         }
     }
     funcionario->atrasoMedio = (funcionario->atrasoMedio + atrasoMedio) / 2;
-    if(funcionario->atrasoMedio < 0)
-        funcionario->bonus += Opcoes.eurosPorSegundoAdiantamentoFuncinario * funcionario->atrasoMedio;
 }

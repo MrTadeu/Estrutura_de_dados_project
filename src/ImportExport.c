@@ -68,12 +68,10 @@ void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
     Funcionarios[n_linha].nome = malloc((strlen(linhaString[1])+1));
     strcpy(Funcionarios[n_linha].nome, linhaString[1]);
     if(n_colunas == 6){
-        Funcionarios[n_linha].bonus = atof(linhaString[2]);
         Funcionarios[n_linha].n_vendas = atoi(linhaString[3]);
         Funcionarios[n_linha].atrasoMedio = atof(linhaString[5]);
     }
     else{
-        Funcionarios[n_linha].bonus = 0;
         Funcionarios[n_linha].n_vendas = 0;
         Funcionarios[n_linha].atrasoMedio = 0;
     }
@@ -225,7 +223,7 @@ void guardarClienteTxt(FILE *file, int i){
 }
 
 void guardarFuncionarioTxt(FILE *file, int i){
-    fprintf(file, "\n%d\t%s\t%f\t%d\t%f", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio);
+    fprintf(file, "\n%d\t%s\t%d\t%f", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio);
 }
 
 void guardarProdutoTxt(FILE *file, int i){

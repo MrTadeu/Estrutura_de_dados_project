@@ -41,7 +41,7 @@
     typedef struct{
         char *nome;
         int id, n_vendas, ativo;                    // A experiencia é a quantidade de vendas realizadas e influencia o salário.
-        float atrasoMedio, bonus;                   // O atraso medio pode ser negativo ou positivo e influencia o bonus.
+        float atrasoMedio;                   // O atraso medio pode ser negativo ou positivo e influencia o bonus.
     }FuncionarioStruct;
 
     typedef struct{
@@ -182,7 +182,7 @@
     void removerFuncionario();
     void pesquisarFuncionariosNome();
     void pesquisarFuncionariosID();
-    void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio, int n_vendas);
+    void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio);
     void verFuncionarios();
 
     //produtos.c
