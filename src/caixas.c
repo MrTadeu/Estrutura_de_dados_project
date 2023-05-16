@@ -145,9 +145,9 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             menor->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
         if (menor->listaPessoas->head == NULL){
-            pthread_t threadCaixa;
+            /* pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
-            pthread_detach(threadCaixa);
+            pthread_detach(threadCaixa); */
             
         }
         return menor;
@@ -236,7 +236,7 @@ void *ThreadCaixa(void *arg){
 
         
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
-        float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
+        /* float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento); */ //erro aqui
 
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);
