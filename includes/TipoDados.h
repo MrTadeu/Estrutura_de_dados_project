@@ -135,6 +135,9 @@
     void menuFuncionarios();
     void menuProdutos();
     void menuConfig();
+    void menuPesquisarClientes();
+    void menuPesquisarFuncionarios();
+    void menuPesquisarProduto();
 
     //opcoes.c
     void editarNumCaixas();
@@ -153,7 +156,6 @@
     int encontrarIdCliente(int id);
     void pesquisarClienteID();
     void pesquisarClienteNome();
-    void pesquisarClientes();
     void adicionarCliente();
     void editarCliente();
     void removerCliente();
@@ -162,15 +164,15 @@
     ClienteStruct *escolherCliente();
     void DesocuparCliente(ClienteStruct *pessoa);
     float atualizarSaldoCliente(ClienteStruct *cliente);
+    ClienteStruct *criarGuest();
+    int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
 
     //caixas.c
     CaixaStruct *MelhorCaixa();
     void SelecionarCaixa();
-    ClienteStruct *atenderPessoa(CaixaStruct *caixa);
+    void atenderPessoa(CaixaStruct *caixa);
     void criarCaixaInit();
     void *ThreadCaixa(void *arg);
-
-
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);
@@ -178,7 +180,6 @@
     //NivelFuncionarioStruct getNivelFuncionario(FuncionarioStruct *funcionario); //Nao esta a ser usada
     void verFuncionariosCaixa();
     void verFuncionariosInativos(); 
-    void pesquisarFuncionarios();
     void editarFuncionarios();
     void adicionarFuncionario();
     void removerFuncionario();
@@ -186,17 +187,17 @@
     void pesquisarFuncionariosID();
     void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio);
     void verFuncionarios();
+    FuncionarioStruct *escolherFuncionarios();
 
     //produtos.c
-    void aumentarNumProdutosrepetidos(void *produtoArg);
-    int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto, void(acao)(void *));
+    int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto);
     void verProdutos();
-    void pesquisarProduto();
     void adicionarProduto();
     void editarProduto();
     void removerProduto();
     void pesquisarProdutoID();
     void pesquisarProdutoNome();
+    ProdutoStruct *escolherProduto();
 
     //ImportExport.c
     int importarCount(char *filename);
@@ -210,23 +211,6 @@
     void guardarProdutoTxt(FILE *file, int i);
     void importOpcoes();
     void exportarOpcoes();
-
-
-    //TipoDadosFuncoes.c
-    int escolherAleatorioVetor(void *vetor, int n_ativos, int tamanhoVetor, size_t tamanhoElemento, void *ptrElemento);
-    ClienteStruct *criarGuest();
-    FuncionarioStruct *escolherFuncionarios();
-    ProdutoStruct *escolherProduto();
-    void batenteChange(void* ptr1, void* ptr2, size_t size, int *batente, char sinal);
-    void mostrarFuncionario(void *funcionarioArg, int indentLevel);
-    void mostrarCaixa(void *caixaArg, int indentLevel);
-    void mostrarProduto(void *produtoArg, int indentLevel);
-    void mostrarCliente(void *clienteArg, int indentLevel);
-    int compararProduto(void *ptrProduto1_Info, void * ptrProduto2_Info);
-    int compararCliente(void *ptrCliente1_Info, void *ptrCliente2_Info);
-    int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
-    void destruirProduto(void *Produto);
-    void destruirCliente(void *cliente);
 
     //Utils.c
     void setPortugues();
@@ -242,7 +226,6 @@
     void bufferclear();
     int validarData(DataStruct date, int minAno, int maxAno);
     
-
     //ThreadGlobal.c
     void changeStateThreadGlobal();
     void *ThreadGlobal();

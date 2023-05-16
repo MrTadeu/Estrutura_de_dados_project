@@ -23,6 +23,6 @@
     Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo)(void*, void*));
     void mostrarLista(Lista *lista, void (mostrarInfo)(void *, int), int indentLevel);// Enviar 0 como indentLevel
     void destruirElemento(Elemento *elemento, void (destruirInfo)(void *));
-    void destruirLista(Lista *lista, void (destruirInfo)(void *));
+    void destruirLista(Lista *lista);
 
 #endif

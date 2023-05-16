@@ -246,3 +246,23 @@ void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio
     }
     funcionario->atrasoMedio = (funcionario->atrasoMedio + atrasoMedio) / 2;
 }
+
+FuncionarioStruct *escolherFuncionarios(){
+    if(n_funcionariosAtivos >= n_funcionarios-1){
+        printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");
+        return NULL;
+    }
+    FuncionarioStruct *funcionario;
+
+    int index = Aleatorio(n_funcionariosAtivos, n_funcionarios - 1);
+    funcionario = Funcionarios[index];
+    funcionario->ativo = 1;
+    
+    /* pthread_mutex_lock(&vetorLock); */
+    Funcionarios[index] = Funcionarios[n_funcionariosAtivos];
+    Funcionarios[n_funcionariosAtivos] = funcionario;
+    n_funcionariosAtivos++;
+
+    return funcionario;
+    /* pthread_mutex_unlock(&vetorLock); */
+}

@@ -68,10 +68,10 @@ void atualizarAtrasos(Lista *lista, int atraso){
     caixa->tempoTotalEspera = countTempoEstimadoCaixa;
 } */
 
-ClienteStruct *atenderPessoa(CaixaStruct *caixa){
+void atenderPessoa(CaixaStruct *caixa){
     if (!caixa || caixa->listaPessoas->head == NULL){
         printc("\n\t[red]Error![/red] Given caixa is NULL\n");
-        return NULL;
+        return;
     }
     ClienteStruct *cliente = (ClienteStruct *) caixa->listaPessoas->head->Info;
     cliente->tempoEstimadoFila = 0;
@@ -91,16 +91,10 @@ ClienteStruct *atenderPessoa(CaixaStruct *caixa){
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
     cliente->tempoAtraso = tempoAtrasoAux;
 
-    pthread_mutex_lock(&vetorLock);
-    DesocuparCliente(cliente);
-    pthread_mutex_unlock(&vetorLock);
-
     //Remover da fila
     pthread_mutex_lock(&caixa->lock);
-    Elemento* pessoaAtendidaElemento = RemElementoInicio(caixa->listaPessoas);
+    RemElementoInicio(caixa->listaPessoas);
     pthread_mutex_unlock(&caixa->lock);
-    ClienteStruct *pessoaAtendida = (ClienteStruct *) pessoaAtendidaElemento->Info;
-    return pessoaAtendida;
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
@@ -240,7 +234,11 @@ void *ThreadCaixa(void *arg){
 
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);
-       /*  guardarHistorico( */atenderPessoa(caixa)/* , caixa, movimentoSaldoCliente, pessoaEmAtendimento->precoTotalProdutos) */;
+        atenderPessoa(caixa);
+        pthread_mutex_lock(&vetorLock);
+        DesocuparCliente(pessoaEmAtendimento);
+        pthread_mutex_unlock(&vetorLock);
+        /*  guardarHistorico(pessoaEmAtendimento, caixa, movimentoSaldoCliente, pessoaEmAtendimento->precoTotalProdutos); */
         pthread_mutex_unlock(&caixa->lock);
 
         atrasoSum += atraso;

@@ -135,7 +135,7 @@ void menuClientes(){
             verClientesCaixa();
         }
         if (opcao == i++){
-            pesquisarClientes();
+            menuPesquisarClientes();
         }
         if (opcao == i++){
             adicionarCliente();
@@ -149,7 +149,7 @@ void menuClientes(){
     } while (opcao != 0);
 }
 
-void pesquisarClientes(){
+void menuPesquisarClientes(){
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
@@ -208,7 +208,7 @@ void menuFuncionarios(){
             verFuncionariosCaixa();
         }
         if (opcao == i++){
-            pesquisarFuncionarios();
+            menuPesquisarFuncionarios();
         }
         if (opcao == i++){
             adicionarFuncionario();
@@ -228,7 +228,7 @@ void menuFuncionarios(){
     } while (opcao != 0);
 }
 
-void pesquisarFuncionarios(){
+void menuPesquisarFuncionarios(){
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
@@ -276,7 +276,7 @@ void menuProdutos(){
             verProdutos();
         }
         if (opcao == i++){
-            pesquisarProduto();
+            menuPesquisarProduto();
         }
         if (opcao == i++){
             adicionarProduto();
@@ -290,7 +290,7 @@ void menuProdutos(){
     } while (opcao != 0);
 }
 
-void pesquisarProduto(){
+void menuPesquisarProduto(){
     int opcao = 0;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);

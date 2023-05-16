@@ -55,7 +55,7 @@ void verClientesCaixa(){
         Elemento *Caixa = Global.caixas->head;
         while(Caixa){
             if(((CaixaStruct *)Caixa->Info)->aberta == 1 || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL){
-                printc("[red]%d ºCaixa [green]ABERTA[/green] Tempo Espera: %.2fs [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
+                printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %.2fs [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
             }
             else{
                 printc("[red]%d ºCaixa FECHADA[/red]\n", ((CaixaStruct *)Caixa->Info)->id);
@@ -292,7 +292,7 @@ void criarProdutosAddCliente(ClienteStruct *cliente){
     ProdutoStruct *produtoEscolhido;
     for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++){
         produtoEscolhido = escolherProduto();
-        if(pesquisarProdutoListaRealizarAcao(cliente->listaProdutos, produtoEscolhido, aumentarNumProdutosrepetidos) == 0)
+        if(pesquisarProdutoListaRealizarAcao(cliente->listaProdutos, produtoEscolhido) == 0)
             AddElementoFim(cliente->listaProdutos, criarElemento((void *)produtoEscolhido));
     }
 }
@@ -332,15 +332,6 @@ ClienteStruct *escolherCliente(){
         Clientes[n_clientesAtivos] = cliente;
         n_clientesAtivos++;
         pthread_mutex_unlock(&vetorLock);
-
-
-        /* cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
-        int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
-        Clientes[indice]->ativo = 1;         
-
-        pthread_mutex_lock(&vetorLock);
-        batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
-        pthread_mutex_unlock(&vetorLock); */
     }
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente);
@@ -350,9 +341,30 @@ ClienteStruct *escolherCliente(){
 
 void DesocuparCliente(ClienteStruct *pessoa){
     int index = pesquisarClienteVetorBatente(pessoa);
-    Clientes[index]->ativo = 0;
-    batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
+    if(index == -1){
+        printf("[red]Error![/red] Given client is NULL");
+        return;
+    }
+    ClienteStruct *cliente = Clientes[index];
+    cliente->ativo = 0;
+    destruirLista(cliente->listaProdutos);
+    
+    pthread_mutex_lock(&vetorLock);
+    Clientes[index] = Clientes[n_clientesAtivos];
+    Clientes[n_clientesAtivos] = cliente;
+    n_clientesAtivos--;
+    pthread_mutex_unlock(&vetorLock);
 }
+
+int pesquisarClienteVetorBatente(ClienteStruct *pessoa){
+    for (int i = 0; i < n_clientesAtivos; i++){
+        if(Clientes[i]->nome == pessoa->nome && Clientes[i]->id == pessoa->id){
+            return i;
+        }
+    }
+    return -1;
+}
+
 
 float atualizarSaldoCliente(ClienteStruct *pessoaEmAtendimento){
     float movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente;
@@ -362,4 +374,16 @@ float atualizarSaldoCliente(ClienteStruct *pessoaEmAtendimento){
         pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
     movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
     return movimentoSaldoCartao;
+}
+
+ClienteStruct *criarGuest(){
+    ClienteStruct *cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    cliente->id = -1;
+    cliente->nome = (char *) malloc(sizeof(char)*13);
+    strcpy(cliente->nome, "Desconhecido");
+    cliente->tempoAtraso = 0;
+    cliente->tempoEstimadoCaixa = 0;
+    cliente->tempoEstimadoCompra = 0;
+    cliente->tempoEstimadoFila = 0;
+    return cliente;
 }

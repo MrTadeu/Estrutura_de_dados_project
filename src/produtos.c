@@ -1,11 +1,6 @@
 #include "../includes/TipoDados.h"
 
-void aumentarNumProdutosrepetidos(void *produtoArg){
-    ProdutoStruct *produto = (ProdutoStruct *) produtoArg;
-    produto->quantidadeProdutosRepetidos++;
-}
-
-int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto, void(acao)(void *)){
+int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto){
     if(!lista){
         printf("\n\t[red]Error![/red] Given list is NULL\n");
         return -1;
@@ -17,8 +12,8 @@ int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto, void
         
     Elemento *aux = lista->head;
     while(aux){
-        if(compararProduto(aux->Info, produto)){
-            acao(aux->Info);
+        if(((ProdutoStruct *)aux->Info)->id == produto->id){
+            ((ProdutoStruct *)aux->Info)->quantidadeProdutosRepetidos++;
             return 1;
         }
         aux = aux->next;
@@ -183,4 +178,10 @@ void removerProduto(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+}
+
+ProdutoStruct *escolherProduto(){
+    ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
+    memcpy(produto, &Produtos[Aleatorio(0, n_produtos-1)], sizeof(ProdutoStruct));
+    return produto;
 }

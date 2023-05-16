@@ -205,7 +205,7 @@ void destruirElemento(Elemento *elemento, void (destruirInfo)(void *)){
     free(elemento);
 }
 
-void destruirLista(Lista *lista, void (destruirInfo)(void *)){
+void destruirLista(Lista *lista){
     if(!lista){
        printf("\tError! List is NULL\n"); 
        return;
@@ -214,8 +214,9 @@ void destruirLista(Lista *lista, void (destruirInfo)(void *)){
     Elemento *Aux = lista->head, *Temp;
     while(Aux){
         Temp = Aux->next;
-        destruirInfo(Aux->Info);
+        free(Aux->Info);
         free(Aux);
         Aux = Temp;
     }
+    free(lista);
 }
