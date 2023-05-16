@@ -2,6 +2,12 @@
 
 #define ARRAY_SIZE 10
 
+typedef struct NewBatenteButBetter{
+    int key;
+    struct NewBatenteButBetter *next;
+    struct NewBatenteButBetter *value;
+    struct NewBatenteButBetter *Info;
+}map;
 typedef struct {
     int key;
     char *value;
@@ -32,6 +38,9 @@ typedef struct _map {
         tmp->next = item;
     }
 } */
+
+
+
 void insert(map **table, char *key, Elemento* Info) {
     map *item = (map*) malloc(sizeof(map));
     item->key = (char*) malloc(strlen(key) + 1);
