@@ -44,7 +44,7 @@ FuncionarioStruct *escolherFuncionarios(){
     }
     FuncionarioStruct *funcionario = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
     int indice = escolherAleatorioVetor(Funcionarios, n_funcionariosAtivos, n_funcionarios, sizeof(FuncionarioStruct), funcionario);
-    Funcionarios[indice].ativo = 1;
+    Funcionarios[indice]->ativo = 1;
     batenteChange(&Funcionarios[n_funcionariosAtivos], &Funcionarios[indice], sizeof(FuncionarioStruct), &n_funcionariosAtivos, '+');
     return funcionario;
 }

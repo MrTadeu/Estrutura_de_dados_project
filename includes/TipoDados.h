@@ -110,7 +110,7 @@
     typedef struct{
         char *nome;
         int id;
-        //todos os dados do clientes
+        // todos os dados do clientes
         Lista **caixas; //TransacoesHistoricoStruct
     }HistoricoSubStructCliente;
 
@@ -125,7 +125,7 @@
     extern HistoricoStruct HistoricoDados;
     extern pthread_mutex_t vetorLock, listaLock;
     extern ClienteStruct **Clientes;
-    extern FuncionarioStruct *Funcionarios;
+    extern FuncionarioStruct **Funcionarios;
     extern ProdutoStruct *Produtos;
     extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 

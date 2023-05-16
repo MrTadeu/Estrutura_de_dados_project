@@ -236,7 +236,7 @@ void *ThreadCaixa(void *arg){
 
         
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
-        float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento); //erro aqui
+        /* float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);  */// !erro aqui
 
         //PESSOA ATENDIDA
         pthread_mutex_lock(&caixa->lock);

@@ -29,6 +29,7 @@ void importOpcoes(){
         Opcoes.nivelFuncionario[0].salario = 850.0;
         Opcoes.nivelFuncionario[1].salario = 900.0;
         Opcoes.nivelFuncionario[2].salario = 950.0;
+        Opcoes.eurosPorSegundoAdiantamentoFuncinario = 0.5; //!VER MELHOR ESTE VALOR
         Opcoes.TempoLimiteInferior = 180;
         Opcoes.TempoLimiteSuperior = 200;
         Opcoes.QuantMinProd = 1;
@@ -65,18 +66,19 @@ void importarClientes(char **linhaString, int n_linha, int n_colunas){
 }
 
 void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
-    Funcionarios[n_linha].id = atoi(linhaString[0]);
-    Funcionarios[n_linha].nome = malloc((strlen(linhaString[1])+1));
-    strcpy(Funcionarios[n_linha].nome, linhaString[1]);
+    Funcionarios[n_linha] = malloc(sizeof(FuncionarioStruct));
+    Funcionarios[n_linha]->id = atoi(linhaString[0]);
+    Funcionarios[n_linha]->nome = malloc((strlen(linhaString[1])+1));
+    strcpy(Funcionarios[n_linha]->nome, linhaString[1]);
     if(n_colunas == 6){
-        Funcionarios[n_linha].n_vendas = atoi(linhaString[3]);
-        Funcionarios[n_linha].atrasoMedio = atof(linhaString[5]);
+        Funcionarios[n_linha]->n_vendas = atoi(linhaString[3]);
+        Funcionarios[n_linha]->atrasoMedio = atof(linhaString[5]);
     }
     else{
-        Funcionarios[n_linha].n_vendas = 0;
-        Funcionarios[n_linha].atrasoMedio = 0;
+        Funcionarios[n_linha]->n_vendas = 0;
+        Funcionarios[n_linha]->atrasoMedio = 0;
     }
-    Funcionarios[n_linha].ativo = 0;
+    Funcionarios[n_linha]->ativo = 0;
 }
 
 void importarProdutos(char **linhaString, int n_linha, int n_colunas){
@@ -224,7 +226,7 @@ void guardarClienteTxt(FILE *file, int i){
 }
 
 void guardarFuncionarioTxt(FILE *file, int i){
-    fprintf(file, "\n%d\t%s\t%d\t%f", Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].n_vendas, Funcionarios[i].atrasoMedio);
+    fprintf(file, "\n%d\t%s\t%d\t%f", Funcionarios[i]->id, Funcionarios[i]->nome, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio);
 }
 
 void guardarProdutoTxt(FILE *file, int i){

@@ -279,8 +279,7 @@ void removerCliente(){
     else{
         free(Clientes[index]->nome);
         free(Clientes[index]);
-        Clientes[index] = Clientes[n_clientes-1];
-        n_clientes--;
+        Clientes[index] = Clientes[--n_clientes];
         Clientes = (ClienteStruct**) realloc(Clientes, n_clientes * sizeof(ClienteStruct*));
     }
 

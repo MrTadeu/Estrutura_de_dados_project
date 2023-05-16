@@ -7,14 +7,14 @@ GlobalStruct Global;
 /* HistoricoDadosEstatisticosStruct HistoricoDados; */ //erro aqui
 pthread_mutex_t vetorLock, listaLock;
 ClienteStruct **Clientes;
-FuncionarioStruct *Funcionarios;
+FuncionarioStruct **Funcionarios;
 ProdutoStruct *Produtos;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
 
 int main(){
     srand(time(NULL));
-
+    
     Init();
     menu();
     closeAll();
@@ -22,7 +22,7 @@ int main(){
    /*
     printf("\n\nFuncionarios");
     for (int i = 0; i < n_funcionarios; i++){
-        printf("\nLinha %d: ID: %d NOME: %s BONUS: %f SALARIO: %f EXPERIENCIA: %d ATRASOMEDIO: %f", i+1,Funcionarios[i].id, Funcionarios[i].nome, Funcionarios[i].bonus, Funcionarios[i].salario, Funcionarios[i].experiencia, Funcionarios[i].atrasoMedio);
+        printf("\nLinha %d: ID: %d NOME: %s BONUS: %f SALARIO: %f EXPERIENCIA: %d ATRASOMEDIO: %f", i+1,Funcionarios[i]->id, Funcionarios[i]->nome, Funcionarios[i]->bonus, Funcionarios[i]->salario, Funcionarios[i]->experiencia, Funcionarios[i]->atrasoMedio);
     } 
     printf("\n\nProdutos");
     for (int i = 0; i < n_produtos; i++){
