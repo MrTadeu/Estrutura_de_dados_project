@@ -277,20 +277,10 @@ void removerCliente(){
         printc("\n[yellow]Não existe nenhum cliente com esse ID1![/yellow]");
     }
     else{
-        printc("\n[yellow]Não existe nenhum cliente com esse ID2![/yellow]");
         free(Clientes[index]->nome);
-        printc("\n[yellow]Não existe nenhum cliente com esse ID3![/yellow]");
         free(Clientes[index]);
-        printc("\n[yellow]Não existe nenhum cliente com esse ID4![/yellow]");
-        for(int j = index; j < n_clientes; j++){
-            Clientes[j] = Clientes[j + 1];
-        }
-        printc("\n[yellow]Não existe nenhum cliente com esse ID5![/yellow]");
-        free(Clientes[n_clientes]);
-        printc("\n[yellow]Não existe nenhum cliente com esse ID6![/yellow]");
+        Clientes[index] = Clientes[n_clientes-1];
         n_clientes--;
-        printc("\n[yellow]Não existe nenhum cliente com esse ID7![/yellow]");
-        printc("\n[yellow]Cliente removido com sucesso![/yellow]");
         Clientes = (ClienteStruct**) realloc(Clientes, n_clientes * sizeof(ClienteStruct*));
     }
 
