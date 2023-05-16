@@ -41,26 +41,27 @@ void importOpcoes(){
 }
 
 void importarClientes(char **linhaString, int n_linha, int n_colunas){
-    Clientes[n_linha].id = atoi(linhaString[0]);
-    Clientes[n_linha].nome = malloc((strlen(linhaString[1])+1));
-    strcpy(Clientes[n_linha].nome, linhaString[1]);
+    Clientes[n_linha] = malloc(sizeof(ClienteStruct));
+    Clientes[n_linha]->id = atoi(linhaString[0]);
+    Clientes[n_linha]->nome = malloc((strlen(linhaString[1])+1));
+    strcpy(Clientes[n_linha]->nome, linhaString[1]);
     if(n_colunas == 6){
-        Clientes[n_linha].saldoCartaoCliente = atof(linhaString[2]);
-        Clientes[n_linha].dataNascimento.dia = atoi(linhaString[3]);
-        Clientes[n_linha].dataNascimento.mes = atoi(linhaString[4]);
-        Clientes[n_linha].dataNascimento.ano = atoi(linhaString[5]);
+        Clientes[n_linha]->saldoCartaoCliente = atof(linhaString[2]);
+        Clientes[n_linha]->dataNascimento.dia = atoi(linhaString[3]);
+        Clientes[n_linha]->dataNascimento.mes = atoi(linhaString[4]);
+        Clientes[n_linha]->dataNascimento.ano = atoi(linhaString[5]);
     }
     else{
-        Clientes[n_linha].saldoCartaoCliente = 0;
+        Clientes[n_linha]->saldoCartaoCliente = 0;
         struct tm tm = getCurrentTime();
-        Clientes[n_linha].dataNascimento = gerarData(tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10);
+        Clientes[n_linha]->dataNascimento = gerarData(tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10);
     }
-    Clientes[n_linha].precoTotalProdutos = 0;
-    Clientes[n_linha].tempoEstimadoCompra = 0;
-    Clientes[n_linha].tempoEstimadoFila = 0;
-    Clientes[n_linha].tempoEstimadoCaixa = 0;
-    Clientes[n_linha].tempoAtraso = 0;
-    Clientes[n_linha].ativo = 0;
+    Clientes[n_linha]->precoTotalProdutos = 0;
+    Clientes[n_linha]->tempoEstimadoCompra = 0;
+    Clientes[n_linha]->tempoEstimadoFila = 0;
+    Clientes[n_linha]->tempoEstimadoCaixa = 0;
+    Clientes[n_linha]->tempoAtraso = 0;
+    Clientes[n_linha]->ativo = 0;
 }
 
 void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
@@ -219,7 +220,7 @@ void exportarDados(void (guardarDadosTxt)(FILE *, int), TipoDados tipo){
 }
 
 void guardarClienteTxt(FILE *file, int i){
-    fprintf(file, "\n%d\t%s\t%f\t%d\t%d\t%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+    fprintf(file, "\n%d\t%s\t%f\t%d\t%d\t%d", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano);
 }
 
 void guardarFuncionarioTxt(FILE *file, int i){

@@ -11,6 +11,7 @@ void *ThreadGlobal(){
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
             ClienteStruct *pessoa = escolherCliente();
+            
             if(pessoa){
                 pthread_t thread;
                 pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
@@ -19,7 +20,7 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
-        dormir(100);
+        dormir(2000);
     }
     return NULL;
 }
@@ -39,13 +40,13 @@ void *ThreadEsperaTempoCompra(void *pessoa){
         printf("\nTempo de Estimado Fila: %f", cliente->tempoEstimadoFila);
         printf("\nTempo de Estimado Caixa: %f", cliente->tempoEstimadoCaixa);
         printf("\nTempo de tempoAtraso: %f", cliente->tempoAtraso);
-        /* printf("\nLista de Produtos:");
+        printf("\nLista de Produtos:");
          Elemento *Aux = cliente->listaProdutos->head;
         while(Aux){
             ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
             printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
             Aux = Aux->next; 
-        } */
+        }
     }
    
     dormir(cliente->tempoEstimadoCompra * 1000);

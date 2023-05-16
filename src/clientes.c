@@ -2,7 +2,7 @@
 
 int encontrarIdCliente(int id){
     for (int i = 0; i < n_clientes; i++){
-        if (id == Clientes[i].id){
+        if (id == Clientes[i]->id){
             return i;            
         }
     }
@@ -13,7 +13,7 @@ void verClientes(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[yellow]Listar Todos Clientes:[/yellow]\n");
     for(int i = 0; i < n_clientes; i++){
-        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -27,7 +27,7 @@ void verClientesEmLoja(){
     }else{
         printc("[yellow]Listar Todos Clientes na Loja:[/yellow]\n");
         for(int i = 0; i < n_clientesAtivos; i++){
-            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d Tempo Compra: %.2f Tempo Caixa: %.2f", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano, Clientes[i]->tempoEstimadoCompra, Clientes[i]->tempoEstimadoCaixa);
         }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -39,7 +39,7 @@ void verClientesInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[yellow]Listar Todos Clientes Inativos:[/yellow]\n");
     for(int i = n_clientesAtivos; i < n_clientes; i++){
-        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -55,7 +55,7 @@ void verClientesCaixa(){
         Elemento *Caixa = Global.caixas->head;
         while(Caixa){
             if(((CaixaStruct *)Caixa->Info)->aberta == 1 || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL){
-                printc("[red]%d ºCaixa [green]ABERTA[/green] Tempo Espera: %ds [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
+                printc("[red]%d ºCaixa [green]ABERTA[/green] Tempo Espera: %.2fs [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
             }
             else{
                 printc("[red]%d ºCaixa FECHADA[/red]\n", ((CaixaStruct *)Caixa->Info)->id);
@@ -91,9 +91,9 @@ void pesquisarClienteID(){
         invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
     }while(invalid != 1);
     for(int i = 0; i < n_clientes; i++){
-        if(Clientes[i].id == id){
+        if(Clientes[i]->id == id){
             flag = 1;
-            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano);
         }
     }
     if(flag == 0){
@@ -113,8 +113,8 @@ void pesquisarClienteNome(){
     printc("\n[blue]Resultados semelhantes:[/blue] \n");
     int flag = 0;
     for (int i = 0; i < n_clientes; i++){
-        if (PesquisaParecido(nome, Clientes[i].nome) <= 4){
-            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i].id, Clientes[i].nome, Clientes[i].saldoCartaoCliente, Clientes[i].dataNascimento.dia, Clientes[i].dataNascimento.mes, Clientes[i].dataNascimento.ano);
+        if (PesquisaParecido(nome, Clientes[i]->nome) <= 4){
+            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano);
             flag = 1;
         }
     }
@@ -129,26 +129,27 @@ void pesquisarClienteNome(){
 void adicionarCliente(){
     char nome[100];
     int invalid = 0, invalidDate = 0;
-    Clientes = (ClienteStruct*) realloc(Clientes, (n_clientes + 1) * sizeof(ClienteStruct));
-    Clientes[n_clientes].id = generateID(encontrarIdCliente);
+    Clientes = (ClienteStruct **) realloc(Clientes, (n_clientes + 1) * sizeof(ClienteStruct *));
+    Clientes[n_clientes] = (ClienteStruct *) malloc(sizeof(ClienteStruct));
+    Clientes[n_clientes]->id = generateID(encontrarIdCliente);
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[blue]Introduza os dados do Cliente:[/blue]\n");
-    printc("\n\n[yellow]ID CLIENTE: %d[/yellow]\n", Clientes[n_clientes].id);
+    printc("\n\n[yellow]ID CLIENTE: %d[/yellow]\n", Clientes[n_clientes]->id);
     
     printc("\nNome: ");
     bufferclear();
     if(scanf("%[^\n]", nome) != 1) return;
-    Clientes[n_clientes].nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
-    strcpy(Clientes[n_clientes].nome, nome);
+    Clientes[n_clientes]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
+    strcpy(Clientes[n_clientes]->nome, nome);
 
     do{
         printf("\nSaldo do cliente: ");
-        invalid = scanf("%f", &Clientes[n_clientes].saldoCartaoCliente);
+        invalid = scanf("%f", &Clientes[n_clientes]->saldoCartaoCliente);
         if(invalid != 1){
             printc("[red]Apenas pode inserir números![/red]\n");
             bufferclear();
         }
-        if(Clientes[n_clientes].saldoCartaoCliente <= 0){
+        if(Clientes[n_clientes]->saldoCartaoCliente <= 0){
             printc("[red]Saldo do cliente >= 0[/red]\n");
             bufferclear();
             invalid = -1;
@@ -165,22 +166,22 @@ void adicionarCliente(){
         invalid = 0;
         do{
             printc("\nDia: ");
-            invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.dia);
+            invalid = scanf("%d", &Clientes[n_clientes]->dataNascimento.dia);
             invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
         }while(invalid != 1);
         invalid = 0;
         do{
             printc("\nMês: ");
-            invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.mes);
+            invalid = scanf("%d", &Clientes[n_clientes]->dataNascimento.mes);
             invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
         }while(invalid != 1);
         invalid = 0;
         do{
             printc("\nAno: ");
-            invalid = scanf("%d", &Clientes[n_clientes].dataNascimento.ano);
+            invalid = scanf("%d", &Clientes[n_clientes]->dataNascimento.ano);
             invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
         }while(invalid != 1);
-    } while (validarData(Clientes[n_clientes].dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
+    } while (validarData(Clientes[n_clientes]->dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
     
     n_clientes++;
     printc("\n[yellow]Cliente adicionado com sucesso![/yellow]");
@@ -206,19 +207,19 @@ void editarCliente(){
     }
     else{
         printc("[yellow]Listar Dados do Cliente a editar:[/yellow]\n");
-        printf("\nID: %d \nNome: %s \nSaldo do Cartão: %.2f€ \nData Nascimento: %d/%d/%d", Clientes[index].id, Clientes[index].nome, Clientes[index].saldoCartaoCliente, Clientes[index].dataNascimento.dia, Clientes[index].dataNascimento.mes, Clientes[index].dataNascimento.ano);
+        printf("\nID: %d \nNome: %s \nSaldo do Cartão: %.2f€ \nData Nascimento: %d/%d/%d", Clientes[index]->id, Clientes[index]->nome, Clientes[index]->saldoCartaoCliente, Clientes[index]->dataNascimento.dia, Clientes[index]->dataNascimento.mes, Clientes[index]->dataNascimento.ano);
         printc("\n[blue]Introduza os novos dados do cliente a editar[/blue]\n");
         printc("\n\nNome do cliente: ");
         bufferclear();
         if(scanf("%[^\n]", nome) != 1) return;
-        free(Clientes[index].nome);
-        Clientes[index].nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
-        strcpy(Clientes[index].nome, nome);
+        free(Clientes[index]->nome);
+        Clientes[index]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
+        strcpy(Clientes[index]->nome, nome);
 
         do{
             printf("\nSaldo do cliente: ");
-            invalid = scanf("%f", &Clientes[index].saldoCartaoCliente);
-            if(Clientes[index].saldoCartaoCliente <= 0){
+            invalid = scanf("%f", &Clientes[index]->saldoCartaoCliente);
+            if(Clientes[index]->saldoCartaoCliente <= 0){
                 printc("[red]Saldo do cliente >= 0[/red]\n");
                 bufferclear();
                 invalid = -1;
@@ -236,22 +237,22 @@ void editarCliente(){
             invalid = 0;
             do{
                 printc("\nDia: ");
-                invalid = scanf("%d", &Clientes[index].dataNascimento.dia);
+                invalid = scanf("%d", &Clientes[index]->dataNascimento.dia);
                 invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
             }while(invalid != 1);
             invalid = 0;
             do{
                 printc("\nMês: ");
-                invalid = scanf("%d", &Clientes[index].dataNascimento.mes);
+                invalid = scanf("%d", &Clientes[index]->dataNascimento.mes);
                 invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
             }while(invalid != 1);
             invalid = 0;
             do{
                 printc("\nAno: ");
-                invalid = scanf("%d", &Clientes[index].dataNascimento.ano);
+                invalid = scanf("%d", &Clientes[index]->dataNascimento.ano);
                 invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
             }while(invalid != 1);
-        } while (validarData(Clientes[index].dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
+        } while (validarData(Clientes[index]->dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
 
         printc("\n[yellow]Cliente editado com sucesso![/yellow]");
     }
@@ -273,17 +274,25 @@ void removerCliente(){
 
     index = encontrarIdCliente(id);
     if(index == -1){
-        printc("\n[yellow]Não existe nenhum cliente com esse ID![/yellow]");
+        printc("\n[yellow]Não existe nenhum cliente com esse ID1![/yellow]");
     }
     else{
-        free(Clientes[index].nome);
+        printc("\n[yellow]Não existe nenhum cliente com esse ID2![/yellow]");
+        free(Clientes[index]->nome);
+        printc("\n[yellow]Não existe nenhum cliente com esse ID3![/yellow]");
+        free(Clientes[index]);
+        printc("\n[yellow]Não existe nenhum cliente com esse ID4![/yellow]");
         for(int j = index; j < n_clientes; j++){
             Clientes[j] = Clientes[j + 1];
         }
+        printc("\n[yellow]Não existe nenhum cliente com esse ID5![/yellow]");
+        free(Clientes[n_clientes]);
+        printc("\n[yellow]Não existe nenhum cliente com esse ID6![/yellow]");
         n_clientes--;
+        printc("\n[yellow]Não existe nenhum cliente com esse ID7![/yellow]");
         printc("\n[yellow]Cliente removido com sucesso![/yellow]");
+        Clientes = (ClienteStruct**) realloc(Clientes, n_clientes * sizeof(ClienteStruct*));
     }
-    Clientes = (ClienteStruct*) realloc(Clientes, n_clientes * sizeof(ClienteStruct));
 
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -319,20 +328,30 @@ ClienteStruct *escolherCliente(){
     ClienteStruct *cliente;
     if(Aleatorio(1, 75) >= 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
-        cliente->listaProdutos = criarLista();
     }
     else if(n_clientesAtivos >= n_clientes){
         /* printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n"); */
         return NULL;
     }    
     else{
-        cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
+        int index = Aleatorio(n_clientesAtivos, n_clientes - 1);
+        cliente = Clientes[index];
+        cliente->ativo = 1;
+        
+        pthread_mutex_lock(&vetorLock);
+        Clientes[index] = Clientes[n_clientesAtivos];
+        Clientes[n_clientesAtivos] = cliente;
+        n_clientesAtivos++;
+        pthread_mutex_unlock(&vetorLock);
+
+
+        /* cliente = (ClienteStruct *) malloc(sizeof(ClienteStruct)); 
         int indice = escolherAleatorioVetor(Clientes, n_clientesAtivos, n_clientes, sizeof(ClienteStruct), cliente); // Aleatoriamente escolhe um dos clientes do ficheiro txt e armazena os dados na varivel cliente criada acima
-        Clientes[indice].ativo = 1;         
+        Clientes[indice]->ativo = 1;         
 
         pthread_mutex_lock(&vetorLock);
         batenteChange(&Clientes[n_clientesAtivos], &Clientes[indice], sizeof(ClienteStruct), &n_clientesAtivos, '+');   
-        pthread_mutex_unlock(&vetorLock);
+        pthread_mutex_unlock(&vetorLock); */
     }
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente);
@@ -342,17 +361,19 @@ ClienteStruct *escolherCliente(){
 
 void DesocuparCliente(ClienteStruct *pessoa){
     int index = pesquisarClienteVetorBatente(pessoa);
-    Clientes[index].ativo = 0;
-    Clientes[index].saldoCartaoCliente = pessoa->saldoCartaoCliente;
+    Clientes[index]->ativo = 0;
+    Clientes[index]->saldoCartaoCliente = pessoa->saldoCartaoCliente;
     batenteChange(&Clientes[index], &Clientes[n_clientesAtivos-1], sizeof(ClienteStruct), &n_clientesAtivos, '-');
 }
 
-float atualizarSaldoCliente(ClienteStruct *cliente){
-    int movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente;
+float atualizarSaldoCliente(ClienteStruct *cliente){//erro aqui
+    /* int movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente;
     if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao)
         pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, pessoaEmAtendimento->saldoCartaoCliente);
     else
         pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
     movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
-    return movimentoSaldoCartao;
+    return movimentoSaldoCartao; */
+    cliente->ativo = cliente->ativo;//apagar<--
+    return 1;//apagar<--
 }
