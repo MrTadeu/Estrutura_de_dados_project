@@ -185,3 +185,8 @@ ProdutoStruct *escolherProduto(){
     memcpy(produto, &Produtos[Aleatorio(0, n_produtos-1)], sizeof(ProdutoStruct));
     return produto;
 }
+
+void destruirProduto(void *Produto){
+    free(((ProdutoStruct *)Produto)->nome);
+    free(Produto);
+}

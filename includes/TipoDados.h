@@ -166,6 +166,7 @@
     float atualizarSaldoCliente(ClienteStruct *cliente);
     ClienteStruct *criarGuest();
     int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
+    void destruirCliente(void *Cliente);
 
     //caixas.c
     CaixaStruct *MelhorCaixa();
@@ -198,6 +199,7 @@
     void pesquisarProdutoID();
     void pesquisarProdutoNome();
     ProdutoStruct *escolherProduto();
+    void destruirProduto(void *Produto);
 
     //ImportExport.c
     int importarCount(char *filename);

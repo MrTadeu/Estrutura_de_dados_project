@@ -266,3 +266,7 @@ FuncionarioStruct *escolherFuncionarios(){
     return funcionario;
     /* pthread_mutex_unlock(&ClientesLock); */
 }
+/* 
+void desocuparFuncionario(FuncionarioStruct* funcionario){
+
+} */

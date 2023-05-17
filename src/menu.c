@@ -130,7 +130,7 @@ void menuClientes(){
             verClientesInativos();
         }
         if (opcao == i++){
-            verClientesEmLoja();
+            verClientesEmLoja(); // !Clientes ativos
         }
         if (opcao == i++){
             verClientesCaixa();

@@ -347,10 +347,9 @@ void DesocuparCliente(ClienteStruct *pessoa){
     }
     ClienteStruct *cliente = Clientes[index];
     cliente->ativo = 0;
-    destruirLista(cliente->listaProdutos);
     
     pthread_mutex_lock(&ClientesLock);
-    Clientes[index] = Clientes[n_clientesAtivos];
+    Clientes[index] = Clientes[n_clientesAtivos-1];
     Clientes[n_clientesAtivos] = cliente;
     n_clientesAtivos--;
     pthread_mutex_unlock(&ClientesLock);
@@ -386,4 +385,10 @@ ClienteStruct *criarGuest(){
     cliente->tempoEstimadoCompra = 0;
     cliente->tempoEstimadoFila = 0;
     return cliente;
+}
+
+void destruirCliente(void *Cliente){
+    destruirLista(((ClienteStruct *)Cliente)->listaProdutos, destruirProduto);
+    free(((ClienteStruct *)Cliente)->nome);
+    free(Cliente);
 }

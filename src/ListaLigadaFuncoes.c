@@ -181,26 +181,16 @@ Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo
     return removido;
 }
 
-void destruirElemento(Elemento *elemento, void (destruirInfo)(void *)){
-    if(!elemento){
-       printf("\tError! List is NULL\n"); 
-       return;
-    }
-
-    destruirInfo(elemento->Info);
-    free(elemento);
-}
-
-void destruirLista(Lista *lista){
+void destruirLista(Lista *lista, void (destruirInfo)(void *)){
     if(!lista){
-       printf("\tError! List is NULL\n"); 
+       printf("\n\t[red]Error![/red] List is NULL\n"); 
        return;
     }
 
     Elemento *Aux = lista->head, *Temp;
     while(Aux){
         Temp = Aux->next;
-        free(Aux->Info);
+        destruirInfo(Aux->Info);
         free(Aux);
         Aux = Temp;
     }

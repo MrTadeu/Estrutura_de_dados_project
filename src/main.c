@@ -4,7 +4,7 @@
 //GLOBAL VARIABLES
 OpcaoStruct Opcoes;
 GlobalStruct Global;
-/* HistoricoDadosEstatisticosStruct HistoricoDados; */ //erro aqui
+HistoricoStruct HistoricoDados; 
 pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
 ClienteStruct **Clientes;
 FuncionarioStruct **Funcionarios;

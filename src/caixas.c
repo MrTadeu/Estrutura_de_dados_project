@@ -30,6 +30,11 @@ void criarCaixaInit(){
     }*/
 }
 
+void destruirCaixa(void *Caixa){
+    destruirLista(((CaixaStruct *)Caixa)->listaPessoas, destruirCliente);
+    free(Caixa);
+}
+
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 void atualizarAtrasos(Lista *lista, int atraso){
     if(!lista){
@@ -77,8 +82,7 @@ void atenderPessoa(CaixaStruct *caixa){
     }
     ClienteStruct *cliente = (ClienteStruct *) caixa->listaPessoas->head->Info;
     cliente->tempoEstimadoFila = 0;
-    float tempoEstimadoCaixaAux = cliente->tempoEstimadoCaixa;
-    float tempoAtrasoAux = cliente->tempoAtraso;
+    float tempoEstimadoCaixaAux = cliente->tempoEstimadoCaixa, tempoAtrasoAux = cliente->tempoAtraso;
     int tempo = (int) (cliente->tempoEstimadoCaixa + cliente->tempoAtraso)*1000;
 
     while(tempo){
@@ -245,11 +249,11 @@ void *ThreadCaixa(void *arg){
 
         
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
-        /* float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);  */// !erro aqui
+        // float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
         atenderPessoa(caixa);
-        /* DesocuparCliente(pessoaEmAtendimento); */
-        /*  guardarHistorico(pessoaEmAtendimento, caixa, movimentoSaldoCliente, pessoaEmAtendimento->precoTotalProdutos); */
+        DesocuparCliente(pessoaEmAtendimento);
+        /* guardarHistorico(pessoaEmAtendimento, caixa, movimentoSaldoCliente, pessoaEmAtendimento->precoTotalProdutos); */
 
         atrasoSum += atraso;
         n_vendas++;

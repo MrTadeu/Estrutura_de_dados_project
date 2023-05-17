@@ -21,7 +21,6 @@
     Elemento *RemElementoUltimo(Lista *lista);
     Elemento *RemElementoIndex(Lista *lista, int index);// Devolve o Elemento removido para o podermos detruir e adicionar info ao historico
     Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo)(void*, void*));
-    void destruirElemento(Elemento *elemento, void (destruirInfo)(void *));
-    void destruirLista(Lista *lista);
+    void destruirLista(Lista *lista, void (destruirInfo)(void *));
 
 #endif
