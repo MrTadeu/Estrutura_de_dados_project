@@ -4,7 +4,7 @@
 #	action
 #--------------------------------------------------------------------------------------------------
 CC = gcc
-CFLAGS = -O3 -Wall -Wextra
+CFLAGS = -o3 -Wall -Wextra
 #--------------------------------------------------------------------------------------------------
 #----------------------DIRETÓRIOS------------------------------------------------------------------
 #INCLUDES_DIR = includes
@@ -29,11 +29,11 @@ buildLinux: setupLinux $(PROGRAM)
 # isto vai criar ./simulation.o
 #por -g para o valgrind
 $(PROGRAM): $(OBJ)
-	$(CC) -g $(CFLAGS) $(OBJ) -o $(PROGRAM)
+	$(CC) $(CFLAGS) $(OBJ) -o $(PROGRAM)
 
 # isto vai criar um arquivo .o para cada arquivo .c || a opção -c é para não criar um executavel e sim um arquivos  .o ou seja compilar individualmente
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) -c -g $(CFLAGS) -o $@ $^
+	$(CC) -c $(CFLAGS) -o $@ $^
 
 # .PHONY - Não é um arquivo, é um comando usado para não dar erro de arquivo não encontrado
 .PHONY: setup

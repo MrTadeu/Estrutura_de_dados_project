@@ -79,7 +79,7 @@ void atenderPessoa(CaixaStruct *caixa){
     int tempoAtrasoAux = cliente->tempoAtraso;
     int tempo = (int) (cliente->tempoEstimadoCaixa + cliente->tempoAtraso)*1000;
     while(tempo){
-        dormir(1000);
+        dormir(1);
         tempo--;
         if (cliente->tempoEstimadoCaixa){
             cliente->tempoEstimadoCaixa--;
@@ -87,12 +87,14 @@ void atenderPessoa(CaixaStruct *caixa){
         }
         else if (cliente->tempoAtraso > 0) cliente->tempoAtraso--;
     } 
+    printc("[red][bold]Passou aqui e o filha da puta [/red][/bold]");
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
     cliente->tempoAtraso = tempoAtrasoAux;
-
+    printc("[red][bold]NAO TRAVOU[/red][/bold]");
     //Remover da fila
     pthread_mutex_lock(&caixa->lock);
+    printc("[GREEN]XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX[/GREEN]");
     RemElementoInicio(caixa->listaPessoas);
     pthread_mutex_unlock(&caixa->lock);
 }
@@ -139,9 +141,9 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             menor->funcionario = (FuncionarioStruct *) escolherFuncionarios();
         }
         if (menor->listaPessoas->head == NULL){
-            /* pthread_t threadCaixa;
+            pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
-            pthread_detach(threadCaixa); */
+            pthread_detach(threadCaixa);
             
         }
         return menor;

@@ -1,6 +1,7 @@
 #include "../includes/TipoDados.h"
 
 void menu(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     int opcao;
     do{
         int i = 0;
