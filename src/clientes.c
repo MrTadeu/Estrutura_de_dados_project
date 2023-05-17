@@ -67,7 +67,7 @@ void verClientesCaixa(){
                 Elemento *Produtos = ClienteInfo.listaProdutos->head;
                 while(Produtos){
                     ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
-                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue] tcompra:%f", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco, ProdutoInfo->tempoCaixa);
+                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue] tempoCaixa:%f", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco, ProdutoInfo->tempoCaixa);
                     Produtos = Produtos->next;
                 }
                 printf("\n");
@@ -327,11 +327,11 @@ ClienteStruct *escolherCliente(){
         cliente = Clientes[index];
         cliente->ativo = 1;
         
-        pthread_mutex_lock(&vetorLock);
+        pthread_mutex_lock(&ClientesLock);
         Clientes[index] = Clientes[n_clientesAtivos];
         Clientes[n_clientesAtivos] = cliente;
         n_clientesAtivos++;
-        pthread_mutex_unlock(&vetorLock);
+        pthread_mutex_unlock(&ClientesLock);
     }
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente);
@@ -349,11 +349,11 @@ void DesocuparCliente(ClienteStruct *pessoa){
     cliente->ativo = 0;
     destruirLista(cliente->listaProdutos);
     
-    pthread_mutex_lock(&vetorLock);
+    pthread_mutex_lock(&ClientesLock);
     Clientes[index] = Clientes[n_clientesAtivos];
     Clientes[n_clientesAtivos] = cliente;
     n_clientesAtivos--;
-    pthread_mutex_unlock(&vetorLock);
+    pthread_mutex_unlock(&ClientesLock);
 }
 
 int pesquisarClienteVetorBatente(ClienteStruct *pessoa){

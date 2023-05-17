@@ -258,11 +258,11 @@ FuncionarioStruct *escolherFuncionarios(){
     funcionario = Funcionarios[index];
     funcionario->ativo = 1;
     
-    /* pthread_mutex_lock(&vetorLock); */
+    /* pthread_mutex_lock(&ClientesLock); */
     Funcionarios[index] = Funcionarios[n_funcionariosAtivos];
     Funcionarios[n_funcionariosAtivos] = funcionario;
     n_funcionariosAtivos++;
 
     return funcionario;
-    /* pthread_mutex_unlock(&vetorLock); */
+    /* pthread_mutex_unlock(&ClientesLock); */
 }

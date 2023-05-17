@@ -123,7 +123,7 @@
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
     extern HistoricoStruct HistoricoDados;
-    extern pthread_mutex_t vetorLock, listaLock;
+    extern pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
     extern ClienteStruct **Clientes;
     extern FuncionarioStruct **Funcionarios;
     extern ProdutoStruct *Produtos;

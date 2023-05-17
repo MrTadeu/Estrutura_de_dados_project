@@ -5,8 +5,8 @@ void *ThreadGlobal(){
 
     Global.PessoasAcabaramTempoDeCompra = criarLista();
 
-    pthread_mutex_init(&listaLock, NULL);
-    pthread_mutex_init(&vetorLock, NULL);
+    pthread_mutex_init(&PessoasAcabaramTempoDeCompraLock, NULL);
+    pthread_mutex_init(&ClientesLock, NULL);
     
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
@@ -20,7 +20,7 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
-        dormir(2000);
+        dormir(1);
     }
     return NULL;
 }
@@ -53,14 +53,14 @@ void *ThreadEsperaTempoCompra(void *pessoa){
     if(Opcoes.VerTransacoes == 1){
         printf("\n\n%s acabou de comprar todos os produtos em %fs",cliente->nome, cliente->tempoEstimadoCompra);
     }
-    pthread_mutex_lock(&listaLock);
+    pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
     AddElementoFim(Global.PessoasAcabaramTempoDeCompra, criarElemento(cliente));
     /* Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
     while(pessoaEnviar != NULL){
         printc("[green]-O-[/green]");
         pessoaEnviar = pessoaEnviar->next;
     } */
-    pthread_mutex_unlock(&listaLock);
+    pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
 
     return NULL;
 }

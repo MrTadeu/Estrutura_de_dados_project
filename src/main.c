@@ -5,7 +5,7 @@
 OpcaoStruct Opcoes;
 GlobalStruct Global;
 /* HistoricoDadosEstatisticosStruct HistoricoDados; */ //erro aqui
-pthread_mutex_t vetorLock, listaLock;
+pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
 ClienteStruct **Clientes;
 FuncionarioStruct **Funcionarios;
 ProdutoStruct *Produtos;
