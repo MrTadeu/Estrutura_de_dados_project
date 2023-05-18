@@ -161,7 +161,7 @@ Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo
 
     Elemento *prev = lista->head, *curr = lista->head, *removido;
     while(curr){
-        if(compareInfo(curr, elemento))
+        if(compareInfo(curr->Info, elemento->Info))
             break;
         prev = curr;
         curr = curr->next;
@@ -181,9 +181,19 @@ Elemento *RemElementoPesquisa(Lista *lista, Elemento *elemento, int (compareInfo
     return removido;
 }
 
+void destruirElemento(Elemento *elemento, void(destruirInfo)(void*)){
+    if(!elemento){
+       printf("\n\t[red]Error![/red] Given element is NULL\n"); 
+       return;
+    }
+
+    destruirInfo(elemento->Info);
+    free(elemento);
+}
+
 void destruirLista(Lista *lista, void (destruirInfo)(void *)){
     if(!lista){
-       printf("\n\t[red]Error![/red] List is NULL\n"); 
+       printf("\n\t[red]Error![/red] Given list is NULL\n"); 
        return;
     }
 

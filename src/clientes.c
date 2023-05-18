@@ -297,7 +297,7 @@ void criarProdutosAddCliente(ClienteStruct *cliente){
     }
 }
 
-void calculoTemposCliente(ClienteStruct *cliente){
+void calculos_TempoPreco_Cliente(ClienteStruct *cliente){
     if(!cliente){
         printf("[red]Error![/red] Given client is NULL");
         return;
@@ -307,7 +307,7 @@ void calculoTemposCliente(ClienteStruct *cliente){
         ProdutoStruct *produto = (ProdutoStruct *) Aux->Info;
         cliente->tempoEstimadoCaixa += produto->tempoCaixa;
         cliente->tempoEstimadoCompra += produto->tempoCompra;
-        cliente->precoTotalProdutos += produto->preco; 
+        cliente->precoTotalProdutos += produto->preco * produto->quantidadeProdutosRepetidos; 
 
         Aux = Aux->next;
     }
@@ -335,7 +335,7 @@ ClienteStruct *escolherCliente(){
     }
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente);
-    calculoTemposCliente(cliente);
+    calculos_TempoPreco_Cliente(cliente);
     return cliente;
 }
 
@@ -391,4 +391,24 @@ void destruirCliente(void *Cliente){
     destruirLista(((ClienteStruct *)Cliente)->listaProdutos, destruirProduto);
     free(((ClienteStruct *)Cliente)->nome);
     free(Cliente);
+}
+
+float oferecerBrinde(ClienteStruct *cliente){
+    Elemento *aux = cliente->listaProdutos->head, *produtoOferecido;
+    float precoMin = ((ProdutoStruct*)aux->Info)->preco;
+
+    while(aux){
+        if(((ProdutoStruct*)aux->Info)->preco < precoMin){
+            precoMin = ((ProdutoStruct*)aux->Info)->preco;
+            produtoOferecido = aux;
+        }  
+        aux = aux->next;
+    }
+    cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
+
+    if(((ProdutoStruct*)produtoOferecido->Info)->quantidadeProdutosRepetidos > 1)   // Remove um desses produtos do carrinho
+        ((ProdutoStruct*)produtoOferecido->Info)->quantidadeProdutosRepetidos--;
+    else                                                                            // ou remove o unico produto
+        destruirElemento(RemElementoPesquisa(cliente->listaProdutos, produtoOferecido, compareProduto), destruirProduto);   
+    return precoMin;
 }

@@ -34,7 +34,8 @@ void importOpcoes(){
         Opcoes.TempoLimiteSuperior = 200;
         Opcoes.QuantMinProd = 1;
         Opcoes.QuantMaxProd = 5;
-        Opcoes.multiplicadorTempo = 1.0; // *Quanto menor, mais depressa o tempo decorre
+        Opcoes.multiplicadorTempo = 1.0; //*Quanto menor, mais depressa o tempo decorre
+        Opcoes.tempoAtrasoMaximoBrinde = 900; // *15 minutos
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;

@@ -85,7 +85,7 @@
 
     typedef struct{
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, probUsarSaldoCartao, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, TempoLimiteSuperior, TempoLimiteInferior, QuantMaxProd, QuantMinProd;
-        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo, multiplicadorTempo;
+        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo, multiplicadorTempo, tempoAtrasoMaximoBrinde;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
 
@@ -103,7 +103,7 @@
         FuncionarioStruct *funcionario;
         Lista *listaProdutos;
         int tempoEstimadoCaixa, tempoAtraso;
-        float movimentoCartaoCliente, precoTotal;
+        float movimentoCartaoCliente, precoTotal, valorProdutoOferecido;
         DataStruct dataTransacao;
     }HistoricoSubStructInfo;
 
@@ -113,6 +113,10 @@
         // todos os dados do clientes
         Lista **caixas; //TransacoesHistoricoStruct
     }HistoricoSubStructCliente;
+
+/*     typedef struct {
+        float movimentoSaldoCartao, valorBrindeOferecido;
+    }EnviarParaHistoricoStruct; */
 
     typedef struct{
         Lista *historico[26];
@@ -160,13 +164,14 @@
     void editarCliente();
     void removerCliente();
     void criarProdutosAddCliente(ClienteStruct *cliente);
-    void calculoTemposCliente(ClienteStruct *cliente);
+    void calculos_TempoPreco_Cliente(ClienteStruct *cliente);
     ClienteStruct *escolherCliente();
     void DesocuparCliente(ClienteStruct *pessoa);
     float atualizarSaldoCliente(ClienteStruct *cliente);
     ClienteStruct *criarGuest();
     int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
     void destruirCliente(void *Cliente);
+    float oferecerBrinde(ClienteStruct *cliente);
 
     //caixas.c
     CaixaStruct *MelhorCaixa();
@@ -198,6 +203,7 @@
     void removerProduto();
     void pesquisarProdutoID();
     void pesquisarProdutoNome();
+    int compareProduto(void* p1, void* p2);
     ProdutoStruct *escolherProduto();
     void destruirProduto(void *Produto);
 
@@ -237,7 +243,7 @@
     void initHistorico();
     int alfabetoIndex(char *nome);
     void *criarElementoClienteHistorico(ClienteStruct *cliente);
-    void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa, float movimentoSaldoCartao, float precoTotal);
-    void guardarHistorico(ClienteStruct *pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao, float precoTotal);
+    void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
+    void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
     
 #endif

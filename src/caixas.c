@@ -74,13 +74,12 @@ void atualizarAtrasos(Lista *lista, int atraso){
 } */
 
 void atenderPessoa(CaixaStruct *caixa){
-        printf("hi1234");
-
     if (!caixa || caixa->listaPessoas->head == NULL){
         printc("\n\t[red]Error![/red] Given caixa is NULL\n");
         return;
     }
     ClienteStruct *cliente = (ClienteStruct *) caixa->listaPessoas->head->Info;
+
     cliente->tempoEstimadoFila = 0;
     float tempoEstimadoCaixaAux = cliente->tempoEstimadoCaixa, tempoAtrasoAux = cliente->tempoAtraso;
     int tempo = (int) (cliente->tempoEstimadoCaixa + cliente->tempoAtraso)*1000;
@@ -101,15 +100,11 @@ void atenderPessoa(CaixaStruct *caixa){
         }
         else if (cliente->tempoAtraso > 0) cliente->tempoAtraso--;
     } 
-    printc("\n[red][bold]Passou aqui e o filha da puta [/red][/bold]\n");
+    printc("\n[red]Passou aqui e o filha da puta [/red]\n");
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
     cliente->tempoAtraso = tempoAtrasoAux;
-    printc("[red][bold]NAO TRAVOU[/red][/bold]");
-    //Remover da fila
-    pthread_mutex_lock(&caixa->lock);
-    RemElementoInicio(caixa->listaPessoas);
-    pthread_mutex_unlock(&caixa->lock);
+
     //dormir(diferenca entre );
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
@@ -234,7 +229,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
     int atraso, n_vendas = 0;
-    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0;
+    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, valorProdutoOferecido = 0.0;
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
@@ -248,13 +243,28 @@ void *ThreadCaixa(void *arg){
         atualizarAtrasos(caixa->listaPessoas, atraso);
         pthread_mutex_unlock(&caixa->lock);
 
+        if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
+            valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
         
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
-        // float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
+        float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
-        atenderPessoa(caixa);
+        atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
+        
+        //guardarhistorico
+        guardarHistorico(caixa, movimentoSaldoCliente, valorProdutoOferecido);
+
+
+        //Remover da fila
+        pthread_mutex_lock(&caixa->lock);
+        free(RemElementoInicio(caixa->listaPessoas)); // Free do elemento, nao da pessoa em si
+        pthread_mutex_unlock(&caixa->lock);
+
+
+        //Desocupar pessoa
+        pthread_mutex_lock(&ClientesLock);
         DesocuparCliente(pessoaEmAtendimento);
-        /* guardarHistorico(pessoaEmAtendimento, caixa, movimentoSaldoCliente, pessoaEmAtendimento->precoTotalProdutos); */
+        pthread_mutex_unlock(&ClientesLock);
 
         atrasoSum += atraso;
         n_vendas++;

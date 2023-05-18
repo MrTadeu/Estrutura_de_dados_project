@@ -180,6 +180,17 @@ void removerProduto(){
     getchar();
 }
 
+int compareProduto(void* p1, void* p2){
+    ProdutoStruct *produto1 = (ProdutoStruct*) p1, *produto2 = (ProdutoStruct*) p2;
+    if(!produto1 || produto2){
+        printc("\n\t[red]Error[/red] Given product is NULL\n");
+        return -1;
+    }
+    if(produto1->id == produto2->id)
+        return 1;
+    return 0;
+}
+
 ProdutoStruct *escolherProduto(){
     ProdutoStruct *produto = (ProdutoStruct *) malloc(sizeof(ProdutoStruct));
     memcpy(produto, &Produtos[Aleatorio(0, n_produtos-1)], sizeof(ProdutoStruct));
