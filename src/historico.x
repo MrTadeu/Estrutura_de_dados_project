@@ -40,12 +40,12 @@ void *criarInfoHistorico(CaixaStruct *caixa, ClienteStruct *pessoa, float movime
 
 void guardarHistorico(ClienteStruct *pessoaAtendida, CaixaStruct *caixa, float movimentoSaldoCartao, float precoTotal){
     if(!pessoaAtendida){
-        printf("\n\t[red]Error![/red] Given cliente is NULL\n");        //    |a|b|c|d|...        __ HistoricoSubStructCliente 
+        printf("\n\t[red]Error![/red] Given cliente is NULL\n");        //    |a|b|c|d|...        __//!HistoricoSubStructCliente 
         return;                                                         //     |       __________/      /
     }                                                                   //     |      V                V
     if(!caixa){                                                         //   |Nome, Id|  --> |1|2|3|4|5|...
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");          //                    | 
-        return;                                                         //                  |Info|  <--- HistoricoSubStructInfo
+        return;                                                         //                  |Info|  //!<--- HistoricoSubStructInfo
     }
 
     int flag = 0, hashIndex = alfabetoIndex(pessoaAtendida->nome); 

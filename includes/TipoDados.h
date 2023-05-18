@@ -85,7 +85,7 @@
 
     typedef struct{
         int numCaixasTotal, numCaixasAbertas, probGerarPessoa, probUsarSaldoCartao, lotacaoMaxima, lojaAberta, VerTransacoes, threadGlobalAranque, TempoLimiteSuperior, TempoLimiteInferior, QuantMaxProd, QuantMinProd;
-        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo;
+        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo, multiplicadorTempo;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
 

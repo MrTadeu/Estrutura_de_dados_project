@@ -110,6 +110,7 @@ void atenderPessoa(CaixaStruct *caixa){
     pthread_mutex_lock(&caixa->lock);
     RemElementoInicio(caixa->listaPessoas);
     pthread_mutex_unlock(&caixa->lock);
+    //dormir(diferenca entre );
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
