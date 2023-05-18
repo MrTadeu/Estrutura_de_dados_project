@@ -266,7 +266,13 @@ FuncionarioStruct *escolherFuncionarios(){
     return funcionario;
     /* pthread_mutex_unlock(&ClientesLock); */
 }
-/* 
-void desocuparFuncionario(FuncionarioStruct* funcionario){
 
-} */
+void desocuparFuncionario(FuncionarioStruct* funcionario){
+    int pos = encontrarIdFuncionario(funcionario->id);
+    (pos == -1 || pos >= n_funcionariosAtivos) ? printf("\n\tErro! Funcionario não encontrado.\n") : (void)NULL;
+    
+    funcionario = Funcionarios[pos];
+    funcionario->ativo = 0;
+    Funcionarios[pos] = Funcionarios[--n_funcionariosAtivos];
+    Funcionarios[n_funcionariosAtivos] = funcionario;
+}
