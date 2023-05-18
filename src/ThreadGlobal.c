@@ -44,7 +44,7 @@ void *ThreadEsperaTempoCompra(void *pessoa){
          Elemento *Aux = cliente->listaProdutos->head;
         while(Aux){
             ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
-            printf("\t\nID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
+            printf("\t\nID: %d Nome: %s, QT: %dX, Preco: %.2f TCompra: %.2f TCaixa: %.2f",x->id, x->nome, x->quantidadeProdutosRepetidos, x->preco, x->tempoCompra, x->tempoCaixa );
             Aux = Aux->next; 
         }
     }

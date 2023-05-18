@@ -100,12 +100,9 @@ void atenderPessoa(CaixaStruct *caixa){
         }
         else if (cliente->tempoAtraso > 0) cliente->tempoAtraso--;
     } 
-    printc("\n[red]Passou aqui e o filha da puta [/red]\n");
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
     cliente->tempoAtraso = tempoAtrasoAux;
-
-    //dormir(diferenca entre );
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
@@ -196,6 +193,19 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
 void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
     Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
 
+
+    /* //TESTES
+    pthread_mutex_lock(&ClientesLock);
+    Elemento *Aux = ((ClienteStruct*)pessoaEnviar)->listaProdutos->head;
+    while(Aux){
+        ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
+        printc("\t\n[blue]ID: %d Nome: %s, Preco: %.2f TCompra: %.2f TCaixa: %.2f[/blue]",x->id, x->nome, x->preco, x->tempoCompra, x->tempoCaixa );
+        Aux = Aux->next; 
+    }
+    pthread_mutex_unlock(&ClientesLock); */
+
+
+
     CaixaStruct* melhorCaixa;
     while(pessoaEnviar != NULL){
         
@@ -213,8 +223,13 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         pthread_mutex_lock(&melhorCaixa->lock);
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
         melhorCaixa->tempoTotalEspera += ((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
-        ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
         pthread_mutex_unlock(&melhorCaixa->lock);
+
+        pthread_mutex_lock(&ClientesLock);
+        ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
+        printc("[green]novo tempo de atraso: %f[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
+        pthread_mutex_unlock(&ClientesLock);
+
 
         pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
         RemElementoInicio(Global.PessoasAcabaramTempoDeCompra); 
@@ -253,7 +268,6 @@ void *ThreadCaixa(void *arg){
         
         //guardarhistorico
         guardarHistorico(caixa, movimentoSaldoCliente, valorProdutoOferecido);
-
 
         //Remover da fila
         pthread_mutex_lock(&caixa->lock);

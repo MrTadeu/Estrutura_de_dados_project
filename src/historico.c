@@ -55,11 +55,19 @@ void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valo
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");         
         return;                                                       
     } 
-    ClienteStruct* pessoaAtendida = (ClienteStruct*) caixa->listaPessoas->head->Info;                                                                 //     |      V                V
-    if(!pessoaAtendida){                                                
+    if(!caixa->listaPessoas->head->Info){                                                
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");        
         return;                                                         
     }
+
+    ClienteStruct* pessoaAtendida = (ClienteStruct*) malloc(sizeof(ClienteStruct));
+    pthread_mutex_lock(&ClientesLock);
+    memcpy(pessoaAtendida, caixa->listaPessoas->head->Info, sizeof(ClienteStruct));     
+    pthread_mutex_unlock(&ClientesLock);
+
+    FuncionarioStruct* funcionario = (FuncionarioStruct*) malloc(sizeof(FuncionarioStruct));
+    memcpy(funcionario, caixa->funcionario, sizeof(FuncionarioStruct));
+
 
     int flag = 0, hashIndex = alfabetoIndex(pessoaAtendida->nome); 
     Elemento *Aux = HistoricoDados.historico[hashIndex]->head;

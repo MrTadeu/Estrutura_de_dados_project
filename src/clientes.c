@@ -394,6 +394,8 @@ void destruirCliente(void *Cliente){
 }
 
 float oferecerBrinde(ClienteStruct *cliente){
+    printc("\n\n[red]BRINDE[/red]");
+    printc("[red]Preco antigo: %f[/red]", cliente->precoTotalProdutos);
     Elemento *aux = cliente->listaProdutos->head, *produtoOferecido;
     float precoMin = ((ProdutoStruct*)aux->Info)->preco;
 
@@ -405,6 +407,7 @@ float oferecerBrinde(ClienteStruct *cliente){
         aux = aux->next;
     }
     cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
+    printc("[red]Preco novo: %f[/red]", cliente->precoTotalProdutos);
 
     if(((ProdutoStruct*)produtoOferecido->Info)->quantidadeProdutosRepetidos > 1)   // Remove um desses produtos do carrinho
         ((ProdutoStruct*)produtoOferecido->Info)->quantidadeProdutosRepetidos--;
