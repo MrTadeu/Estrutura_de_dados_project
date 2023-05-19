@@ -46,6 +46,17 @@ int Aleatorio(int min, int max){
     return resultado;
 }
 
+/* scanfs("%d", id, "Insira o ID do funcionario que pretende editar: ", "Apenas pode inserir números inteiros!\n"); */
+void scanfs(const char* formato, void *DataScanf, char *MensagemRepitida, char *AvisoError){
+    int invalid = 0;
+    do{
+        printc("%s", MensagemRepitida);
+        bufferclear();
+        invalid = scanf(formato, DataScanf);
+        invalid != 1 ? printc("[red]%s[/red]", AvisoError),  bufferclear() : (void)NULL;
+    }while(invalid != 1);
+}
+
 DataStruct gerarData(int anoMin, int anoMax){
     DataStruct data;
     data.ano = Aleatorio(anoMin, anoMax);
