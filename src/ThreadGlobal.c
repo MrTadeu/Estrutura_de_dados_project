@@ -67,9 +67,26 @@ void *ThreadEsperaTempoCompra(void *pessoa){
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
 
 void changeStateThreadGlobal(){
-    if(Opcoes.lojaAberta == 0){
+    if(Opcoes.lojaAberta == 0 && menuvalidarCaixaFuncionarios()){
         Opcoes.lojaAberta = 1;
         pthread_t GlobalThread;
+
+        Elemento *CaixaElm = Global.caixas->head;
+        for (int i = 0; i < Opcoes.numCaixasAbertas; i++){
+            CaixaStruct *caixa = (CaixaStruct *)CaixaElm->Info;
+            if(n_funcionariosAtivos >= n_funcionarios){
+                caixa->aberta = 0;
+                caixa->funcionario = NULL;
+            }
+            else{
+                caixa->aberta = 1;
+                caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
+            }
+            CaixaElm = CaixaElm->next; 
+            if(CaixaElm == NULL){
+                break;
+            }
+        }
 
         if (pthread_create(&GlobalThread, NULL, ThreadGlobal, NULL) != 0){
             

@@ -166,7 +166,6 @@ void adicionarFuncionario(){
     Funcionarios[n_funcionarios] = (FuncionarioStruct *) malloc(sizeof(FuncionarioStruct));
     Funcionarios[n_funcionarios]->id = generateID(encontrarIdFuncionario);
     Funcionarios[n_funcionarios]->ativo = 0;
-    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[blue]Introduza os dados do Funcionario:[/blue]\n");
     printc("\n\n[yellow]ID FUNCIONARIO: %d[/yellow]\n", Funcionarios[n_funcionarios]->id);
 
@@ -248,7 +247,7 @@ void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio
 }
 
 FuncionarioStruct *escolherFuncionarios(){
-    if(n_funcionariosAtivos >= n_funcionarios-1){
+    if(n_funcionariosAtivos >= n_funcionarios){
         printf("\n\tErro! Nao existem mais funcionarios disponiveis.\n");
         return NULL;
     }
