@@ -85,4 +85,11 @@ Uma vez que o Makefile tenha sido instalado com sucesso e você esteja na mesma 
 </tr>
 </table>
 
-* Este projeto foi desenvolvido por uma equipe composta por Benno Vasconcellos, João Falcão e Pedro Tavares. O objetivo do projeto foi desenvolver um sistema em C para gerenciamento de um supermercado. Cada membro da equipe contribuiu com suas habilidades e conhecimentos únicos para o projeto.
+Este projeto foi desenvolvido por uma equipe composta por Benno Vasconcellos, João Falcão e Pedro Tavares. O objetivo do projeto foi desenvolver um sistema em C para gerenciamento de um supermercado. Cada membro da equipe contribuiu com suas habilidades e conhecimentos únicos para o projeto.\
+Para aprimorar ainda mais o sistema, foram utilizadas bibliotecas adicionais, que agregaram recursos e funcionalidades adicionais. Dentre essas bibliotecas destacam-se:
+
+<ul>
+    <li> <code><u><strong><a href="https://github.com/InductiveComputerScience/pbPlots">pbPlots</a></strong></u></code> Essa biblioteca foi utilizada para a criação de gráficos e visualizações, proporcionando uma representação visualmente atraente dos dados do supermercado. </li>
+    <li> <code><u><strong><a href="https://github.com/misc0110/colorful-printf">Colerful printf</a></strong></u></code> Essa biblioteca permitiu a impressão de texto colorido no terminal, adicionando uma experiência visual diferenciada e intuitiva para os usuários do sistema.</li>
+</ul>
+Essas bibliotecas adicionais demonstram o compromisso da equipe em utilizar tecnologias complementares para aprimorar a funcionalidade e a aparência do sistema desenvolvido.
