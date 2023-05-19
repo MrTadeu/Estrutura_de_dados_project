@@ -372,6 +372,7 @@ float atualizarSaldoCliente(ClienteStruct *pessoaEmAtendimento){
     else
         pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
     movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
+    printf("Saldo Cartao: %f\n", pessoaEmAtendimento->saldoCartaoCliente);
     return movimentoSaldoCartao;
 }
 

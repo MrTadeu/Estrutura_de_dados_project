@@ -93,7 +93,9 @@ void atenderPessoa(CaixaStruct *caixa){
             dormir(1000);
             tempo -= 1000;
         }
-        printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
+        if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
+            printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
+        }
         if (cliente->tempoEstimadoCaixa){
             cliente->tempoEstimadoCaixa--;
             caixa->tempoTotalEspera--;
@@ -208,18 +210,13 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
     CaixaStruct* melhorCaixa;
     while(pessoaEnviar != NULL){
-        
         melhorCaixa = MelhorCaixa();
         if (melhorCaixa == NULL) return;
-        /* printc("[blue]-%d-[/blue]", x++); */
         /* printc("\n\tmelhorCaixa [green]Caixa aberta! ID:%d  aberta?%d[/green]", melhorCaixa->id, melhorCaixa->aberta); */
         /* if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n\t[green]PESSSOA ADD:[/green] %s tempoDecompra: %d  [magenta]---Caixa (id) %d--->[/magenta] [red]funcionario:[/red] %s [red]Tempo de Caixa:[/red] %d\n", ((ClienteStruct*)pessoaEnviar->Info)->nome, ((ClienteStruct*)pessoaEnviar->Info)->tempoEstimadoCaixa, melhorCaixa->id, melhorCaixa->funcionario->nome, melhorCaixa->tempoTotalEspera);
         } */
 
-        //Atualizar o tempo de atraso consoante a pessoa a ser atendida no momento
-        /* ((ClienteStruct *)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct *)melhorCaixa->listaPessoas->head->Info)->tempoAtraso; */ // O FILHO DA PUTA TRAVA AQUI!!!! VER ISSO DPS
-        
         pthread_mutex_lock(&melhorCaixa->lock);
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
         melhorCaixa->tempoTotalEspera += ((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
@@ -227,10 +224,11 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
         pthread_mutex_lock(&ClientesLock);
         ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
-        printc("\n\n[green]Tempo de atraso: %f[/green]", ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso);
-        printc("\n[green]novo tempo de atraso: %f[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
+        if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
+            printc("\n\n[green]Tempo de atraso: %f[/green]", ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso);
+            printc("\n[green]novo tempo de atraso: %f[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
+        }
         pthread_mutex_unlock(&ClientesLock);
-
 
         pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
         RemElementoInicio(Global.PessoasAcabaramTempoDeCompra); 
