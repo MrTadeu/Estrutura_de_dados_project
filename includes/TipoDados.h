@@ -37,7 +37,6 @@
         void progress_update();
     #endif
 
-
     typedef struct{
         char *nome;
         int id, n_vendas, ativo;                    // A experiencia é a quantidade de vendas realizadas e influencia o salário.
@@ -116,18 +115,22 @@
         int tempoEstimadoCaixa, tempoAtraso;
         float movimentoCartaoCliente, precoTotal, valorProdutoOferecido;
         DataStruct dataTransacao;
+        //Falta struct hora
     }HistoricoSubStructInfo;
 
     typedef struct{
         char *nome;
         int id;
-        // todos os dados do clientes
-        Lista **caixas; //TransacoesHistoricoStruct
+        Lista **caixas; // vetor de listas de tipo HistoricoSubStructInfo
     }HistoricoSubStructCliente;
 
-/*     typedef struct {
-        float movimentoSaldoCartao, valorBrindeOferecido;
-    }EnviarParaHistoricoStruct; */
+    typedef struct {
+        float tempoMedioEspera, numerosCaixasAbertas, numeroMedioClienteSupercado, numeroMedioClienteFilaCadaCaixa, valorBrindeOferecido/*//*,trheadMutex Para atualizar estes dados */;
+    }DadosEstatisticosInfo;
+
+    typedef struct {
+        DadosEstatisticosInfo globais, diarios, horas, intantaneos;
+    }DadosEstatisticosStruct;
 
     typedef struct{
         Lista *historico[26];
@@ -138,6 +141,7 @@
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
     extern HistoricoStruct HistoricoDados;
+    extern DadosEstatisticosStruct dadosEstatisticos;
     extern pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
     extern ClienteStruct **Clientes;
     extern FuncionarioStruct **Funcionarios;

@@ -43,12 +43,8 @@ void verProdutos(){
 
 void pesquisarProdutoID(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    int id, invalid = 0;
-    do{
-        printf("Insira o ID do produto que pretende pesquisar: ");
-        invalid = scanf("%d", &id);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
+    int id;
+    scanfs("%d", &id, "Insira o ID do produto que pretende pesquisar: ", "Apenas pode inserir números inteiros!\n");
 
     int pos = encontrarIdProduto(id);
     if (pos == -1){
@@ -66,9 +62,7 @@ void pesquisarProdutoNome(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
     char nome[100];
-    printf("Insira o nome do produto que pretende pesquisar: ");
-    bufferclear();
-    if(scanf("%[^\n]", nome) != 1) return;
+    scanfs("%[^\n]", nome, "Insira o nome do produto que pretende pesquisar: ", "Apenas pode inserir letras!\n");
     printf("%s\n", nome);
     printf("Resultados semelhantes: \n");
     int flag = 0;
@@ -90,17 +84,14 @@ void adicionarProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
 
     char nome[100];
-    printf("Insira o nome do produto: ");
-    bufferclear();
-    if(scanf("%[^\n]", nome) != 1) return;
+    scanfs("%[^\n]", nome, "Insira o nome do produto: ", "Apenas pode inserir letras!\n");
     Produtos[n_produtos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Produtos[n_produtos].nome, nome);    
 
     int invalid = 0;
     do{
-        printf("Insira o preço do produto €: ");
-        invalid = scanf("%f", &Produtos[n_produtos].preco);
-        invalid != 1 ? printf("Apenas pode inserir números do tipo float!\n"),  bufferclear() : (void)NULL;
+        invalid = 1;
+        scanfs("%f", &Produtos[n_produtos].preco, "Insira o preço do produto €: ", "Apenas pode inserir números do tipo float!\n");
         if(Produtos[n_produtos].preco < 0){
             printc("[red]O preço não pode ser negativo![/red]\n");
             invalid = -1;
@@ -116,13 +107,8 @@ void adicionarProduto(){
 
 void editarProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    int id, invalid = 0;
-    do{
-        printf("Insira o ID do Produto que pretende editar: ");
-        invalid = scanf("%d", &id);
-        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-    invalid = 0;
+    int id;
+    scanfs("%d", &id, "Insira o ID do Produto que pretende editar: ", "Apenas pode inserir números inteiros!\n");
     int pos = encontrarIdProduto(id);
     if (pos == -1){
         printc("[red]Produto não encontrado![/red]\n");        
@@ -132,19 +118,16 @@ void editarProduto(){
         printf("\nID: %d \nNome: %s \nPreço: %.2f€", Produtos[pos].id, Produtos[pos].nome, Produtos[pos].preco);
 
         char nome[100];
-        printf("\n\nNome do produto: ");
-        bufferclear();
-        if(scanf("%[^\n]", nome) != 1) return;
+        scanfs("%[^\n]", nome, "\n\nNome do produto: ", "Apenas pode inserir letras!\n");
         free(Produtos[pos].nome);
         Produtos[pos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Produtos[pos].nome, nome);
 
         int invalid = 0;
         do{
-            printf("\nPreço do produto €: ");
-            invalid = scanf("%f", &Produtos[pos].preco);
-            invalid != 1 ? printf("[red]Apenas pode inserir números do tipo float![/red]\n"),  bufferclear() : (void)NULL;
-            if(Produtos[n_produtos].preco < 0){
+            invalid = 1;
+            scanfs("%f", &Produtos[pos].preco, "\nPreço do produto €: ", "Apenas pode inserir números do tipo float!\n");
+            if(Produtos[pos].preco < 0){
                 printc("[red]O preço não pode ser negativo![/red]\n");
                 invalid = -1;
             }
@@ -154,26 +137,23 @@ void editarProduto(){
     bufferclear();
     getchar();
 }
-
+//ver depoissssssssssss
 void removerProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     int id, invalid = 0;
-    do{
-        printf("Insira o ID do Produto que pretende remover: ");
-        invalid = scanf("%d", &id);
-        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-
+    scanfs("%d", &id, "Insira o ID do Produto que pretende remover: ", "Apenas pode inserir números inteiros!\n");
     int pos = encontrarIdProduto(id);
     if (pos == -1){
         printc("[red]Produto não encontrado![/red]\n");
     }
     else{
         free(Produtos[pos].nome);
+
         for (int i = pos; i < n_produtos - 1; i++){
             Produtos[i] = Produtos[i + 1];
         }
         n_produtos--;
+        Produtos = (ProdutoStruct*)realloc(Produtos, sizeof(ProdutoStruct) * n_produtos);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();

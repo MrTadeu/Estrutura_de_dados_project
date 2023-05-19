@@ -180,6 +180,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
         pthread_mutex_lock(&melhorCaixa->lock);
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
+        //Add info Qt pessoa instante --> threadCalculoEstatistico
         melhorCaixa->tempoTotalEspera += ((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
         pthread_mutex_unlock(&melhorCaixa->lock);
 
@@ -221,8 +222,6 @@ void *ThreadCaixa(void *arg){
         atualizarAtrasos(caixa->listaPessoas, atraso);
         pthread_mutex_unlock(&caixa->lock);
 
-        
-        
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
         float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
@@ -234,6 +233,7 @@ void *ThreadCaixa(void *arg){
         //Remover da fila
         pthread_mutex_lock(&caixa->lock);
         free(RemElementoInicio(caixa->listaPessoas)); // Free do elemento, nao da pessoa em si
+        //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_unlock(&caixa->lock);
 
 
