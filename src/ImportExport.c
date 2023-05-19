@@ -158,10 +158,8 @@ void importarDados(void (guardarDados)(char **, int, int), TipoDados tipo){
 
 int importarCount(char *filename){
     FILE *file = fopen(filename,"r");
-    char linhaString[250], *filedata;
+    char linhaString[250], *filedata = NULL;
     int n_linhas = 0;
-    int n_total_linhas = 0;
-
 
     if (!file) {
         printc("\n\n\tImpossivel abrir Ficheiro [red]%s[/red]\n\n", filename);
@@ -181,14 +179,23 @@ int importarCount(char *filename){
         }
         
         if(count == 1 &&  n_linhas == 0){
-            n_total_linhas = atoi(filedata);
+            n_linhas = atoi(filedata);
+            free(filedata);
             fclose(file);
-            return n_total_linhas;
+            return n_linhas;
+        }
+
+        if(count == 0 &&  n_linhas == 0){
+            free(filedata);
+            fclose(file);
+            return 0;
         }
 
         n_linhas++;
+        if (filedata != NULL) {
+            free(filedata);
+        }
     }
-    free(filedata);
     fclose(file);
     return n_linhas;
 }

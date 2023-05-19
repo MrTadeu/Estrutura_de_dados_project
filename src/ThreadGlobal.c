@@ -74,16 +74,28 @@ void changeStateThreadGlobal(){
         Elemento *CaixaElm = Global.caixas->head;
         for (int i = 0; i < Opcoes.numCaixasAbertas; i++){
             CaixaStruct *caixa = (CaixaStruct *)CaixaElm->Info;
+            printf("\nEntrou i: %d", i);
             if(n_funcionariosAtivos >= n_funcionarios){
+                printf("\nola %d",i );
+               /*  printf("\nola id %d", ((CaixaStruct *)CaixaElm->Info)->id); */
+                getchar();
+                getchar();
                 caixa->aberta = 0;
                 caixa->funcionario = NULL;
+                printf("wtffff");
             }
             else{
+                printf("\nElse i: %d n_funcionarios : %d", i, n_funcionarios);
+                getchar();
+                getchar();	
                 caixa->aberta = 1;
                 caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
             }
+            printf("\nNext i: %d", i);
             CaixaElm = CaixaElm->next; 
+            printf("\nStill Next i: %d", i);
             if(CaixaElm == NULL){
+                printf("\nBreak i: %d", i);
                 break;
             }
         }
