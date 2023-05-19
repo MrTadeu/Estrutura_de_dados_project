@@ -41,7 +41,7 @@ int CriarGrafico(){
         DeleteImage(canvasReference->image);
 	}else{
 	    fprintf(stderr, "Error: ");
-	    for(int i = 0; i < errorMessage->stringLength; i++){
+	    for(int i = 0; i < (int)errorMessage->stringLength; i++){
             fprintf(stderr, "%c", errorMessage->string[i]);
         }
         fprintf(stderr, "\n");

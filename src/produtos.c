@@ -140,7 +140,7 @@ void editarProduto(){
 //ver depoissssssssssss
 void removerProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    int id, invalid = 0;
+    int id;
     scanfs("%d", &id, "Insira o ID do Produto que pretende remover: ", "Apenas pode inserir números inteiros!\n");
     int pos = encontrarIdProduto(id);
     if (pos == -1){

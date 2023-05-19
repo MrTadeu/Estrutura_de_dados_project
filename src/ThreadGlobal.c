@@ -114,6 +114,6 @@ void changeStateThreadGlobal(){
 }
 
 
-void *threadCalculoEstatistico(void* args){
+/* void *threadCalculoEstatistico(void* args){
 
-}
+} */

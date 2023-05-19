@@ -1,5 +1,10 @@
 /* Downloaded from https://repo.progsbase.com - Code Developed Using progsbase. */
 /* ../includes/*/
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wuninitialized"
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 #include "../includes/pbPlots.h"
 
 _Bool CropLineWithinBoundary(NumberReference *x1Ref, NumberReference *y1Ref, NumberReference *x2Ref, NumberReference *y2Ref, double xMin, double xMax, double yMin, double yMax){
@@ -7098,3 +7103,4 @@ void AppendBitsToBytesRight(double *bytes, size_t bytesLength, NumberReference *
   }
 }
 
+#pragma GCC diagnostic pop
