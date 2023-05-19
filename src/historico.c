@@ -5,7 +5,7 @@ void initHistorico(){
         HistoricoDados.historico[i] = criarLista();
 }
 
-void initDadosEstatisticosStruct
+/* void initDadosEstatisticosStruct */
 
 int alfabetoIndex(char *nome){
     if(!nome){
@@ -89,6 +89,6 @@ void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valo
        
 }
 
-void atualizarDadosEstatisticos(){
+/* void atualizarDadosEstatisticos(){
     dadosEstatisticos.intantaneos = 
-}
+} */

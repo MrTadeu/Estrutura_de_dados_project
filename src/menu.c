@@ -20,6 +20,7 @@ void menu(){
         printc("**        [blue]%d [/blue]-> Menu Produtos                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Transações                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Historico                    **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver CriarGrafico                 **\n", i++);
         printc("**************************************************\n");
         printc("Qual a opção que pretende? ");
         scanf("%d", &opcao);
@@ -52,6 +53,12 @@ void menu(){
         }
         if (opcao == i++){
             editarVerTransacoes();
+        }
+        if (opcao == i++){
+            /* VerHistorico(); */
+        }
+        if (opcao == i++){
+            CriarGrafico();
         }
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     } while (opcao != 0);

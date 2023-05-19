@@ -4,7 +4,7 @@
 #	action
 #--------------------------------------------------------------------------------------------------
 CC = gcc
-CFLAGS = -o3 -Wall -Wextra
+CFLAGS = -O3 -Wall -Wextra -std=c99 -march=native
 #--------------------------------------------------------------------------------------------------
 #----------------------DIRETÓRIOS------------------------------------------------------------------
 #INCLUDES_DIR = includes
@@ -33,7 +33,7 @@ $(PROGRAM): $(OBJ)
 
 # isto vai criar um arquivo .o para cada arquivo .c || a opção -c é para não criar um executavel e sim um arquivos  .o ou seja compilar individualmente
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) -c $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -c $^ -o $@ 
 
 # .PHONY - Não é um arquivo, é um comando usado para não dar erro de arquivo não encontrado
 .PHONY: setup

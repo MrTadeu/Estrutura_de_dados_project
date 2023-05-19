@@ -125,7 +125,7 @@
     }HistoricoSubStructCliente;
 
     typedef struct {
-        float tempoMedioEspera, numerosCaixasAbertas, numeroMedioClienteSupercado, numeroMedioClienteFilaCadaCaixa, valorBrindeOferecido/*//*,trheadMutex Para atualizar estes dados */;
+        float tempoMedioEspera, numerosCaixasAbertas, numeroMedioClienteSupercado, numeroMedioClienteFilaCadaCaixa; //*,trheadMutex Para atualizar estes dados
     }DadosEstatisticosInfo;
 
     typedef struct {
@@ -148,6 +148,8 @@
     extern ProdutoStruct *Produtos;
     extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
+
+    int CriarGrafico();
     //menu.c
     void menu();
     void menuClientes();
