@@ -37,7 +37,6 @@
         void progress_update();
     #endif
 
-
     typedef struct{
         char *nome;
         int id, n_vendas, ativo;                    // A experiencia é a quantidade de vendas realizadas e influencia o salário.
@@ -110,13 +109,12 @@
     typedef struct{
         char *nome;
         int id;
-        // todos os dados do clientes
-        Lista **caixas; //TransacoesHistoricoStruct
+        Lista **caixas; // vetor de listas de tipo HistoricoSubStructInfo
     }HistoricoSubStructCliente;
 
-/*     typedef struct {
-        float movimentoSaldoCartao, valorBrindeOferecido;
-    }EnviarParaHistoricoStruct; */
+    typedef struct {
+        float tempoMedioEspera, numerosCaixasAbertas, numeroMedioclientes no hipermercado, valorBrindeOferecido;
+    }DadosEstatisticosStruct;
 
     typedef struct{
         Lista *historico[26];
@@ -127,6 +125,7 @@
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
     extern HistoricoStruct HistoricoDados;
+    extern DadosEstatisticosStruct dadosEstatisticosGlobais, dadosEstatisticosDiarios;
     extern pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
     extern ClienteStruct **Clientes;
     extern FuncionarioStruct **Funcionarios;

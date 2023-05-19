@@ -217,8 +217,6 @@ void *ThreadCaixa(void *arg){
         atualizarAtrasos(caixa->listaPessoas, atraso);
         pthread_mutex_unlock(&caixa->lock);
 
-        
-        
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
         float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
