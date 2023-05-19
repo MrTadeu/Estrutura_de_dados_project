@@ -49,8 +49,9 @@ void atenderPessoa(CaixaStruct *caixa){
     ClienteStruct *cliente = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
     cliente->tempoEstimadoFila = 0;
-    float tempoEstimadoCaixaAux = cliente->tempoEstimadoCaixa, tempoAtrasoAux = cliente->tempoAtraso;
-    int tempo = (int) (cliente->tempoEstimadoCaixa + cliente->tempoAtraso)*1000;
+    int tempoEstimadoCaixaAux = cliente->tempoEstimadoCaixa, 
+    tempoAtrasoAux = cliente->tempoAtraso,
+    tempo = cliente->tempoEstimadoCaixa + cliente->tempoAtraso;
 
     while(tempo){
         if(tempo < 1000){
@@ -187,8 +188,8 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         pthread_mutex_lock(&ClientesLock);
         ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
-            printc("\n\n[green]Tempo de atraso: %f[/green]", ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso);
-            printc("\n[green]novo tempo de atraso: %f[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
+            printc("\n\n[green]Tempo de atraso: %d[/green]", ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso);
+            printc("\n[green]novo tempo de atraso: %d[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
         }
         pthread_mutex_unlock(&ClientesLock);
 
@@ -204,8 +205,8 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
-    int n_vendas = 0;
-    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, valorProdutoOferecido = 0.0, atraso;
+    int n_vendas = 0, atrasoMaximo, atrasoMedio = 0, atrasoSum = 0;
+    float valorProdutoOferecido = 0.0, atraso;
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
@@ -216,7 +217,7 @@ void *ThreadCaixa(void *arg){
             valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
 
         //ATRASOS ATUALIZADOS
-        atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
+        atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa / Opcoes.percentagemParaAtraso;
         atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
         pthread_mutex_lock(&caixa->lock);
         atualizarAtrasos(caixa->listaPessoas, atraso);
