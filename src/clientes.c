@@ -407,11 +407,9 @@ float oferecerBrinde(ClienteStruct *cliente){
         aux = aux->next;
     }
     cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
+    printc("[red]ID Produto: %f[/red]", ((ProdutoStruct*)produtoOferecido->Info)->nome);
     printc("[red]Preco novo: %f[/red]", cliente->precoTotalProdutos);
 
-    if(((ProdutoStruct*)produtoOferecido->Info)->quantidadeProdutosRepetidos > 1)   // Remove um desses produtos do carrinho
-        ((ProdutoStruct*)produtoOferecido->Info)->quantidadeProdutosRepetidos--;
-    else                                                                            // ou remove o unico produto
-        destruirElemento(RemElementoPesquisa(cliente->listaProdutos, produtoOferecido, compareProduto), destruirProduto);   
+    ((ProdutoStruct*)produtoOferecido->Info)->oferecido = 1;
     return precoMin;
 }

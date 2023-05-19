@@ -17,8 +17,8 @@ void importOpcoes(){
         Opcoes.numCaixasAbertas = 0;
         Opcoes.probGerarPessoa = 100;
         Opcoes.probUsarSaldoCartao = 30;
-        Opcoes.percentagemPrecoAngariarSaldo = 0.05;
-        Opcoes.percentagemParaAtraso = 0.05;
+        Opcoes.percentagemPrecoAngariarSaldo = 0.2;
+        Opcoes.percentagemParaAtraso = 0.2;
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 0;
@@ -87,6 +87,7 @@ void importarProdutos(char **linhaString, int n_linha, int n_colunas){
     if(n_colunas == 5){
         Produtos[n_linha].id = atoi(linhaString[0]);
         Produtos[n_linha].quantidadeProdutosRepetidos = 1;
+        Produtos[n_linha].oferecido = 0;
         Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
         strcpy(Produtos[n_linha].nome, linhaString[1]);
         Produtos[n_linha].preco = atof(linhaString[2]);

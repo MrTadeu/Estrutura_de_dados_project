@@ -227,7 +227,8 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
         pthread_mutex_lock(&ClientesLock);
         ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
-        printc("[green]novo tempo de atraso: %f[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
+        printc("\n\n[green]Tempo de atraso: %f[/green]", ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso);
+        printc("\n[green]novo tempo de atraso: %f[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
         pthread_mutex_unlock(&ClientesLock);
 
 
@@ -243,23 +244,25 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
-    int atraso, n_vendas = 0;
-    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, valorProdutoOferecido = 0.0;
+    int n_vendas = 0;
+    float atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, valorProdutoOferecido = 0.0, atraso;
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         /* fecharUrgencia(caixa->listaPessoas); */
-        atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
-        atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
+        
+        if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
+            valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
 
         //ATRASOS ATUALIZADOS
+        atrasoMaximo = pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso;
+        atraso = 999.0;/* Aleatorio(-atrasoMaximo, atrasoMaximo); */
         pthread_mutex_lock(&caixa->lock);
         atualizarAtrasos(caixa->listaPessoas, atraso);
         pthread_mutex_unlock(&caixa->lock);
 
-        if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
-            valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
+        
         
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
         float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);

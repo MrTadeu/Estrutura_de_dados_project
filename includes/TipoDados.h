@@ -53,7 +53,7 @@
     }CaixaStruct;
 
     typedef struct{
-        int id, quantidadeProdutosRepetidos;
+        int id, quantidadeProdutosRepetidos, oferecido;
         char *nome;
         float preco, tempoCompra, tempoCaixa;
     }ProdutoStruct;
