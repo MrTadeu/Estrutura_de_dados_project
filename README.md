@@ -73,14 +73,14 @@ Uma vez que o Makefile tenha sido instalado com sucesso e você esteja na mesma 
 # Créditos do trabalho
 <table align="center" dir="auto" cellpadding="10">
 <tr>
-    <th style="padding: 10px;"><strong><code><a href="https://github.com/MrTadeu">Benno Vasconcellos</a></strong></code></th>
-    <th style="padding: 10px;"><strong><code><a href="https://github.com/j-falcao2002">João Falcão</a></strong></code></th>
-    <th style="padding: 10px;"><strong><code><a href="https://github.com/GamerPedro4K">Pedro Tavares</a></strong></code></th>
+    <th style="padding: 10px;"><strong><code><a href="https://github.com/MrTadeu" target="_blank" rel="external">Benno Vasconcellos</a></strong></code></th>
+    <th style="padding: 10px;"><strong><code><a href="https://github.com/j-falcao2002" target="_blank" rel="external">João Falcão</a></strong></code></th>
+    <th style="padding: 10px;"><strong><code><a href="https://github.com/GamerPedro4K" target="_blank" rel="external">Pedro Tavares</a></strong></code></th>
 </tr>
 <tr>
-    <td style="padding: 10px;"><a href="https://github.com/MrTadeu"><img src="https://avatars.githubusercontent.com/u/88338924?s=400&u=64b00b7a1d1374dd6626dcbdd205f6bb43254228&v=4" width="150"></a></td>
-    <td style="padding: 10px;"><a href="https://github.com/j-falcao2002"><img src="https://avatars.githubusercontent.com/u/100717304?v=4" width="150"></a></td>
-    <td style="padding: 10px;"><a href="https://github.com/GamerPedro4K"><img src="https://avatars.githubusercontent.com/u/46647486?v=4" width="150"></a></td>
+    <td style="padding: 10px;"><a href="https://github.com/MrTadeu" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/88338924?s=400&u=64b00b7a1d1374dd6626dcbdd205f6bb43254228&v=4" width="150"></a></td>
+    <td style="padding: 10px;"><a href="https://github.com/j-falcao2002" target="_blank" rel="external"><img src="https://avatars.githubusercontent.com/u/100717304?v=4" width="150"></a></td>
+    <td style="padding: 10px;" target="_blank" rel="external"><a href="https://github.com/GamerPedro4K"><img src="https://avatars.githubusercontent.com/u/46647486?v=4" width="150"></a></td>
     
 </tr>
 </table>
