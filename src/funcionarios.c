@@ -114,12 +114,8 @@ void pesquisarFuncionariosNome(){
 void editarFuncionarios(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     int id, invalid = 0;
-    do{
-        printf("Insira o ID do funcionario que pretende editar: ");
-        invalid = scanf("%d", &id);
-        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-
+    scanfs("%d", &id, "Insira o ID do funcionario que pretende editar: ", "Apenas pode inserir números inteiros!\n");
+    
     int pos = encontrarIdFuncionario(id);
     if (pos == -1){
         printc("[red]\nFuncionario não encontrado![/red]\n");
@@ -132,9 +128,8 @@ void editarFuncionarios(){
         printf("\nID: %d \nNome: %s \nSalario: %.2f€ \nNumero Vendas: %d \nAtraso medio: %.2f \nBonus: %.2f", Funcionarios[pos]->id, Funcionarios[pos]->nome, (getNivelFuncionario(Funcionarios[pos])).salario, Funcionarios[pos]->n_vendas, Funcionarios[pos]->atrasoMedio, getBonusFuncionario(Funcionarios[pos]));
 
         char nome[100];
-        printf("\n\nNome do funcionario: ");
-        bufferclear();
-        if(scanf("%[^\n]", nome) != 1) return;
+        /* bufferclear(); */
+        scanfs("%[^\n]", &nome, "\n\nNome do funcionario: ", "\nInput invalido, tente novamente: ");
         free(Funcionarios[pos]->nome);
         Funcionarios[pos]->nome = malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Funcionarios[pos]->nome, nome);

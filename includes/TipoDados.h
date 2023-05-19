@@ -247,6 +247,7 @@
     int PesquisaParecido(char *str1, char *str2);
     void bufferclear();
     int validarData(DataStruct date, int minAno, int maxAno);
+    void scanfs(const char* formato, void *DataScanf, char *MensagemRepitida, char *AvisoError);
     
     //ThreadGlobal.c
     void changeStateThreadGlobal();
