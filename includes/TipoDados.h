@@ -115,6 +115,7 @@
         int tempoEstimadoCaixa, tempoAtraso;
         float movimentoCartaoCliente, precoTotal, valorProdutoOferecido;
         DataStruct dataTransacao;
+        //Falta struct hora
     }HistoricoSubStructInfo;
 
     typedef struct{
@@ -124,7 +125,11 @@
     }HistoricoSubStructCliente;
 
     typedef struct {
-        float tempoMedioEspera, numerosCaixasAbertas, numeroMedioclientes no hipermercado, valorBrindeOferecido;
+        float tempoMedioEspera, numerosCaixasAbertas, numeroMedioClienteSupercado, numeroMedioClienteFilaCadaCaixa, valorBrindeOferecido/*//*,trheadMutex Para atualizar estes dados */;
+    }DadosEstatisticosInfo;
+
+    typedef struct {
+        DadosEstatisticosInfo globais, diarios, horas, intantaneos;
     }DadosEstatisticosStruct;
 
     typedef struct{
@@ -136,7 +141,7 @@
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
     extern HistoricoStruct HistoricoDados;
-    extern DadosEstatisticosStruct dadosEstatisticosGlobais, dadosEstatisticosDiarios;
+    extern DadosEstatisticosStruct dadosEstatisticos;
     extern pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
     extern ClienteStruct **Clientes;
     extern FuncionarioStruct **Funcionarios;

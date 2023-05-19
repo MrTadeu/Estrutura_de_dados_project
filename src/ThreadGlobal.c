@@ -100,3 +100,8 @@ void changeStateThreadGlobal(){
         Opcoes.lojaAberta = 0;
     }
 }
+
+
+void *threadCalculoEstatistico(void* args){
+
+}

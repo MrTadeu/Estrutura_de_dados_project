@@ -5,7 +5,7 @@
 OpcaoStruct Opcoes;
 GlobalStruct Global;
 HistoricoStruct HistoricoDados; 
-DadosEstatisticosStruct dadosEstatisticosGlobais, dadosEstatisticosDiarios;
+DadosEstatisticosStruct dadosEstatisticos;
 pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
 ClienteStruct **Clientes;
 FuncionarioStruct **Funcionarios;
