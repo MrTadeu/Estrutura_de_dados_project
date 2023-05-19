@@ -1,6 +1,6 @@
 5
-737866	Marisa Almada Castanheira	0.000000	30	9	1955
-191530	Joana Martins Pinheiro	0.000000	16	4	2001
-439179	Bernardo Moreira Carreira	0.000000	4	8	1930
-451659	Daniel Cipriano Barbosa	0.000000	11	1	1986
-274754	Leonor Andrade Estrela	0.000000	15	8	1931
+274754	Leonor Andrade Estrela	0.000000	21	12	1951
+737866	Marisa Almada Castanheira	0.000000	16	5	1950
+191530	Joana Martins Pinheiro	0.000000	15	10	1974
+451659	Daniel Cipriano Barbosa	0.000000	19	11	1966
+439179	Bernardo Moreira Carreira	0.000000	14	4	1988
