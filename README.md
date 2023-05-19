@@ -92,4 +92,5 @@ Para aprimorar ainda mais o sistema, foram utilizadas bibliotecas adicionais, qu
     <li> <code><u><strong><a href="https://github.com/InductiveComputerScience/pbPlots">pbPlots</a></strong></u></code> Essa biblioteca foi utilizada para a criação de gráficos e visualizações, proporcionando uma representação visualmente atraente dos dados do supermercado. </li>
     <li> <code><u><strong><a href="https://github.com/misc0110/colorful-printf">Colerful printf</a></strong></u></code> Essa biblioteca permitiu a impressão de texto colorido no terminal, adicionando uma experiência visual diferenciada e intuitiva para os usuários do sistema.</li>
 </ul>
+<br>
 Essas bibliotecas adicionais demonstram o compromisso da equipe em utilizar tecnologias complementares para aprimorar a funcionalidade e a aparência do sistema desenvolvido.
