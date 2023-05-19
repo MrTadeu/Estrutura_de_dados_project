@@ -64,7 +64,7 @@ void atenderPessoa(CaixaStruct *caixa){
             dormir(1000);
             tempo -= 1000;
         } */
-        
+
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
         }
@@ -209,7 +209,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
     int n_vendas = 0, atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, atraso;
-    float valorProdutoOferecido = 0.0, ;
+    float valorProdutoOferecido = 0.0;
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){

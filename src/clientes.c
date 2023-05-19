@@ -347,7 +347,7 @@ void destruirCliente(void *Cliente){
 float oferecerBrinde(ClienteStruct *cliente){
     printc("\n\n[red]BRINDE[/red]");
     printc("[red]Preco antigo: %f[/red]", cliente->precoTotalProdutos);
-    Elemento *aux = cliente->listaProdutos->head, *produtoOferecido;
+    Elemento *aux = cliente->listaProdutos->head, *produtoOferecido = aux;
     float precoMin = ((ProdutoStruct*)aux->Info)->preco;
 
     while(aux){

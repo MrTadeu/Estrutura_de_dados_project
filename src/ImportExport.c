@@ -236,7 +236,7 @@ void guardarClienteTxt(FILE *file, int i){
 }
 
 void guardarFuncionarioTxt(FILE *file, int i){
-    fprintf(file, "\n%d\t%s\t%d\t%f", Funcionarios[i]->id, Funcionarios[i]->nome, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio);
+    fprintf(file, "\n%d\t%s\t%d\t%d", Funcionarios[i]->id, Funcionarios[i]->nome, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio);
 }
 
 void guardarProdutoTxt(FILE *file, int i){
