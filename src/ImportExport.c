@@ -18,7 +18,7 @@ void importOpcoes(){
         Opcoes.probGerarPessoa = 100;
         Opcoes.probUsarSaldoCartao = 30;
         Opcoes.percentagemPrecoAngariarSaldo = 0.2;
-        Opcoes.percentagemParaAtraso = 0.2;
+        Opcoes.percentagemParaAtraso = 20;
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 0;
@@ -30,12 +30,12 @@ void importOpcoes(){
         Opcoes.nivelFuncionario[1].salario = 900.0;
         Opcoes.nivelFuncionario[2].salario = 950.0;
         Opcoes.eurosPorSegundoAdiantamentoFuncinario = 0.5; //!VER MELHOR ESTE VALOR
-        Opcoes.TempoLimiteInferior = 180;
-        Opcoes.TempoLimiteSuperior = 200;
+        Opcoes.TempoLimiteInferior = 1800;
+        Opcoes.TempoLimiteSuperior = 2000;
         Opcoes.QuantMinProd = 1;
         Opcoes.QuantMaxProd = 20;
         Opcoes.multiplicadorTempo = 1.0; //*Quanto menor, mais depressa o tempo decorre
-        Opcoes.tempoAtrasoMaximoBrinde = 900; // *15 minutos
+        Opcoes.tempoAtrasoMaximoBrinde = 9000; // *15 minutos
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;
@@ -91,8 +91,8 @@ void importarProdutos(char **linhaString, int n_linha, int n_colunas){
         Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
         strcpy(Produtos[n_linha].nome, linhaString[1]);
         Produtos[n_linha].preco = atof(linhaString[2]);
-        Produtos[n_linha].tempoCompra = atof(linhaString[3]);
-        Produtos[n_linha].tempoCaixa = atof(linhaString[4]);
+        Produtos[n_linha].tempoCompra = (int) atof(linhaString[3])*1000;
+        Produtos[n_linha].tempoCaixa = (int) atof(linhaString[4])*1000;
     }
 }
 
@@ -240,7 +240,8 @@ void guardarFuncionarioTxt(FILE *file, int i){
 }
 
 void guardarProdutoTxt(FILE *file, int i){
-    fprintf(file, "\n%d\t%s\t%f\t%f\t%f", Produtos[i].id, Produtos[i].nome, Produtos[i].preco, Produtos[i].tempoCompra, Produtos[i].tempoCaixa);
+    float tempoCompra = Produtos[i].tempoCompra/1000, tempoCaixa = Produtos[i].tempoCaixa/1000;
+    fprintf(file, "\n%d\t%s\t%f\t%f\t%f", Produtos[i].id, Produtos[i].nome, Produtos[i].preco, tempoCompra, tempoCaixa);
 }
 
 void exportarOpcoes(){

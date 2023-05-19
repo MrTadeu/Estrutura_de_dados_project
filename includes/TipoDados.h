@@ -45,16 +45,16 @@
 
     typedef struct{
         int id, aberta, fecharUrgencia;
-        float tempoTotalEspera;             // tempoEstimadoCaixa += tempoEstimadoCaixa
+        int tempoTotalEspera;             // tempoEstimadoCaixa += tempoEstimadoCaixa
         FuncionarioStruct *funcionario;
         Lista *listaPessoas;
         pthread_mutex_t lock;
     }CaixaStruct;
 
     typedef struct{
-        int id, quantidadeProdutosRepetidos, oferecido;
+        int id, quantidadeProdutosRepetidos, oferecido, tempoCompra, tempoCaixa;
         char *nome;
-        float preco, tempoCompra, tempoCaixa;
+        float preco;
     }ProdutoStruct;
 
     typedef struct{
@@ -67,10 +67,10 @@
         DataStruct dataNascimento;      // guests: -1/-1/-1
         float saldoCartaoCliente;       // guests: -1 | clientes: angariado a cada compra e pode ser usado em qualquer uma das compras
 
-        float tempoEstimadoCompra;      // soma do tempo de compra dos proprios produtos
-        float tempoEstimadoCaixa;       // soma do tempo de caixa dos proprios produtos
-        float tempoEstimadoFila;        // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila (== ao tempoTotalEspera)
-        float tempoAtraso;              // soma do atraso aleatorio de cada pessoa a sua frente
+        int tempoEstimadoCompra;      // soma do tempo de compra dos proprios produtos
+        int tempoEstimadoCaixa;       // soma do tempo de caixa dos proprios produtos
+        int tempoEstimadoFila;        // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila (== ao tempoTotalEspera)
+        int tempoAtraso;              // soma do atraso aleatorio de cada pessoa a sua frente
 
         Lista *listaProdutos;           // lista dos produtos
         float precoTotalProdutos;        
@@ -94,8 +94,9 @@
             TempoLimiteInferior, 
             QuantMaxProd, 
             QuantMinProd, 
-            tempoAtrasoMaximoBrinde;
-        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo, multiplicadorTempo;
+            tempoAtrasoMaximoBrinde,
+            percentagemParaAtraso;
+        float eurosPorSegundoAdiantamentoFuncinario, percentagemPrecoAngariarSaldo, multiplicadorTempo;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
 

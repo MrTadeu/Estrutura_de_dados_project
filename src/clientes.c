@@ -27,7 +27,7 @@ void verClientesEmLoja(){
     }else{
         printc("[yellow]Listar Todos Clientes na Loja:[/yellow]\n");
         for(int i = 0; i < n_clientesAtivos; i++){
-            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d Tempo Compra: %.2f Tempo Caixa: %.2f", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano, Clientes[i]->tempoEstimadoCompra, Clientes[i]->tempoEstimadoCaixa);
+            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d Tempo Compra: %d Tempo Caixa: %d", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano, Clientes[i]->tempoEstimadoCompra, Clientes[i]->tempoEstimadoCaixa);
         }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -55,7 +55,7 @@ void verClientesCaixa(){
         Elemento *Caixa = Global.caixas->head;
         while(Caixa){
             if(((CaixaStruct *)Caixa->Info)->aberta == 1 /* || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL */){
-                printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %.2fs [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
+                printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %ds [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
             }
             else{
                 printc("[red]%d ºCaixa FECHADA[/red]\n", ((CaixaStruct *)Caixa->Info)->id);
@@ -63,11 +63,11 @@ void verClientesCaixa(){
             Elemento *Cliente = ((CaixaStruct *)Caixa->Info)->listaPessoas->head;
             while (Cliente){
                 ClienteStruct ClienteInfo = *((ClienteStruct *)Cliente->Info);
-                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %.2f TempoEstimadoCaixa: %.2f tempoEstimadoCompra: %.2f precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, ClienteInfo.tempoAtraso, ClienteInfo.tempoEstimadoCaixa, ClienteInfo.tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
+                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %d TempoEstimadoCaixa: %d tempoEstimadoCompra: %d precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, ClienteInfo.tempoAtraso, ClienteInfo.tempoEstimadoCaixa, ClienteInfo.tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
                 Elemento *Produtos = ClienteInfo.listaProdutos->head;
                 while(Produtos){
                     ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
-                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue] tempoCaixa:%f", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco, ProdutoInfo->tempoCaixa);
+                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue] tempoCaixa:%d", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco, ProdutoInfo->tempoCaixa);
                     Produtos = Produtos->next;
                 }
                 printf("\n");
