@@ -142,6 +142,8 @@
     void menuPesquisarClientes();
     void menuPesquisarFuncionarios();
     void menuPesquisarProduto();
+    int menuvalidarCaixaFuncionarios();
+    int menuResolverCaixaFuncionario();
 
     //opcoes.c
     void editarNumCaixas();
@@ -179,6 +181,7 @@
     void atenderPessoa(CaixaStruct *caixa);
     void criarCaixaInit();
     void *ThreadCaixa(void *arg);
+    void removerCaixa();
 
     //funcionarios.c
     int encontrarIdFuncionario(int id);

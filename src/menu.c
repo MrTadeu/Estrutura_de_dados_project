@@ -1,7 +1,6 @@
 #include "../includes/TipoDados.h"
 
 void menu(){
-    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     int opcao;
     do{
         int i = 0;
@@ -212,6 +211,7 @@ void menuFuncionarios(){
             menuPesquisarFuncionarios();
         }
         if (opcao == i++){
+            fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
             adicionarFuncionario();
         }
         if (opcao == i++){
@@ -314,4 +314,77 @@ void menuPesquisarProduto(){
     default:
         break;
     }
+}
+
+
+int menuvalidarCaixaFuncionarios(){
+    if( n_funcionarios < Opcoes.numCaixasTotal){
+        int opcao;
+        do{
+            fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+            int i = 1;
+            printc("\n[yellow]AVISO:[/yellow] Não existem funcionários suficientes para todas as caixa! \nQuando o limite de funcionários for atingido não poderão ser abertas mais caixas automaticamente. \nPara resolver isso contrate mais funcionários, ou diminua número de caixas totais!\n\n");
+            printc("**************************************************\n");
+            printc("**        [blue]%d [/blue]-> Abrir Loja                       **\n", i++);
+            printc("**        [blue]%d [/blue]-> Fechar Loja                      **\n", i++);
+            printc("**        [blue]%d [/blue]-> Resolver Problema                **\n", i++);
+            printc("**************************************************\n");
+            printc("Qual a opção que pretende? ");
+            scanf("%d", &opcao);
+
+            i = 1;
+            if (opcao == i++){
+                opcao = 0;
+            }
+            if (opcao == i++){
+                return 0;
+            }
+            if (opcao == i++){
+                if(menuResolverCaixaFuncionario() != -1){
+                    opcao = 0;
+                }
+            }
+        } while (opcao != 0);
+    }
+    return 1;
+}
+
+int menuResolverCaixaFuncionario(){
+    int opcao;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        int i = 1;
+        printc("************************************************************\n");
+        printc("****************     [blue]Menu Resolver Problema[/blue]    *************\n");
+        printc("************************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                                     **\n", i++);
+        printc("**        [blue]%d [/blue]-> Adicionar Funcionarios necessarios         **\n", i++);
+        printc("**        [blue]%d [/blue]-> Remover Caixas necessarias                 **\n", i++);
+        printc("************************************************************\n");
+        printc("Qual a opção que pretende? ");
+        scanf("%d", &opcao);
+
+        i = 1;
+        if (opcao == i++){
+            return -1;
+        }
+        if (opcao == i++){
+            for(int i = n_funcionarios; i < Opcoes.numCaixasTotal; i++){
+                fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+                printc("\nFaltam [red]%d[/red]\n\n", Opcoes.numCaixasTotal - i);
+                adicionarFuncionario();
+                opcao = 0;
+                fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+            }
+        }
+        if (opcao == i++){
+            for(int i = Opcoes.numCaixasTotal; i > n_funcionarios; i--){
+                fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+                printf("\nSobram [red]%d[/red]", i - n_funcionarios);
+                removerCaixa();
+                opcao = 0;
+            }
+        }
+    } while (opcao != 0);
+    return 1;
 }

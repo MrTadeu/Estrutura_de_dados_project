@@ -63,7 +63,7 @@ void verClientesCaixa(){
             Elemento *Cliente = ((CaixaStruct *)Caixa->Info)->listaPessoas->head;
             while (Cliente){
                 ClienteStruct ClienteInfo = *((ClienteStruct *)Cliente->Info);
-                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d[/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano);
+                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %.2f TempoEstimadoCaixa: %.2f tempoEstimadoCompra: %.2f precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, ClienteInfo.tempoAtraso, ClienteInfo.tempoEstimadoCaixa, ClienteInfo.tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
                 Elemento *Produtos = ClienteInfo.listaProdutos->head;
                 while(Produtos){
                     ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
@@ -333,6 +333,7 @@ ClienteStruct *escolherCliente(){
         n_clientesAtivos++;
         pthread_mutex_unlock(&ClientesLock);
     }
+
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente);
     calculos_TempoPreco_Cliente(cliente);
