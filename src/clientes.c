@@ -83,13 +83,10 @@ void verClientesCaixa(){
 }
 
 void pesquisarClienteID(){
-    int id , flag = 0, invalid = 0;
+    int id , flag = 0;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    do{
-        printc("Insira o ID do cliente que pretende pesquisar: ");
-        invalid = scanf("%d", &id);
-        invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
+    scanfs("%d", &id, "\nInsira o ID do cliente que pretende pesquisar: ", "\nApenas pode inserir números inteiros!");
+
     for(int i = 0; i < n_clientes; i++){
         if(Clientes[i]->id == id){
             flag = 1;
@@ -107,9 +104,8 @@ void pesquisarClienteID(){
 void pesquisarClienteNome(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     char nome[100];
-    printf("Insira o nome do cliente que pretende pesquisar: ");
-    bufferclear();
-    if(scanf("%[^\n]", nome) != 1) return;
+    scanfs("%[^\n]", &nome, "\nInsira o nome do cliente que pretende pesquisar: ", "\nInput invalido, tente novamente: ");
+
     printc("\n[blue]Resultados semelhantes:[/blue] \n");
     int flag = 0;
     for (int i = 0; i < n_clientes; i++){
@@ -136,19 +132,14 @@ void adicionarCliente(){
     printc("[blue]Introduza os dados do Cliente:[/blue]\n");
     printc("\n\n[yellow]ID CLIENTE: %d[/yellow]\n", Clientes[n_clientes]->id);
     
-    printc("\nNome: ");
-    bufferclear();
-    if(scanf("%[^\n]", nome) != 1) return;
+    scanfs("%[^\n]", &nome, "\nNome: ", "\nInput invalido, tente novamente: ");
+
     Clientes[n_clientes]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
     strcpy(Clientes[n_clientes]->nome, nome);
 
     do{
-        printf("\nSaldo do cliente: ");
-        invalid = scanf("%f", &Clientes[n_clientes]->saldoCartaoCliente);
-        if(invalid != 1){
-            printc("[red]Apenas pode inserir números![/red]\n");
-            bufferclear();
-        }
+        scanfs("%f", &Clientes[n_clientes]->saldoCartaoCliente, "\nSaldo do cliente: ", "\nApenas pode inserir flutuantes!");
+
         if(Clientes[n_clientes]->saldoCartaoCliente <= 0){
             printc("[red]Saldo do cliente >= 0[/red]\n");
             bufferclear();
@@ -163,24 +154,9 @@ void adicionarCliente(){
         if(invalidDate >=2){
             printc("\n[red]Data Invalida![/red]\n");
         }
-        invalid = 0;
-        do{
-            printc("\nDia: ");
-            invalid = scanf("%d", &Clientes[n_clientes]->dataNascimento.dia);
-            invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-        }while(invalid != 1);
-        invalid = 0;
-        do{
-            printc("\nMês: ");
-            invalid = scanf("%d", &Clientes[n_clientes]->dataNascimento.mes);
-            invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-        }while(invalid != 1);
-        invalid = 0;
-        do{
-            printc("\nAno: ");
-            invalid = scanf("%d", &Clientes[n_clientes]->dataNascimento.ano);
-            invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-        }while(invalid != 1);
+        scanfs("%d", &Clientes[n_clientes]->dataNascimento.dia, "\nDia: ", "\nApenas pode inserir números inteiros!");
+        scanfs("%d", &Clientes[n_clientes]->dataNascimento.mes, "\nMês: ", "\nApenas pode inserir números inteiros!");
+        scanfs("%d", &Clientes[n_clientes]->dataNascimento.ano, "\nAno: ", "\nApenas pode inserir números inteiros!");
     } while (validarData(Clientes[n_clientes]->dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
     
     n_clientes++;
@@ -191,17 +167,12 @@ void adicionarCliente(){
 }
 
 void editarCliente(){
-    int id, index, invalid = 0, invalidDate = 0;
+    int id, invalid = 0, invalidDate = 0;
     char nome[100];
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    do{
-        printc("Insira o ID do cliente que pretende editar: ");
-        invalid = scanf("%d", &id);
-        invalid != 1 ? printf("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-    invalid = 0;
-
-    index = encontrarIdCliente(id);
+    scanfs("%d", &id, "\nInsira o ID do cliente que pretende editar: ", "\nApenas pode inserir números inteiros!");
+    
+    int index = encontrarIdCliente(id);
     if(index == -1){
         printc("[red]\nCliente não encontrado![/red]\n");
     }
@@ -209,22 +180,20 @@ void editarCliente(){
         printc("[yellow]Listar Dados do Cliente a editar:[/yellow]\n");
         printf("\nID: %d \nNome: %s \nSaldo do Cartão: %.2f€ \nData Nascimento: %d/%d/%d", Clientes[index]->id, Clientes[index]->nome, Clientes[index]->saldoCartaoCliente, Clientes[index]->dataNascimento.dia, Clientes[index]->dataNascimento.mes, Clientes[index]->dataNascimento.ano);
         printc("\n[blue]Introduza os novos dados do cliente a editar[/blue]\n");
-        printc("\n\nNome do cliente: ");
-        bufferclear();
-        if(scanf("%[^\n]", nome) != 1) return;
+
+        scanfs("%[^\n]", &nome, "\n\nNome do cliente: ", "\nInput invalido, tente novamente: ");
         free(Clientes[index]->nome);
         Clientes[index]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
         strcpy(Clientes[index]->nome, nome);
 
         do{
-            printf("\nSaldo do cliente: ");
-            invalid = scanf("%f", &Clientes[index]->saldoCartaoCliente);
+            invalid = 1;
+            scanfs("%f", &Clientes[index]->saldoCartaoCliente, "\nSaldo do cliente: ", "\nApenas pode inserir flutuantes!");
             if(Clientes[index]->saldoCartaoCliente <= 0){
                 printc("[red]Saldo do cliente >= 0[/red]\n");
                 bufferclear();
                 invalid = -1;
             }
-            invalid != 1 ? printc("[red]Apenas pode inserir números![/red]\n"),  bufferclear() : (void)NULL;
         }while(invalid != 1);
 
         printc("\nData de nascimento:");
@@ -234,24 +203,9 @@ void editarCliente(){
             if(invalidDate >=2){
                 printc("\n[red]Data Invalida![/red]\n");
             }
-            invalid = 0;
-            do{
-                printc("\nDia: ");
-                invalid = scanf("%d", &Clientes[index]->dataNascimento.dia);
-                invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-            }while(invalid != 1);
-            invalid = 0;
-            do{
-                printc("\nMês: ");
-                invalid = scanf("%d", &Clientes[index]->dataNascimento.mes);
-                invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-            }while(invalid != 1);
-            invalid = 0;
-            do{
-                printc("\nAno: ");
-                invalid = scanf("%d", &Clientes[index]->dataNascimento.ano);
-                invalid != 1 ? printc("[red]Apenas pode inserir números inteiros![/red]\n"),  bufferclear() : (void)NULL;
-            }while(invalid != 1);
+            scanfs("%d", &Clientes[index]->dataNascimento.dia, "\nDia: ", "\nApenas pode inserir números inteiros!");
+            scanfs("%d", &Clientes[index]->dataNascimento.mes, "\nMês: ", "\nApenas pode inserir números inteiros!");
+            scanfs("%d", &Clientes[index]->dataNascimento.ano, "\nAno: ", "\nApenas pode inserir números inteiros!");
         } while (validarData(Clientes[index]->dataNascimento, tm.tm_year + 1900 - 110, tm.tm_year + 1900 - 10) == 0);
 
         printc("\n[yellow]Cliente editado com sucesso![/yellow]");
@@ -265,12 +219,7 @@ void editarCliente(){
 void removerCliente(){
     int id, index;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    int invalid = 0;
-    do{
-        printc("Qual o ID do cliente que pretende remover? ");
-        invalid = scanf("%d", &id);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
+    scanfs("%d", &id, "\nInsira o ID do cliente que pretende remover: ", "\nApenas pode inserir números inteiros!");
 
     index = encontrarIdCliente(id);
     if(index == -1){
