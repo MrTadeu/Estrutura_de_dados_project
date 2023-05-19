@@ -40,7 +40,7 @@
     typedef struct{
         char *nome;
         int id, n_vendas, ativo;                    // A experiencia é a quantidade de vendas realizadas e influencia o salário.
-        float atrasoMedio;                   // O atraso medio pode ser negativo ou positivo e influencia o bonus.
+        int atrasoMedio;                           // O atraso medio pode ser negativo ou positivo e influencia o bonus.
     }FuncionarioStruct;
 
     typedef struct{
@@ -94,9 +94,8 @@
             TempoLimiteInferior, 
             QuantMaxProd, 
             QuantMinProd, 
-            tempoAtrasoMaximoBrinde,
-            percentagemParaAtraso;
-        float eurosPorSegundoAdiantamentoFuncinario, percentagemPrecoAngariarSaldo, multiplicadorTempo;
+            tempoAtrasoMaximoBrinde;
+        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo, multiplicadorTempo;
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
 

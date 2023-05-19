@@ -1,7 +1,7 @@
 #include "../includes/TipoDados.h"
 #ifdef _WIN32
     void dormir(int tempo){
-        Sleep(tempo);
+        Sleep((int)(tempo * Opcoes.multiplicadorTempo));
     }
     void bufferclear(){
         fflush(stdin);
@@ -10,7 +10,7 @@
 
 #ifdef __linux__
     void dormir(int tempo){
-        usleep(tempo * 1000);
+        usleep((int)(tempo * 1000 * Opcoes.multiplicadorTempo));
     }
     #include <ctype.h>
     #include <stdio_ext.h>

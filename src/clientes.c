@@ -320,7 +320,7 @@ float atualizarSaldoCliente(ClienteStruct *pessoaEmAtendimento){
     if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao)
         pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, pessoaEmAtendimento->saldoCartaoCliente);
     else
-        pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
+        pessoaEmAtendimento->saldoCartaoCliente += (pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo)/100;
     movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
     printf("Saldo Cartao: %f\n", pessoaEmAtendimento->saldoCartaoCliente);
     return movimentoSaldoCartao;

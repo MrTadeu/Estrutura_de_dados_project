@@ -24,13 +24,7 @@ void closeAll(){
 void editarLojaAbertaAranque(){
     
     int n;
-    int invalid = 0;
-    do{
-        printc("\n\t[blue]Deseja que a loja esteja aberta no aranque? (0-NÃO OU 1-SIM)[/blue] ");
-        invalid = scanf("%d", &n);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-
+    scanfs("%d", &n, "\n\tDeseja que a loja esteja aberta no aranque? (0-NÃO OU 1-SIM)", "Apenas pode inserir números inteiros!\n");
     if(n == 0 || n == 1){
         Opcoes.threadGlobalAranque = n;
         if(n == 0){

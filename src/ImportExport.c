@@ -17,8 +17,8 @@ void importOpcoes(){
         Opcoes.numCaixasAbertas = 2;
         Opcoes.probGerarPessoa = 100;
         Opcoes.probUsarSaldoCartao = 30;
-        Opcoes.percentagemPrecoAngariarSaldo = 0.2;
-        Opcoes.percentagemParaAtraso = 20;
+        Opcoes.percentagemPrecoAngariarSaldo = 0.2; // FLOAT
+        Opcoes.percentagemParaAtraso = 0.2; // FLOAT
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 0;
@@ -29,13 +29,13 @@ void importOpcoes(){
         Opcoes.nivelFuncionario[0].salario = 850.0;
         Opcoes.nivelFuncionario[1].salario = 900.0;
         Opcoes.nivelFuncionario[2].salario = 950.0;
-        Opcoes.eurosPorSegundoAdiantamentoFuncinario = 0.5; //!VER MELHOR ESTE VALOR
-        Opcoes.TempoLimiteInferior = 1800;
-        Opcoes.TempoLimiteSuperior = 2000;
+        Opcoes.eurosPorSegundoAdiantamentoFuncinario = 0.5; // FLOAT
+        Opcoes.TempoLimiteInferior = 180000; // 180 * 1000
+        Opcoes.TempoLimiteSuperior = 200000; // 200 * 1000
         Opcoes.QuantMinProd = 1;
         Opcoes.QuantMaxProd = 20;
         Opcoes.multiplicadorTempo = 1.0; //*Quanto menor, mais depressa o tempo decorre
-        Opcoes.tempoAtrasoMaximoBrinde = 9000; // *15 minutos
+        Opcoes.tempoAtrasoMaximoBrinde = 900000; // *15 minutos 900 segundos * 1000 = 900 milisegundos
     }
     Opcoes.nivelFuncionario[0].nivel = 1;
     Opcoes.nivelFuncionario[1].nivel = 2;
