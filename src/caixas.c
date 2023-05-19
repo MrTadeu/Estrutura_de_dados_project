@@ -125,7 +125,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         
     }
 
-    //ABRIR CAIXA SE O TEMPO DA MENOR CAIXA FOR MAIOR QUE O LIMITE SUPERIOR (CASO EXISTA AINDA CAIXAS FECHADAS)
+    //ABRIR CAIXA SE O TEMPO DA MENOR CAIXA FOR MAIOR QUE O LIMITE SUPERIOR (CASO EXISATA AINDA CAIXAS FECHADAS)
     if (menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTotal){ 
         if(n_funcionariosAtivos >= n_funcionarios){
             return NULL;
@@ -151,8 +151,12 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         return SegundaMenor;
     }
 
-    if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior){
+    // SE NAO FECHARMOS CAIXAS OU ABRIRMOS CAIXAS A MELHOR CAIXA É A MENOR
+    if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1){
         return menor;
+    }
+    else if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 0){
+        return NULL;
     }
 
     if(menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior){
@@ -176,6 +180,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
         pthread_mutex_lock(&melhorCaixa->lock);
         AddElementoFim(melhorCaixa->listaPessoas, pessoaEnviar);
+        //Add info Qt pessoa instante --> threadCalculoEstatistico
         melhorCaixa->tempoTotalEspera += ((ClienteStruct *)pessoaEnviar->Info)->tempoEstimadoCaixa;
         pthread_mutex_unlock(&melhorCaixa->lock);
 
@@ -217,8 +222,6 @@ void *ThreadCaixa(void *arg){
         atualizarAtrasos(caixa->listaPessoas, atraso);
         pthread_mutex_unlock(&caixa->lock);
 
-        
-        
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
         float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
@@ -230,6 +233,7 @@ void *ThreadCaixa(void *arg){
         //Remover da fila
         pthread_mutex_lock(&caixa->lock);
         free(RemElementoInicio(caixa->listaPessoas)); // Free do elemento, nao da pessoa em si
+        //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_unlock(&caixa->lock);
 
 

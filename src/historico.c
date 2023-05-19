@@ -5,6 +5,8 @@ void initHistorico(){
         HistoricoDados.historico[i] = criarLista();
 }
 
+void initDadosEstatisticosStruct
+
 int alfabetoIndex(char *nome){
     if(!nome){
         printf("\n\t[red]Error![/red] Given name is NULL\n");
@@ -39,6 +41,7 @@ void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float v
     infoHistorico->precoTotal = pessoa->precoTotalProdutos;
     infoHistorico->valorProdutoOferecido = valorProdutoOferecido;
     // infoHistorico->dataTransacao = convertTimeDate(getDataMilliseconds()); 
+    // infoHistorico.hora
     return infoHistorico;
 }
 
@@ -84,4 +87,8 @@ void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valo
         guardarHistorico(caixa, movimentoSaldoCartao, valorProdutoOferecido);
     }
        
+}
+
+void atualizarDadosEstatisticos(){
+    dadosEstatisticos.intantaneos = 
 }

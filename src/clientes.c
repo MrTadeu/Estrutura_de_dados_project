@@ -54,7 +54,7 @@ void verClientesCaixa(){
     else{
         Elemento *Caixa = Global.caixas->head;
         while(Caixa){
-            if(((CaixaStruct *)Caixa->Info)->aberta == 1 || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL){
+            if(((CaixaStruct *)Caixa->Info)->aberta == 1 /* || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL */){
                 printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %.2fs [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, ((CaixaStruct *)Caixa->Info)->tempoTotalEspera);
             }
             else{
