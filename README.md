@@ -1,5 +1,5 @@
 <h2 align="center" dir="auto">
-<img src="Supermarket_Simulation.png" alt="">
+<img src="img/Supermarket_Simulation.png" alt="">
 </h2>
 <hr>
 
