@@ -1,7 +1,7 @@
 #include "../includes/TipoDados.h"
 #ifdef _WIN32
     void dormir(int tempo){
-        Sleep(tempo);
+        Sleep((int)(tempo * Opcoes.multiplicadorTempo));
     }
     void bufferclear(){
         fflush(stdin);
@@ -10,7 +10,7 @@
 
 #ifdef __linux__
     void dormir(int tempo){
-        usleep(tempo * 1000);
+        usleep((int)(tempo * 1000 * Opcoes.multiplicadorTempo));
     }
     #include <ctype.h>
     #include <stdio_ext.h>
@@ -178,6 +178,41 @@ int validarData(DataStruct date, int minAno, int maxAno) {
     }
 
     return 1;
+}
+
+void formatTime(long long milliseconds, char* string){// STRING SIZE[9]
+    time_t segundos = milliseconds / 1000;
+    struct tm* time = localtime(&segundos);
+
+    if (time->tm_hour > 0) {
+        strftime(string, 9, "%H:%M", time);
+    } else if (time->tm_min > 0) {
+        strftime(string, 9, "%M:%S", time);
+    } else {
+        snprintf(string, 9, "%ds", time->tm_sec);
+    }
+}
+
+DataStruct formatTimeStruct(long long milliseconds){
+    time_t segundos = milliseconds / 1000;
+    struct tm* time = localtime(&segundos);
+
+    DataStruct formattedTime;
+    formattedTime.dia = time->tm_mday;
+    formattedTime.mes = time->tm_mon + 1; //1-12
+    formattedTime.ano = time->tm_year + 1900; // começa em 1970
+    formattedTime.hora = time->tm_hour;
+    formattedTime.minuto = time->tm_min;
+    formattedTime.segundo = time->tm_sec;
+
+    return formattedTime;
+}
+
+long long getCurrentTimeMillisecounds(){
+    struct timeval tv; 
+    gettimeofday(&tv, NULL); 
+    long long milliseconds = ((tv.tv_sec * 1000LL) + (tv.tv_usec / 1000LL));
+    return milliseconds;
 }
 
 

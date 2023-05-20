@@ -320,7 +320,7 @@ float atualizarSaldoCliente(ClienteStruct *pessoaEmAtendimento){
     if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao)
         pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, pessoaEmAtendimento->saldoCartaoCliente);
     else
-        pessoaEmAtendimento->saldoCartaoCliente += pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo;
+        pessoaEmAtendimento->saldoCartaoCliente += (pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo)/100;
     movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
     printf("Saldo Cartao: %f\n", pessoaEmAtendimento->saldoCartaoCliente);
     return movimentoSaldoCartao;
@@ -347,7 +347,7 @@ void destruirCliente(void *Cliente){
 float oferecerBrinde(ClienteStruct *cliente){
     printc("\n\n[red]BRINDE[/red]");
     printc("[red]Preco antigo: %f[/red]", cliente->precoTotalProdutos);
-    Elemento *aux = cliente->listaProdutos->head, *produtoOferecido;
+    Elemento *aux = cliente->listaProdutos->head, *produtoOferecido = aux;
     float precoMin = ((ProdutoStruct*)aux->Info)->preco;
 
     while(aux){
