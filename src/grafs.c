@@ -26,18 +26,19 @@ int CriarGrafico(){
 	StringReference errorMessage = new StringReference();
 	success = DrawScatterPlotFromSettings(imageReference, settings, errorMessage);
  */
-	double xs [] = {-2, -1, 0, 1, 2};
-	double ys [] = {2, -1, -2, -1, 2};
+	double eixoX [] = {-2, -1, 0, 1, 2};
+	double eixoY [] = {2, -1, -2, -1, 2};
 	_Bool success;
 
 	RGBABitmapImageReference *canvasReference = CreateRGBABitmapImageReference();
 	StringReference *errorMessage = (StringReference *)malloc(sizeof(StringReference));
-	success = DrawScatterPlot(canvasReference, 600, 400, xs, 5, ys, 5, errorMessage);
+	success = DrawScatterPlot(canvasReference, 600, 400, eixoX, 5, eixoY, 5, errorMessage);
 
     if(success){
         size_t length;
         double *pngdata = ConvertToPNG(&length, canvasReference->image);
-        WriteToFile(pngdata, length, "imgs/example1.png");
+		/* WriteToFile(pngdata, length, "Historico/Dia 1/imgs/example1.png"); */
+        WriteToFile(pngdata, length, "Historico/Dia 1/imgs/example1.png");
         DeleteImage(canvasReference->image);
 	}else{
 	    fprintf(stderr, "Error: ");
