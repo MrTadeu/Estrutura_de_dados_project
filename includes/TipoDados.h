@@ -58,7 +58,7 @@
     }ProdutoStruct;
 
     typedef struct{
-        int dia, mes, ano;
+        int dia, mes, ano, hora, minuto, segundo;
     }DataStruct;
 
     typedef struct{
@@ -82,20 +82,23 @@
     }NivelFuncionarioStruct;
 
     typedef struct{
-        int numCaixasTotal, 
-            numCaixasAbertas, 
-            probGerarPessoa, 
-            probUsarSaldoCartao, 
-            lotacaoMaxima, 
-            lojaAberta, 
-            VerTransacoes, 
-            threadGlobalAranque, 
-            TempoLimiteSuperior, 
-            TempoLimiteInferior, 
-            QuantMaxProd, 
-            QuantMinProd, 
-            tempoAtrasoMaximoBrinde;
-        float eurosPorSegundoAdiantamentoFuncinario, percentagemParaAtraso, percentagemPrecoAngariarSaldo, multiplicadorTempo;
+        int numCaixasTotal, //FEITO
+            numCaixasAbertas, // NADA
+            probGerarPessoa, //FEITO
+            probUsarSaldoCartao, // POR FAZER--
+            lotacaoMaxima, //FEITO
+            lojaAberta, // NADA
+            VerTransacoes, // NADA
+            threadGlobalAranque, //FEITO
+            TempoLimiteSuperior, // POR FAZER--
+            TempoLimiteInferior, // POR FAZER--
+            QuantMaxProd, // POR FAZER--
+            QuantMinProd, // POR FAZER--
+            tempoAtrasoMaximoBrinde; // POR FAZER--
+        float eurosPorSegundoAdiantamentoFuncinario, 
+            percentagemParaAtraso, 
+            percentagemPrecoAngariarSaldo, 
+            multiplicadorTempo; //POR FAZER 
         NivelFuncionarioStruct nivelFuncionario[3];
     }OpcaoStruct;
 
@@ -254,6 +257,9 @@
     void bufferclear();
     int validarData(DataStruct date, int minAno, int maxAno);
     void scanfs(const char* formato, void *DataScanf, char *MensagemRepitida, char *AvisoError);
+    void formatTime(long long milliseconds, char* string);
+    DataStruct formatTimeStruct(long long milliseconds);
+    long long getCurrentTimeMillisecounds();
     
     //ThreadGlobal.c
     void changeStateThreadGlobal();

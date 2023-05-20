@@ -65,13 +65,14 @@ void menu(){
 }
 
 void menuConfig(){
+    //em desenvolvimentooooooooooooooooooooooo 
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         int i = 0;
-        printc("**************************************************\n");
+        printc("***********************************************************\n");
         printc("*****************    [blue]Menu Config[/blue]    **************\n");
-        printc("**************************************************\n");
+        printc("***********************************************************\n");
         if(Opcoes.threadGlobalAranque == 1){
             printc("        [red]Loja Aberta no Aranque[/red]\n");
         }
@@ -81,13 +82,20 @@ void menuConfig(){
         printc("        [blue]%d[/blue] - Numero Caixas\n", Opcoes.numCaixasTotal);
         printc("        [blue]%d%%[/blue] - Probabilidade de Gerar Pessoa 1/seg\n", Opcoes.probGerarPessoa);
         printc("        [blue]%d[/blue] - Lotaçao Maxima\n", Opcoes.lotacaoMaxima);
-        printc("**************************************************\n");
-        printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
-        printc("**        [blue]%d [/blue]-> Editar Loja Aberta no Aranque    **\n", i++);
-        printc("**        [blue]%d [/blue]-> Editar Numero Caixas             **\n", i++);
-        printc("**        [blue]%d [/blue]-> Probabilidade de Gerar Pessoa    **\n", i++);
-        printc("**        [blue]%d [/blue]-> Lotaçao Maxima                  **\n", i++);
-        printc("**************************************************\n");
+        printc("***********************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                                    **\n", i++);
+        printc("**        [blue]%d [/blue]-> Editar Loja Aberta no Aranque             **\n", i++);
+        printc("**        [blue]%d [/blue]-> Editar Numero Caixas                      **\n", i++);
+        printc("**        [blue]%d [/blue]-> Probabilidade de Gerar Pessoa             **\n", i++);
+        printc("**        [blue]%d [/blue]-> Probabilidade de Usar Saldo do Cartao     **\n", i++);
+        printc("**        [blue]%d [/blue]-> Lotaçao Maxima                            **\n", i++);
+        printc("**        [blue]%d [/blue]-> Tempo Limite Superior por caixa           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Tempo Limite Inferior por caixa           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Quantidade minima de Produtos por Cliente **\n", i++);
+        printc("**        [blue]%d [/blue]-> Quantidade maxima de Produtos por Cliente **\n", i++);
+        printc("**        [blue]%d [/blue]-> Tempo Atraso Maximo para obter o brinde   **\n", i++);
+        printc("**        [blue]%d [/blue]-> Multiplicador de Tempo                    **\n", i++);
+        printc("***********************************************************\n");
         printc("Qual a opção que pretende? ");
         scanf("%d", &opcao);
 
