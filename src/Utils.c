@@ -210,7 +210,7 @@ DataStruct formatTimeStruct(long long milliseconds){
 
 long long getCurrentTimeMillisecounds(){
     struct timeval tv; 
-    gettimeofday(&te, NULL); 
+    gettimeofday(&tv, NULL); 
     long long milliseconds = ((tv.tv_sec * 1000LL) + (tv.tv_usec / 1000LL));
     return milliseconds;
 }

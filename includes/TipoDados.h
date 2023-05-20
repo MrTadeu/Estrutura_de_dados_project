@@ -9,6 +9,7 @@
     #include <time.h>
     #include <locale.h>
     #include <unistd.h>
+    #include <sys/time.h>
 
     //Criar as threads
     #ifndef PTHREAD_H
