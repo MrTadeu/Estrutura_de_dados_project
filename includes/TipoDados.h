@@ -174,6 +174,13 @@
     void Init();
     void closeAll();
     void editarVerTransacoes();
+    void editarProbUsarSaldoCartao();
+    void editarTempoLimiteSuperior();
+    void editarTempoLimiteInferior();
+    void editarTempoAtrasoMaximoBrinde();
+    void editarQuantMinProd();
+    void editarQuantMaxProd();
+    void editarMultiplicadorTempo();
 
     //clientes.c
     void verClientes();
@@ -261,7 +268,10 @@
     void formatTime(long long milliseconds, char* string);
     DataStruct formatTimeStruct(long long milliseconds);
     long long getCurrentTimeMillisecounds();
-    
+    void scanfv(const char* formato, void *DataScanf, char *MensagemRepitida, char *AvisoError, int (*validator)(void*, void*), ...);
+    int validateRange(void* DataScanf, void *args);
+    int validateRangeFloat(void* DataScanf, void *args);
+
     //ThreadGlobal.c
     void changeStateThreadGlobal();
     void *ThreadGlobal();

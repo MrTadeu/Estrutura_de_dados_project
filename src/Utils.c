@@ -50,11 +50,47 @@ int Aleatorio(int min, int max){
 void scanfs(const char* formato, void *DataScanf, char *MensagemRepitida, char *AvisoError){
     int invalid = 0;
     do{
-        printc("%s", MensagemRepitida);
+        printc("\n%s", MensagemRepitida);
         bufferclear();
         invalid = scanf(formato, DataScanf);
-        invalid != 1 ? printc("[red]%s[/red]", AvisoError),  bufferclear() : (void)NULL;
+        invalid != 1 ? printc("[red]%s[/red]\n", AvisoError),  bufferclear() : (void)NULL;
     }while(invalid != 1);
+}
+
+/* scanfv("%d", &data, "Enter an integer between 10 and 20: ", "Invalid input. Please try again.\n", validateRange, 0, 100); */
+void scanfv(const char* formato, void *DataScanf, char *MensagemRepitida, char *AvisoError, int (*validator)(void*, void*), ...){
+    int invalid = 0;
+    do{
+        va_list args;
+        va_start(args, validator);
+        scanfs(formato, DataScanf, MensagemRepitida, AvisoError);
+        invalid = validator(DataScanf, (void*)&args);
+        if(!invalid)
+            printc("[red]%s[/red]\n", AvisoError);
+        va_end(args);
+    }while(!invalid);
+}
+
+int validateRange(void* DataScanf, void *args) {
+    int lower = va_arg(*(va_list*) args, int);
+    int upper = va_arg(*(va_list*) args, int);
+    int value = *(int*)DataScanf;
+    printf("ola %d %d %d", lower, upper, value);
+    if (value >= lower && value <= upper) {
+        return 1;
+    }
+    return 0;
+}
+
+int validateRangeFloat(void* DataScanf, void *args) {
+    float lower = (float) va_arg(*(va_list*) args, double);
+    float upper = (float) va_arg(*(va_list*) args, double);
+    float value = *(float*)DataScanf;
+    printf("ola %f %f %f", lower, upper, value);
+    if (value >= lower && value <= upper) {
+        return 1;
+    }
+    return 0;
 }
 
 DataStruct gerarData(int anoMin, int anoMax){
@@ -187,7 +223,7 @@ void formatTime(long long milliseconds, char* string){// STRING SIZE[9]
     if (time->tm_hour > 0) {
         strftime(string, 9, "%H:%M", time);
     } else if (time->tm_min > 0) {
-        strftime(string, 9, "%M:%S", time);
+        strftime(string, 9, "%Mm %Ss", time);
     } else {
         snprintf(string, 9, "%ds", time->tm_sec);
     }
