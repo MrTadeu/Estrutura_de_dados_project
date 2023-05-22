@@ -65,7 +65,7 @@ void pesquisarFuncionariosID(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     
     int id;
-    scanfs("%d", &id, "\nInsira o ID do funcionario que pretende pesquisar: ", "\nApenas pode inserir números inteiros!");
+    scanfs("%d", &id, "Insira o ID do funcionario que pretende pesquisar: ", "Apenas pode inserir números inteiros!");
 
     int pos = encontrarIdFuncionario(id);
     if (pos == -1){
@@ -84,7 +84,7 @@ void pesquisarFuncionariosID(){
 
 void pesquisarFuncionariosNome(){
     char nome[100];
-    scanfs("%[^\n]", &nome, "\nInsira o nome do funcionário que pretende pesquisar: ", "\nInput invalido, tente novamente: ");
+    scanfs("%[^\n]", &nome, "Insira o nome do funcionário que pretende pesquisar: ", "Input invalido, tente novamente: ");
 
     printf("\n\nResultados semelhantes: \n");
     int flag = 0;
@@ -121,14 +121,14 @@ void editarFuncionarios(){
 
         char nome[100];
         /* bufferclear(); */
-        scanfs("%[^\n]", &nome, "\n\nNome do funcionario: ", "\nInput invalido, tente novamente: ");
+        scanfs("%[^\n]", &nome, "\nNome do funcionario: ", "Input invalido, tente novamente: ");
         free(Funcionarios[pos]->nome);
         Funcionarios[pos]->nome = malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Funcionarios[pos]->nome, nome);
 
-        scanfs("%d", &Funcionarios[pos]->n_vendas, "\nNumero de vendas do funcionario: ", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &Funcionarios[pos]->n_vendas, "Numero de vendas do funcionario: ", "Apenas pode inserir números inteiros!\n");
 
-        scanfs("%d", &Funcionarios[pos]->atrasoMedio, "\nAtraso medio do funcionario em milisegundos: ", "Apenas pode inserir números flutuantes!\n");
+        scanfs("%d", &Funcionarios[pos]->atrasoMedio, "Atraso medio do funcionario em milisegundos: ", "Apenas pode inserir números flutuantes!\n");
 
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         bufferclear();
@@ -146,13 +146,13 @@ void adicionarFuncionario(){
     printc("\n\n[yellow]ID FUNCIONARIO: %d[/yellow]\n", Funcionarios[n_funcionarios]->id);
 
     /* bufferclear(); */
-    scanfs("%[^\n]", &nome, "\nNome: ", "\nInput invalido, tente novamente: ");
+    scanfs("%[^\n]", &nome, "Nome: ", "Input invalido, tente novamente: ");
     Funcionarios[n_funcionarios]->nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Funcionarios[n_funcionarios]->nome, nome);    
 
-    scanfs("%d", &Funcionarios[n_funcionarios]->n_vendas, "\nNúmero de vendas: ", "Apenas pode inserir números inteiros!\n");
+    scanfs("%d", &Funcionarios[n_funcionarios]->n_vendas, "Número de vendas: ", "Apenas pode inserir números inteiros!\n");
 
-    scanfs("%f", &Funcionarios[n_funcionarios]->atrasoMedio, "\nAtraso medio: ", "Apenas pode inserir números inteiros!\n");
+    scanfs("%f", &Funcionarios[n_funcionarios]->atrasoMedio, "Atraso medio: ", "Apenas pode inserir números inteiros!\n");
 
     n_funcionarios++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -167,7 +167,7 @@ void removerFuncionario(){
 
     verFuncionariosInativos();
     int id;
-    scanfs("%d", &id, "\nInsira o ID do funcionario que pretende remover: ", "\nApenas pode inserir números inteiros!");
+    scanfs("%d", &id, "Insira o ID do funcionario que pretende remover: ", "Apenas pode inserir números inteiros!");
     
     int pos = encontrarIdFuncionario(id);
 

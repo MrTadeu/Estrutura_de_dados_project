@@ -117,6 +117,6 @@ void changeStateThreadGlobal(){
 
 } */
 
-void *threadTempo(void *args){
+/* void *threadTempo(void *args){
     
-}
+} */

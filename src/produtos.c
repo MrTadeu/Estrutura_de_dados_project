@@ -118,7 +118,7 @@ void editarProduto(){
         printf("\nID: %d \nNome: %s \nPreço: %.2f€", Produtos[pos].id, Produtos[pos].nome, Produtos[pos].preco);
 
         char nome[100];
-        scanfs("%[^\n]", nome, "\n\nNome do produto: ", "Apenas pode inserir letras!\n");
+        scanfs("%[^\n]", nome, "\nNome do produto: ", "Apenas pode inserir letras!\n");
         free(Produtos[pos].nome);
         Produtos[pos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Produtos[pos].nome, nome);
@@ -126,7 +126,7 @@ void editarProduto(){
         int invalid = 0;
         do{
             invalid = 1;
-            scanfs("%f", &Produtos[pos].preco, "\nPreço do produto €: ", "Apenas pode inserir números do tipo float!\n");
+            scanfs("%f", &Produtos[pos].preco, "Preço do produto €: ", "Apenas pode inserir números do tipo float!\n");
             if(Produtos[pos].preco < 0){
                 printc("[red]O preço não pode ser negativo![/red]\n");
                 invalid = -1;

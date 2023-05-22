@@ -22,20 +22,14 @@ void closeAll(){
 }
 
 void editarLojaAbertaAranque(){
-    
     int n;
-    scanfs("%d", &n, "\n\tDeseja que a loja esteja aberta no aranque? (0-NÃO OU 1-SIM)", "Apenas pode inserir números inteiros!\n");
-    if(n == 0 || n == 1){
-        Opcoes.threadGlobalAranque = n;
-        if(n == 0){
-            printc("\n[green]A loja não vai estar aberta no aranque[/green]");
-        }
-        else{
-            printc("\n[green]A loja vai estar aberta no aranque[/green]");
-        }
+    scanfv("%d", &n, "\tDeseja que a loja esteja aberta no aranque? (0-NÃO OU 1-SIM)", "A opção tem de ser 0 ou 1!", validateRange, 0, 1);
+    Opcoes.threadGlobalAranque = n;
+    if(n == 0){
+        printc("\n[green]A loja não vai estar aberta no aranque[/green]");
     }
     else{
-        printf("\n[red]A opção tem de ser 0 ou 1![/red]");
+        printc("\n[green]A loja vai estar aberta no aranque[/green]");
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -43,65 +37,105 @@ void editarLojaAbertaAranque(){
 }
 
 void editarNumCaixas(){
-    
     int n;
-    int invalid = 0;
-    do{
-        printf("\n\t[blue]Quantos caixas deseja ter?[/blue] ");
-        invalid = scanf("%d", &n);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-
-    if(n > 0 && n <= 50){
-        Opcoes.numCaixasTotal = n;
-        printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
-    }
-    else{
-        printf("\n[red]O número de caixas tem de ser maior que 0 e menor que 50![/red]");
-    }
+    scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 0 e menor que 50!", validateRange, 0, 50);
+    Opcoes.numCaixasTotal = n;
+    printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
 }
 
 void editarProbGerarPessoa(){
-    
     int n;
-    int invalid = 0;
-    do{
-        printf("\n\t[blue]Qual a probabilidade de gerar uma pessoa?[/blue] ");
-        invalid = scanf("%d", &n);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-
-    if(n > 0 && n <= 100){
-        Opcoes.probGerarPessoa = n;
-        printc("\n[green]A probabilidade foi alterada para %d%%[/green]", n);
-    }
-    else{
-        printf("\n[red]A probabilidade tem de ser maior que 0%% e menor que 100%%![/red]");
-    }
+    scanfv("%d", &n, "Qual a probabilidade de gerar uma pessoa: ", "A probabilidade tem de ser maior que 0\% e menor que 100\%!\n", validateRange, 0, 100);
+    Opcoes.probGerarPessoa = n;
+    printc("\n[green]A probabilidade foi alterada para %d%%[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
-
 }
 
 void editarLotacaoMax(){
     int n;
-    int invalid = 0;
-    do{
-        printf("\n\t[blue]Qual a lotação máxima da loja?[/blue] ");
-        invalid = scanf("%d", &n);
-        invalid != 1 ? printf("Apenas pode inserir números inteiros!\n"),  bufferclear() : (void)NULL;
-    }while(invalid != 1);
-    if(n > 0 && n <= 1000){
-        Opcoes.lotacaoMaxima = n;
-        printc("\n[green]A lotação máxima foi alterada para %d[/green]", n);
-    }
-    else{
-        printf("\n[red]A lotação máxima tem de ser maior que 0 e menor que 1000![/red]");
-    }
+    scanfv("%d", &n, "Qual a lotação máxima da loja: ", "A lotação máxima tem de ser maior que 0 e menor que 1000!\n", validateRange, 0, 1000);
+    Opcoes.lotacaoMaxima = n;
+    printc("\n[green]A lotação máxima foi alterada para %d[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarProbUsarSaldoCartao(){
+    int n;
+    scanfv("%d", &n, "Qual a probabilidade de usar Saldo do Cartao: ", "Número invalido 0\%-100\%!\n", validateRange, 0, 100);
+    Opcoes.probUsarSaldoCartao = n;
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarTempoLimiteSuperior(){
+    float min;
+    scanfv("%f", &min, "Qual o tempo limite superior (min): ", "O tempo limite superior tem de ser maior que 1 min e menor que 600 min!\n", validateRangeFloat, 1.0, 600.0);
+    Opcoes.TempoLimiteSuperior = (int) min*60*1000;
+    char TempoLimiteSuperior[9];
+    formatTime(Opcoes.TempoLimiteSuperior, TempoLimiteSuperior);
+    printc("\n[green]O tempo limite superior foi alterado para %s[/green]", TempoLimiteSuperior);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarTempoLimiteInferior(){
+    float min;
+    scanfv("%f", &min, "Qual o tempo limite inferior (min): ", "O tempo limite inferior tem de ser maior que 1 min e menor que 600 min!\n", validateRangeFloat, 1.0, 600.0);
+    Opcoes.TempoLimiteInferior = (int) min*60*1000;
+    char TempoLimiteInferior[9];
+    formatTime(Opcoes.TempoLimiteInferior, TempoLimiteInferior);
+    printc("\n[green]O tempo limite inferior foi alterado para %s[/green]", TempoLimiteInferior);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarTempoAtrasoMaximoBrinde(){
+    float min;
+    scanfv("%f", &min, "Qual o tempo de atraso máximo para ganhar um brinde (min): ", "O tempo de atraso máximo para ganhar um brinde tem de ser maior que 1 min e menor que 600 min!\n", validateRangeFloat, 1.0, 600.0);
+    Opcoes.tempoAtrasoMaximoBrinde = (int) min*60*1000;
+    char tempoAtrasoMaximoBrinde[9];
+    formatTime(Opcoes.tempoAtrasoMaximoBrinde, tempoAtrasoMaximoBrinde);
+    printc("\n[green]O tempo de atraso máximo para ganhar um brinde foi alterado para %s[/green]", tempoAtrasoMaximoBrinde);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarQuantMinProd(){
+    int n;
+    scanfv("%d", &n, "Qual a quantidade mínima de produtos: ", "A quantidade mínima de produtos tem de ser maior que 0 e menor que 1000!\n", validateRange, 0, 1000);
+    Opcoes.QuantMinProd = n;
+    printc("\n[green]A quantidade mínima de produtos foi alterada para %d[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarQuantMaxProd(){
+    int n;
+    scanfv("%d", &n, "Qual a quantidade máxima de produtos: ", "A quantidade máxima de produtos tem de ser maior que 0 e menor que 1000!\n", validateRange, 0, 1000);
+    Opcoes.QuantMaxProd = n;
+    printc("\n[green]A quantidade máxima de produtos foi alterada para %d[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarMultiplicadorTempo(){
+    float n;
+    scanfv("%f", &n, "Qual o multiplicador de tempo: ", "O multiplicador de tempo tem de ser maior que 0 e menor que 100!\n", validateRangeFloat, 0.0, 100.0);
+    Opcoes.multiplicadorTempo = n;
+    printc("\n[green]O multiplicador de tempo foi alterado para %.2f[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
@@ -127,3 +161,4 @@ void editarVerTransacoes(){
         getchar();
     }
 }
+

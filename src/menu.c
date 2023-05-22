@@ -68,34 +68,45 @@ void menuConfig(){
     //em desenvolvimentooooooooooooooooooooooo 
     int opcao;
     do{
+        char TempoLimiteSuperior[9], TempoLimiteInferior[9], TempoAtrasoMaximoBrinde[9];
+        formatTime(Opcoes.TempoLimiteSuperior, TempoLimiteSuperior);
+        formatTime(Opcoes.TempoLimiteInferior, TempoLimiteInferior);
+        formatTime(Opcoes.tempoAtrasoMaximoBrinde, TempoAtrasoMaximoBrinde);
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         int i = 0;
-        printc("***********************************************************\n");
-        printc("*****************    [blue]Menu Config[/blue]    **************\n");
-        printc("***********************************************************\n");
+        printc("************************************************************\n");
+        printc("*********************    [blue]Menu Config[/blue]    ********************\n");
+        printc("************************************************************\n");
         if(Opcoes.threadGlobalAranque == 1){
-            printc("        [red]Loja Aberta no Aranque[/red]\n");
+            printc("        [red]Loja Aberta no Aranque[/red]\n");//x
         }
         if(Opcoes.threadGlobalAranque == 0){
-            printc("        [green]Loja não é Aberta no Aranque[/green]\n");
+            printc("        [green]Loja não é Aberta no Aranque[/green]\n");//x
         }
-        printc("        [blue]%d[/blue] - Numero Caixas\n", Opcoes.numCaixasTotal);
-        printc("        [blue]%d%%[/blue] - Probabilidade de Gerar Pessoa 1/seg\n", Opcoes.probGerarPessoa);
-        printc("        [blue]%d[/blue] - Lotaçao Maxima\n", Opcoes.lotacaoMaxima);
-        printc("***********************************************************\n");
-        printc("**        [blue]%d [/blue]-> Voltar                                    **\n", i++);
-        printc("**        [blue]%d [/blue]-> Editar Loja Aberta no Aranque             **\n", i++);
-        printc("**        [blue]%d [/blue]-> Editar Numero Caixas                      **\n", i++);
-        printc("**        [blue]%d [/blue]-> Probabilidade de Gerar Pessoa             **\n", i++);
-        printc("**        [blue]%d [/blue]-> Probabilidade de Usar Saldo do Cartao     **\n", i++);
-        printc("**        [blue]%d [/blue]-> Lotaçao Maxima                            **\n", i++);
-        printc("**        [blue]%d [/blue]-> Tempo Limite Superior por caixa           **\n", i++);
-        printc("**        [blue]%d [/blue]-> Tempo Limite Inferior por caixa           **\n", i++);
-        printc("**        [blue]%d [/blue]-> Quantidade minima de Produtos por Cliente **\n", i++);
-        printc("**        [blue]%d [/blue]-> Quantidade maxima de Produtos por Cliente **\n", i++);
-        printc("**        [blue]%d [/blue]-> Tempo Atraso Maximo para obter o brinde   **\n", i++);
-        printc("**        [blue]%d [/blue]-> Multiplicador de Tempo                    **\n", i++);
-        printc("***********************************************************\n");
+        printc("        [blue]%d[/blue] - Numero Caixas\n", Opcoes.numCaixasTotal);//x
+        printc("        [blue]%d%%[/blue] - Probabilidade de Gerar Pessoa 1/seg\n", Opcoes.probGerarPessoa);//x
+        printc("        [blue]%d%%[/blue] - Probabilidade de Usar Saldo do Cartao\n", Opcoes.probUsarSaldoCartao);//x xxxxxxxx
+        printc("        [blue]%d pessoas[/blue] - Lotaçao Maxima\n", Opcoes.lotacaoMaxima);//x
+        printc("        [blue]%s[/blue] - Tempo Limite Superior por caixa\n", TempoLimiteSuperior);//x xxxxxxxxxx
+        printc("        [blue]%s[/blue] - Tempo Limite Inferior por caixa\n", TempoLimiteInferior);//x xxxxxxxxxx
+        printc("        [blue]%s[/blue] - Tempo Atraso Maximo para obter o brinde\n", TempoAtrasoMaximoBrinde);//x xxxxxxxx
+        printc("        [blue]%d[/blue] - Quantidade minima de Produtos por Cliente\n", Opcoes.QuantMinProd);//x xxxxxxxxxx
+        printc("        [blue]%d[/blue] - Quantidade maxima de Produtos por Cliente\n", Opcoes.QuantMaxProd);//x xxxxxxxxxx
+        printc("        [blue]%.2f[/blue] - Multiplicador de Tempo\n", Opcoes.multiplicadorTempo);//x xxxxxxxx
+        printc("************************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                                     **\n", i++);
+        printc("**        [blue]%d [/blue]-> Editar Loja Aberta no Aranque              **\n", i++);//x
+        printc("**        [blue]%d [/blue]-> Editar Numero Caixas                       **\n", i++);//x
+        printc("**        [blue]%d [/blue]-> Probabilidade de Gerar Pessoa              **\n", i++);//x
+        printc("**        [blue]%d [/blue]-> Probabilidade de Usar Saldo do Cartao      **\n", i++);//x  xxxxxxxxxxxx
+        printc("**        [blue]%d [/blue]-> Lotaçao Maxima                             **\n", i++);//x
+        printc("**        [blue]%d [/blue]-> Tempo Limite Superior por caixa            **\n", i++);//x  xxxxxxxxxxxx
+        printc("**        [blue]%d [/blue]-> Tempo Limite Inferior por caixa            **\n", i++);//x  xxxxxxxxxxxx
+        printc("**        [blue]%d [/blue]-> Tempo Atraso Maximo para obter o brinde    **\n", i++);//x xxxxxxxxxxxx
+        printc("**        [blue]%d [/blue]-> Quantidade minima de Produtos por Cliente  **\n", i++);//x  xxxxxxxxxxxx
+        printc("**        [blue]%d [/blue]-> Quantidade maxima de Produtos por Cliente **\n", i++);//x xxxxxxxxxxxx
+        printc("**        [blue]%d [/blue]-> Multiplicador de Tempo                    **\n", i++);//x xxxxxxxxxxxx
+        printc("************************************************************\n");
         printc("Qual a opção que pretende? ");
         scanf("%d", &opcao);
 
@@ -110,7 +121,28 @@ void menuConfig(){
             editarProbGerarPessoa();
         }
         if (opcao == i++){
+            editarProbUsarSaldoCartao();
+        }
+        if (opcao == i++){
             editarLotacaoMax();
+        }
+        if (opcao == i++){
+            editarTempoLimiteSuperior();
+        }
+        if (opcao == i++){
+            editarTempoLimiteInferior();
+        }
+        if (opcao == i++){
+            editarTempoAtrasoMaximoBrinde();
+        }
+        if (opcao == i++){
+            editarQuantMinProd();
+        }
+        if (opcao == i++){
+            editarQuantMaxProd();
+        }
+        if (opcao == i++){
+            editarMultiplicadorTempo();
         }
     } while (opcao != 0);
 }
