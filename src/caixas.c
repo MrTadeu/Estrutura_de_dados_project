@@ -38,16 +38,16 @@ void atualizarAtrasos(Lista *lista, int atraso){
 }
 
 void fecharUrgencia(CaixaStruct *caixa){
-    if (!caixa)
-    {
-        printc("\n\t[red]Error[/red] Given cauxa is NULL\n");
+    if (!caixa){
+        printc("\n\t[red]Error[/red] Given caixa is NULL\n");
+        return;
     }
     
     caixa->aberta = 0;
-    Elemento* aux = caixa->listaPessoas->head;
-    while(aux){
-
-    }
+    pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
+    caixa->listaPessoas->tail->next = Global.PessoasAcabaramTempoDeCompra->head;
+    Global.PessoasAcabaramTempoDeCompra->head = caixa->listaPessoas->head;
+    pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
 }
 
 void atenderPessoa(CaixaStruct *caixa){
@@ -229,16 +229,13 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
-    int n_vendas = 0, atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, atraso;
+    int n_vendas = 0, atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, atraso, STOP = 1;
     float valorProdutoOferecido = 0.0;
     ClienteStruct *pessoaEmAtendimento;
     
-    while(caixa->listaPessoas->quantidadeElementos > 0){
+    while(caixa->listaPessoas->quantidadeElementos > 0 && STOP){
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
-        if(caixa->fecharUrgencia)
-            fecharUrgencia(caixa);
-        
         if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
             valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
 
@@ -263,7 +260,11 @@ void *ThreadCaixa(void *arg){
         //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_unlock(&caixa->lock);
 
-
+        if(caixa->fecharUrgencia){
+            fecharUrgencia(caixa);
+            STOP = 0;
+        }
+            
         //Desocupar pessoa
         pthread_mutex_lock(&ClientesLock);
         DesocuparCliente(pessoaEmAtendimento);
