@@ -48,6 +48,9 @@ void fecharUrgencia(CaixaStruct *caixa){
     caixa->listaPessoas->tail->next = Global.PessoasAcabaramTempoDeCompra->head;
     Global.PessoasAcabaramTempoDeCompra->head = caixa->listaPessoas->head;
     pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
+    caixa->listaPessoas->head = NULL;
+    caixa->listaPessoas->quantidadeElementos = 0;
+
 }
 
 void atenderPessoa(CaixaStruct *caixa){
@@ -89,7 +92,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
-
+    //!IMPEDIR QUE SE MANDE ALGUEM PARA UMA CAIXA FECHADA POR URGENCIA  
     while (caixaAux){
         CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
@@ -229,11 +232,11 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
-    int n_vendas = 0, atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, atraso, STOP = 1;
+    int n_vendas = 0, atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, atraso;
     float valorProdutoOferecido = 0.0;
     ClienteStruct *pessoaEmAtendimento;
     
-    while(caixa->listaPessoas->quantidadeElementos > 0 && STOP){
+    while(caixa->listaPessoas->quantidadeElementos > 0){
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
         if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
@@ -260,10 +263,8 @@ void *ThreadCaixa(void *arg){
         //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_unlock(&caixa->lock);
 
-        if(caixa->fecharUrgencia){
+        if(caixa->fecharUrgencia)
             fecharUrgencia(caixa);
-            STOP = 0;
-        }
             
         //Desocupar pessoa
         pthread_mutex_lock(&ClientesLock);
