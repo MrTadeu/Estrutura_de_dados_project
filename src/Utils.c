@@ -71,11 +71,28 @@ void scanfv(const char* formato, void *DataScanf, char *MensagemRepitida, char *
     }while(!invalid);
 }
 
+int validateIsAlphabetic(void* DataScanf, void *args) {
+    args = args;
+    char *str = (char*)DataScanf;
+    size_t i = 0;
+    if (strlen(str) > 1) {
+        while (isalpha(str[i]) || str[i] == ' ') {
+            i++;
+        }
+        if (i == strlen(str)) return 1;
+        else {
+            printc("[red]Apenas pode inserir letras!\n[/red]");
+            return 0;
+        }
+    }
+    printc("[red]O nome tem de ter pelo menos 2 letras\n[/red]");
+    return 0;
+}
+
 int validateRange(void* DataScanf, void *args) {
     int lower = va_arg(*(va_list*) args, int);
     int upper = va_arg(*(va_list*) args, int);
     int value = *(int*)DataScanf;
-    printf("ola %d %d %d", lower, upper, value);
     if (value >= lower && value <= upper) {
         return 1;
     }
@@ -86,7 +103,6 @@ int validateRangeFloat(void* DataScanf, void *args) {
     float lower = (float) va_arg(*(va_list*) args, double);
     float upper = (float) va_arg(*(va_list*) args, double);
     float value = *(float*)DataScanf;
-    printf("ola %f %f %f", lower, upper, value);
     if (value >= lower && value <= upper) {
         return 1;
     }

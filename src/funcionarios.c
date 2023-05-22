@@ -84,7 +84,7 @@ void pesquisarFuncionariosID(){
 
 void pesquisarFuncionariosNome(){
     char nome[100];
-    scanfs("%[^\n]", &nome, "Insira o nome do funcionário que pretende pesquisar: ", "Input invalido, tente novamente: ");
+    scanfv("%[^\n]", &nome, "Insira o nome do funcionário que pretende pesquisar: ", "Input invalido, tente novamente: ", validateIsAlphabetic);
 
     printf("\n\nResultados semelhantes: \n");
     int flag = 0;
@@ -126,10 +126,6 @@ void editarFuncionarios(){
         Funcionarios[pos]->nome = malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Funcionarios[pos]->nome, nome);
 
-        scanfs("%d", &Funcionarios[pos]->n_vendas, "Numero de vendas do funcionario: ", "Apenas pode inserir números inteiros!\n");
-
-        scanfs("%d", &Funcionarios[pos]->atrasoMedio, "Atraso medio do funcionario em milisegundos: ", "Apenas pode inserir números flutuantes!\n");
-
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         bufferclear();
         getchar();
@@ -146,13 +142,9 @@ void adicionarFuncionario(){
     printc("\n\n[yellow]ID FUNCIONARIO: %d[/yellow]\n", Funcionarios[n_funcionarios]->id);
 
     /* bufferclear(); */
-    scanfs("%[^\n]", &nome, "Nome: ", "Input invalido, tente novamente: ");
+    scanfv("%[^\n]", &nome, "Nome: ", "Input invalido, tente novamente: ", validateIsAlphabetic);
     Funcionarios[n_funcionarios]->nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Funcionarios[n_funcionarios]->nome, nome);    
-
-    scanfs("%d", &Funcionarios[n_funcionarios]->n_vendas, "Número de vendas: ", "Apenas pode inserir números inteiros!\n");
-
-    scanfs("%f", &Funcionarios[n_funcionarios]->atrasoMedio, "Atraso medio: ", "Apenas pode inserir números inteiros!\n");
 
     n_funcionarios++;
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
