@@ -53,7 +53,8 @@ void atenderPessoa(CaixaStruct *caixa){
     tempoAtrasoAux = cliente->tempoAtraso,
     tempo = cliente->tempoEstimadoCaixa + cliente->tempoAtraso;
 
-    while(tempo){
+    while(tempo>0){
+        printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
         (tempo < 1000) ? dormir(tempo), tempo = 0 : dormir(1000), tempo -= 1000;
 
         /* if(tempo < 1000){
@@ -120,9 +121,9 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         menor->aberta = 1;
         Opcoes.numCaixasAbertas++;
         if (menor->listaPessoas->head == NULL){
-            /* pthread_t threadCaixa;
+            pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
-            pthread_detach(threadCaixa); */
+            pthread_detach(threadCaixa);
             /* printc("[red]Opcoes.numCaixasAbertas == 0[/red]");
             getchar();
             getchar(); */
@@ -143,9 +144,9 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         primeiraCaixaFechada->aberta = 1;
         Opcoes.numCaixasAbertas++;
         if (primeiraCaixaFechada->listaPessoas->head == NULL){
-            /* pthread_t threadCaixa;
+            pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)primeiraCaixaFechada);
-            pthread_detach(threadCaixa); */
+            pthread_detach(threadCaixa);
             
         }
             /* printc("[red]menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTota[/red]");
@@ -233,6 +234,7 @@ void *ThreadCaixa(void *arg){
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
+        printf("working\n");
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         /* fecharUrgencia(caixa->listaPessoas); */
         
