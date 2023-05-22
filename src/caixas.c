@@ -57,15 +57,6 @@ void atenderPessoa(CaixaStruct *caixa){
         printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
         (tempo < 1000) ? dormir(tempo), tempo = 0 : dormir(1000), tempo -= 1000;
 
-        /* if(tempo < 1000){
-            dormir(tempo);
-            tempo = 0;
-        }
-        else{
-            dormir(1000);
-            tempo -= 1000;
-        } */
-
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
         }
@@ -234,8 +225,8 @@ void *ThreadCaixa(void *arg){
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
-        printf("working\n");
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
+
         /* fecharUrgencia(caixa->listaPessoas); */
         
         if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
