@@ -131,11 +131,18 @@
     }HistoricoSubStructCliente;
 
     typedef struct {
-        float tempoMedioEspera, numerosCaixasAbertas, numeroMedioClienteSupercado, numeroMedioClienteFilaCadaCaixa; //*,trheadMutex Para atualizar estes dados
+        Lista* tempoEsperaCadaCaixa, numeroClienteFilaCadaCaixa;
+        int numerosCaixasAbertas, numeroClienteSupercado; //*,trheadMutex Para atualizar estes dados
+    }DadosInstantaneoStruct; // a cada 10 segundos é criada uma novas instancia desta struct, os grupos de instancias sao guardados na struct abaixo
+
+    typedef struct {
+        float tempoMedioEsperaCadaCaixa, tempoMedioEsperaTodasCaixas, numeroMedioClienteFilaCadaCaixa, numeroMedioClienteFilaTodasCaixas;
+        int  numeroMedioCaixasAbertas
     }DadosEstatisticosInfo;
 
     typedef struct {
-        DadosEstatisticosInfo globais, diarios, horas, intantaneos;
+        DadosEstatisticosInfo globais, mediaDiaria;
+        DadosInstantaneoStruct dadosIntantaneosdiarios[24][6], dadosIntantaneos;
     }DadosEstatisticosStruct;
 
     typedef struct{
