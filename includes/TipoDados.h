@@ -132,12 +132,12 @@
 
     typedef struct {
         Lista* tempoEsperaCadaCaixa, numeroClienteFilaCadaCaixa;
-        int numerosCaixasAbertas, numeroClienteSupercado; //*,trheadMutex Para atualizar estes dados
+        int numerosCaixasAbertas, numeroClienteSupermercado; //*,trheadMutex Para atualizar estes dados
     }DadosInstantaneoStruct; // a cada 10 segundos é criada uma novas instancia desta struct, os grupos de instancias sao guardados na struct abaixo
 
     typedef struct {
         float tempoMedioEsperaCadaCaixa, tempoMedioEsperaTodasCaixas, numeroMedioClienteFilaCadaCaixa, numeroMedioClienteFilaTodasCaixas;
-        int  numeroMedioCaixasAbertas
+        int  numeroMedioCaixasAbertas, numeroMedioClienteSupermercado;
     }DadosEstatisticosInfo;
 
     typedef struct {
