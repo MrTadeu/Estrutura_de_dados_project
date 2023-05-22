@@ -274,7 +274,7 @@
     int validateRange(void* DataScanf, void *args);
     int validateRangeFloat(void* DataScanf, void *args);
     int validateIsAlphabetic(void* DataScanf, void *args);
-
+    int validatePositiveNumber(void* DataScanf, void *args);
     //ThreadGlobal.c
     void changeStateThreadGlobal();
     void *ThreadGlobal();

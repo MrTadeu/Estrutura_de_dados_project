@@ -139,15 +139,9 @@ void adicionarCliente(){
     Clientes[n_clientes]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
     strcpy(Clientes[n_clientes]->nome, nome);
 
-    do{
-        scanfs("%f", &Clientes[n_clientes]->saldoCartaoCliente, "Saldo do cliente: ", "Apenas pode inserir flutuantes!");
-
-        if(Clientes[n_clientes]->saldoCartaoCliente <= 0){
-            printc("[red]Saldo do cliente >= 0[/red]\n");
-            bufferclear();
-            invalid = -1;
-        }
-    }while(invalid != 1);
+    float saldo;
+    scanfv("%f", &saldo, "Saldo do cliente: ", "Apenas pode inserir flutuantes!", validatePositiveNumber);
+    Clientes[n_clientes]->saldoCartaoCliente = saldo;
 
     printc("\nData de nascimento:");
     struct tm tm = getCurrentTime();
@@ -188,15 +182,9 @@ void editarCliente(){
         Clientes[index]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
         strcpy(Clientes[index]->nome, nome);
 
-        do{
-            invalid = 1;
-            scanfs("%f", &Clientes[index]->saldoCartaoCliente, "Saldo do cliente: ", "Apenas pode inserir flutuantes!");
-            if(Clientes[index]->saldoCartaoCliente <= 0){
-                printc("[red]Saldo do cliente >= 0[/red]\n");
-                bufferclear();
-                invalid = -1;
-            }
-        }while(invalid != 1);
+        float saldo;
+        scanfv("%f", &saldo, "Saldo do cliente: ", "Apenas pode inserir flutuantes!", validatePositiveNumber);
+        Clientes[index]->saldoCartaoCliente = saldo;
 
         printc("\nData de nascimento:");
         struct tm tm = getCurrentTime();
