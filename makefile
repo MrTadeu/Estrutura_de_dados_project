@@ -29,11 +29,11 @@ buildLinux: setupLinux $(PROGRAM)
 # isto vai criar ./simulation.o
 #por -g para o valgrind
 $(PROGRAM): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(PROGRAM)
+	$(CC) $(CFLAGS) $(OBJ) -o $(PROGRAM) -lm
 
 # isto vai criar um arquivo .o para cada arquivo .c || a opção -c é para não criar um executavel e sim um arquivos  .o ou seja compilar individualmente
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $^ -o $@ 
+	$(CC) $(CFLAGS) -c $^ -o $@  -lm
 
 # .PHONY - Não é um arquivo, é um comando usado para não dar erro de arquivo não encontrado
 .PHONY: setup
