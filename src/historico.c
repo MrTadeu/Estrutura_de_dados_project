@@ -5,7 +5,16 @@ void initHistorico(){
         HistoricoDados.historico[i] = criarLista();
 }
 
-/* void initDadosEstatisticosStruct */
+void initDadosEstatisticos(){
+    dadosEstatisticos = (DadosEstatisticosStruct*) malloc(sizeof(DadosEstatisticosStruct));
+
+    dadosEstatisticos->dadosIntantaneosdiarios = (DadosInstantaneoStruct**) calloc(sizeof(DadosEstatisticosStruct*)*24);
+    for (int i = 0; i < 24; i++)
+        dadosEstatisticos->dadosIntantaneosdiarios[i] = (DadosInstantaneoStruct*) calloc(sizeof(DadosEstatisticosStruct)*6);
+        
+    
+    
+}
 
 int alfabetoIndex(char *nome){
     if(!nome){

@@ -131,19 +131,23 @@
     }HistoricoSubStructCliente;
 
     typedef struct {
-        Lista* tempoEsperaCadaCaixa, numeroClienteFilaCadaCaixa;
+        int *tempoEsperaCadaCaixa, *numeroClienteFilaCadaCaixa;
         int numerosCaixasAbertas, numeroClienteSupermercado; //*,trheadMutex Para atualizar estes dados
     }DadosInstantaneoStruct; // a cada 10 segundos é criada uma novas instancia desta struct, os grupos de instancias sao guardados na struct abaixo
 
     typedef struct {
-        float tempoMedioEsperaCadaCaixa, tempoMedioEsperaTodasCaixas, numeroMedioClienteFilaCadaCaixa, numeroMedioClienteFilaTodasCaixas;
-        int  numeroMedioCaixasAbertas, numeroMedioClienteSupermercado;
+        float *tempoMedioEsperaCadaCaixa,
+        tempoMedioEsperaTodasCaixas,
+        *numeroMedioClienteFilaCadaCaixa, 
+        numeroMedioClienteFilaTodasCaixas, 
+        numeroMedioCaixasAbertas, 
+        numeroMedioClienteSupermercado;
     }DadosEstatisticosInfo;
 
     typedef struct {
         DadosEstatisticosInfo globais, mediaDiaria;
-        DadosInstantaneoStruct dadosIntantaneosdiarios[24][6], dadosIntantaneos;
-    }DadosEstatisticosStruct;
+        DadosInstantaneoStruct dadosIntantaneosdiarios[24][6];
+    }DadosEstatisticosStruct;  // Vai ser guardado nos ficheios txt
 
     typedef struct{
         Lista *historico[26];
@@ -154,7 +158,7 @@
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
     extern HistoricoStruct HistoricoDados;
-    extern DadosEstatisticosStruct dadosEstatisticos;
+    extern DadosEstatisticosStruct *dadosEstatisticos;
     extern pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
     extern ClienteStruct **Clientes;
     extern FuncionarioStruct **Funcionarios;
@@ -289,6 +293,7 @@
 
     //historico.c
     void initHistorico();
+    void initDadosEstatisticos();
     int alfabetoIndex(char *nome);
     void *criarElementoClienteHistorico(ClienteStruct *cliente);
     void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);

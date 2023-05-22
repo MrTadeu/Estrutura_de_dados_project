@@ -8,6 +8,7 @@ void Init(){
     importarDados(importarProdutos, PRODUTOS);
     criarCaixaInit();
     initHistorico();
+    initDadosEstatisticos();
     if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();
     }
