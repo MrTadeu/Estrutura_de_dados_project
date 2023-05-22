@@ -106,7 +106,7 @@ void pesquisarClienteID(){
 void pesquisarClienteNome(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     char nome[100];
-    scanfs("%[^\n]", &nome, "Insira o nome do cliente que pretende pesquisar: ", "Input invalido, tente novamente: ");
+    scanfv("%[^\n]", &nome, "Insira o nome do cliente que pretende pesquisar: ", "Input invalido, tente novamente: ", validateIsAlphabetic);
 
     printc("\n[blue]Resultados semelhantes:[/blue] \n");
     int flag = 0;
@@ -134,7 +134,7 @@ void adicionarCliente(){
     printc("[blue]Introduza os dados do Cliente:[/blue]\n");
     printc("\n\n[yellow]ID CLIENTE: %d[/yellow]\n", Clientes[n_clientes]->id);
     
-    scanfs("%[^\n]", &nome, "Nome: ", "Input invalido, tente novamente: ");
+    scanfv("%[^\n]", &nome, "Nome: ", "Input invalido, tente novamente: ", validateIsAlphabetic);
 
     Clientes[n_clientes]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
     strcpy(Clientes[n_clientes]->nome, nome);
@@ -183,7 +183,7 @@ void editarCliente(){
         printf("\nID: %d \nNome: %s \nSaldo do Cartão: %.2f€ \nData Nascimento: %d/%d/%d", Clientes[index]->id, Clientes[index]->nome, Clientes[index]->saldoCartaoCliente, Clientes[index]->dataNascimento.dia, Clientes[index]->dataNascimento.mes, Clientes[index]->dataNascimento.ano);
         printc("\n[blue]Introduza os novos dados do cliente a editar[/blue]\n");
 
-        scanfs("%[^\n]", &nome, "\nNome do cliente: ", "Input invalido, tente novamente: ");
+        scanfv("%[^\n]", &nome, "Nome: ", "Input invalido, tente novamente: ", validateIsAlphabetic);
         free(Clientes[index]->nome);
         Clientes[index]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
         strcpy(Clientes[index]->nome, nome);
