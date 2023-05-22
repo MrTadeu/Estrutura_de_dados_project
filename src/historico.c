@@ -89,6 +89,6 @@ void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valo
        
 }
 
-void atualizarDadosEstatisticos(){
+/* void atualizarDadosEstatisticos(){
     dadosEstatisticos.intantaneos = 
-}
+} */
