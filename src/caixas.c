@@ -37,9 +37,9 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
-/* fecharUrgencia(Lista *lista){
+fecharUrgencia(CaixaStruct *caixa){
     
-} */
+}
 
 void atenderPessoa(CaixaStruct *caixa){
     if (!caixa || caixa->listaPessoas->head == NULL){
@@ -227,7 +227,8 @@ void *ThreadCaixa(void *arg){
     while(caixa->listaPessoas->quantidadeElementos > 0){
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
-        /* fecharUrgencia(caixa->listaPessoas); */
+        if(caixa->fecharUrgencia)
+            fecharUrgencia(caixa);
         
         if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
             valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
