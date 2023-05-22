@@ -50,7 +50,6 @@ void fecharUrgencia(CaixaStruct *caixa){
     pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
     caixa->listaPessoas->head = NULL;
     caixa->listaPessoas->quantidadeElementos = 0;
-
 }
 
 void atenderPessoa(CaixaStruct *caixa){
