@@ -109,16 +109,6 @@ int validateRangeFloat(void* DataScanf, void *args) {
     return 0;
 }
 
-int validatePositiveNumber(void* DataScanf, void *args) {
-    args = args;
-    int value = *(int*)DataScanf;
-    if (value >= 0) {
-        return 1;
-    }
-    printc("[red]O número tem de ser positivo!\n[/red]");
-    return 0;
-}
-
 DataStruct gerarData(int anoMin, int anoMax){
     DataStruct data;
     data.ano = Aleatorio(anoMin, anoMax);

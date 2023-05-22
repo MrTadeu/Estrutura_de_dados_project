@@ -55,11 +55,6 @@ void *ThreadEsperaTempoCompra(void *pessoa){
     }
     pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
     AddElementoFim(Global.PessoasAcabaramTempoDeCompra, criarElemento(cliente));
-    /* Elemento *pessoaEnviar = Global.PessoasAcabaramTempoDeCompra->head;
-    while(pessoaEnviar != NULL){
-        printc("[green]-O-[/green]");
-        pessoaEnviar = pessoaEnviar->next;
-    } */
     pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
 
     return NULL;
