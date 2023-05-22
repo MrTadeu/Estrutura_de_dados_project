@@ -65,7 +65,7 @@ void verClientesCaixa(){
             Elemento *Cliente = ((CaixaStruct *)Caixa->Info)->listaPessoas->head;
             while (Cliente){
                 ClienteStruct ClienteInfo = *((ClienteStruct *)Cliente->Info);
-                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %d TempoEstimadoCaixa: %d tempoEstimadoCompra: %d precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, ClienteInfo.tempoAtraso, ClienteInfo.tempoEstimadoCaixa, ClienteInfo.tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
+                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %d tempoBrinde: %d TempoEstimadoCaixa: %d tempoEstimadoCompra: %d precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, ClienteInfo.tempoAtraso, ClienteInfo.tempoBrinde, ClienteInfo.tempoEstimadoCaixa, ClienteInfo.tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
                 Elemento *Produtos = ClienteInfo.listaProdutos->head;
                 while(Produtos){
                     ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
@@ -292,6 +292,7 @@ ClienteStruct *escolherCliente(){
 }
 
 void DesocuparCliente(ClienteStruct *pessoa){
+    pthread_mutex_lock(&ClientesLock);
     int index = pesquisarClienteVetorBatente(pessoa);
     if(index == -1){
         printf("[red]Error![/red] Given client is NULL");
@@ -300,7 +301,6 @@ void DesocuparCliente(ClienteStruct *pessoa){
     ClienteStruct *cliente = Clientes[index];
     cliente->ativo = 0;
     
-    pthread_mutex_lock(&ClientesLock);
     Clientes[index] = Clientes[n_clientesAtivos-1];
     Clientes[n_clientesAtivos] = cliente;
     n_clientesAtivos--;

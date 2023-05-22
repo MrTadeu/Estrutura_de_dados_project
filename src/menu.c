@@ -23,6 +23,7 @@ void menu(){
         printc("**        [blue]%d [/blue]-> Criar Grafico                    **\n", i++);
         printc("**************************************************\n");
         printc("Qual a opção que pretende? ");
+        /* scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n"); */
         scanf("%d", &opcao);
 
         i = 1;

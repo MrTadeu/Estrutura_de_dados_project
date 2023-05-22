@@ -66,6 +66,7 @@ void importarClientes(char **linhaString, int n_linha, int n_colunas){
     Clientes[n_linha]->tempoEstimadoCaixa = 0;
     Clientes[n_linha]->tempoAtraso = 0;
     Clientes[n_linha]->ativo = 0;
+    Clientes[n_linha]->tempoBrinde = 0;
 }
 
 void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
