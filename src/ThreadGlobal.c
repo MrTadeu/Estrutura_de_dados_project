@@ -20,7 +20,7 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
-        dormir(1);
+        dormir(1000);
     }
     return NULL;
 }
