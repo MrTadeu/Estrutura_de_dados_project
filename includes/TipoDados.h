@@ -72,7 +72,9 @@
         int tempoEstimadoCompra;      // soma do tempo de compra dos proprios produtos
         int tempoEstimadoCaixa;       // soma do tempo de caixa dos proprios produtos
         int tempoEstimadoFila;        // soma do tempo dos produtos das pessoas a sua frente no momento em que entrou na fila (== ao tempoTotalEspera)
-        int tempoAtraso;              // soma do atraso aleatorio de cada pessoa a sua frente
+        int tempoAtraso;              // tempo de atraso da proprio pessoa (random)
+
+        int tempoBrinde;              // soma do atraso aleatorio de cada pessoa a sua frente
 
         Lista *listaProdutos;           // lista dos produtos
         float precoTotalProdutos;        

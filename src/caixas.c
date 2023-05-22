@@ -23,18 +23,26 @@ void destruirCaixa(void *Caixa){
 }
 
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
-void atualizarAtrasos(Lista *lista, int atraso){
+void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEnviar){
     if(!lista){
         printf("\t\n[red]Error![/red] lista NULL.\n");
         return;
     }
+
+    int atrasoMaximo = (int)(pessoaEnviar->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso);
+    int atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
+    pessoaEnviar->tempoAtraso = atraso;
+
+
     Elemento *aux = lista->head;
+    aux = aux->next;
     ClienteStruct *pessoa;
     while(aux){
         pessoa = (ClienteStruct *) aux->Info;
-        pessoa->tempoAtraso += atraso;
+        pessoa->tempoBrinde += atraso;
         aux = aux->next;
     }
+    /* pessoaEnviar->tempoBrinde -= atraso; */
 }
 
 void fecharUrgencia(CaixaStruct *caixa){
@@ -75,7 +83,8 @@ void atenderPessoa(CaixaStruct *caixa){
             cliente->tempoEstimadoCaixa--;
             caixa->tempoTotalEspera--;
         }
-        else if (cliente->tempoAtraso > 0) cliente->tempoAtraso--;
+        else if (cliente->tempoAtraso > 0) 
+            cliente->tempoAtraso--;
     } 
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
@@ -126,10 +135,6 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
             pthread_detach(threadCaixa);
-            /* printc("[red]Opcoes.numCaixasAbertas == 0[/red]");
-            getchar();
-            getchar(); */
-
         }
         return menor;
         
@@ -151,10 +156,6 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             pthread_detach(threadCaixa);
             
         }
-            /* printc("[red]menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTota[/red]");
-            getchar();
-            getchar(); */
-
         return primeiraCaixaFechada;
     }
 
@@ -162,31 +163,18 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && Opcoes.numCaixasAbertas > 1){
         Opcoes.numCaixasAbertas--;
         menor->aberta = 0;
-        /* printf("[red]maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && Opcoes.numCaixasAbertas > 1[/red]");
-        getchar();
-        getchar();
-         */
         return SegundaMenor;
     }
 
     // SE NAO FECHARMOS CAIXAS OU ABRIRMOS CAIXAS A MELHOR CAIXA É A MENOR
     if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1){
-        /*  printf("[red]menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1[/red]");
-        getchar();
-        getchar(); */
         return menor;
     }
     else if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 0){
-        /* printf("[red]menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1[/red]");
-        getchar();
-        getchar(); */
         return NULL;
     }
 
     if(menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior){
-        /* printf("[red]menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior[/red]");
-        getchar();
-        getchar(); */
         return NULL;
     }
 
@@ -212,7 +200,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
         pthread_mutex_unlock(&melhorCaixa->lock);
 
         pthread_mutex_lock(&ClientesLock);
-        ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
+        ((ClienteStruct*)pessoaEnviar->Info)->tempoBrinde = ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso;
         if (Opcoes.VerTransacoes == 1 && Opcoes.lojaAberta == 1){
             printc("\n\n[green]Tempo de atraso: %d[/green]", ((ClienteStruct*) melhorCaixa->listaPessoas->head->Info)->tempoAtraso);
             printc("\n[green]novo tempo de atraso: %d[/green]", ((ClienteStruct*)pessoaEnviar->Info)->tempoAtraso);
@@ -231,49 +219,63 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
-    int n_vendas = 0, atrasoMaximo, atrasoMedio = 0, atrasoSum = 0, atraso;
+    int n_vendas = 0, atrasoSum = 0;
     float valorProdutoOferecido = 0.0;
     ClienteStruct *pessoaEmAtendimento;
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
-        if(pessoaEmAtendimento->tempoAtraso > Opcoes.tempoAtrasoMaximoBrinde)
-            valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
 
         //ATRASOS ATUALIZADOS
-        atrasoMaximo = (int)(pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso);
-        atraso = Aleatorio(-atrasoMaximo, atrasoMaximo);
-        pthread_mutex_lock(&caixa->lock);
-        atualizarAtrasos(caixa->listaPessoas, atraso);
-        pthread_mutex_unlock(&caixa->lock);
+        atualizarAtrasos(caixa->listaPessoas, pessoaEmAtendimento);
+
+        if(pessoaEmAtendimento->tempoBrinde > Opcoes.tempoAtrasoMaximoBrinde)
+            valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
+
+        
 
         //ATUALIZAÇÃO DE SALDO CARTÃO CLIENTE   
         float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
         atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
-        
+
+
+        atrasoSum += pessoaEmAtendimento->tempoAtraso;
+        atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
+
+
+
+
+        printf("\nsda+onihudashjdas");
         //guardarhistorico
         guardarHistorico(caixa, movimentoSaldoCliente, valorProdutoOferecido);
+        printf("\nsda+onihudashjdas");
 
         //Remover da fila
         pthread_mutex_lock(&caixa->lock);
-        free(RemElementoInicio(caixa->listaPessoas)); // Free do elemento, nao da pessoa em si
+        //free(RemElementoInicio(caixa->listaPessoas)); // Free do elemento, nao da pessoa em si
         //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_unlock(&caixa->lock);
+        printf("\nsda+onihudashjdas");
+
 
         if(caixa->fecharUrgencia)
             fecharUrgencia(caixa);
+
+        printf("\nsda+onihudashjdas");
+
             
         //Desocupar pessoa
-        pthread_mutex_lock(&ClientesLock);
-        DesocuparCliente(pessoaEmAtendimento);
-        pthread_mutex_unlock(&ClientesLock);
+        /* pthread_mutex_lock(&ClientesLock); */
+        printf("\nteste1");
+        //DesocuparCliente(pessoaEmAtendimento);
+        printf("\nteste2");
+        /* pthread_mutex_unlock(&ClientesLock); */
+        printf("\nsda+ola123234");
 
-        atrasoSum += atraso;
-        n_vendas++;
-        atrasoMedio = atrasoSum / n_vendas;
-        atualizarDadosFuncionario(caixa->funcionario, atrasoMedio);
+
+    
     }
     //Por a zero os tempos para reutilizacao da caixa
     return NULL;

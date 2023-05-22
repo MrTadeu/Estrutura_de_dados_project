@@ -1,23 +1,3 @@
-22
 41045	Detergente Pastilhas Máquina Loiça All in 1 Limão [Sun] 96 doses	12.000000	0.200000	1.500000
 41046	Ambientador Portátil Sense&Spray Frescor de Roupa [Glade] 1 un	3.500000	0.200000	0.100000
-41047	Desengordurante Spray Indução [Clen] 450 ml	5.500000	0.200000	0.900000
-41048	Toalhitas Placa Indução [Clen] 30 un	3.000000	0.100000	0.200000
-41049	Detergente Máquina Roupa Líquido Active Clean [Skip] 80 doses	12.500000	0.200000	3.900000
-41078	Lixívia & Higiene [Cillit Bang] 750 ml	4.290000	0.200000	1.100000
-41079	Calcário & Brilho [Cillit Bang] 750 ml	4.290000	0.200000	5.000000
-41080	Gordura & Brilho [Cillit Bang] 750 ml	4.290000	0.600000	0.300000
-41081	Detergente Máquina Roupa Líquido Fresh Sensation [Ariel] 60 doses	19.990000	0.200000	1.600000
-41082	Inseticida Elétrico Night&Day Pack Duplo [Raid] 1 un	13.490000	6.400000	1.900000
-41084	Bloco Sanitário WC Água Azul Eucalipto [Sonasol] 1 un	1.750000	0.200000	2.800000
-41085	Detergente Máquina Roupa Concentrado Cápsulas Universal [Persil] 19 doses	7.990000	0.200000	11.100000
-41086	Detergente Máquina Roupa Concentrado Cápsulas Color [Persil] 19 doses	4.000000	0.200000	7.500000
-41087	Detergente Máquina Roupa Líquido Fresh Sensation [Ariel] 40 doses	13.990000	0.200000	1.200000
-41088	Detergente Manual Loiça Limão [Super Pop] 700 ml	1.750000	0.500000	8.800000
-41089	Lava Tudo Vinagre [Cif] 1.4 L	1.490000	0.220000	2.900000
-41090	Lava Tudo Madeiras [Cif] 1.4 L	1.490000	6.500000	2.700000
-41091	Lava Tudo Limão Verde [Cif] 1.4 lt	1.490000	0.200000	1.800000
-41092	Limpa Vidros Spray Brilhante [Sonasol] 750 ml	2.390000	0.200000	1.300000
-41093	Lava Tudo Perfumado Fabuloso Flores de Primavera [Ajax] 1.25 lt	2.690000	0.200000	0.100000
-41094	Lava Tudo Perfumado Fabuloso Montanha [Ajax] 1.25 lt	2.690000	0.200000	2.800000
-41095	Lava Tudo Perfumado Fabuloso Lavanda [Ajax] 1.25 lt	2.690000	2.100000	6.300000
+41047	Desengordurante Spray Indução [Clen] 450 ml	5.500000	0.200000	10.900000
