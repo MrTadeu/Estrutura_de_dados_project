@@ -37,8 +37,17 @@ void atualizarAtrasos(Lista *lista, int atraso){
     }
 }
 
-fecharUrgencia(CaixaStruct *caixa){
+void fecharUrgencia(CaixaStruct *caixa){
+    if (!caixa)
+    {
+        printc("\n\t[red]Error[/red] Given cauxa is NULL\n");
+    }
     
+    caixa->aberta = 0;
+    Elemento* aux = caixa->listaPessoas->head;
+    while(aux){
+
+    }
 }
 
 void atenderPessoa(CaixaStruct *caixa){
