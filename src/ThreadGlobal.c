@@ -71,37 +71,24 @@ void changeStateThreadGlobal(){
         Opcoes.lojaAberta = 1;
         pthread_t GlobalThread;
 
-        Elemento *CaixaElm = Global.caixas->head;
-        for (int i = 0; i < Opcoes.numCaixasAbertas; i++){
+        /* Elemento *CaixaElm = Global.caixas->head;
+        for (int i = 0; i < Opcoes.numCaixasAbertasAranque; i++){
             CaixaStruct *caixa = (CaixaStruct *)CaixaElm->Info;
-            printf("\nEntrou i: %d", i);
             if(n_funcionariosAtivos >= n_funcionarios){
-                printf("\nola %d",i );
-               /*  printf("\nola id %d", ((CaixaStruct *)CaixaElm->Info)->id); */
-                getchar();
-                getchar();
                 caixa->aberta = 0;
                 caixa->funcionario = NULL;
-                printf("wtffff");
             }
             else{
-                printf("\nElse i: %d n_funcionarios : %d", i, n_funcionarios);
-                getchar();
-                getchar();	
                 caixa->aberta = 1;
                 caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
             }
-            printf("\nNext i: %d", i);
             CaixaElm = CaixaElm->next; 
-            printf("\nStill Next i: %d", i);
             if(CaixaElm == NULL){
-                printf("\nBreak i: %d", i);
                 break;
             }
-        }
+        } */
 
         if (pthread_create(&GlobalThread, NULL, ThreadGlobal, NULL) != 0){
-            
             printc("[red]Erro[/red] ao criar thread global!!!\n");
             exit(1);
         } 

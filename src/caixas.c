@@ -120,10 +120,13 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         menor->aberta = 1;
         Opcoes.numCaixasAbertas++;
         if (menor->listaPessoas->head == NULL){
-            pthread_t threadCaixa;
+            /* pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
-            pthread_detach(threadCaixa);
-            
+            pthread_detach(threadCaixa); */
+            /* printc("[red]Opcoes.numCaixasAbertas == 0[/red]");
+            getchar();
+            getchar(); */
+
         }
         return menor;
         
@@ -140,11 +143,15 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         primeiraCaixaFechada->aberta = 1;
         Opcoes.numCaixasAbertas++;
         if (primeiraCaixaFechada->listaPessoas->head == NULL){
-            pthread_t threadCaixa;
+            /* pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)primeiraCaixaFechada);
-            pthread_detach(threadCaixa);
+            pthread_detach(threadCaixa); */
             
         }
+            /* printc("[red]menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior && Opcoes.numCaixasAbertas < Opcoes.numCaixasTota[/red]");
+            getchar();
+            getchar(); */
+
         return primeiraCaixaFechada;
     }
 
@@ -152,18 +159,31 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     if (maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && Opcoes.numCaixasAbertas > 1){
         Opcoes.numCaixasAbertas--;
         menor->aberta = 0;
+        /* printf("[red]maior->tempoTotalEspera < Opcoes.TempoLimiteInferior && Opcoes.numCaixasAbertas > 1[/red]");
+        getchar();
+        getchar();
+         */
         return SegundaMenor;
     }
 
     // SE NAO FECHARMOS CAIXAS OU ABRIRMOS CAIXAS A MELHOR CAIXA É A MENOR
     if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1){
+        /*  printf("[red]menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1[/red]");
+        getchar();
+        getchar(); */
         return menor;
     }
     else if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 0){
+        /* printf("[red]menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1[/red]");
+        getchar();
+        getchar(); */
         return NULL;
     }
 
     if(menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior){
+        /* printf("[red]menor->tempoTotalEspera >= Opcoes.TempoLimiteSuperior[/red]");
+        getchar();
+        getchar(); */
         return NULL;
     }
 

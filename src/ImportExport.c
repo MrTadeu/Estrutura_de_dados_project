@@ -15,6 +15,7 @@ void importOpcoes(){
     else{
         Opcoes.numCaixasTotal = 10;
         Opcoes.numCaixasAbertas = 2;
+        Opcoes.numCaixasAbertasAranque = 2;
         Opcoes.probGerarPessoa = 100;
         Opcoes.probUsarSaldoCartao = 30;
         Opcoes.percentagemPrecoAngariarSaldo = 0.2; // FLOAT

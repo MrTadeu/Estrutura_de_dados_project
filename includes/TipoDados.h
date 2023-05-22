@@ -10,6 +10,7 @@
     #include <locale.h>
     #include <unistd.h>
     #include <sys/time.h>
+    #include <stdarg.h>
 
     //Criar as threads
     #ifndef PTHREAD_H
@@ -86,6 +87,7 @@
         int numCaixasTotal, //FEITO
             numCaixasAbertas, // NADA
             probGerarPessoa, //FEITO
+            numCaixasAbertasAranque,//dsalkjajhdsjhasdjhasdjhkasdjkasdjhkajkh
             probUsarSaldoCartao, // POR FAZER--
             lotacaoMaxima, //FEITO
             lojaAberta, // NADA
