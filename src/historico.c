@@ -9,8 +9,12 @@ void initDadosEstatisticos(){
     dadosEstatisticos = (DadosEstatisticosStruct*) malloc(sizeof(DadosEstatisticosStruct));
 
     dadosEstatisticos->dadosIntantaneosdiarios = (DadosInstantaneoStruct**) calloc(sizeof(DadosEstatisticosStruct*)*24);
-    for (int i = 0; i < 24; i++)
+    for (int i = 0; i < 24; i++){
         dadosEstatisticos->dadosIntantaneosdiarios[i] = (DadosInstantaneoStruct*) calloc(sizeof(DadosEstatisticosStruct)*6);
+        for (int j = 0; j < 6; j++){
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j] = (int*) calloc(sizeof(int)*Opcoes.numCaixasTotal);
+        }
+    }
 }
 
 int alfabetoIndex(char *nome){
@@ -96,5 +100,15 @@ void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valo
 }
 
 void atualizarDadosEstatisticos(){
-    dadosEstatisticos.intantaneos = 
+    for (int i = 0; i < 24; i++){
+        for (int j = 0; j < 6; i++){
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int*) calloc(sizeof(int)*Opcoes.numCaixasTotal);
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa[0] = 
+
+        }
+    }
+    
+        
+    
+    
 }
