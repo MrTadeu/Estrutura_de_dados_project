@@ -91,6 +91,7 @@ void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valo
             flag = 1;
             break;
         }
+        Aux = Aux->next;
     }
     if(!flag){
         AddElementoInicio(HistoricoDados.historico[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
