@@ -85,10 +85,13 @@ void atenderPessoa(CaixaStruct *caixa){
         }
         else if (cliente->tempoAtraso > 0) 
             cliente->tempoAtraso--;
-    } 
+    }
+    printf("\nhiii pasou %d", caixa->id);
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
     cliente->tempoAtraso = tempoAtrasoAux;
+    printf("\nhiii pasou1 %d",caixa->id);
+
 }
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 
@@ -222,8 +225,10 @@ void *ThreadCaixa(void *arg){
     int n_vendas = 0, atrasoSum = 0;
     float valorProdutoOferecido = 0.0;
     ClienteStruct *pessoaEmAtendimento;
+        printf("\n\txxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx %d\n", caixa->id);
     
     while(caixa->listaPessoas->quantidadeElementos > 0){
+        printf("\nhiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiixd %d\n", caixa->id);
         pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
 
 
@@ -239,40 +244,40 @@ void *ThreadCaixa(void *arg){
         float movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
 
         atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
+        printf("\nhiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiixddqasdasd %d\n", caixa->id);
+
 
 
         atrasoSum += pessoaEmAtendimento->tempoAtraso;
         atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
+        printf("\nhiiiiixddqasdasd %d dsaasd\n", caixa->id);
 
 
-
-
-        printf("\nsda+onihudashjdas");
         //guardarhistorico
         guardarHistorico(caixa, movimentoSaldoCliente, valorProdutoOferecido);
-        printf("\nsda+onihudashjdas");
+
+        printf("\n123123 %d dsaasd\n", caixa->id);
+
 
         //Remover da fila
         pthread_mutex_lock(&caixa->lock);
-        //free(RemElementoInicio(caixa->listaPessoas)); // Free do elemento, nao da pessoa em si
+        RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
         //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_unlock(&caixa->lock);
-        printf("\nsda+onihudashjdas");
+
+        printf("\n123123 %d fuckkkk\n", caixa->id);
 
 
-        if(caixa->fecharUrgencia)
+       /*  if(caixa->fecharUrgencia)
             fecharUrgencia(caixa);
-
-        printf("\nsda+onihudashjdas");
-
+ */
             
         //Desocupar pessoa
         /* pthread_mutex_lock(&ClientesLock); */
-        printf("\nteste1");
-        //DesocuparCliente(pessoaEmAtendimento);
-        printf("\nteste2");
+        DesocuparCliente(pessoaEmAtendimento);
+        printf("\n123123 %d fuckkk12312erwjoinhfsqghidfhihjkk\n", caixa->id);
+
         /* pthread_mutex_unlock(&ClientesLock); */
-        printf("\nsda+ola123234");
 
 
     
