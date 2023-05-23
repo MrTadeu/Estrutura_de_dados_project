@@ -8,11 +8,13 @@ void initHistorico(){
 void initDadosEstatisticos(){
     dadosEstatisticos = (DadosEstatisticosStruct*) malloc(sizeof(DadosEstatisticosStruct));
 
-    dadosEstatisticos->dadosIntantaneosdiarios = (DadosInstantaneoStruct**) calloc(24, sizeof(DadosEstatisticosStruct*));
     for (int i = 0; i < 24; i++){
-        dadosEstatisticos->dadosIntantaneosdiarios[i] = (DadosInstantaneoStruct*) calloc(6, sizeof(DadosEstatisticosStruct));
         for (int j = 0; j < 6; j++){
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j] = (int*) calloc(Opcoes.numCaixasTotal, sizeof(int));
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int*) malloc(sizeof(int)*Opcoes.numCaixasTotal);
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEsperaCadaCaixa = (int*) malloc(sizeof(int)*Opcoes.numCaixasTotal);
+
+            dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float*) malloc(sizeof(float)*Opcoes.numCaixasTotal);
+            dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float*) malloc(sizeof(float)*Opcoes.numCaixasTotal);
         }
     }
 }
@@ -100,16 +102,6 @@ void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valo
        
 }
 
-void atualizarDadosEstatisticos(){
-    for (int i = 0; i < 24; i++){
-        for (int j = 0; j < 6; i++){
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int*) calloc(sizeof(int)*Opcoes.numCaixasTotal);
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa[0] = 
+/* void atualizarDadosEstatisticos(){
 
-        }
-    }
-    
-        
-    
-    
-}
+} */
