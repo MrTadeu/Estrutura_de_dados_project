@@ -8,11 +8,11 @@ void initHistorico(){
 void initDadosEstatisticos(){
     dadosEstatisticos = (DadosEstatisticosStruct*) malloc(sizeof(DadosEstatisticosStruct));
 
-    dadosEstatisticos->dadosIntantaneosdiarios = (DadosInstantaneoStruct**) calloc(sizeof(DadosEstatisticosStruct*)*24);
+    dadosEstatisticos->dadosIntantaneosdiarios = (DadosInstantaneoStruct**) calloc(24, sizeof(DadosEstatisticosStruct*));
     for (int i = 0; i < 24; i++){
-        dadosEstatisticos->dadosIntantaneosdiarios[i] = (DadosInstantaneoStruct*) calloc(sizeof(DadosEstatisticosStruct)*6);
+        dadosEstatisticos->dadosIntantaneosdiarios[i] = (DadosInstantaneoStruct*) calloc(6, sizeof(DadosEstatisticosStruct));
         for (int j = 0; j < 6; j++){
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j] = (int*) calloc(sizeof(int)*Opcoes.numCaixasTotal);
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j] = (int*) calloc(Opcoes.numCaixasTotal, sizeof(int));
         }
     }
 }
