@@ -10,11 +10,17 @@ void initDadosEstatisticos(){
 
     for (int i = 0; i < 24; i++){
         for (int j = 0; j < 6; j++){
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int*) malloc(sizeof(int)*Opcoes.numCaixasTotal);
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEsperaCadaCaixa = (int*) malloc(sizeof(int)*Opcoes.numCaixasTotal);
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int*) calloc(Opcoes.numCaixasTotal, sizeof(int));
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEsperaCadaCaixa = (int*) calloc(Opcoes.numCaixasTotal, sizeof(int));
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
+            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numerosCaixasAbertas = 0;
 
-            dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float*) malloc(sizeof(float)*Opcoes.numCaixasTotal);
-            dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float*) malloc(sizeof(float)*Opcoes.numCaixasTotal);
+            dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float*) calloc(Opcoes.numCaixasTotal, sizeof(float));
+            dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float*) calloc(Opcoes.numCaixasTotal, sizeof(float));
+            dadosEstatisticos->mediaDiaria.tempoMedioEsperaTodasCaixas = 0;
+            dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaTodasCaixas = 0;
+            dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas = 0;
+            dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0;
         }
     }
 }
