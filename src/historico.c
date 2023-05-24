@@ -72,6 +72,7 @@ void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float v
 //                          |Info|  <--- HistoricoSubStructInfo
 
 void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido){
+    //!valorProdutoOferecido PODE CHEGAR -1 === NADA (NAO TEM BRINDE) VERIFICAR ISSO
     if(!caixa){
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");         
         return;                                                       

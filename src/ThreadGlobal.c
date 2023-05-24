@@ -1,6 +1,5 @@
 #include "../includes/TipoDados.h"
 
-
 void *ThreadGlobal(){
     pthread_mutex_init(&PessoasAcabaramTempoDeCompraLock, NULL);
     pthread_mutex_init(&ClientesLock, NULL);
@@ -17,7 +16,7 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
-        dormir(1);
+        dormir(100);
     }
     return NULL;
 }
@@ -71,7 +70,7 @@ void changeStateThreadGlobal(){
         /* Elemento *CaixaElm = Global.caixas->head;
         for (int i = 0; i < Opcoes.numCaixasAbertasAranque; i++){
             CaixaStruct *caixa = (CaixaStruct *)CaixaElm->Info;
-            if(n_funcionariosAtivos >= n_funcionarios){
+            if(n_funcionariosAtivos >= n_funcisonarios){
                 caixa->aberta = 0;
                 caixa->funcionario = NULL;
             }

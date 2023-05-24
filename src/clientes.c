@@ -368,7 +368,7 @@ float atualizarSaldoCliente(ClienteStruct *pessoaEmAtendimento){
     else
         pessoaEmAtendimento->saldoCartaoCliente += (pessoaEmAtendimento->precoTotalProdutos * Opcoes.percentagemPrecoAngariarSaldo)/100;
     movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
-    printf("Saldo Cartao: %f\n", pessoaEmAtendimento->saldoCartaoCliente);
+    //!printf("Saldo Cartao: %f\n", pessoaEmAtendimento->saldoCartaoCliente);
     return movimentoSaldoCartao;
 }
 
@@ -391,22 +391,27 @@ void destruirCliente(void *Cliente){
 }
 
 float oferecerBrinde(ClienteStruct *cliente){
-    printc("\n\n[red]BRINDE[/red]");
-    printc("[red]Preco antigo: %f[/red]", cliente->precoTotalProdutos);
-    Elemento *aux = cliente->listaProdutos->head, *produtoOferecido = aux;
-    float precoMin = ((ProdutoStruct*)aux->Info)->preco;
+    if(cliente->tempoBrinde > Opcoes.tempoAtrasoMaximoBrinde){
+        printc("\n\n[red]BRINDE[/red]");
+        printc("[red]Preco antigo: %f[/red]", cliente->precoTotalProdutos);
+        Elemento *aux = cliente->listaProdutos->head, *produtoOferecido = aux;
+        float precoMin = ((ProdutoStruct*)aux->Info)->preco;
 
-    while(aux){
-        if(((ProdutoStruct*)aux->Info)->preco < precoMin){
-            precoMin = ((ProdutoStruct*)aux->Info)->preco;
-            produtoOferecido = aux;
-        }  
-        aux = aux->next;
+        while(aux){
+            if(((ProdutoStruct*)aux->Info)->preco < precoMin){
+                precoMin = ((ProdutoStruct*)aux->Info)->preco;
+                produtoOferecido = aux;
+            }  
+            aux = aux->next;
+        }
+        cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
+        printc("[red]ID Produto: %f[/red]", ((ProdutoStruct*)produtoOferecido->Info)->nome);
+        printc("[red]Preco novo: %f[/red]", cliente->precoTotalProdutos);
+
+        ((ProdutoStruct*)produtoOferecido->Info)->oferecido = 1;
+        return precoMin;
     }
-    cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
-    printc("[red]ID Produto: %f[/red]", ((ProdutoStruct*)produtoOferecido->Info)->nome);
-    printc("[red]Preco novo: %f[/red]", cliente->precoTotalProdutos);
-
-    ((ProdutoStruct*)produtoOferecido->Info)->oferecido = 1;
-    return precoMin;
+    else{
+        return -1;
+    }
 }
