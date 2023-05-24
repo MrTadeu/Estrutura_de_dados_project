@@ -165,6 +165,7 @@ void menuClientes(){
         printc("**        [blue]%d [/blue]-> Adicionar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Editar Cliente                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Remover Cliente                  **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar Cliente Em Caixa       **\n", i++);
         printc("**************************************************\n");
         printc("Qual a opção que pretende? ");
         scanf("%d", &opcao);
@@ -193,6 +194,9 @@ void menuClientes(){
         }
         if (opcao == i++){
             removerCliente();
+        }
+        if (opcao == i++){
+            verSeClienteEspecificoEmCaixa();
         }
     } while (opcao != 0);
 }
