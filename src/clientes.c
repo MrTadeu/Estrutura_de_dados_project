@@ -20,6 +20,50 @@ void verClientes(){
     getchar();
 }
 
+void encontrarCaixaCliente(ClienteStruct *cliente){
+    Elemento* caixaAux = Global.caixas->head;
+    while (caixaAux){
+        Elemento* pessoas = ((CaixaStruct *)caixaAux->Info)->listaPessoas->head;
+        while (pessoas){
+            if (((ClienteStruct *)pessoas->Info)->id == cliente->id){
+                printc("O cliente %s com id %d está na caixa: %d", cliente->nome, cliente->id, ((CaixaStruct *)caixaAux->Info)->id);
+                Elemento *Produtos = ((ClienteStruct *)pessoas->Info)->listaProdutos->head;
+                while(Produtos){
+                    ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
+                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue] tempoCaixa:%d", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco, ProdutoInfo->tempoCaixa);
+                    Produtos = Produtos->next;
+                }
+                return;
+            }
+            pessoas = pessoas->next;
+        }
+        caixaAux = caixaAux->next;
+    }
+}
+
+void verSeClienteEspecificoEmCaixa(){
+    int id;
+    scanfs("%d", &id, "\nInsira o ID do cliente que pretende pesquisar: ", "Apenas pode inserir números inteiros!");
+    int pos = encontrarIdCliente(id);
+    if (pos == -1) {
+        printc("\n\n\t[red]Cliente id não existe![/red]");
+        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+        bufferclear();
+        getchar();
+        return;
+    } 
+
+
+    if (Clientes[pos]->ativo == 1){
+        encontrarCaixaCliente(Clientes[pos]);
+    }
+    else printc("\n\n\t[yellow]Cliente não está em nenhuma caixa![/yellow]");
+    
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
 void verClientesEmLoja(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     if(Opcoes.lojaAberta == 0){

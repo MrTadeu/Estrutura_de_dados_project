@@ -217,6 +217,8 @@
     int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
     void destruirCliente(void *Cliente);
     float oferecerBrinde(ClienteStruct *cliente);
+    void encontrarCaixaCliente(ClienteStruct *cliente);
+    void verSeClienteEspecificoEmCaixa();
 
     //caixas.c
     CaixaStruct *MelhorCaixa();
