@@ -2,9 +2,6 @@
 
 
 void *ThreadGlobal(){
-
-    Global.PessoasAcabaramTempoDeCompra = criarLista();
-
     pthread_mutex_init(&PessoasAcabaramTempoDeCompraLock, NULL);
     pthread_mutex_init(&ClientesLock, NULL);
     
@@ -20,7 +17,7 @@ void *ThreadGlobal(){
             
             SelecionarCaixa();
         }
-        dormir(1000);
+        dormir(1);
     }
     return NULL;
 }
@@ -48,7 +45,6 @@ void *ThreadEsperaTempoCompra(void *pessoa){
             Aux = Aux->next; 
         }
     }
-   
     dormir(cliente->tempoEstimadoCompra);
     if(Opcoes.VerTransacoes == 1){
         printf("\n\n%s acabou de comprar todos os produtos em %ds",cliente->nome, cliente->tempoEstimadoCompra);
@@ -56,7 +52,6 @@ void *ThreadEsperaTempoCompra(void *pessoa){
     pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
     AddElementoFim(Global.PessoasAcabaramTempoDeCompra, criarElemento(cliente));
     pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
-
     return NULL;
 }
 /* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
@@ -65,6 +60,13 @@ void changeStateThreadGlobal(){
     if(Opcoes.lojaAberta == 0 && menuvalidarCaixaFuncionarios()){
         Opcoes.lojaAberta = 1;
         pthread_t GlobalThread;
+
+        pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
+        if(Global.PessoasAcabaramTempoDeCompra == NULL){
+            Global.PessoasAcabaramTempoDeCompra = criarLista();
+        }
+        pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
+
 
         /* Elemento *CaixaElm = Global.caixas->head;
         for (int i = 0; i < Opcoes.numCaixasAbertasAranque; i++){

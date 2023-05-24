@@ -274,11 +274,11 @@ ClienteStruct *escolherCliente(){
         return NULL;
     }    
     else{
+        pthread_mutex_lock(&ClientesLock);
         int index = Aleatorio(n_clientesAtivos, n_clientes - 1);
         cliente = Clientes[index];
         cliente->ativo = 1;
         
-        pthread_mutex_lock(&ClientesLock);
         Clientes[index] = Clientes[n_clientesAtivos];
         Clientes[n_clientesAtivos] = cliente;
         n_clientesAtivos++;
