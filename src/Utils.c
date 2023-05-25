@@ -281,6 +281,8 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
     printc("[red]Cliente não encontrado![/red]\n",);
 }
 
+
+
 /*
 
 int fileExistAll(){
