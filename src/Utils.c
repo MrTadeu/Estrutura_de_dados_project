@@ -267,26 +267,6 @@ long long getCurrentTimeMillisecounds(){
     return milliseconds;
 }
 
-void pesquisarClienteNoHistorico(ClienteStruct *cliente){
-    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
-        Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
-        while (pessoasHistorico != NULL){
-            HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
-            if ((cliente->id == ClienteInfo->id) && strcasecmp(cliente->nome, ClienteInfo->nome)){
-                
-                printf("Cliente: %s id: %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
-                return;
-            }
-            pessoasHistorico = pessoasHistorico->next;
-        }
-    }
-    printc("[red]Cliente não encontrado![/red]\n");
-}
-
-void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
-
-}
-
 /*
 
 int fileExistAll(){

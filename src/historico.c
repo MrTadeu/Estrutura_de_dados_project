@@ -1,8 +1,8 @@
 #include "../includes/TipoDados.h"
 
-void initHistorico()
-{
+void initHistorico(){
     HistoricoDados.tamanhoVetorHash = 30;
+    HistoricoDados.HistoricoTransacoes = malloc(HistoricoDados.tamanhoVetorHash * sizeof(Lista*));
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
         HistoricoDados.HistoricoTransacoes[i] = criarLista();
 }
@@ -11,10 +11,8 @@ void initDadosEstatisticos()
 {
     HistoricoDados.dadosEstatisticos = (DadosEstatisticosStruct *)malloc(sizeof(DadosEstatisticosStruct));
 
-    for (int i = 0; i < 24; i++)
-    {
-        for (int j = 0; j < 6; j++)
-        {
+    for (int i = 0; i < 24; i++){
+        for (int j = 0; j < 6; j++){
             HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
             HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEsperaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
             HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
@@ -123,9 +121,11 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
 //* index Hash->|0|1|2|3|...          __HistoricoSubStructCliente
 //*              |        ___________/      /
 //*              V       V                 /
-//*            |Nome, Id|  --> |1|2|3|4|5|... <--id caixas
+//*           |Nome, Id|  --> |1|2|3|4|5|... <--id caixas
 //*                             |
 //*                          |Info|  <--- HistoricoSubStructCaixa
+
+//! FAZER O MENU DESSAS FUNÇÕES
 
 void mostrarHistorico(){
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
@@ -179,4 +179,24 @@ void mostrarHistorico(){
     }
 
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
+}
+
+void pesquisarClienteNoHistorico(ClienteStruct *cliente){
+    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
+        Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
+        while (pessoasHistorico != NULL){
+            HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
+            if ((cliente->id == ClienteInfo->id) && strcasecmp(cliente->nome, ClienteInfo->nome)){
+                
+                printf("Cliente: %s id: %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
+                return;
+            }
+            pessoasHistorico = pessoasHistorico->next;
+        }
+    }
+    printc("[red]Cliente não encontrado![/red]\n");
+}
+
+void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
+
 }
