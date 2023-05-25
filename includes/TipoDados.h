@@ -161,7 +161,7 @@
     extern GlobalStruct Global;
     extern HistoricoStruct HistoricoDados;
     extern DadosEstatisticosStruct *dadosEstatisticos;
-    extern pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
+    extern pthread_mutex_t ClientesLock, FuncionariosLock, PessoasAcabaramTempoDeCompraLock;
     extern ClienteStruct **Clientes;
     extern FuncionarioStruct **Funcionarios;
     extern ProdutoStruct *Produtos;

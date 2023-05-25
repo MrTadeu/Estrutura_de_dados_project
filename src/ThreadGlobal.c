@@ -4,6 +4,8 @@
 void *ThreadGlobal(){
     pthread_mutex_init(&PessoasAcabaramTempoDeCompraLock, NULL);
     pthread_mutex_init(&ClientesLock, NULL);
+    pthread_mutex_init(&FuncionariosLock, NULL);
+
     
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
