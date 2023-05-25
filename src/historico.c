@@ -212,5 +212,5 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
 }
 
 void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
-
+    
 }
