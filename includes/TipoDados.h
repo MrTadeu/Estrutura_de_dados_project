@@ -124,7 +124,7 @@
         float movimentoCartaoCliente, precoTotal, valorProdutoOferecido;
         DataStruct dataTransacao;
         //Falta struct hora
-    }HistoricoSubStructInfo;
+    }HistoricoSubStructInfo; //! MUDAR PARA HistoricoSubStructCaixa
 
     typedef struct{
         char *nome;
