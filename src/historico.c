@@ -190,9 +190,12 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
                 printf("[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
                 for (int j = 0; j < Opcoes.numCaixasTotal; j++){
                     HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[j]->head->Info);
+
                     printf("\t[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", /* caixaInfo-> */1, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
                     printf("\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
+                    
                     printf("\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
+
                     printc("\t[blue]Tempo de atraso:[/blue] ");
                     if (caixaInfo->tempoAtraso < 0)
                         printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
@@ -202,6 +205,7 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
                     printf("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
 
                     printf("\t[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
+                    
                     printf("\t[blue]Produtos:[/blue]\n");
                     Elemento *produtos = caixaInfo->listaProdutos->head;
                     while (produtos){
@@ -210,8 +214,6 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
                         produtos = produtos->next;
                     }
                 }
-                
-                
                 return;
             }
             pessoasHistorico = pessoasHistorico->next;
