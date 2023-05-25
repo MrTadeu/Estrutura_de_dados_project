@@ -4,7 +4,7 @@ void *ThreadGlobal(){
     pthread_mutex_init(&PessoasAcabaramTempoDeCompraLock, NULL);
     pthread_mutex_init(&ClientesLock, NULL);
     pthread_mutex_init(&FuncionariosLock, NULL);
-    pthread_mutex_init(&HistoricoDados.HistoricoTransacoesLock);
+    pthread_mutex_init(&HistoricoDados.HistoricoTransacoesLock, NULL);
 
 
     
