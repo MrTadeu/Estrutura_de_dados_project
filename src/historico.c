@@ -186,9 +186,23 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
         Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
         while (pessoasHistorico != NULL){
             HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
+            HistoricoSubStructCaixa *caixaInfo = (HistoricoSubStructCaixa *) pessoasHistorico->Info;
             if ((cliente->id == ClienteInfo->id) && strcasecmp(cliente->nome, ClienteInfo->nome)){
                 
-                printf("Cliente: %s id: %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
+                printf("[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
+                printf("[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", caixaInfo->idCaixa, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
+                printf("[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
+                printf("[blue]Tempo de espera na fila:[/blue] %d:%d:%d\n", caixaInfo->tempoEstimadoCaixa.hora, caixaInfo->tempoEstimadoCaixa.minuto, caixaInfo->tempoEstimadoCaixa.segundo);
+                printf("[blue]Tempo de atraso:[/blue] %d:%d:%d\n", caixaInfo->tempoAtraso.hora, caixaInfo->tempoAtraso.minuto, caixaInfo->tempoAtraso.segundo);
+                printf("[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
+                printf("[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
+                printf("[blue]Produtos:[/blue]\n");
+                Elemento *produtos = caixaInfo->listaProdutos->head;
+                while (produtos){
+                    ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
+                    printc("\n\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
+                    produtos = produtos->next;
+                }
                 return;
             }
             pessoasHistorico = pessoasHistorico->next;
