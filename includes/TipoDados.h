@@ -303,6 +303,7 @@
     int alfabetoIndex(char *nome);
     void *criarElementoClienteHistorico(ClienteStruct *cliente);
     void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
-    void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido)
+    void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
+    void pesquisarClienteNoHistorico(ClienteStruct *cliente);
     
 #endif
