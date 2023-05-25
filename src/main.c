@@ -6,7 +6,7 @@ OpcaoStruct Opcoes;
 GlobalStruct Global;
 HistoricoStruct HistoricoDados; 
 DadosEstatisticosStruct *dadosEstatisticos;
-pthread_mutex_t ClientesLock, FuncionariosLock, PessoasAcabaramTempoDeCompraLock;
+pthread_mutex_t ClientesLock, FuncionariosLock, HistoricoTransacoesLock, PessoasAcabaramTempoDeCompraLock;
 ClienteStruct **Clientes;
 FuncionarioStruct **Funcionarios;
 ProdutoStruct *Produtos;

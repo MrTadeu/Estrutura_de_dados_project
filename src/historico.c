@@ -93,7 +93,7 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
     pthread_mutex_unlock(&FuncionariosLock);
 
 
-    pthread_mutex_init(&HistoricoTransacoesLock)
+    pthread_mutex_lock(&HistoricoTransacoesLock);
     int flag = 0;
     Elemento *Aux = HistoricoDados.historico[hashIndex]->head;
     while(Aux){
@@ -101,13 +101,12 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
         if(pessoaAtendida->id == guardado->id){
             AddElementoInicio(guardado->caixas[caixa->id-1], criarElemento(criarInfoHistorico(caixa, movimentoSaldoCartao, valorProdutoOferecido)));
             flag = 1;
+            pthread_mutex_unlock(&HistoricoTransacoesLock);
             return;
         }
         Aux = Aux->next;
     }
-    if(!flag){
-        AddElementoInicio(HistoricoDados.historico[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
-        guardarHistorico(caixa, movimentoSaldoCartao, valorProdutoOferecido);
-    }
-       
+    AddElementoInicio(HistoricoDados.historico[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
+    pthread_mutex_unlock(&HistoricoTransacoesLock);
+    guardarHistorico(caixa, movimentoSaldoCartao, valorProdutoOferecido);  
 }
