@@ -271,17 +271,19 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
         while (pessoasHistorico != NULL){
-            if ((cliente->id == ((HistoricoSubStructCliente *)pessoasHistorico)->id) && (cliente->id == (HistoricoSubStructCliente *)pessoasHistorico)->id){
-                printf("Cliente: %s id: %s \n", ((HistoricoSubStructCliente *)pessoasHistorico)->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
+            if ((cliente->id == ((HistoricoSubStructCliente *)pessoasHistorico)->id) && strcasecmp(cliente->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->nome)){
+                printf("Cliente: %s id: %d \n", ((HistoricoSubStructCliente *)pessoasHistorico)->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
                 return;
             }
-            pessoasHistorico->next;
+            pessoasHistorico = pessoasHistorico->next;
         }
     }
-    printc("[red]Cliente não encontrado![/red]\n",);
+    printc("[red]Cliente não encontrado![/red]\n");
 }
 
+void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
 
+}
 
 /*
 
