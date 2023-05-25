@@ -129,6 +129,7 @@
     typedef struct{
         char *nome;
         int id;
+        int tamanhoVetorCaixas;
         Lista **caixas; // vetor de listas de tipo HistoricoSubStructInfo
     }HistoricoSubStructCliente;
 
