@@ -134,8 +134,8 @@
 
     typedef struct {
         int *tempoEsperaCadaCaixa, *numeroClienteFilaCadaCaixa, numerosCaixasAbertas, numeroClienteSupermercado;
-        //*,trheadMutex Para atualizar estes dados
-    }DadosInstantaneoStruct; // a cada 10 segundos é criada uma novas instancia desta struct, os grupos de instancias sao guardados na struct abaixo
+        //Ser criativo para adicionar mais
+    }DadosInstantaneoStruct;
 
     typedef struct {
         float *tempoMedioEsperaCadaCaixa,
@@ -144,6 +144,7 @@
         numeroMedioClienteFilaTodasCaixas, 
         numeroMedioCaixasAbertas, 
         numeroMedioClienteSupermercado;
+        //Ser criativo para adicionar mais
     }DadosEstatisticosInfo;
 
     typedef struct {
@@ -152,16 +153,17 @@
     }DadosEstatisticosStruct;  // Vai ser guardado nos ficheios txt
 
     typedef struct{
-        Lista *historico[26];
-        //Dados enunciado
+        int tamanhoVetorHash;
+        Lista **HistoricoTransacoes; // vetor de listas com tamanho igual à variavel acima
+        pthread_mutex_t HistoricoTransacoesLock;
+        DadosEstatisticosStruct dadosEstatisticos;
     }HistoricoStruct;
 
     //GLOBAL VARIABLES
     extern OpcaoStruct Opcoes;
     extern GlobalStruct Global;
     extern HistoricoStruct HistoricoDados;
-    extern DadosEstatisticosStruct *dadosEstatisticos;
-    extern pthread_mutex_t ClientesLock, FuncionariosLock, HistoricoTransacoesLock, PessoasAcabaramTempoDeCompraLock;
+    extern pthread_mutex_t ClientesLock, FuncionariosLock, PessoasAcabaramTempoDeCompraLock;
     extern ClienteStruct **Clientes;
     extern FuncionarioStruct **Funcionarios;
     extern ProdutoStruct *Produtos;
@@ -301,6 +303,6 @@
     int alfabetoIndex(char *nome);
     void *criarElementoClienteHistorico(ClienteStruct *cliente);
     void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
-    void guardarHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
+    void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido)
     
 #endif
