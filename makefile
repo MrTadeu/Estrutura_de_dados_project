@@ -9,7 +9,7 @@ CFLAGS = -O3 -Wall -Wextra -std=c99 -march=native
 #----------------------DIRETÓRIOS------------------------------------------------------------------
 #INCLUDES_DIR = includes
 SRC_DIR = src
-BUILD_DIR = build
+BUILD_DIR := build
 BIN = Data
 #--------------------------------------------------------------------------------------------------
 #----------------------DIRETÓRIOS E FICHEIROS------------------------------------------------------
@@ -44,9 +44,12 @@ setup:
 #	$(CC) $(CFLAGS) $(SRC) -o run
 .PHONY: setupLinux
 #@-sudo chmod -R a+rwx .
+#setupLinux:
+#	@-mkdir -p $(BUILD_DIR)
+#	@-mkdir -p $(BIN)
 setupLinux:
-	@-mkdir -p $(BUILD_DIR)
-	@-mkdir -p $(BIN)
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(BIN)
 
 .PHONY: clean
 clean:

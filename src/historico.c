@@ -123,7 +123,7 @@ void mostrarHistorico(){
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         HistoricoSubStructCliente* clientesHistorico = (HistoricoSubStructCliente*) HistoricoDados.HistoricoTransacoes[i]->head->Info;
-        
+
         printc("[green]Nome cliente:[/green] %s\n[green]ID cliente:[/green] %d", clientesHistorico->nome, clientesHistorico->id);
 
     }
