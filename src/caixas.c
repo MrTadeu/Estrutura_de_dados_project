@@ -236,10 +236,8 @@ void *ThreadCaixa(void *arg){
             pthread_mutex_unlock(&caixa->lock);
             return NULL;
         }
-        pthread_mutex_unlock(&caixa->lock);
         printf("\n\n\n\t\t\t\tola\n\n\n\n\n\n");
         //ATRASOS ATUALIZADOS
-        pthread_mutex_lock(&caixa->lock);
             pthread_mutex_lock(&ClientesLock);//todo valgrind
             atualizarAtrasos(caixa->listaPessoas, pessoaEmAtendimento);
             valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
@@ -257,10 +255,6 @@ void *ThreadCaixa(void *arg){
 
         dormir(10000);
 
-
-        
-
-
         /* if(caixa->fecharUrgencia)
             fecharUrgencia(caixa); */
             
@@ -272,8 +266,4 @@ void *ThreadCaixa(void *arg){
     //Por a zero os tempos para reutilizacao da caixa
     caixa->threadAberta = 0;
     return NULL;
-}
-
-void removerCaixa(){
-    //!POR FAZERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR 
 }

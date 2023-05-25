@@ -10,6 +10,7 @@ pthread_mutex_t ClientesLock, PessoasAcabaramTempoDeCompraLock;
 ClienteStruct **Clientes;
 FuncionarioStruct **Funcionarios;
 ProdutoStruct *Produtos;
+long long tempoEmMilisegundos = 0;
 int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
 
 int main(){

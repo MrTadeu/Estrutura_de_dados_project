@@ -101,5 +101,14 @@ void changeStateThreadGlobal(){
 } */
 
 /* void *threadTempo(void *args){
-    
+    tempoEmMilisegundos = getCurrentTimeMillisecounds();
+    while(1){
+        tempoEmMilisegundos += 1000LL;
+        dormir(1000LL * Opcoes.multiplicadorTempo);
+    }
+
 } */
+
+void removerCaixa(){
+    //!FAZER COISAS
+}
