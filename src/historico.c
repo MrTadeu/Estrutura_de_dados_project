@@ -9,23 +9,23 @@ void initHistorico()
 
 void initDadosEstatisticos()
 {
-    dadosEstatisticos = (DadosEstatisticosStruct *)malloc(sizeof(DadosEstatisticosStruct));
+    HistoricoDados.dadosEstatisticos = (DadosEstatisticosStruct *)malloc(sizeof(DadosEstatisticosStruct));
 
     for (int i = 0; i < 24; i++)
     {
         for (int j = 0; j < 6; j++)
         {
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEsperaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
-            dadosEstatisticos->dadosIntantaneosdiarios[i][j].numerosCaixasAbertas = 0;
+            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
+            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEsperaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
+            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
+            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numerosCaixasAbertas = 0;
 
-            dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
-            dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
-            dadosEstatisticos->mediaDiaria.tempoMedioEsperaTodasCaixas = 0;
-            dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaTodasCaixas = 0;
-            dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas = 0;
-            dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0;
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
+            HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
+            HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaTodasCaixas = 0;
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaTodasCaixas = 0;
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas = 0;
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0;
         }
     }
 }
@@ -130,22 +130,20 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
 //*                             |
 //*                          |Info|  <--- HistoricoSubStructCaixa
 
-void mostrarHistorico()
-{
+void mostrarHistorico(){
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
-    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
-    {
+    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento *clientesHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
-        while (clientesHistorico)
-        {
+        while (clientesHistorico){
             HistoricoSubStructCliente *clientesHistoricoInfo = (HistoricoSubStructCliente *)clientesHistorico->Info;
-            for (int j = 0; j < Opcoes.numCaixasTotal; j++)
-            {
+            for (int j = 0; j < Opcoes.numCaixasTotal; j++){
                 Elemento *caixasHistorico = clientesHistoricoInfo->caixas[j]->head;
-                while (caixasHistorico)
-                {
+                while (caixasHistorico){   
+                    char* horas;
                     HistoricoSubStructCaixa *caixasHistoricoInfo = (HistoricoSubStructCaixa *)caixasHistorico->Info;
-                    printc("\n[blue]Nome cliente:[/blue] %s\t[blue]ID cliente:[/blue] %d\n[blue]ID caixa:[/blue] %d\t[blue]Nome funcionário:[/blue] %d\t[blue]ID funcionário:[/blue] %d\n[blue]Data de transação:[/blue] %d/%d/%d\t[blue]Hora: %d:%d:%d[/blue]\n[blue]Tempo de espera na fila:[/blue] %s\t", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, caixasHistoricoInfo->dataTransacao.hora, caixasHistoricoInfo->dataTransacao.minuto, caixasHistoricoInfo->dataTransacao.segundo, formatTime(caixasHistoricoInfo->tempoEstimadoCaixa));
+                    formatTime(caixasHistoricoInfo->tempoEstimadoCaixa, horas);
+
+                    printc("\n[blue]Nome cliente:[/blue] %s\t[blue]ID cliente:[/blue] %d\n[blue]ID caixa:[/blue] %d\t[blue]Nome funcionário:[/blue] %d\t[blue]ID funcionário:[/blue] %d\n[blue]Data de transação:[/blue] %d/%d/%d\t[blue]Hora: %d:%d:%d[/blue]\n[blue]Tempo de espera na fila:[/blue] %s\t", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, caixasHistoricoInfo->dataTransacao.hora, caixasHistoricoInfo->dataTransacao.minuto, caixasHistoricoInfo->dataTransacao.segundo, horas);
 
                     printc("[blue]Tempo de atraso:[/blue] ");
                     if (caixasHistoricoInfo->tempoAtraso < 0)

@@ -171,7 +171,7 @@ typedef struct
     int tamanhoVetorHash;
     Lista **HistoricoTransacoes; // vetor de listas com tamanho igual à variavel acima
     pthread_mutex_t HistoricoTransacoesLock;
-    DadosEstatisticosStruct dadosEstatisticos;
+    DadosEstatisticosStruct *dadosEstatisticos;
 } HistoricoStruct;
 
 // GLOBAL VARIABLES
