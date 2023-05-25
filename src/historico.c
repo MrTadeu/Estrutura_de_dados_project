@@ -126,9 +126,8 @@ void mostrarHistorico(){
         while(clientesHistorico){
             HistoricoSubStructCliente* clientesHistoricoInfo = (HistoricoSubStructCliente*) clientesHistorico->Info;
             printc("[green]Nome cliente:[/green] %s\n[green]ID cliente:[/green] %d", clientesHistorico->nome, clientesHistorico->id);
-            for (int i = 0; i < count; i++)
-            {
-                /* code */
+            for (int i = 0; i < Opcoes.numCaixasTotal; i++){
+                
             }
             
             clientesHistorico = clientesHistorico->next;
