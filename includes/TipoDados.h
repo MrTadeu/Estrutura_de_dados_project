@@ -314,7 +314,7 @@ void *ThreadEsperaTempoCompra(void *args);
 // historico.c
 void initHistorico();
 void initDadosEstatisticos();
-int alfabetoIndex(char *nome);
+int hashFunction(char *nome);
 void *criarElementoClienteHistorico(ClienteStruct *cliente);
 void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
 void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);

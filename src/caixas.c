@@ -246,7 +246,7 @@ void *ThreadCaixa(void *arg){
             atrasoSum += pessoaEmAtendimento->tempoAtraso;
             atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
             //guardarhistorico
-            /* guardarHistorico(caixa, movimentoSaldoCliente, valorProdutoOferecido); */
+            AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
             //Add info Qt pessoa instante --> threadCalculoEstatistico
             //Remover da fila
             RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
