@@ -196,6 +196,7 @@ void menuPesquisarFuncionarios();
 void menuPesquisarProduto();
 int menuvalidarCaixaFuncionarios();
 int menuResolverCaixaFuncionario();
+void menuHistorico();
 
 // opcoes.c
 void editarNumCaixas();
