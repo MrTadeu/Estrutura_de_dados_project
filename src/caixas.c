@@ -238,10 +238,12 @@ void *ThreadCaixa(void *arg){
         }
         printf("\n\n\n\t\t\t\tola\n\n\n\n\n\n");
         //ATRASOS ATUALIZADOS
-            pthread_mutex_lock(&ClientesLock);//todo valgrind
+            /* pthread_mutex_lock(&ClientesLock);//todo valgrind */
             atualizarAtrasos(caixa->listaPessoas, pessoaEmAtendimento);
+            
             valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
             movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
+            
             atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
             atrasoSum += pessoaEmAtendimento->tempoAtraso;
             atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
@@ -251,7 +253,7 @@ void *ThreadCaixa(void *arg){
 
             //Remover da fila
             RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
-            pthread_mutex_unlock(&ClientesLock);//todo valgrind 
+            /* pthread_mutex_unlock(&ClientesLock);//todo valgrind  */
         pthread_mutex_unlock(&caixa->lock);
 
         dormir(10000);
@@ -269,9 +271,9 @@ void *ThreadCaixa(void *arg){
     return NULL;
 }
 
-void removerCaixa(){
+/* void removerCaixa(){
     int confirmacao;
     printc("[yellow]Deseja mesmo remover a caixas?[/yellow] (1 - Sim / 2 - Não) ");
     scanfs("%d", &confirmacao);
     confirmacao
-}
+} */

@@ -462,7 +462,7 @@ int menuResolverCaixaFuncionario(){
             for(int i = Opcoes.numCaixasTotal; i > n_funcionarios; i--){
                 fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
                 printf("\nSobram [red]%d[/red]", i - n_funcionarios);
-                removerCaixa();
+                //removerCaixa();
                 opcao = 0;
             }
         }
