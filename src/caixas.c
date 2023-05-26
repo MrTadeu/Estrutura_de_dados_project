@@ -37,13 +37,11 @@ void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEmAtendimento){
     Elemento *aux = lista->head;
     aux = aux->next;
     ClienteStruct *pessoa;
-    pthread_mutex_lock(&caixa->lock);
     while(aux){
         pessoa = (ClienteStruct *) aux->Info;
         pessoa->tempoBrinde += atraso;
         aux = aux->next;
     }
-    pthread_mutex_unlock(&caixa->lock); 
 }
 
 void fecharUrgencia(CaixaStruct *caixa){
@@ -242,26 +240,29 @@ void *ThreadCaixa(void *arg){
             /* pthread_mutex_unlock(&caixa->lock); */
             return NULL;
         }
-        printf("\n\n\n\t\t\t\tola %d\n\n\n\n\n\n", caixa->id);
+        //printf("\n\n\n\t\t\t\tola %d\n\n\n\n\n\n", caixa->id);
         //ATRASOS ATUALIZADOS
         /* pthread_mutex_lock(&ClientesLock);//todo valgrind */
-        printf("\n\n\n\t\t\t\tola1 %d\n\n\n\n\n\n", caixa->id);
+        //printf("\n\n\n\t\t\t\tola1 %d\n\n\n\n\n\n", caixa->id);
+        pthread_mutex_lock(&caixa->lock);
         atualizarAtrasos(caixa->listaPessoas, pessoaEmAtendimento);
-        printf("\n\n\n\t\t\t\tola2 %d\n\n\n\n\n\n", caixa->id);
+        pthread_mutex_unlock(&caixa->lock); 
+
+        //printf("\n\n\n\t\t\t\tola2 %d\n\n\n\n\n\n", caixa->id);
         valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
-        printf("\n\n\n\t\t\t\tola3 %d\n\n\n\n\n\n", caixa->id);
+        //printf("\n\n\n\t\t\t\tola3 %d\n\n\n\n\n\n", caixa->id);
         movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
-        printf("\n\n\n\t\t\t\tola4 %d\n\n\n\n\n\n", caixa->id);
+        //printf("\n\n\n\t\t\t\tola4 %d\n\n\n\n\n\n", caixa->id);
         atrasoSum += pessoaEmAtendimento->tempoAtraso;
     
         //atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
-        printf("\n\n\n\t\t\t\tola5 %d\n\n\n\n\n\n", caixa->id);
+        //printf("\n\n\n\t\t\t\tola5 %d\n\n\n\n\n\n", caixa->id);
         atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
-        printf("\n\n\n\t\t\t\tola6 %d\n\n\n\n\n\n", caixa->id);
+        //printf("\n\n\n\t\t\t\tola6 %d\n\n\n\n\n\n", caixa->id);
 
         //guardarhistorico
         /*  AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido) */;
-        printf("\n\n\n\t\t\t\tola7 %d\n\n\n\n\n\n", caixa->id);
+        //printf("\n\n\n\t\t\t\tola7 %d\n\n\n\n\n\n", caixa->id);
 
         //Add info Qt pessoa instante --> threadCalculoEstatistico
         //Remover da fila
@@ -281,7 +282,7 @@ void *ThreadCaixa(void *arg){
     }
     //Por a zero os tempos para reutilizacao da caixa
     caixa->threadAberta = 0;
-            printf("\n\n\n\t\t\t\tola12 bye %d\n\n\n\n\n\n", caixa->id);
+            //printf("\n\n\n\t\t\t\tola12 bye %d\n\n\n\n\n\n", caixa->id);
 
 }
 
