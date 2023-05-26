@@ -20,6 +20,7 @@
 // TIME (SLEEP)
 #ifdef _WIN32
 #include <windows.h>
+#include <conio.h>
 #define SET_UTF8_CODEPAGE system("chcp 65001 > nul");
 #endif
 #ifdef __linux__

@@ -255,28 +255,28 @@ void *ThreadCaixa(void *arg){
         //printf("\n\n\n\t\t\t\tola4 %d\n\n\n\n\n\n", caixa->id);
         atrasoSum += pessoaEmAtendimento->tempoAtraso;
     
-        //atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
+        atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
         //printf("\n\n\n\t\t\t\tola5 %d\n\n\n\n\n\n", caixa->id);
         atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
         //printf("\n\n\n\t\t\t\tola6 %d\n\n\n\n\n\n", caixa->id);
 
         //guardarhistorico
-        /*  AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido) */;
+        AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
         //printf("\n\n\n\t\t\t\tola7 %d\n\n\n\n\n\n", caixa->id);
 
         //Add info Qt pessoa instante --> threadCalculoEstatistico
         //Remover da fila
-        pthread_mutex_lock(&caixa->lock);
-        //RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
+        /* pthread_mutex_lock(&caixa->lock);
+        RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
         pthread_mutex_unlock(&caixa->lock); 
-
+ */
         /* if(caixa->fecharUrgencia)
             fecharUrgencia(caixa); */
             
         //Desocupar pessoa
-        /* pthread_mutex_lock(&ClientesLock); */
-        //DesocuparCliente(pessoaEmAtendimento);
-        /* pthread_mutex_unlock(&ClientesLock); */
+        /* pthread_mutex_lock(&ClientesLock);
+        DesocuparCliente(pessoaEmAtendimento);
+        pthread_mutex_unlock(&ClientesLock); */
         /* pthread_mutex_unlock(&caixa->lock); */
         dormir(100);
     }
