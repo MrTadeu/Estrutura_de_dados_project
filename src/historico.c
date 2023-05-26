@@ -185,30 +185,34 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
             if ((cliente->id == ClienteInfo->id) && strcasecmp(cliente->nome, ClienteInfo->nome)){
                 printf("[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
                 for (int j = 0; j < Opcoes.numCaixasTotal; j++){
-                    HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[j]->head->Info);
+                    Elemento *caixasHistorico = ClienteInfo->caixas[j]->head;
+                    while (caixasHistorico){
+                        HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[j]->head->Info);
 
-                    printf("\t[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", j+1, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
-                    printf("\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
-                    
-                    printf("\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
+                        printf("\t[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", j+1, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
+                        printf("\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
+                        
+                        printf("\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
 
-                    printc("\t[blue]Tempo de atraso:[/blue] ");
-                    if (caixaInfo->tempoAtraso < 0)
-                        printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
-                    else if (caixaInfo->tempoAtraso > 0)
-                        printc("\t[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
+                        printc("\t[blue]Tempo de atraso:[/blue] ");
+                        if (caixaInfo->tempoAtraso < 0)
+                            printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
+                        else if (caixaInfo->tempoAtraso > 0)
+                            printc("\t[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
 
-                    printf("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
+                        printf("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
 
-                    printf("\t[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
-                    
-                    printf("\t[blue]Produtos:[/blue]\n");
-                    Elemento *produtos = caixaInfo->listaProdutos->head;
-                    while (produtos){
-                        ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
-                        printc("\n\t\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
-                        produtos = produtos->next;
+                        printf("\t[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
+                        
+                        printf("\t[blue]Produtos:[/blue]\n");
+                        Elemento *produtos = caixaInfo->listaProdutos->head;
+                        while (produtos){
+                            ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
+                            printc("\n\t\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
+                            produtos = produtos->next;
+                        }
                     }
+                    caixasHistorico = caixasHistorico->next;
                 }
                 return;
             }
@@ -222,16 +226,37 @@ void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
     printc("[yellow]Caixa:[/yellow] %d\n\n", caixa->id);
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
-
+        
         while (pessoasHistorico){
             HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
             HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[caixa->id - 1]->head->Info);
+            Elemento *caixasHistorico = ClienteInfo->caixas[caixa->id - 1]->head;
+            while (caixasHistorico){
+                printc("\t[blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
+                printc("\t[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico->Info)->id);
+                printc("\t\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora,    caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
 
-            printf("\t[blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
-            printf("\t[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico->Info)->id);
-            printf("\t\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
+                printc("\t\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
+                printc("\t[blue]Tempo de atraso:[/blue] ");
+                if (caixaInfo->tempoAtraso < 0)
+                    printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
+                else if (caixaInfo->tempoAtraso > 0)
+                    printc("\t[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
+
+                printf("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
+
+                printf("\t[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
+                
+                printf("\t[blue]Produtos:[/blue]\n");
+                Elemento *produtos = caixaInfo->listaProdutos->head;
+                while (produtos){
+                    ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
+                    printc("\n\t\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
+                    produtos = produtos->next;
+                }
+                caixasHistorico = caixasHistorico->next;
+            }
             
-
             pessoasHistorico = pessoasHistorico->next;
         }
     }
