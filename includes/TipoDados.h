@@ -145,15 +145,23 @@ typedef struct
 typedef struct
 {
     int *tempoEsperaCadaCaixa, *numeroClienteFilaCadaCaixa, numerosCaixasAbertas, numeroClienteSupermercado;
+
     // Ser criativo para adicionar mais
 } DadosInstantaneoStruct;
 
 typedef struct
 {
+    int **IdFuncionario, //Atualizado a cada dia (historico transacoes)
+        **numeroMediaAtendimentosCadaFuncionario,//serve apenas para dados globais (historico transacoes)
+        nomeFuncionarioAtendeuMaisPessoas, //Atualizado a cada dia (historico transacoes)
+        nomeFuncionarioAtendeuMenosPessoas, //Atualizado a cada dia (historico transacoes)
+        numeroProdutosOferecidos; //Atualizado a cada dia (historico transacoes)
+
     float *tempoMedioEsperaCadaCaixa,
         tempoMedioEsperaTodasCaixas,
         *numeroMedioClienteFilaCadaCaixa,
         numeroMedioClienteFilaTodasCaixas,
+        valorTotalProdutosOferecidos, //Atualizado a cada dia (historico transacoes)
         numeroMedioCaixasAbertas,
         numeroMedioClienteSupermercado;
     // Ser criativo para adicionar mais

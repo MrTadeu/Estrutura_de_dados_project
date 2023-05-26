@@ -6,8 +6,6 @@ void *ThreadGlobal(){
     pthread_mutex_init(&FuncionariosLock, NULL);
     pthread_mutex_init(&HistoricoDados.HistoricoTransacoesLock, NULL);
 
-
-    
     while(Opcoes.lojaAberta == 1){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
             ClienteStruct *pessoa = escolherCliente();

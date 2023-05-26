@@ -227,13 +227,11 @@ void *ThreadCaixa(void *arg){
     ClienteStruct *pessoaEmAtendimento;
 
     while(work == 1){
-        pthread_mutex_lock(&caixa->lock);
         if(caixa->listaPessoas->quantidadeElementos > 0){
             pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         }
         else{
             caixa->threadAberta = 0;
-            pthread_mutex_unlock(&caixa->lock);
             return NULL;
         }
         printf("\n\n\n\t\t\t\tola\n\n\n\n\n\n");
@@ -248,13 +246,14 @@ void *ThreadCaixa(void *arg){
             atrasoSum += pessoaEmAtendimento->tempoAtraso;
             atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
 
+            
+
             //guardarhistorico
-            //AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
+            AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
 
             //Remover da fila
             RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
             /* pthread_mutex_unlock(&ClientesLock);*/ //todo valgrind  
-        pthread_mutex_unlock(&caixa->lock);
 
         dormir(10000);
 

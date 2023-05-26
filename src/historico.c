@@ -15,30 +15,37 @@ void initDadosEstatisticos()
         for (int j = 0; j < 6; j++){
             HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteFilaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
             HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEsperaCadaCaixa = (int *)calloc(Opcoes.numCaixasTotal, sizeof(int));
-            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
             HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numerosCaixasAbertas = 0;
-
-            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
-            HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
-            HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaTodasCaixas = 0;
-            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaTodasCaixas = 0;
-            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas = 0;
-            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0;
+            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
+            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroProdutosOferecidos = 0;
+            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].valorTotalProdutosOferecidos = 0.0;
         }
+    }
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
+    HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
+    HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaTodasCaixas = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaTodasCaixas = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0;
+
+    HistoricoDados.dadosEstatisticos->mediaDiaria.IdFuncionario_numPessoas = (int **)calloc(n_funcionarios, sizeof(int*));
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMediaAtendimentosCadaFuncionario = (int **)calloc(n_funcionarios, sizeof(int*));
+    for (int l = 0; l < n_funcionarios; l++){
+        HistoricoDados.dadosEstatisticos->mediaDiaria.IdFuncionario_numPessoas[l] = (int *)calloc(2, sizeof(int));
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMediaAtendimentosCadaFuncionario[l] = (int *)calloc(2, sizeof(int));
     }
 }
 
 int hashFunction(char *nome){
-    if (!nome)
-    {
+    if (!nome){
         printf("\n\t[red]Error![/red] Given name is NULL\n");
         return -1;
     }
     int sum = 0;
     int p = 31; // Um número primo para gerar o hash
 
-    for (int i = 0; nome[i] != '\0'; i++)
-    {
+    for (int i = 0; nome[i] != '\0'; i++){
         sum = (sum * p) + nome[i];
     }
 
@@ -262,3 +269,46 @@ void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
     }
 }
 
+void recolhaDadosEstatisticosHistoricoTransacoes(){
+    pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
+    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){                      //!|A|B|C|D|E| 
+        Elemento *clientesHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
+        while (clientesHistorico){                                                  //!ClientesSubStruct
+            HistoricoSubStructCliente *clientesHistoricoInfo = (HistoricoSubStructCliente *)clientesHistorico->Info;
+            for (int j = 0; j < Opcoes.numCaixasTotal; j++){                        //!CaixasVetor
+                Elemento *caixasHistorico = clientesHistoricoInfo->caixas[j]->head;
+                while (caixasHistorico){                                            //!InfoSubStruct      
+                    HistoricoSubStructCaixa *caixasHistoricoInfo = (HistoricoSubStructCaixa *)caixasHistorico->Info;
+                    //TODO: recolha caixas e funcionarios e produtos
+                    
+                    Elemento *produtos = caixasHistoricoInfo->listaProdutos->head;
+                    while (produtos){
+                        ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
+
+                        produtos = produtos->next;
+                    }
+
+                    printc("[blue]Preço total:[/blue] %.2f\n", caixasHistoricoInfo->precoTotal);
+
+                    if (caixasHistoricoInfo->valorProdutoOferecido > 0)
+                    {
+                        printc("[yellow]Produto oferecido![/yellow] [blue]Preço:[/blue] %.2f", caixasHistoricoInfo->valorProdutoOferecido);
+                    }
+                    printc("[blue]Saldo cartão cliente[/blue] ");
+                    if (caixasHistoricoInfo->movimentoCartaoCliente < 0)
+                    {
+                        printc("[blue]O cliente usou[/blue] %.2f euros", fabs(caixasHistoricoInfo->movimentoCartaoCliente));
+                    }
+                    else
+                        printc("[blue]O cliente angariou[/blue] %.2f euros", caixasHistoricoInfo->movimentoCartaoCliente);
+
+                    caixasHistorico = caixasHistorico->next;
+                }
+            }
+
+            clientesHistorico = clientesHistorico->next;
+        }
+    }
+
+    pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
+}
