@@ -389,10 +389,10 @@ void menuHistorico(){
             mostrarHistorico();
         }
         if (opcao == i++){
-            menuPesquisarProduto();
+            pesquisarClienteNoHistorico();
         }
         if (opcao == i++){
-            adicionarProduto();
+            pesquisarCaixaNoHistorico();
         }
     } while (opcao != 0);
 }

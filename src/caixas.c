@@ -74,7 +74,7 @@ void atenderPessoa(CaixaStruct *caixa){
     while(tempo>0){
         (tempo < 1000) ? dormir(tempo), tempo = 0 : dormir(1000), tempo -= 1000;
 
-        if (Opcoes.VerTransacoes == 1 || 1==1){
+        if (Opcoes.VerTransacoes == 1 /* || 1==1 */){
             printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
         }
         if (cliente->tempoEstimadoCaixa){
@@ -199,7 +199,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
                 if (melhorCaixa == NULL){
                     pthread_mutex_unlock(&ClientesLock);
                     pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
-                    return;   
+                    return;
                 }
                 pthread_mutex_lock(&melhorCaixa->lock);
                     AddElementoFim(melhorCaixa->listaPessoas, RemElementoInicio(Global.PessoasAcabaramTempoDeCompra));
@@ -236,7 +236,7 @@ void *ThreadCaixa(void *arg){
             pthread_mutex_unlock(&caixa->lock);
             return NULL;
         }
-        printf("\n\n\n\t\t\t\tola\n\n\n\n\n\n");
+        /* printf("\n\n\n\t\t\t\tola\n\n\n\n\n\n"); */
         //ATRASOS ATUALIZADOS
             /* pthread_mutex_lock(&ClientesLock);*/ //todo valgrind 
             atualizarAtrasos(caixa->listaPessoas, pessoaEmAtendimento);
@@ -249,7 +249,7 @@ void *ThreadCaixa(void *arg){
             atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
 
             //guardarhistorico
-            //AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
+            AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
 
             //Remover da fila
             RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
