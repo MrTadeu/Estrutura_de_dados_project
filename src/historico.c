@@ -296,9 +296,9 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
                         if(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] == 0)
                             HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] = caixasHistoricoInfo->funcionario->id;
                         if(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] == caixasHistoricoInfo->funcionario->id){
-                            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][1] += flag;
+                            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][1] += flag; //!numAtendimentos Atualizado
                             flag = 0;
-                            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][2] += caixasHistoricoInfo->listaProdutos->quantidadeElementos;
+                            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][2] += caixasHistoricoInfo->listaProdutos->quantidadeElementos; //!numProdutos Atualizado
                             break;
                         }
                     }
@@ -307,6 +307,7 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
             clientesHistorico = clientesHistorico->next;
             }
         }
-    pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
     }
+    pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
 }
+
