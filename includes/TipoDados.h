@@ -155,7 +155,13 @@ typedef struct
         **numeroMediaAtendimentosCadaFuncionario,//serve apenas para dados globais (historico transacoes)
         nomeFuncionarioAtendeuMaisPessoas, //Atualizado a cada dia (historico transacoes)
         nomeFuncionarioAtendeuMenosPessoas, //Atualizado a cada dia (historico transacoes)
+        **numeroAtendimentos_numeroProdutos_CadaCaixa,
+        caixaAtendeuMaisPessoas,
+        caixaAtendeuMaisPessoas,
+        caixaVendeuMenosProdutos,
+        caixaVendeuMenosProdutos,
         numeroProdutosOferecidos; //Atualizado a cada dia (historico transacoes)
+        
 
     float *tempoMedioEsperaCadaCaixa,
         tempoMedioEsperaTodasCaixas,
