@@ -292,6 +292,7 @@ void pesquisarCaixaNoHistorico(){
     bufferclear();
     getchar();
 }
+}
 
 void recolhaDadosEstatisticosHistoricoTransacoes(){
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
