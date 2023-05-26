@@ -29,14 +29,14 @@ void initDadosEstatisticos()
 
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa = (int**) calloc(Opcoes.numCaixasTotal, sizeof(int*));
     for (int i = 0; i < Opcoes.numCaixasTotal; i++)
-        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i] = (int *)calloc(, sizeof(int));
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i] = (int *)calloc(2, sizeof(int));
     //coluna 0: n pessoas atendidas por cada caixa | coluna 1: n produtos vendidos por cada caixa
 
-    HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = 0;
+    /* HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = 0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas = 0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos = 0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos = 0;
-    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroProdutosOferecidos = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroProdutosOferecidos = 0; */
 
 
     //FLOATS    
@@ -55,16 +55,13 @@ int hashFunction(char *nome){
         printf("\n\t[red]Error![/red] Given name is NULL\n");
         return -1;
     }
-    int sum = 0;
-    int p = 31; // Um número primo para gerar o hash
+    int sum = 0, p = 31;// Um número primo para gerar o hash
 
-    for (int i = 0; nome[i] != '\0'; i++){
+    for (int i = 0; nome[i] != '\0'; i++)
         sum = (sum * p) + nome[i];
-    }
 
     // Ajusta o tamanho do hash para o tamanho do vetor
     sum = (sum % HistoricoDados.tamanhoVetorHash + HistoricoDados.tamanhoVetorHash) % HistoricoDados.tamanhoVetorHash;
-
     return sum;
 }
 
@@ -92,12 +89,10 @@ void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float v
     infoHistorico->precoTotal = pessoa->precoTotalProdutos;
     infoHistorico->valorProdutoOferecido = valorProdutoOferecido;
     infoHistorico->dataTransacao = formatTimeStruct(getCurrentTimeMillisecounds());
-    // infoHistorico.hora
     return infoHistorico;
 }
 
-void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido)
-{
+void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido){
     if (!caixa)
     {
         printf("\n\t[red]Error![/red] Given caixa is NULL\n");
@@ -108,7 +103,6 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
         return;
     }
-    printf("\n\n\n\t\t\t\tola1\n\n\n\n\n\n");
 
     ClienteStruct *pessoaAtendida = (ClienteStruct *)malloc(sizeof(ClienteStruct));
     memcpy(pessoaAtendida, caixa->listaPessoas->head->Info, sizeof(ClienteStruct));
@@ -121,8 +115,7 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
     Elemento *Aux = HistoricoDados.HistoricoTransacoes[hashIndex]->head;
     while (Aux){
         HistoricoSubStructCliente *guardado = (HistoricoSubStructCliente *)Aux->Info;
-        if (pessoaAtendida->id == guardado->id)
-        {   printc("\n\n\n\t\t\t\t[green]ola5 ADD INFO HISTORICO[/green]\n\n\n\n\n\n");
+        if (pessoaAtendida->id == guardado->id){
             AddElementoInicio(guardado->caixas[caixa->id - 1], criarElemento(criarInfoHistorico(caixa, movimentoSaldoCartao, valorProdutoOferecido)));
             pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
             return;
@@ -131,7 +124,6 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
     }
     AddElementoInicio(HistoricoDados.HistoricoTransacoes[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
-    printc("\n\n\n\t\t\t\t[green]RECURSIVEEEEEEEEEEEEE[/green]\n\n\n\n\n\n");
     AddHistorico_Hash(caixa, movimentoSaldoCartao, valorProdutoOferecido);
 }
 
@@ -141,7 +133,6 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
 //*           |Nome, Id|  --> |1|2|3|4|5|... <--id caixas
 //*                             |
 //*                          |Info|  <--- HistoricoSubStructCaixa
-
 
 void mostrarHistorico(){
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
@@ -276,7 +267,6 @@ void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
                 }
                 caixasHistorico = caixasHistorico->next;
             }
-            
             pessoasHistorico = pessoasHistorico->next;
         }
     }
@@ -284,44 +274,39 @@ void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
 
 void recolhaDadosEstatisticosHistoricoTransacoes(){
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
-    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){                      //!|A|B|C|D|E| 
+    
+    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento *clientesHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
-        while (clientesHistorico){                                                  //!ClientesSubStruct
+        while (clientesHistorico){
+            int flag = 1;
             HistoricoSubStructCliente *clientesHistoricoInfo = (HistoricoSubStructCliente *)clientesHistorico->Info;
-            for (int j = 0; j < Opcoes.numCaixasTotal; j++){                        //!CaixasVetor
+            for (int j = 0; j < Opcoes.numCaixasTotal; j++){
                 Elemento *caixasHistorico = clientesHistoricoInfo->caixas[j]->head;
-                while (caixasHistorico){                                            //!InfoSubStruct      
+                if(caixasHistorico)
+                    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[j][0]++; //!numAtendimentos Atualizado
+                while (caixasHistorico){
                     HistoricoSubStructCaixa *caixasHistoricoInfo = (HistoricoSubStructCaixa *)caixasHistorico->Info;
-                    //TODO: recolha caixas e funcionarios e produtos
-                    
-                    Elemento *produtos = caixasHistoricoInfo->listaProdutos->head;
-                    while (produtos){
-                        ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
-
-                        produtos = produtos->next;
+                    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[j][1] += caixasHistoricoInfo->listaProdutos->quantidadeElementos; //!numProdutos Atualizado
+                    if (caixasHistoricoInfo->valorProdutoOferecido > 0){
+                        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroProdutosOferecidos++;
+                        HistoricoDados.dadosEstatisticos->mediaDiaria.valorTotalProdutosOferecidos += caixasHistoricoInfo->valorProdutoOferecido;
                     }
 
-                    printc("[blue]Preço total:[/blue] %.2f\n", caixasHistoricoInfo->precoTotal);
-
-                    if (caixasHistoricoInfo->valorProdutoOferecido > 0)
-                    {
-                        printc("[yellow]Produto oferecido![/yellow] [blue]Preço:[/blue] %.2f", caixasHistoricoInfo->valorProdutoOferecido);
+                    for (int l = 0; l < n_funcionarios; l++){
+                        if(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] == 0)
+                            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] = caixasHistoricoInfo->funcionario->id;
+                        if(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] == caixasHistoricoInfo->funcionario->id){
+                            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][1] += flag;
+                            flag = 0;
+                            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][2] += caixasHistoricoInfo->listaProdutos->quantidadeElementos;
+                            break;
+                        }
                     }
-                    printc("[blue]Saldo cartão cliente[/blue] ");
-                    if (caixasHistoricoInfo->movimentoCartaoCliente < 0)
-                    {
-                        printc("[blue]O cliente usou[/blue] %.2f euros", fabs(caixasHistoricoInfo->movimentoCartaoCliente));
-                    }
-                    else
-                        printc("[blue]O cliente angariou[/blue] %.2f euros", caixasHistoricoInfo->movimentoCartaoCliente);
-
                     caixasHistorico = caixasHistorico->next;
                 }
-            }
-
             clientesHistorico = clientesHistorico->next;
+            }
         }
-    }
-
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
+    }
 }

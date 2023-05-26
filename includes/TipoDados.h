@@ -145,31 +145,30 @@ typedef struct
 typedef struct
 {
     int *tempoEsperaCadaCaixa, *numeroClienteFilaCadaCaixa, numerosCaixasAbertas, numeroClienteSupermercado;
-
     // Ser criativo para adicionar mais
 } DadosInstantaneoStruct;
 
 typedef struct{
-    int **numeroAtendimentos_numeroProdutos_CadaFuncionario, //Atualizado a cada dia (historico transacoes)
-        nomeFuncionarioAtendeuMaisPessoas, //Atualizado a cada dia (historico transacoes)
-        nomeFuncionarioAtendeuMenosPessoas, //Atualizado a cada dia (historico transacoes)
-        nomeFuncionarioVendeuMaisProdutos, 
-        nomeFuncionarioVendeuMenosProdutos,
+    int **numeroAtendimentos_numeroProdutos_CadaFuncionario,
         **numeroAtendimentos_numeroProdutos_CadaCaixa,
         caixaAtendeuMaisPessoas,
         caixaAtendeuMaisPessoas,
         caixaVendeuMenosProdutos,
         caixaVendeuMenosProdutos,
-        numeroProdutosOferecidos; //Atualizado a cada dia (historico transacoes)
-        
+        numeroProdutosOferecidos;
 
+    char *nomeFuncionarioAtendeuMaisPessoas,
+        *nomeFuncionarioAtendeuMenosPessoas,
+        *nomeFuncionarioVendeuMaisProdutos, 
+        *nomeFuncionarioVendeuMenosProdutos;
+        
     float *tempoMedioEsperaCadaCaixa,
         tempoMedioEsperaTodasCaixas,
         *numeroMedioClienteFilaCadaCaixa,
         numeroMedioClienteFilaTodasCaixas,
         numeroMedioCaixasAbertas,
-        numeroMedioClienteSupermercado;
-        valorTotalProdutosOferecidos; //Atualizado a cada dia (historico transacoes)
+        numeroMedioClienteSupermercado,
+        valorTotalProdutosOferecidos;
     // Ser criativo para adicionar mais
 } DadosEstatisticosMedias;
 
@@ -178,8 +177,7 @@ typedef struct{
     DadosInstantaneoStruct dadosIntantaneosdiarios[24][6];
 } DadosEstatisticosStruct; // Vai ser guardado nos ficheios txt
 
-typedef struct
-{
+typedef struct{
     int tamanhoVetorHash;
     Lista **HistoricoTransacoes; // vetor de listas com tamanho igual à variavel acima
     pthread_mutex_t HistoricoTransacoesLock;
