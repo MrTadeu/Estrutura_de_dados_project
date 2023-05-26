@@ -149,12 +149,12 @@ typedef struct
     // Ser criativo para adicionar mais
 } DadosInstantaneoStruct;
 
-typedef struct
-{
-    int **IdFuncionario, //Atualizado a cada dia (historico transacoes)
-        **numeroMediaAtendimentosCadaFuncionario,//serve apenas para dados globais (historico transacoes)
+typedef struct{
+    int **numeroAtendimentos_numeroProdutos_CadaFuncionario, //Atualizado a cada dia (historico transacoes)
         nomeFuncionarioAtendeuMaisPessoas, //Atualizado a cada dia (historico transacoes)
         nomeFuncionarioAtendeuMenosPessoas, //Atualizado a cada dia (historico transacoes)
+        nomeFuncionarioVendeuMaisProdutos, 
+        nomeFuncionarioVendeuMenosProdutos,
         **numeroAtendimentos_numeroProdutos_CadaCaixa,
         caixaAtendeuMaisPessoas,
         caixaAtendeuMaisPessoas,
@@ -167,15 +167,14 @@ typedef struct
         tempoMedioEsperaTodasCaixas,
         *numeroMedioClienteFilaCadaCaixa,
         numeroMedioClienteFilaTodasCaixas,
-        valorTotalProdutosOferecidos, //Atualizado a cada dia (historico transacoes)
         numeroMedioCaixasAbertas,
         numeroMedioClienteSupermercado;
+        valorTotalProdutosOferecidos; //Atualizado a cada dia (historico transacoes)
     // Ser criativo para adicionar mais
-} DadosEstatisticosInfo;
+} DadosEstatisticosMedias;
 
-typedef struct
-{
-    DadosEstatisticosInfo globais, mediaDiaria;
+typedef struct{
+    DadosEstatisticosMedias globais, mediaDiaria;
     DadosInstantaneoStruct dadosIntantaneosdiarios[24][6];
 } DadosEstatisticosStruct; // Vai ser guardado nos ficheios txt
 

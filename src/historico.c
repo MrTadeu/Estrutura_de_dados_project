@@ -21,25 +21,25 @@ void initDadosEstatisticos()
     }
 
     //INTS
-    HistoricoDados.dadosEstatisticos->mediaDiaria.IdFuncionario_numPessoas = (int **)calloc(n_funcionarios, sizeof(int*));
-    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMediaAtendimentosCadaFuncionario = (int **)calloc(n_funcionarios, sizeof(int*));
-    for (int i = 0; i < n_funcionarios; i++){
-        HistoricoDados.dadosEstatisticos->mediaDiaria.IdFuncionario_numPessoas[i] = (int *)calloc(3, sizeof(int));
-        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMediaAtendimentosCadaFuncionario[i] = (int *)calloc(3, sizeof(int));
-    }
-    HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = 0;
-    HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario = (int **)calloc(n_funcionarios, sizeof(int*));
+    for (int i = 0; i < n_funcionarios; i++)
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[i] = (int *)calloc(n_funcionarios, sizeof(int));
+    //coluna 0: ids funcionarios | coluna 1: n pessoas atendidas | coluna 2: n produtos vendidos
+
+
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa = (int**) calloc(Opcoes.numCaixasTotal, sizeof(int*));
     for (int i = 0; i < Opcoes.numCaixasTotal; i++)
-        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i] = (int *)calloc(3, sizeof(int));
-    //coluna 0: ids caixas |  coluna 1: n pessoas atendidas por cada caixa | coluna 2: n produtos vendidos por cada caixa
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i] = (int *)calloc(, sizeof(int));
+    //coluna 0: n pessoas atendidas por cada caixa | coluna 1: n produtos vendidos por cada caixa
 
-
+    HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos = 0;
+    HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos = 0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroProdutosOferecidos = 0;
 
 
     //FLOATS    
-    HistoricoDados.dadosEstatisticos->mediaDiaria.valorTotalProdutosOferecidos = 0.0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFilaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
     HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaCadaCaixa = (float *)calloc(Opcoes.numCaixasTotal, sizeof(float));
     HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaTodasCaixas = 0.0;
@@ -47,8 +47,7 @@ void initDadosEstatisticos()
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas = 0.0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0.0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado = 0.0;
-
-
+    HistoricoDados.dadosEstatisticos->mediaDiaria.valorTotalProdutosOferecidos = 0.0;
 }
 
 int hashFunction(char *nome){
