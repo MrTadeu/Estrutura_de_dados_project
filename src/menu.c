@@ -19,7 +19,7 @@ void menu(){
         printc("**        [blue]%d [/blue]-> Menu Funcionarios                **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Produtos                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Transações                   **\n", i++);
-        printc("**        [blue]%d [/blue]-> Ver Historico                    **\n", i++);
+        printc("**        [blue]%d [/blue]-> Menu Historico                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Criar Grafico                    **\n", i++);
         printc("**************************************************\n");
         printc("Qual a opção que pretende? ");
@@ -56,7 +56,7 @@ void menu(){
             editarVerTransacoes();
         }
         if (opcao == i++){
-            /* VerHistorico(); */
+            menuHistorico();
         }
         if (opcao == i++){
             CriarGrafico();
@@ -366,6 +366,35 @@ void menuPesquisarProduto(){
     default:
         break;
     }
+}
+
+void menuHistorico(){
+    int opcao;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        int i = 0;
+        printc("**************************************************\n");
+        printc("****************     [blue]Menu Produto[/blue]    *************\n");
+        printc("**************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
+        printc("**        [blue]%d [/blue]-> Mostrar Histórico                **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar Cliente                **\n", i++);
+        printc("**        [blue]%d [/blue]-> Pesquisar Caixa                  **\n", i++);
+        printc("**************************************************\n");
+        printc("Qual a opção que pretende? ");
+        scanf("%d", &opcao);
+
+        i = 1;
+        if (opcao == i++){
+            mostrarHistorico();
+        }
+        if (opcao == i++){
+            menuPesquisarProduto();
+        }
+        if (opcao == i++){
+            adicionarProduto();
+        }
+    } while (opcao != 0);
 }
 
 

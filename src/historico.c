@@ -102,8 +102,7 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
 
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
     Elemento *Aux = HistoricoDados.HistoricoTransacoes[hashIndex]->head;
-    while (Aux)
-    {
+    while (Aux){
         HistoricoSubStructCliente *guardado = (HistoricoSubStructCliente *)Aux->Info;
         if (pessoaAtendida->id == guardado->id)
         {
@@ -115,6 +114,7 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
     }
     AddElementoInicio(HistoricoDados.HistoricoTransacoes[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
+    //! JOÃO TENHO PERGUNTA
     AddHistorico_Hash(caixa, movimentoSaldoCartao, valorProdutoOferecido);
 }
 
@@ -191,7 +191,7 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
                 for (int j = 0; j < Opcoes.numCaixasTotal; j++){
                     HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[j]->head->Info);
 
-                    printf("\t[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", /* caixaInfo-> */1, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
+                    printf("\t[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", j+1, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
                     printf("\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
                     
                     printf("\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
@@ -223,5 +223,21 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
 }
 
 void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
-    
+    printc("[yellow]Caixa:[/yellow] %d\n\n", caixa->id);
+    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
+        Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
+
+        while (pessoasHistorico){
+            HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
+            HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[caixa->id - 1]->head->Info);
+
+            printf("\t[blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
+            printf("\t[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico->Info)->id);
+            printf("\t\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
+            
+
+            pessoasHistorico = pessoasHistorico->next;
+        }
+    }
 }
+

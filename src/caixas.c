@@ -267,3 +267,10 @@ void *ThreadCaixa(void *arg){
     caixa->threadAberta = 0;
     return NULL;
 }
+
+void removerCaixa(){
+    int confirmacao;
+    printc("[yellow]Deseja mesmo remover a caixas?[/yellow] (1 - Sim / 2 - Não) ");
+    scanfs("%d", &confirmacao);
+    confirmacao
+}

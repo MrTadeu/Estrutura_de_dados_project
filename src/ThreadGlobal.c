@@ -113,6 +113,3 @@ void changeStateThreadGlobal(){
 
 } */
 
-void removerCaixa(){
-    //!FAZER COISAS
-}

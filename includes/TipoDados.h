@@ -318,6 +318,9 @@ int hashFunction(char *nome);
 void *criarElementoClienteHistorico(ClienteStruct *cliente);
 void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
 void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
+void mostrarHistorico();
 void pesquisarClienteNoHistorico(ClienteStruct *cliente);
+void pesquisarClienteNoHistorico(ClienteStruct *cliente);
+void pesquisarCaixaNoHistorico(CaixaStruct *caixa);
 
 #endif
