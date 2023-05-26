@@ -88,34 +88,37 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
         return;
     }
-
+    printf("\n\n\n\t\t\t\tola1\n\n\n\n\n\n");
     ClienteStruct *pessoaAtendida = (ClienteStruct *)malloc(sizeof(ClienteStruct));
     pthread_mutex_lock(&ClientesLock);
     memcpy(pessoaAtendida, caixa->listaPessoas->head->Info, sizeof(ClienteStruct));
     int hashIndex = hashFunction(pessoaAtendida->nome);
     pthread_mutex_unlock(&ClientesLock);
-
+    printf("\n\n\n\t\t\t\tola2\n\n\n\n\n\n");
     FuncionarioStruct *funcionario = (FuncionarioStruct *)malloc(sizeof(FuncionarioStruct));
     pthread_mutex_lock(&FuncionariosLock);
     memcpy(funcionario, caixa->funcionario, sizeof(FuncionarioStruct));
     pthread_mutex_unlock(&FuncionariosLock);
-
+    printf("\n\n\n\t\t\t\tola3\n\n\n\n\n\n");
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);
     Elemento *Aux = HistoricoDados.HistoricoTransacoes[hashIndex]->head;
+    printf("\n\n\n\t\t\t\tol4\n\n\n\n\n\n");
     while (Aux){
         HistoricoSubStructCliente *guardado = (HistoricoSubStructCliente *)Aux->Info;
         if (pessoaAtendida->id == guardado->id)
-        {
+        {   printc("\n\n\n\t\t\t\t[green]ola5 ADD INFO HISTORICO[/green]\n\n\n\n\n\n");
             AddElementoInicio(guardado->caixas[caixa->id - 1], criarElemento(criarInfoHistorico(caixa, movimentoSaldoCartao, valorProdutoOferecido)));
             pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
             return;
         }
         Aux = Aux->next;
     }
+    printc("\n\n\n\t\t\t\tola6\n\n\n\n\n\n");
     AddElementoInicio(HistoricoDados.HistoricoTransacoes[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
+    printc("\n\n\n\t\t\t\tola7\n\n\n\n\n\n");
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
-    //! JOÃO TENHO PERGUNTA
     AddHistorico_Hash(caixa, movimentoSaldoCartao, valorProdutoOferecido);
+    printc("\n\n\n\t\t\t\t[green]RECURSIVEEEEEEEEEEEEE[/green]\n\n\n\n\n\n");
 }
 
 //* index Hash->|0|1|2|3|...          __HistoricoSubStructCliente
@@ -125,7 +128,6 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
 //*                             |
 //*                          |Info|  <--- HistoricoSubStructCaixa
 
-//! FAZER O MENU DESSAS FUNÇÕES
 
 void mostrarHistorico(){
     pthread_mutex_lock(&HistoricoDados.HistoricoTransacoesLock);

@@ -245,9 +245,10 @@ void *ThreadCaixa(void *arg){
             atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
             atrasoSum += pessoaEmAtendimento->tempoAtraso;
             atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
+
             //guardarhistorico
             AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
-            //Add info Qt pessoa instante --> threadCalculoEstatistico
+
             //Remover da fila
             RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
             pthread_mutex_unlock(&ClientesLock);//todo valgrind 
