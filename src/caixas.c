@@ -273,7 +273,13 @@ void *ThreadCaixa(void *arg){
 
 /* void removerCaixa(){
     int confirmacao;
-    printc("[yellow]Deseja mesmo remover a caixas?[/yellow] (1 - Sim / 2 - Não) ");
-    scanfs("%d", &confirmacao);
-    confirmacao
-} */
+    scanfv("%d", &confirmacao, "Deseja mesmo remover a caixas? (1 - Sim / 2 - Não) ", "Tem que ser um numero intero",validateRange);
+    if(confirmacao != 1) return;
+    printc("[yellow]A remover caixas necessárias.[/yellow]\n");
+
+    int diferenca = Opcoes.numCaixasTotal - n_funcionarios;
+    /* for (int i = n_funcionarios; i < Opcoes.numCaixasTotal - 1; i++){
+        
+    } */
+    
+}
