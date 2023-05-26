@@ -271,7 +271,7 @@ void *ThreadCaixa(void *arg){
     return NULL;
 }
 
-/* void removerCaixa(){
+void removerCaixa(){
     int confirmacao;
     scanfv("%d", &confirmacao, "Deseja mesmo remover a caixas? (1 - Sim / 2 - Não) ", "Tem que ser um numero intero",validateRange);
     if(confirmacao != 1) return;
