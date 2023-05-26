@@ -1,6 +1,6 @@
 #include "../includes/TipoDados.h"
 
-int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto){
+int pesquisarProdutoListaAtualizarRepetidos(Lista *lista, ProdutoStruct *produto){
     if(!lista){
         printf("\n\t[red]Error![/red] Given list is NULL\n");
         return -1;

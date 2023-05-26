@@ -274,7 +274,7 @@ void verFuncionarios();
 FuncionarioStruct *escolherFuncionarios();
 
 // produtos.c
-int pesquisarProdutoListaRealizarAcao(Lista *lista, ProdutoStruct *produto);
+int pesquisarProdutoListaAtualizarRepetidos(Lista *lista, ProdutoStruct *produto);
 void verProdutos();
 void adicionarProduto();
 void editarProduto();

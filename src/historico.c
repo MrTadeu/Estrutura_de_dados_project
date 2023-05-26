@@ -24,8 +24,8 @@ void initDadosEstatisticos()
     HistoricoDados.dadosEstatisticos->mediaDiaria.IdFuncionario_numPessoas = (int **)calloc(n_funcionarios, sizeof(int*));
     HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMediaAtendimentosCadaFuncionario = (int **)calloc(n_funcionarios, sizeof(int*));
     for (int i = 0; i < n_funcionarios; i++){
-        HistoricoDados.dadosEstatisticos->mediaDiaria.IdFuncionario_numPessoas[i] = (int *)calloc(2, sizeof(int));
-        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMediaAtendimentosCadaFuncionario[i] = (int *)calloc(2, sizeof(int));
+        HistoricoDados.dadosEstatisticos->mediaDiaria.IdFuncionario_numPessoas[i] = (int *)calloc(3, sizeof(int));
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMediaAtendimentosCadaFuncionario[i] = (int *)calloc(3, sizeof(int));
     }
     HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = 0;
     HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas = 0;

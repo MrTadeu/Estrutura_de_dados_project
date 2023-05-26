@@ -287,7 +287,7 @@ void criarProdutosAddCliente(ClienteStruct *cliente){
     ProdutoStruct *produtoEscolhido;
     for(int i = 0; i < Aleatorio(Opcoes.QuantMinProd, Opcoes.QuantMaxProd); i++){
         produtoEscolhido = escolherProduto();
-        if(pesquisarProdutoListaRealizarAcao(cliente->listaProdutos, produtoEscolhido) == 0)
+        if(pesquisarProdutoListaAtualizarRepetidos(cliente->listaProdutos, produtoEscolhido) == 0)
             AddElementoFim(cliente->listaProdutos, criarElemento((void *)produtoEscolhido));
     }
 }
