@@ -96,7 +96,6 @@ typedef struct
     int numCaixasTotal,          // FEITO
         numCaixasAbertas,        // NADA
         probGerarPessoa,         // FEITO
-        numCaixasAbertasAranque, // dsalkjajhdsjhasdjhasdjhkasdjkasdjhkajkh
         probUsarSaldoCartao,     // POR FAZER--
         lotacaoMaxima,           // FEITO
         lojaAberta,              // NADA
