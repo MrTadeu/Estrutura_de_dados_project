@@ -182,8 +182,8 @@ void mostrarHistorico(){
 }
 
 void pesquisarClienteNoHistorico(ClienteStruct *cliente){
-    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
-        Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
+    /* for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){ */
+        Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[hashFunction(cliente->nome)]->head;
         while (pessoasHistorico != NULL){
             HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
             if ((cliente->id == ClienteInfo->id) && strcasecmp(cliente->nome, ClienteInfo->nome)){
@@ -217,8 +217,8 @@ void pesquisarClienteNoHistorico(ClienteStruct *cliente){
                 return;
             }
             pessoasHistorico = pessoasHistorico->next;
-        }
-    }
+        } 
+    /* } */
     printc("[red]Cliente não encontrado![/red]\n");
 }
 
