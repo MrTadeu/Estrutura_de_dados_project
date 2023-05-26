@@ -92,8 +92,8 @@ void importarProdutos(char **linhaString, int n_linha, int n_colunas){
         Produtos[n_linha].nome = malloc((strlen(linhaString[1])+1));
         strcpy(Produtos[n_linha].nome, linhaString[1]);
         Produtos[n_linha].preco = atof(linhaString[2]);
-        Produtos[n_linha].tempoCompra = (int) atof(linhaString[3])*1000;
-        Produtos[n_linha].tempoCaixa = (int) atof(linhaString[4])*1000;
+        Produtos[n_linha].tempoCompra = (int) (atof(linhaString[3])*1000);
+        Produtos[n_linha].tempoCaixa = (int) (atof(linhaString[4])*1000);
     }
 }
 

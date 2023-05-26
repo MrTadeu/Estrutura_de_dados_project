@@ -74,17 +74,21 @@ void atenderPessoa(CaixaStruct *caixa){
     while(tempo>0){
         (tempo < 1000) ? dormir(tempo), tempo = 0 : dormir(1000), tempo -= 1000;
 
-        if (Opcoes.VerTransacoes == 1 || 1==1){
+        if (Opcoes.VerTransacoes == 1 /* || 1==1 */){
             printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
         }
         if (cliente->tempoEstimadoCaixa){
             cliente->tempoEstimadoCaixa--;
+            pthread_mutex_lock(&caixa->lock);
             caixa->tempoTotalEspera--;
+            pthread_mutex_unlock(&caixa->lock); 
         }
         else if (cliente->tempoAtraso > 0) 
             cliente->tempoAtraso--;
     }
+    pthread_mutex_lock(&caixa->lock);
     caixa->tempoTotalEspera -= cliente->tempoEstimadoCaixa;
+    pthread_mutex_unlock(&caixa->lock); 
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
     cliente->tempoAtraso = tempoAtrasoAux;
 }
@@ -199,7 +203,7 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
                 if (melhorCaixa == NULL){
                     pthread_mutex_unlock(&ClientesLock);
                     pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
-                    return;   
+                    return;
                 }
                 pthread_mutex_lock(&melhorCaixa->lock);
                     AddElementoFim(melhorCaixa->listaPessoas, RemElementoInicio(Global.PessoasAcabaramTempoDeCompra));
@@ -222,63 +226,83 @@ void SelecionarCaixa(){ // seleciona e adiciona a melhor caixa para o cliente
 
 void *ThreadCaixa(void *arg){
     CaixaStruct *caixa = (CaixaStruct *) arg;
-    int n_vendas = 0, atrasoSum = 0, work = 1;
+    int n_vendas = 0, atrasoSum = 0;
     float valorProdutoOferecido = 0.0, movimentoSaldoCliente = 0.0;
     ClienteStruct *pessoaEmAtendimento;
 
-    while(work == 1){
+    while(1){
+        /* pthread_mutex_lock(&caixa->lock); */
         if(caixa->listaPessoas->quantidadeElementos > 0){
             pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         }
         else{
             caixa->threadAberta = 0;
+            /* pthread_mutex_unlock(&caixa->lock); */
             return NULL;
         }
-        printf("\n\n\n\t\t\t\tola\n\n\n\n\n\n");
+        //printf("\n\n\n\t\t\t\tola %d\n\n\n\n\n\n", caixa->id);
         //ATRASOS ATUALIZADOS
-            /* pthread_mutex_lock(&ClientesLock);*/ //todo valgrind 
-            atualizarAtrasos(caixa->listaPessoas, pessoaEmAtendimento);
-            
-            valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
-            movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
-            
-            atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
-            atrasoSum += pessoaEmAtendimento->tempoAtraso;
-            atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
+        /* pthread_mutex_lock(&ClientesLock);//todo valgrind */
+        //printf("\n\n\n\t\t\t\tola1 %d\n\n\n\n\n\n", caixa->id);
+        pthread_mutex_lock(&caixa->lock);
+        atualizarAtrasos(caixa->listaPessoas, pessoaEmAtendimento);
+        pthread_mutex_unlock(&caixa->lock); 
 
-            
+        //printf("\n\n\n\t\t\t\tola2 %d\n\n\n\n\n\n", caixa->id);
+        valorProdutoOferecido = oferecerBrinde(pessoaEmAtendimento);
+        //printf("\n\n\n\t\t\t\tola3 %d\n\n\n\n\n\n", caixa->id);
+        movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
+        //printf("\n\n\n\t\t\t\tola4 %d\n\n\n\n\n\n", caixa->id);
+        atrasoSum += pessoaEmAtendimento->tempoAtraso;
+    
+        atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
+        //printf("\n\n\n\t\t\t\tola5 %d\n\n\n\n\n\n", caixa->id);
+        atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
+        //printf("\n\n\n\t\t\t\tola6 %d\n\n\n\n\n\n", caixa->id);
 
-            //guardarhistorico
-            AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
+        //guardarhistorico
+        AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
+        //printf("\n\n\n\t\t\t\tola7 %d\n\n\n\n\n\n", caixa->id);
 
-            //Remover da fila
-            RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
-            /* pthread_mutex_unlock(&ClientesLock);*/ //todo valgrind  
-
-        dormir(10000);
-
+        //Add info Qt pessoa instante --> threadCalculoEstatistico
+        //Remover da fila
+        /* pthread_mutex_lock(&caixa->lock);
+        RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
+        pthread_mutex_unlock(&caixa->lock); 
+ */
         /* if(caixa->fecharUrgencia)
             fecharUrgencia(caixa); */
             
         //Desocupar pessoa
-        /* pthread_mutex_lock(&ClientesLock); */
-        //DesocuparCliente(pessoaEmAtendimento);
-        /* pthread_mutex_unlock(&ClientesLock); */
+        /* pthread_mutex_lock(&ClientesLock);
+        DesocuparCliente(pessoaEmAtendimento);
+        pthread_mutex_unlock(&ClientesLock); */
+        /* pthread_mutex_unlock(&caixa->lock); */
+        dormir(100);
     }
     //Por a zero os tempos para reutilizacao da caixa
     caixa->threadAberta = 0;
-    return NULL;
+            //printf("\n\n\n\t\t\t\tola12 bye %d\n\n\n\n\n\n", caixa->id);
+
 }
 
 void removerCaixa(){
     int confirmacao;
-    scanfv("%d", &confirmacao, "Deseja mesmo remover a caixas? (1 - Sim / 2 - Não) ", "Tem que ser um numero intero",validateRange);
+    scanfv("%d", &confirmacao, "Deseja mesmo remover a caixas? (1 - Sim / 2 - Não) ", "Tem que ser um numero intero",validateRange, 1, 2);
     if(confirmacao != 1) return;
     printc("[yellow]A remover caixas necessárias.[/yellow]\n");
 
+    printc("\n [yellow]Quantidade de caixas: [/yellow] (Max: %d)\n", Opcoes.numCaixasTotal);
+    printc(" [yellow]Quantidade fucionarios:[/yellow] %d", n_funcionarios);
     int diferenca = Opcoes.numCaixasTotal - n_funcionarios;
-    /* for (int i = n_funcionarios; i < Opcoes.numCaixasTotal - 1; i++){
-        
-    } */
-    
+    printc("\n [yellow]Quantidade de caixas a remover:[/yellow] %d\n", diferenca);
+    int diferencaAux = diferenca;
+    while (diferenca > 0){
+        destruirElemento(RemElementoUltimo(Global.caixas), destruirCaixa);
+        diferenca--;
+    }
+    Opcoes.numCaixasTotal -= diferencaAux;
+    printc("\n\n [yellow]%d Caixa(s) removida(s) com sucesso. Pressione Enter para continuar...[/yellow]\n\n", diferencaAux);
+    bufferclear();
+    getchar();
 }

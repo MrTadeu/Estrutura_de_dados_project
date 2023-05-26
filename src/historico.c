@@ -103,6 +103,7 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
         printf("\n\t[red]Error![/red] Given cliente is NULL\n");
         return;
     }
+    printf("\n\n\n\t\t\t\tola1\n\n\n\n\n\n");
 
     ClienteStruct *pessoaAtendida = (ClienteStruct *)malloc(sizeof(ClienteStruct));
     memcpy(pessoaAtendida, caixa->listaPessoas->head->Info, sizeof(ClienteStruct));
@@ -115,7 +116,8 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
     Elemento *Aux = HistoricoDados.HistoricoTransacoes[hashIndex]->head;
     while (Aux){
         HistoricoSubStructCliente *guardado = (HistoricoSubStructCliente *)Aux->Info;
-        if (pessoaAtendida->id == guardado->id){
+        if (pessoaAtendida->id == guardado->id)
+        {   printc("\n\n\n\t\t\t\t[green]ola5 ADD INFO HISTORICO[/green]\n\n\n\n\n\n");
             AddElementoInicio(guardado->caixas[caixa->id - 1], criarElemento(criarInfoHistorico(caixa, movimentoSaldoCartao, valorProdutoOferecido)));
             pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
             return;
@@ -124,6 +126,7 @@ void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float val
     }
     AddElementoInicio(HistoricoDados.HistoricoTransacoes[hashIndex], criarElemento(criarSubStructClienteHistorico(pessoaAtendida)));
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
+    printc("\n\n\n\t\t\t\t[green]RECURSIVEEEEEEEEEEEEE[/green]\n\n\n\n\n\n");
     AddHistorico_Hash(caixa, movimentoSaldoCartao, valorProdutoOferecido);
 }
 
@@ -147,11 +150,11 @@ void mostrarHistorico(){
                     HistoricoSubStructCaixa *caixasHistoricoInfo = (HistoricoSubStructCaixa *)caixasHistorico->Info;
                     formatTime(caixasHistoricoInfo->tempoEstimadoCaixa, horas);
 
-                    printc("\n[blue]Nome cliente:[/blue] %s\t[blue]ID cliente:[/blue] %d\n[blue]ID caixa:[/blue] %d\t[blue]Nome funcionário:[/blue] %d\t[blue]ID funcionário:[/blue] %d\n[blue]Data de transação:[/blue] %d/%d/%d\t[blue]Hora: %d:%d:%d[/blue]\n[blue]Tempo de espera na fila:[/blue] %s\t", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, caixasHistoricoInfo->dataTransacao.hora, caixasHistoricoInfo->dataTransacao.minuto, caixasHistoricoInfo->dataTransacao.segundo, horas);
+                    printc("\n[blue]Nome cliente:[/blue] %s\t[blue]ID cliente:[/blue] %d\n[blue]ID caixa:[/blue] %d\t[blue]Nome funcionário:[/blue] %s\t[blue]ID funcionário:[/blue] %d\n[blue]Data de transação:[/blue] %d/%d/%d\t[blue]Hora:[/blue] %d:%d:%d\n[blue]Tempo de espera na fila:[/blue] %s\t", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j+1, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, caixasHistoricoInfo->dataTransacao.hora, caixasHistoricoInfo->dataTransacao.minuto, caixasHistoricoInfo->dataTransacao.segundo, horas);
 
                     printc("[blue]Tempo de atraso:[/blue] ");
                     if (caixasHistoricoInfo->tempoAtraso < 0)
-                        printc("[green]Adiantou-se:[/green] %.2f segundos\n", (float)caixasHistoricoInfo->tempoAtraso / 1000.0);
+                        printc("[green]Adiantou-se:[/green] %.2f segundos\n", fabs((float)caixasHistoricoInfo->tempoAtraso / 1000.0));
                     else if (caixasHistoricoInfo->tempoAtraso > 0)
                         printc("[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixasHistoricoInfo->tempoAtraso / 1000.0);
 
@@ -159,23 +162,23 @@ void mostrarHistorico(){
                     while (produtos)
                     {
                         ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
-                        printc("\n\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
+                        printc("\n\t\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
                         produtos = produtos->next;
                     }
 
-                    printc("[blue]Preço total:[/blue] %.2f\n", caixasHistoricoInfo->precoTotal);
+                    printc("\t[blue]Preço total:[/blue] %.2f\n", caixasHistoricoInfo->precoTotal);
 
                     if (caixasHistoricoInfo->valorProdutoOferecido > 0)
                     {
-                        printc("[yellow]Produto oferecido![/yellow] [blue]Preço:[/blue] %.2f", caixasHistoricoInfo->valorProdutoOferecido);
+                        printc("\t[yellow]Produto oferecido![/yellow] [blue]Preço:[/blue] %.2f", caixasHistoricoInfo->valorProdutoOferecido);
                     }
-                    printc("[blue]Saldo cartão cliente[/blue] ");
+                    printc("\t[blue]Saldo cartão cliente:[/blue]\n");
                     if (caixasHistoricoInfo->movimentoCartaoCliente < 0)
                     {
-                        printc("[blue]O cliente usou[/blue] %.2f euros", fabs(caixasHistoricoInfo->movimentoCartaoCliente));
+                        printc("\t\t[blue]O cliente usou[/blue] %.2f euros", fabs(caixasHistoricoInfo->movimentoCartaoCliente));
                     }
                     else
-                        printc("[blue]O cliente angariou[/blue] %.2f euros", caixasHistoricoInfo->movimentoCartaoCliente);
+                        printc("\t\t[blue]O cliente angariou[/blue] %.2f euros", caixasHistoricoInfo->movimentoCartaoCliente);
 
                     caixasHistorico = caixasHistorico->next;
                 }
@@ -184,77 +187,91 @@ void mostrarHistorico(){
             clientesHistorico = clientesHistorico->next;
         }
     }
-
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
 }
 
-void pesquisarClienteNoHistorico(ClienteStruct *cliente){
+void pesquisarClienteNoHistorico(){
     /* for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){ */
-        Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[hashFunction(cliente->nome)]->head;
-        while (pessoasHistorico != NULL){
-            HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
-            if ((cliente->id == ClienteInfo->id) && strcasecmp(cliente->nome, ClienteInfo->nome)){
-                printf("[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico)->id);
-                for (int j = 0; j < Opcoes.numCaixasTotal; j++){
-                    Elemento *caixasHistorico = ClienteInfo->caixas[j]->head;
-                    while (caixasHistorico){
-                        HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[j]->head->Info);
+    int id, pos = -1, flag = 0;
+    scanfs("%d", &id, "Qual o id de Cliente que pretende pesquisar? ", "Tem de inserir um numero inteiro!");
+    pos =  encontrarIdCliente(id);
+    if (pos == -1) return;
+    char *nome = malloc(sizeof(char) * strlen(Clientes[pos]->nome));
+    strcpy(nome, Clientes[pos]->nome);
+    printf("Nome: %s\n", nome);
+    Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[hashFunction(nome)]->head;
+    while (pessoasHistorico != NULL){
+        HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
+        if ((id == ClienteInfo->id) /* && strcasecmp(nome, ClienteInfo->nome) */){
+            flag = 1;
+            printc("[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ClienteInfo->id);
+            for (int j = 0; j < Opcoes.numCaixasTotal; j++){
+                Elemento *caixasHistorico = ClienteInfo->caixas[j]->head;
+                while (caixasHistorico){
+                    HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[j]->head->Info);
 
-                        printf("\t[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", j+1, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
-                        printf("\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
-                        
-                        printf("\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
+                    printc("\t[blue]Caixa:[/blue] %d [blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", j+1, caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
+                    printc("\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora, caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
+                    
+                    printc("\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
 
-                        printc("\t[blue]Tempo de atraso:[/blue] ");
-                        if (caixaInfo->tempoAtraso < 0)
-                            printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
-                        else if (caixaInfo->tempoAtraso > 0)
-                            printc("\t[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
+                    printc("\t[blue]Tempo de atraso:[/blue] ");
+                    if (caixaInfo->tempoAtraso < 0)
+                        printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", fabs((float)caixaInfo->tempoAtraso / 1000.0));
+                    else if (caixaInfo->tempoAtraso > 0)
+                        printc("\t[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
 
-                        printf("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
+                    printc("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
 
-                        printf("\t[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
-                        
-                        printf("\t[blue]Produtos:[/blue]\n");
-                        Elemento *produtos = caixaInfo->listaProdutos->head;
-                        while (produtos){
-                            ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
-                            printc("\n\t\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
-                            produtos = produtos->next;
-                        }
+                    printc("\t[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
+                    
+                    printc("\t[blue]Produtos:[/blue]\n");
+                    Elemento *produtos = caixaInfo->listaProdutos->head;
+                    while (produtos){
+                        ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
+                        printc("\n\t\t[blue]ID produto:[/blue] %d [blue]Nome produto:[/blue] %s, [blue]QT:[/blue] %dX, [blue]Preco:[/blue] %.2f [blue]TCompra:[/blue] %d [blue]TCaixa:[/blue] %d\n", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa);
+                        produtos = produtos->next;
                     }
                     caixasHistorico = caixasHistorico->next;
                 }
-                return;
             }
-            pessoasHistorico = pessoasHistorico->next;
-        } 
+        }
+        pessoasHistorico = pessoasHistorico->next;
+    } 
     /* } */
-    printc("[red]Cliente não encontrado![/red]\n");
+    flag == 0 ? printc("[red]Cliente não encontrado![/red]\n") : (void)NULL;
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
 }
 
-void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
-    printc("[yellow]Caixa:[/yellow] %d\n\n", caixa->id);
+void pesquisarCaixaNoHistorico(){
+    int id;
+    scanfv("%d", &id, "Qual o id de caixa que pretende pesquisar? ", "Tem de inserir um numero inteiro!", validateRange, 1, Opcoes.numCaixasTotal);
+    printc("[yellow]Caixa:[/yellow] %d\n\n", id);
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
-        
         while (pessoasHistorico){
             HistoricoSubStructCliente *ClienteInfo = (HistoricoSubStructCliente *) pessoasHistorico->Info;
-            HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[caixa->id - 1]->head->Info);
-            Elemento *caixasHistorico = ClienteInfo->caixas[caixa->id - 1]->head;
-            while (caixasHistorico){
-                printc("\t[blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
-                printc("\t[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico->Info)->id);
-                printc("\t\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora,    caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
+            if (ClienteInfo->caixas[id - 1]->head){
+                HistoricoSubStructCaixa *caixaInfo = ((HistoricoSubStructCaixa *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[id - 1]->head->Info);
+                Elemento *caixasHistorico = ClienteInfo->caixas[id - 1]->head;
+                while (caixasHistorico){
+                    printc("\t[blue]Funcionario:[/blue] %s [blue]id:[/blue] %d\n", caixaInfo->funcionario->nome, caixaInfo->funcionario->id);
+                    printc("\t[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ((HistoricoSubStructCliente *)pessoasHistorico->Info)->id);
+                    printc("\t\t[blue]Data:[/blue] %d/%d/%d [blue]Hora:[/blue] %d:%d:%d\n", caixaInfo->dataTransacao.dia, caixaInfo->dataTransacao.mes, caixaInfo->dataTransacao.ano, caixaInfo->dataTransacao.hora,    caixaInfo->dataTransacao.minuto, caixaInfo->dataTransacao.segundo);
 
-                printc("\t\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
-                printc("\t[blue]Tempo de atraso:[/blue] ");
-                if (caixaInfo->tempoAtraso < 0)
-                    printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
-                else if (caixaInfo->tempoAtraso > 0)
-                    printc("\t[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
+                    printc("\t\t[blue]Tempo de espera na fila:[/blue] %d\n", caixaInfo->tempoEstimadoCaixa);
+                    printc("\t[blue]Tempo de atraso:[/blue] ");
+                    if (caixaInfo->tempoAtraso < 0)
+                        printc("\t[green]Adiantou-se:[/green] %.2f segundos\n", fabs((float)caixaInfo->tempoAtraso / 1000.0));
+                    else if (caixaInfo->tempoAtraso > 0)
+                        printc("\t[red]Atrasou-se:[/red] %.2f segundos\n", (float)caixaInfo->tempoAtraso / 1000.0);
 
-                printf("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
+                    printc("\t[blue]Preço total:[/blue] %.2f\n", caixaInfo->precoTotal);
 
                 printf("\t[blue]Saldo cartão cliente:[/blue] %.2f\n", caixaInfo->movimentoCartaoCliente);
                 
@@ -267,9 +284,13 @@ void pesquisarCaixaNoHistorico(CaixaStruct *caixa){
                 }
                 caixasHistorico = caixasHistorico->next;
             }
+            
             pessoasHistorico = pessoasHistorico->next;
         }
     }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
 }
 
 void recolhaDadosEstatisticosHistoricoTransacoes(){

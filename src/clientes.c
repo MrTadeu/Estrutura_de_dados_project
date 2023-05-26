@@ -300,8 +300,8 @@ void calculos_TempoPreco_Cliente(ClienteStruct *cliente){
     Elemento *Aux = cliente->listaProdutos->head;
     while(Aux){
         ProdutoStruct *produto = (ProdutoStruct *) Aux->Info;
-        cliente->tempoEstimadoCaixa += produto->tempoCaixa;
-        cliente->tempoEstimadoCompra += produto->tempoCompra;
+        cliente->tempoEstimadoCaixa += produto->tempoCaixa * produto->quantidadeProdutosRepetidos;
+        cliente->tempoEstimadoCompra += produto->tempoCompra * produto->quantidadeProdutosRepetidos;
         cliente->precoTotalProdutos += produto->preco * produto->quantidadeProdutosRepetidos; 
 
         Aux = Aux->next;

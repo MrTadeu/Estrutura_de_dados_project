@@ -20,6 +20,7 @@
 // TIME (SLEEP)
 #ifdef _WIN32
 #include <windows.h>
+#include <conio.h>
 #define SET_UTF8_CODEPAGE system("chcp 65001 > nul");
 #endif
 #ifdef __linux__
@@ -330,8 +331,7 @@ void *criarElementoClienteHistorico(ClienteStruct *cliente);
 void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
 void AddHistorico_Hash(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
 void mostrarHistorico();
-void pesquisarClienteNoHistorico(ClienteStruct *cliente);
-void pesquisarClienteNoHistorico(ClienteStruct *cliente);
-void pesquisarCaixaNoHistorico(CaixaStruct *caixa);
+void pesquisarClienteNoHistorico();
+void pesquisarCaixaNoHistorico();
 
 #endif

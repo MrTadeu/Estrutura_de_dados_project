@@ -389,10 +389,10 @@ void menuHistorico(){
             mostrarHistorico();
         }
         if (opcao == i++){
-            menuPesquisarProduto();
+            pesquisarClienteNoHistorico();
         }
         if (opcao == i++){
-            adicionarProduto();
+            pesquisarCaixaNoHistorico();
         }
     } while (opcao != 0);
 }
@@ -459,12 +459,12 @@ int menuResolverCaixaFuncionario(){
             }
         }
         if (opcao == i++){
-            for(int i = Opcoes.numCaixasTotal; i > n_funcionarios; i--){
+            /* for(int i = Opcoes.numCaixasTotal; i > n_funcionarios; i--){ */
                 fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-                printf("\nSobram [red]%d[/red]", i - n_funcionarios);
-                //removerCaixa();
+                /* printc("\nSobram [red]%d[/red]", i - n_funcionarios); */
+                removerCaixa();
                 opcao = 0;
-            }
+            /* } */
         }
     } while (opcao != 0);
     return 1;
