@@ -284,3 +284,24 @@ void *ThreadCaixa(void *arg){
             printf("\n\n\n\t\t\t\tola12 bye %d\n\n\n\n\n\n", caixa->id);
 
 }
+
+void removerCaixa(){
+    int confirmacao;
+    scanfv("%d", &confirmacao, "Deseja mesmo remover a caixas? (1 - Sim / 2 - Não) ", "Tem que ser um numero intero",validateRange, 1, 2);
+    if(confirmacao != 1) return;
+    printc("[yellow]A remover caixas necessárias.[/yellow]\n");
+
+    printc("\n [yellow]Quantidade de caixas: [/yellow] (Max: %d)\n", Opcoes.numCaixasTotal);
+    printc(" [yellow]Quantidade fucionarios:[/yellow] %d", n_funcionarios);
+    int diferenca = Opcoes.numCaixasTotal - n_funcionarios;
+    printc("\n [yellow]Quantidade de caixas a remover:[/yellow] %d\n", diferenca);
+    int diferencaAux = diferenca;
+    while (diferenca > 0){
+        destruirElemento(RemElementoUltimo(Global.caixas), destruirCaixa);
+        diferenca--;
+    }
+    Opcoes.numCaixasTotal -= diferencaAux;
+    printc("\n\n [yellow]%d Caixa(s) removida(s) com sucesso. Pressione Enter para continuar...[/yellow]\n\n", diferencaAux);
+    bufferclear();
+    getchar();
+}

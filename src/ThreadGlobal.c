@@ -72,7 +72,7 @@ void changeStateThreadGlobal(){
 
 
         /* Elemento *CaixaElm = Global.caixas->head;
-        for (int i = 0; i < Opcoes.numCaixasAbertasAranque; i++){
+        for (int i = 0; i < Opcoes.; i++){
             CaixaStruct *caixa = (CaixaStruct *)CaixaElm->Info;
             if(n_funcionariosAtivos >= n_funcisonarios){
                 caixa->aberta = 0;
@@ -113,6 +113,3 @@ void changeStateThreadGlobal(){
 
 } */
 
-void removerCaixa(){
-    //!FAZER COISAS
-}
