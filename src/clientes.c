@@ -170,7 +170,7 @@ void pesquisarClienteNome(){
 
 void adicionarCliente(){
     char nome[100];
-    int invalid = 0, invalidDate = 0;
+    int invalidDate = 0;
     Clientes = (ClienteStruct **) realloc(Clientes, (n_clientes + 1) * sizeof(ClienteStruct *));
     Clientes[n_clientes] = (ClienteStruct *) malloc(sizeof(ClienteStruct));
     Clientes[n_clientes]->id = generateID(encontrarIdCliente);
@@ -183,15 +183,10 @@ void adicionarCliente(){
     Clientes[n_clientes]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
     strcpy(Clientes[n_clientes]->nome, nome);
 
-    do{
-        scanfs("%f", &Clientes[n_clientes]->saldoCartaoCliente, "Saldo do cliente: ", "Apenas pode inserir flutuantes!");
 
-        if(Clientes[n_clientes]->saldoCartaoCliente <= 0){
-            printc("[red]Saldo do cliente >= 0[/red]\n");
-            bufferclear();
-            invalid = -1;
-        }
-    }while(invalid != 1);
+    float n;
+    scanfv("%f", &n, "Saldo do cliente: ", "Saldo do cliente >= 0!\n", validateRangeFloat, 0.0, 100000000.0);
+    Clientes[n_clientes]->saldoCartaoCliente = n;
 
     printc("\nData de nascimento:");
     struct tm tm = getCurrentTime();
@@ -213,7 +208,7 @@ void adicionarCliente(){
 }
 
 void editarCliente(){
-    int id, invalid = 0, invalidDate = 0;
+    int id, invalidDate = 0;
     char nome[100];
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     scanfs("%d", &id, "Insira o ID do cliente que pretende editar: ", "Apenas pode inserir números inteiros!");
@@ -232,15 +227,9 @@ void editarCliente(){
         Clientes[index]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
         strcpy(Clientes[index]->nome, nome);
 
-        do{
-            invalid = 1;
-            scanfs("%f", &Clientes[index]->saldoCartaoCliente, "Saldo do cliente: ", "Apenas pode inserir flutuantes!");
-            if(Clientes[index]->saldoCartaoCliente <= 0){
-                printc("[red]Saldo do cliente >= 0[/red]\n");
-                bufferclear();
-                invalid = -1;
-            }
-        }while(invalid != 1);
+        float n;
+        scanfv("%f", &n, "Saldo do cliente: ", "Saldo do cliente >= 0!\n", validateRangeFloat, 0.0, 100000000.0);
+        Clientes[index]->saldoCartaoCliente = n;
 
         printc("\nData de nascimento:");
         struct tm tm = getCurrentTime();
