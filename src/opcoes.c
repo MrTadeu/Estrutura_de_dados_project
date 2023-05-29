@@ -143,7 +143,7 @@ void editarMultiplicadorTempo(){
 }
 
 void editarVerTransacoes(){
-    if(Opcoes.lojaAberta == 1){
+    if(Opcoes.lojaAberta == 1 || TRUE){
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         printc("[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");

@@ -250,7 +250,7 @@ void *ThreadCaixa(void *arg){
         atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
 
         //guardarhistorico
-        //AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
+        AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
 
         //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_lock(&caixa->lock);
@@ -259,8 +259,8 @@ void *ThreadCaixa(void *arg){
 
         /* if(caixa->fecharUrgencia)
             fecharUrgencia(caixa); */
-            
-        DesocuparCliente(pessoaEmAtendimento);
+        if (pessoaEmAtendimento->id != -1)
+            DesocuparCliente(pessoaEmAtendimento);
     }
     //Por a zero os tempos para reutilizacao da caixa
     caixa->threadAberta = 0;

@@ -300,7 +300,6 @@ ClienteStruct *escolherCliente(){
     ClienteStruct *cliente;
     if(Aleatorio(1, 75) >= 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
-        printf("\nguest\n");
     }
     else if(n_clientesAtivos >= n_clientes){
         /* printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n"); */
@@ -315,7 +314,6 @@ ClienteStruct *escolherCliente(){
         Clientes[index] = Clientes[n_clientesAtivos];
         Clientes[n_clientesAtivos] = cliente;
         n_clientesAtivos++;
-        printf("\n\n\n\ncliente %d\n \n\n\n\n", index);
         pthread_mutex_unlock(&ClientesLock);
     }
 
@@ -327,9 +325,15 @@ ClienteStruct *escolherCliente(){
 
 void DesocuparCliente(ClienteStruct *pessoa){
     pthread_mutex_lock(&ClientesLock);
+    if (Opcoes.VerTransacoes){
+        printc("\n\n[blue]Clientes em Loja:[/blue] %d, [blue]Clientes Total:[/blue] %d\n", n_clientesAtivos, n_clientes);
+    }
+    
     int index = pesquisarClienteVetorBatente(pessoa);
     if(index == -1){
-        printf("[red]Error![/red] Given client is NULL");
+        printc("[blue]\n\n\n\t\tn_clientesAtivos %d, n_clientes\n[/blue] %d", n_clientesAtivos, n_clientes);
+        printc("[red]Error![/red] Given client is NULL É AQUI DESOCUPAR CLIENTE");
+        pthread_mutex_unlock(&ClientesLock);
         return;
     }
     ClienteStruct *cliente = Clientes[index];
@@ -343,7 +347,8 @@ void DesocuparCliente(ClienteStruct *pessoa){
 
 int pesquisarClienteVetorBatente(ClienteStruct *pessoa){
     for (int i = 0; i < n_clientesAtivos; i++){
-        if(Clientes[i]->nome == pessoa->nome && Clientes[i]->id == pessoa->id){
+        /* printf("[red]\n Clientes[i]->nome %s  pessoa->nome %s[/red] id: Clientes[i]->id, %d  pessoa->id %d", Clientes[i]->nome, pessoa->nome, Clientes[i]->id, pessoa->id); */
+        if(strcmp(Clientes[i]->nome, pessoa->nome) == 0 && Clientes[i]->id == pessoa->id){
             return i;
         }
     }

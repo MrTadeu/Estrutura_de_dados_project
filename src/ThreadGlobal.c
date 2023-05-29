@@ -6,8 +6,8 @@ void *ThreadGlobal(){
     pthread_mutex_init(&FuncionariosLock, NULL);
     pthread_mutex_init(&HistoricoDados.HistoricoTransacoesLock, NULL);
 
-    while(Opcoes.lojaAberta == 1){
-        if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
+    while(n_clientesAtivos || Opcoes.lojaAberta == 1){
+        if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa && Opcoes.lojaAberta == 1){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
             ClienteStruct *pessoa = escolherCliente();
             
             if(pessoa){
@@ -16,8 +16,9 @@ void *ThreadGlobal(){
                 pthread_detach(thread); // para não ficar alocando memoria assim que acabar é como um pthread join
             }
             
-            SelecionarCaixa();
         }
+        /* printf("\n\n\t[red]Pessoa Nula[/red]\n"); */
+        SelecionarCaixa();
         dormir(100);
     }
     return NULL;
