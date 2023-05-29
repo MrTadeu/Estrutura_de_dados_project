@@ -153,8 +153,6 @@ typedef struct{
     int **numeroAtendimentos_numeroProdutos_CadaFuncionario,
         **numeroAtendimentos_numeroProdutos_CadaCaixa,
         caixaAtendeuMaisPessoas,
-        caixaAtendeuMaisPessoas,
-        caixaVendeuMenosProdutos,
         caixaVendeuMenosProdutos,
         numeroProdutosOferecidos;
 
