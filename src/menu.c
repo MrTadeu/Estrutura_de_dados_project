@@ -22,8 +22,7 @@ void menu(){
         printc("**        [blue]%d [/blue]-> Menu Historico                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Criar Grafico                    **\n", i++);
         printc("**************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
         
         i = 1;
         if (opcao == 0){
@@ -106,8 +105,7 @@ void menuConfig(){
         printc("**        [blue]%d [/blue]-> Quantidade maxima de Produtos por Cliente **\n", i++);
         printc("**        [blue]%d [/blue]-> Multiplicador de Tempo                    **\n", i++);
         printc("************************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
@@ -165,8 +163,7 @@ void menuClientes(){
         printc("**        [blue]%d [/blue]-> Remover Cliente                  **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Cliente Em Caixa       **\n", i++);
         printc("**************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
@@ -211,8 +208,7 @@ void menuPesquisarClientes(){
         printc("**        [blue]%d [/blue]-> Pesquisar por ID                 **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar por nome               **\n", i++);
         printc("**************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
@@ -242,8 +238,7 @@ void menuFuncionarios(){
         printc("**        [blue]%d [/blue]-> Remover Funcionário              **\n", i++);
         /* printc("**        [blue]%d [/blue]-> Trocar Funcionário da Caixa      **\n", i++);*/
         printc("**************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
@@ -289,8 +284,7 @@ void menuPesquisarFuncionarios(){
         printc("**        [blue]%d [/blue]-> Pesquisar por ID                 **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar por nome               **\n", i++);
         printc("**************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
@@ -317,8 +311,7 @@ void menuProdutos(){
         printc("**        [blue]%d [/blue]-> Editar Produto                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Remover Produto                  **\n", i++);
         printc("**************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
@@ -346,8 +339,7 @@ void menuPesquisarProduto(){
         printc("[blue]0[/blue] - Voltar\n");
         printc("[blue]1[/blue] - Pesquisar por ID\n");
         printc("[blue]2[/blue] - Pesquisar por nome\n");
-        printf("Opção: ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
     } while (opcao != 0 && opcao != 1  && opcao != 2);
     switch (opcao){
     case 0:
@@ -377,8 +369,7 @@ void menuHistorico(){
         printc("**        [blue]%d [/blue]-> Pesquisar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Caixa                  **\n", i++);
         printc("**************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
@@ -406,8 +397,7 @@ int menuvalidarCaixaFuncionarios(){
             printc("**        [blue]%d [/blue]-> Fechar Loja                      **\n", i++);
             printc("**        [blue]%d [/blue]-> Resolver Problema                **\n", i++);
             printc("**************************************************\n");
-            printc("Qual a opção que pretende? ");
-            scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+            scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
             i = 1;
             if (opcao == i++){
@@ -438,8 +428,7 @@ int menuResolverCaixaFuncionario(){
         printc("**        [blue]%d [/blue]-> Adicionar Funcionarios necessarios         **\n", i++);
         printc("**        [blue]%d [/blue]-> Remover Caixas necessarias                 **\n", i++);
         printc("************************************************************\n");
-        printc("Qual a opção que pretende? ");
-        scanfs("%d", &opcao, "", "Apenas pode inserir números inteiros!\n");
+        scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
         i = 1;
         if (opcao == i++){
