@@ -191,6 +191,7 @@ extern pthread_mutex_t ClientesLock, FuncionariosLock, PessoasAcabaramTempoDeCom
 extern ClienteStruct **Clientes;
 extern FuncionarioStruct **Funcionarios;
 extern ProdutoStruct *Produtos;
+extern long long tempoEmMilisegundos;
 extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
 int CriarGrafico();
