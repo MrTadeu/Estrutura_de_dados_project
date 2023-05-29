@@ -3,6 +3,9 @@
 void importOpcoes(){
     char *file = malloc(sizeof(char)*16);
     strcpy(file,"Data/opcoes.bin");
+    pthread_t threadRelogio;
+    pthread_create(&threadRelogio, NULL, threadTempo, NULL);
+    
     if(checkIFfileExists(file) == 1){
         FILE *file = fopen("Data/opcoes.bin", "rb");
         if (!file) {
