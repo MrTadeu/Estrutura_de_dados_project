@@ -102,7 +102,7 @@ void changeStateThreadGlobal(){
 
 } */
 
-void *threadTempo(void *args){
+void *threadTempo(){
     tempoEmMilisegundos = getCurrentTimeMillisecounds();
     while(1){
         tempoEmMilisegundos += 1000LL;
