@@ -320,6 +320,7 @@ int validateIsAlphabetic(void *DataScanf, void *args);
 void changeStateThreadGlobal();
 void *ThreadGlobal();
 void *ThreadEsperaTempoCompra(void *args);
+void *threadTempo(void *args);
 
 // historico.c
 void initHistorico();
