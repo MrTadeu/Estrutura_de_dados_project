@@ -231,7 +231,6 @@ void *ThreadCaixa(void *arg){
     ClienteStruct *pessoaEmAtendimento;
 
     while(1){
-        /* pthread_mutex_lock(&caixa->lock); */
         if(caixa->listaPessoas->quantidadeElementos > 0){
             pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         }
@@ -254,7 +253,6 @@ void *ThreadCaixa(void *arg){
         //AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
 
         //Add info Qt pessoa instante --> threadCalculoEstatistico
-        //Remover da fila
         pthread_mutex_lock(&caixa->lock);
         RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
         pthread_mutex_unlock(&caixa->lock); 
@@ -262,12 +260,7 @@ void *ThreadCaixa(void *arg){
         /* if(caixa->fecharUrgencia)
             fecharUrgencia(caixa); */
             
-        //Desocupar pessoa
-        /* pthread_mutex_lock(&ClientesLock);
         DesocuparCliente(pessoaEmAtendimento);
-        pthread_mutex_unlock(&ClientesLock); */
-        /* pthread_mutex_unlock(&caixa->lock); */
-        dormir(100);
     }
     //Por a zero os tempos para reutilizacao da caixa
     caixa->threadAberta = 0;

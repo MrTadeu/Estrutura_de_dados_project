@@ -300,6 +300,7 @@ ClienteStruct *escolherCliente(){
     ClienteStruct *cliente;
     if(Aleatorio(1, 75) >= 75){ //Existe uma probabilidade de 25% de a pessoa não ser cliente
         cliente = criarGuest();
+        printf("\nguest\n");
     }
     else if(n_clientesAtivos >= n_clientes){
         /* printc("\n\t[red]Erro![/red] Nao existem mais clientes disponiveis.\n"); */
@@ -314,6 +315,7 @@ ClienteStruct *escolherCliente(){
         Clientes[index] = Clientes[n_clientesAtivos];
         Clientes[n_clientesAtivos] = cliente;
         n_clientesAtivos++;
+        printf("\n\n\n\ncliente %d\n \n\n\n\n", index);
         pthread_mutex_unlock(&ClientesLock);
     }
 
@@ -333,9 +335,9 @@ void DesocuparCliente(ClienteStruct *pessoa){
     ClienteStruct *cliente = Clientes[index];
     cliente->ativo = 0;
     
-    Clientes[index] = Clientes[n_clientesAtivos-1];
+    Clientes[index] = Clientes[--n_clientesAtivos];
     Clientes[n_clientesAtivos] = cliente;
-    n_clientesAtivos--;
+    /* n_clientesAtivos--; */
     pthread_mutex_unlock(&ClientesLock);
 }
 
