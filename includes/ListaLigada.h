@@ -11,8 +11,6 @@
         int quantidadeElementos;
     }Lista;
 
-
-
     Lista *criarLista();
     Elemento *criarElemento(void *elemento);
     void AddElementoInicio(Lista *lista, Elemento *elemento);
