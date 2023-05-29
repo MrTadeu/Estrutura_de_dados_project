@@ -183,7 +183,6 @@ void adicionarCliente(){
     Clientes[n_clientes]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
     strcpy(Clientes[n_clientes]->nome, nome);
 
-
     float n;
     scanfv("%f", &n, "Saldo do cliente: ", "Saldo do cliente >= 0!\n", validateRangeFloat, 0.0, 100000000.0);
     Clientes[n_clientes]->saldoCartaoCliente = n;

@@ -82,21 +82,14 @@ void pesquisarProdutoNome(){
 
 void adicionarProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-
     char nome[100];
     scanfs("%[^\n]", nome, "Insira o nome do produto: ", "Apenas pode inserir letras!\n");
     Produtos[n_produtos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Produtos[n_produtos].nome, nome);    
 
-    int invalid = 0;
-    do{
-        invalid = 1;
-        scanfs("%f", &Produtos[n_produtos].preco, "Insira o preço do produto €: ", "Apenas pode inserir números do tipo float!\n");
-        if(Produtos[n_produtos].preco < 0){
-            printc("[red]O preço não pode ser negativo![/red]\n");
-            invalid = -1;
-        }
-    }while(invalid != 1);
+    float n;
+    scanfv("%f", &n, "Insira o preço do produto €: ", "O preço não pode ser negativo!\n", validateRangeFloat, 0.0, 100000000.0);
+    Produtos[n_produtos].preco = n;
 
     Produtos[n_produtos].id = generateID(encontrarIdProduto);
     n_produtos++;
@@ -123,21 +116,15 @@ void editarProduto(){
         Produtos[pos].nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
         strcpy(Produtos[pos].nome, nome);
 
-        int invalid = 0;
-        do{
-            invalid = 1;
-            scanfs("%f", &Produtos[pos].preco, "Preço do produto €: ", "Apenas pode inserir números do tipo float!\n");
-            if(Produtos[pos].preco < 0){
-                printc("[red]O preço não pode ser negativo![/red]\n");
-                invalid = -1;
-            }
-        }while(invalid != 1);
+        float n;
+        scanfv("%f", &n, "Insira o preço do produto €: ", "O preço não pode ser negativo!\n", validateRangeFloat, 0.0, 100000000.0);
+        Produtos[pos].preco = n;
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
 }
-//ver depoissssssssssss
+
 void removerProduto(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     int id;
