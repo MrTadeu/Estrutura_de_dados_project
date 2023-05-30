@@ -352,3 +352,4 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
 /* void recolhaDadosEstatisticosHistoricoPeriodica(){
     // depois
 } */
+

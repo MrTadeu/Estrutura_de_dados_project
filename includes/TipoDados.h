@@ -145,31 +145,38 @@ typedef struct
 
 typedef struct{
     int **tempoEspera_numeroClienteFila_CadaCaixa, numerosCaixasAbertas, numeroClienteSupermercado;
-    float **tempoMedioEsperaCadaCaixaHoraria, *tempoMedioEsperaTodasCaixasHoraria, **numeroMedioClienteFilaCadaCaixaHoraria, *numeroMedioClienteFilaTodasCaixasHoraria, numeroMedioCaixasAbertasHoraria, numeroMedioClienteSupermercadoHoraria;
     // Ser criativo para adicionar mais
 } DadosInstantaneoStruct;
 
 typedef struct{
-    int **numeroAtendimentos_numeroProdutos_CadaFuncionario, // É recolhido diretamente pra aqui
-        **numeroAtendimentos_numeroProdutos_CadaCaixa, // É recolhido diretamente pra aqui
-        caixaAtendeuMaisPessoas, // É descoberto após a recolha transacoes
-        caixaAtendeuMaisPessoas, // É descoberto após a recolha transacoes
-        caixaVendeuMenosProdutos, // É descoberto após a recolha transacoes
-        caixaVendeuMenosProdutos, // É descoberto após a recolha transacoes
-        numeroProdutosOferecidos; // É recolhido diretamente pra aqui
+    int **numeroAtendimentos_numeroProdutos_CadaFuncionario,    // 
+        **numeroAtendimentos_numeroProdutos_CadaCaixa,          // É recolhido diretamente pra aqui
+        caixaAtendeuMaisPessoas,                //
+        caixaAtendeuMaisPessoas,                //
+        caixaVendeuMenosProdutos,               // É descoberto após a recolha transacoes
+        caixaVendeuMenosProdutos,               // 
+        numeroProdutosOferecidos;                               // É recolhido diretamente pra aqui             
 
-    char *nomeFuncionarioAtendeuMaisPessoas, // É descoberto após a recolha transacoes
-        *nomeFuncionarioAtendeuMenosPessoas, // É descoberto após a recolha transacoes
-        *nomeFuncionarioVendeuMaisProdutos, // É descoberto após a recolha transacoes
-        *nomeFuncionarioVendeuMenosProdutos; // É descoberto após a recolha transacoes
+    char *nomeFuncionarioAtendeuMaisPessoas,    //
+        *nomeFuncionarioAtendeuMenosPessoas,    //
+        *nomeFuncionarioVendeuMaisProdutos,     // É descoberto após a recolha transacoes
+        *nomeFuncionarioVendeuMenosProdutos;    // 
         
-    float *tempoMedioEsperaCadaCaixaDiaria, // É descoberto após a recolha periodica
-        tempoMedioEsperaTodasCaixasDiaria, // É descoberto após a recolha periodica
-        *numeroMedioClienteFilaCadaCaixaDiaria, // É descoberto após a recolha periodica
-        numeroMedioClienteFilaTodasCaixasDiaria, // É descoberto após a recolha periodica
-        numeroMedioCaixasAbertasDiaria, // É descoberto após a recolha periodica
-        numeroMedioClienteSupermercadoDiaria, // É descoberto após a recolha periodica
-        valorTotalProdutosOferecidos; // É recolhido diretamente pra aqui
+    float **tempoMedioEspera_CadaCaixa_CadaHora,            // 
+          *tempoMedioEspera_CadaHora,                       // 
+          *tempoMedioEspera_CadaCaixa,                      // 
+          tempoMedioEspera_Dia,                             // 
+          **numeroMedioClienteFila_CadaCaixa_CadaHora,      //
+          *numeroMedioClienteFila_CadaHora,                 //
+          *numeroMedioClienteFila_CadaCaixa,                // É descoberto após a recolha periodica
+          numeroMedioClienteFila_Dia,                       // 
+                                                            //
+          numeroMedioCaixasAbertas_CadaHora,                //
+          numeroMedioCaixasAbertas_dia,                     // 
+          numeroMedioClienteSupermercado_CadaHora,          //
+          numeroMedioClienteSupermercado_Dia,               // 
+  
+          valorTotalProdutosOferecidos;                         // É recolhido diretamente pra aqui
     // Ser criativo para adicionar mais
 } DadosEstatisticosMedias;
 
