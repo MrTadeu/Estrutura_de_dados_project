@@ -98,7 +98,7 @@ typedef struct
         numCaixasAbertas,        // NADA
         probGerarPessoa,         // FEITO
         probUsarSaldoCartao,     // POR FAZER--
-        lotacaoMaxima,           // FEITO
+        lotacaoMaxima,           // FEITO //!NÃO 
         lojaAberta,              // NADA
         VerTransacoes,           // NADA
         threadGlobalAranque,     // FEITO
@@ -124,6 +124,7 @@ typedef enum
 typedef struct
 {
     Lista *caixas, *PessoasAcabaramTempoDeCompra;
+    int n_pessoasEmLoja;
 } GlobalStruct;
 
 typedef struct

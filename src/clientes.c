@@ -316,7 +316,8 @@ ClienteStruct *escolherCliente(){
         n_clientesAtivos++;
         pthread_mutex_unlock(&ClientesLock);
     }
-
+    
+    Global.n_pessoasEmLoja++;
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente);
     calculos_TempoPreco_Cliente(cliente);

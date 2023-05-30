@@ -2,6 +2,7 @@
 
 void criarCaixaInit(){
     Global.caixas = criarLista();
+    Global.n_pessoasEmLoja = 0;
     for (int i = 0; i < Opcoes.numCaixasTotal; i++){
         CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
         caixa->id = i+1;
@@ -261,6 +262,7 @@ void *ThreadCaixa(void *arg){
             fecharUrgencia(caixa); */
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);
+        Global.n_pessoasEmLoja--;
     }
     //Por a zero os tempos para reutilizacao da caixa
     caixa->threadAberta = 0;
