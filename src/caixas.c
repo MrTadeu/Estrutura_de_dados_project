@@ -85,7 +85,7 @@ void atenderPessoa(CaixaStruct *caixa){
         if (Opcoes.VerTransacoes == 1){
             char tempoString[9];
             formatTime(tempo, tempoString);
-            printc("\n[yellow]%dº Caixa[/yellow] Pessoa: [blue]%s[/blue] Tempo: [green]%s[/green]",caixa->id, cliente->nome, tempoString);
+            printc("\n[red]%dº Caixa[/red]\n Pessoa: [blue]%s[/blue] Tempo: [green]%s[/green]\n",caixa->id, cliente->nome, tempoString);
         }
 
         int x;
