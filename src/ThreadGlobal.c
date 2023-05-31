@@ -96,6 +96,14 @@ void changeStateThreadGlobal(){
 }
 
 void *threadSchedule(){
+    int minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
+   /*  while (1){ */
+        /* if (formatTimeStruct(tempoEmMilisegundos).minuto % 10 == 0 && minAnterior != formatTimeStruct(tempoEmMilisegundos).minuto){
+            minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
+            printf("\n\n\t[green]Hora: %d:%d[/green]", formatTimeStruct(tempoEmMilisegundos).hora, formatTimeStruct(tempoEmMilisegundos).minuto);
+        } */
+        
+    /* } */
     
 }
 
@@ -103,7 +111,7 @@ void *threadTempo(){
     tempoEmMilisegundos = getCurrentTimeMillisecounds();
     while(1){
         tempoEmMilisegundos += 1000LL;
-        dormir(1000LL /* * Opcoes.multiplicadorTempo */);
+        dormir(1000 /* * Opcoes.multiplicadorTempo */);
     }
 }
 
