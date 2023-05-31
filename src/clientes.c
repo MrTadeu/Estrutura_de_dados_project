@@ -98,7 +98,7 @@ void verClientesCaixa(){
     else{
         Elemento *Caixa = Global.caixas->head;
         while(Caixa){
-            if(((CaixaStruct *)Caixa->Info)->aberta == 1 /* || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL */){
+            if(((CaixaStruct *)Caixa->Info)->aberta == 1){
                 char tempoTotalEspera[9];
                 formatTime(((CaixaStruct *)Caixa->Info)->tempoTotalEspera, tempoTotalEspera);
                 printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %s [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, tempoTotalEspera);
@@ -170,7 +170,7 @@ void pesquisarClienteNome(){
 
 void adicionarCliente(){
     char nome[100];
-    int invalid = 0, invalidDate = 0;
+    int invalidDate = 0;
     Clientes = (ClienteStruct **) realloc(Clientes, (n_clientes + 1) * sizeof(ClienteStruct *));
     Clientes[n_clientes] = (ClienteStruct *) malloc(sizeof(ClienteStruct));
     Clientes[n_clientes]->id = generateID(encontrarIdCliente);
@@ -183,15 +183,9 @@ void adicionarCliente(){
     Clientes[n_clientes]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
     strcpy(Clientes[n_clientes]->nome, nome);
 
-    do{
-        scanfs("%f", &Clientes[n_clientes]->saldoCartaoCliente, "Saldo do cliente: ", "Apenas pode inserir flutuantes!");
-
-        if(Clientes[n_clientes]->saldoCartaoCliente <= 0){
-            printc("[red]Saldo do cliente >= 0[/red]\n");
-            bufferclear();
-            invalid = -1;
-        }
-    }while(invalid != 1);
+    float n;
+    scanfv("%f", &n, "Saldo do cliente: ", "Saldo do cliente >= 0!\n", validateRangeFloat, 0.0, 100000000.0);
+    Clientes[n_clientes]->saldoCartaoCliente = n;
 
     printc("\nData de nascimento:");
     struct tm tm = getCurrentTime();
@@ -213,7 +207,7 @@ void adicionarCliente(){
 }
 
 void editarCliente(){
-    int id, invalid = 0, invalidDate = 0;
+    int id, invalidDate = 0;
     char nome[100];
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     scanfs("%d", &id, "Insira o ID do cliente que pretende editar: ", "Apenas pode inserir números inteiros!");
@@ -232,15 +226,9 @@ void editarCliente(){
         Clientes[index]->nome = (char*) malloc((strlen(nome) + 1) * sizeof(char));
         strcpy(Clientes[index]->nome, nome);
 
-        do{
-            invalid = 1;
-            scanfs("%f", &Clientes[index]->saldoCartaoCliente, "Saldo do cliente: ", "Apenas pode inserir flutuantes!");
-            if(Clientes[index]->saldoCartaoCliente <= 0){
-                printc("[red]Saldo do cliente >= 0[/red]\n");
-                bufferclear();
-                invalid = -1;
-            }
-        }while(invalid != 1);
+        float n;
+        scanfv("%f", &n, "Saldo do cliente: ", "Saldo do cliente >= 0!\n", validateRangeFloat, 0.0, 100000000.0);
+        Clientes[index]->saldoCartaoCliente = n;
 
         printc("\nData de nascimento:");
         struct tm tm = getCurrentTime();
@@ -328,7 +316,8 @@ ClienteStruct *escolherCliente(){
         n_clientesAtivos++;
         pthread_mutex_unlock(&ClientesLock);
     }
-
+    
+    Global.n_pessoasEmLoja++;
     cliente->listaProdutos = criarLista();
     criarProdutosAddCliente(cliente);
     calculos_TempoPreco_Cliente(cliente);
@@ -337,23 +326,28 @@ ClienteStruct *escolherCliente(){
 
 void DesocuparCliente(ClienteStruct *pessoa){
     pthread_mutex_lock(&ClientesLock);
+    if (Opcoes.VerTransacoes == 1){
+        printc("\n\n[blue]Clientes em Loja:[/blue] %d, [blue]Clientes Total:[/blue] %d\n", n_clientesAtivos, n_clientes);
+    }
+    
     int index = pesquisarClienteVetorBatente(pessoa);
     if(index == -1){
-        printf("[red]Error![/red] Given client is NULL");
+        printc("[blue]\n\n\n\t\tn_clientesAtivos %d, n_clientes\n[/blue] %d", n_clientesAtivos, n_clientes);
+        printc("[red]Error![/red] Given client is NULL É AQUI DESOCUPAR CLIENTE");
+        pthread_mutex_unlock(&ClientesLock);
         return;
     }
     ClienteStruct *cliente = Clientes[index];
     cliente->ativo = 0;
     
-    Clientes[index] = Clientes[n_clientesAtivos-1];
+    Clientes[index] = Clientes[--n_clientesAtivos];
     Clientes[n_clientesAtivos] = cliente;
-    n_clientesAtivos--;
     pthread_mutex_unlock(&ClientesLock);
 }
 
 int pesquisarClienteVetorBatente(ClienteStruct *pessoa){
     for (int i = 0; i < n_clientesAtivos; i++){
-        if(Clientes[i]->nome == pessoa->nome && Clientes[i]->id == pessoa->id){
+        if(strcmp(Clientes[i]->nome, pessoa->nome) == 0 && Clientes[i]->id == pessoa->id){
             return i;
         }
     }
@@ -390,10 +384,8 @@ void destruirCliente(void *Cliente){
     free(Cliente);
 }
 
-float oferecerBrinde(ClienteStruct *cliente){
+float oferecerBrinde(ClienteStruct *cliente, CaixaStruct *caixa){
     if(cliente->tempoBrinde > Opcoes.tempoAtrasoMaximoBrinde){
-        printc("\n\n[red]BRINDE[/red]");
-        printc("[red]Preco antigo: %f[/red]", cliente->precoTotalProdutos);
         Elemento *aux = cliente->listaProdutos->head, *produtoOferecido = aux;
         float precoMin = ((ProdutoStruct*)aux->Info)->preco;
 
@@ -405,9 +397,9 @@ float oferecerBrinde(ClienteStruct *cliente){
             aux = aux->next;
         }
         cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
-        printc("[red]ID Produto: %f[/red]", ((ProdutoStruct*)produtoOferecido->Info)->nome);
-        printc("[red]Preco novo: %f[/red]", cliente->precoTotalProdutos);
-
+        if(Opcoes.VerTransacoes == 1){
+            printc("\n[red]BRINDE\nID Caixa: %d\nNome Cliente: %s\nID Produto: %d\nNome Produto: %d[/red]", caixa->id, cliente->nome, ((ProdutoStruct*)produtoOferecido->Info)->id, ((ProdutoStruct*)produtoOferecido->Info)->nome);
+        }
         ((ProdutoStruct*)produtoOferecido->Info)->oferecido = 1;
         return precoMin;
     }

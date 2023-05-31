@@ -98,7 +98,7 @@ typedef struct
         numCaixasAbertas,        // NADA
         probGerarPessoa,         // FEITO
         probUsarSaldoCartao,     // POR FAZER--
-        lotacaoMaxima,           // FEITO
+        lotacaoMaxima,           // FEITO //!NÃO 
         lojaAberta,              // NADA
         VerTransacoes,           // NADA
         threadGlobalAranque,     // FEITO
@@ -124,6 +124,7 @@ typedef enum
 typedef struct
 {
     Lista *caixas, *PessoasAcabaramTempoDeCompra;
+    int n_pessoasEmLoja;
 } GlobalStruct;
 
 typedef struct
@@ -201,6 +202,7 @@ extern pthread_mutex_t ClientesLock, FuncionariosLock, PessoasAcabaramTempoDeCom
 extern ClienteStruct **Clientes;
 extern FuncionarioStruct **Funcionarios;
 extern ProdutoStruct *Produtos;
+extern long long tempoEmMilisegundos;
 extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
 
 int CriarGrafico();
@@ -252,7 +254,7 @@ float atualizarSaldoCliente(ClienteStruct *cliente);
 ClienteStruct *criarGuest();
 int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
 void destruirCliente(void *Cliente);
-float oferecerBrinde(ClienteStruct *cliente);
+float oferecerBrinde(ClienteStruct *cliente, CaixaStruct *caixa);
 void encontrarCaixaCliente(ClienteStruct *cliente);
 void verSeClienteEspecificoEmCaixa();
 
@@ -330,6 +332,7 @@ int validateIsAlphabetic(void *DataScanf, void *args);
 void changeStateThreadGlobal();
 void *ThreadGlobal();
 void *ThreadEsperaTempoCompra(void *args);
+void *threadTempo();
 
 // historico.c
 void initHistorico();
