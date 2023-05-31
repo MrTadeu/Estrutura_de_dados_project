@@ -12,13 +12,22 @@ void *ThreadGlobal(){
             
             if(pessoa){
                 if(Opcoes.VerTransacoes == 1){
-                    printf("\n\nPessoa Gerada: \nNome: %s\nTempo de Compra: %d\nTempo de Estimado Fila: %d\nTempo de Estimado Caixa: %d\nTempo de tempoAtraso: %d\nLista de Produtos:",  pessoa->nome, pessoa->tempoEstimadoCompra, pessoa->tempoEstimadoFila, pessoa->tempoEstimadoCaixa, pessoa->tempoAtraso);
+                    char tempoEstimadoCompra[9], tempoEstimadoFila[9], tempoEstimadoCaixa[9], tempoAtraso[9];
+                    formatTime(pessoa->tempoEstimadoCompra, tempoEstimadoCompra);
+                    formatTime(pessoa->tempoEstimadoFila, tempoEstimadoFila);
+                    formatTime(pessoa->tempoEstimadoCaixa, tempoEstimadoCaixa);
+                    formatTime(pessoa->tempoAtraso, tempoAtraso);
+                    printc("\n\n[cyan]Pessoa Gerada: \nNome: %s \nTempo de Compra: %s \nTempo de Estimado Fila: %s \nTempo de Estimado Caixa: %s \nTempo de tempoAtraso: %s \nLista de Produtos:[/cyan]",  pessoa->nome, tempoEstimadoCompra, tempoEstimadoFila, tempoEstimadoCaixa, tempoAtraso);
                     Elemento *Aux = pessoa->listaProdutos->head;
                     while(Aux){
                         ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
-                        printf("\t\nID: %d Nome: %s, QT: %dX, Preco: %.2f TCompra: %d TCaixa: %d",x->id, x->nome, x->quantidadeProdutosRepetidos, x->preco, x->tempoCompra, x->tempoCaixa );
+                        char tempoCompra[9], tempoCaixa[9];
+                        formatTime(x->tempoCompra, tempoCompra);
+                        formatTime(x->tempoCaixa, tempoCaixa);
+                        printc("\n[green]   ID: %d Nome: %s, QT: %dX, Preco: %.2f TCompra: %s TCaixa: %s[/green]",x->id, x->nome, x->quantidadeProdutosRepetidos, x->preco, tempoCompra, tempoCaixa );
                         Aux = Aux->next; 
                     }
+                    printf("\n");
                 }
                 pthread_t thread;
                 pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
@@ -45,7 +54,7 @@ void *ThreadEsperaTempoCompra(void *pessoa){
     if(Opcoes.VerTransacoes == 1){
         char tempoEstimadoCompra[9];
         formatTime(cliente->tempoEstimadoCompra, tempoEstimadoCompra);
-        printc("\n\n[green]%s acabou de comprar todos os produtos em %s[/green]",cliente->nome, tempoEstimadoCompra);
+        printc("\n\n[green]%s acabou de comprar todos os produtos em %s[/green]\n",cliente->nome, tempoEstimadoCompra);
     }
     pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
     AddElementoFim(Global.PessoasAcabaramTempoDeCompra, criarElemento(cliente));
