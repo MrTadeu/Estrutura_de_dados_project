@@ -71,7 +71,10 @@ void verClientesEmLoja(){
     }else{
         printc("[yellow]Listar Todos Clientes na Loja:[/yellow]\n");
         for(int i = 0; i < n_clientesAtivos; i++){
-            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d Tempo Compra: %d Tempo Caixa: %d", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano, Clientes[i]->tempoEstimadoCompra, Clientes[i]->tempoEstimadoCaixa);
+            char tempoEstimadoCompra[9], tempoEstimadoCaixa[9];
+            formatTime(Clientes[i]->tempoEstimadoCompra, tempoEstimadoCompra);
+            formatTime(Clientes[i]->tempoEstimadoCaixa, tempoEstimadoCaixa);
+            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d Tempo Compra: %s Tempo Caixa: %s", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano, tempoEstimadoCompra, tempoEstimadoCaixa);
         }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -109,11 +112,16 @@ void verClientesCaixa(){
             Elemento *Cliente = ((CaixaStruct *)Caixa->Info)->listaPessoas->head;
             while (Cliente){
                 ClienteStruct ClienteInfo = *((ClienteStruct *)Cliente->Info);
-                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %d tempoBrinde: %d TempoEstimadoCaixa: %d tempoEstimadoCompra: %d precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, ClienteInfo.tempoAtraso, ClienteInfo.tempoBrinde, ClienteInfo.tempoEstimadoCaixa, ClienteInfo.tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
+                char tempoAtraso[9], tempoBrinde[9], tempoEstimadoCaixa[9], tempoEstimadoCompra[9];
+                formatTime(ClienteInfo.tempoAtraso, tempoAtraso);
+                formatTime(ClienteInfo.tempoBrinde, tempoBrinde);
+                formatTime(ClienteInfo.tempoEstimadoCaixa, tempoEstimadoCaixa);
+                formatTime(ClienteInfo.tempoEstimadoCompra, tempoEstimadoCompra);
+                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %s tempoBrinde: %s TempoEstimadoCaixa: %s tempoEstimadoCompra: %s precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, tempoAtraso, tempoBrinde, tempoEstimadoCaixa, tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
                 Elemento *Produtos = ClienteInfo.listaProdutos->head;
                 while(Produtos){
                     ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
-                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue] tempoCaixa:%d", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco, ProdutoInfo->tempoCaixa);
+                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue]", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco);
                     Produtos = Produtos->next;
                 }
                 printf("\n");
@@ -326,10 +334,6 @@ ClienteStruct *escolherCliente(){
 
 void DesocuparCliente(ClienteStruct *pessoa){
     pthread_mutex_lock(&ClientesLock);
-    if (Opcoes.VerTransacoes == 1){
-        printc("\n\n[blue]Clientes em Loja:[/blue] %d, [blue]Clientes Total:[/blue] %d\n", n_clientesAtivos, n_clientes);
-    }
-    
     int index = pesquisarClienteVetorBatente(pessoa);
     if(index == -1){
         printc("[blue]\n\n\n\t\tn_clientesAtivos %d, n_clientes\n[/blue] %d", n_clientesAtivos, n_clientes);
