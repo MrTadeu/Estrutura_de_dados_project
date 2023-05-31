@@ -152,8 +152,8 @@ typedef struct{
     int **numeroAtendimentos_numeroProdutos_CadaFuncionario,    // 
         **numeroAtendimentos_numeroProdutos_CadaCaixa,          // É recolhido diretamente pra aqui
         caixaAtendeuMaisPessoas,                //
-        caixaAtendeuMaisPessoas,                //
-        caixaVendeuMenosProdutos,               // É descoberto após a recolha transacoes
+        caixaAtendeuMenosPessoas,                //
+        caixaVendeuMaisProdutos,               // É descoberto após a recolha transacoes
         caixaVendeuMenosProdutos,               // 
         numeroProdutosOferecidos;                               // É recolhido diretamente pra aqui             
 

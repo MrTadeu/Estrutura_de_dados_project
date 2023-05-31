@@ -137,22 +137,79 @@ void calculosRecolhas(){
             idFunc_menosProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[i][2];
     }
 
-    int idCaixa_maisAtendimentos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][0], 
-    idCaixa_menosAtendimentos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][0], 
-    idCaixa_maisProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][1],
-    idCaixa_menosProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][1];
+    pthread_mutex_lock(&FuncionariosLock);
+        int indexVetorFuncionarios;
 
+        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas);
+        indexVetorFuncionarios = encontrarIdFuncionario(idFunc_maisAtendimentos);
+        HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = (char*)malloc(sizeof(char)*(strlen(Funcionarios[indexVetorFuncionarios]->nome) + 1));
+        strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas, Funcionarios[indexVetorFuncionarios]->nome);
+
+        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas);
+        indexVetorFuncionarios = encontrarIdFuncionario(idFunc_menosAtendimentos);
+        HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas = (char*)malloc(sizeof(char)*(strlen(Funcionarios[indexVetorFuncionarios]->nome) + 1));
+        strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas, Funcionarios[indexVetorFuncionarios]->nome);
+
+        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos);
+        indexVetorFuncionarios = encontrarIdFuncionario(idFunc_maisProdutos);
+        HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos = (char*)malloc(sizeof(char)*(strlen(Funcionarios[indexVetorFuncionarios]->nome) + 1));
+        strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos, Funcionarios[indexVetorFuncionarios]->nome);
+
+        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos);
+        indexVetorFuncionarios = encontrarIdFuncionario(idFunc_menosProdutos);
+        HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos = (char*)malloc(sizeof(char)*(strlen(Funcionarios[indexVetorFuncionarios]->nome) + 1));
+        strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos, Funcionarios[indexVetorFuncionarios]->nome);
+
+    pthread_mutex_unlock(&FuncionariosLock);
+
+
+    int caixaAtendeuMaisPessoas = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][0],
+    caixaAtendeuMenosPessoas = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][0],
+    caixaVendeuMaisProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][1],
+    caixaVendeuMenosProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][1];
     for (int i = 0; i < Opcoes.numCaixasTotal; i++){
-        if(idCaixa_maisAtendimentos < HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1])
-            idCaixa_maisAtendimentos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1];
-        if(idCaixa_menosAtendimentos > HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1])
-            idCaixa_menosAtendimentos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1];
-        if(idCaixa_maisProdutos < HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][2])
-            idCaixa_maisProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][2];
-        if(idCaixa_menosProdutos > HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][2])
-            idCaixa_menosProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][2];
+        if(caixaAtendeuMaisPessoas < HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][0]){
+            caixaAtendeuMaisPessoas = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][0];
+            HistoricoDados.dadosEstatisticos->mediaDiaria.caixaAtendeuMaisPessoas = i+1;
+        }
+        if(caixaAtendeuMenosPessoas > HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][0]){
+            HistoricoDados.dadosEstatisticos->mediaDiaria.caixaAtendeuMenosPessoas = i+1;
+            caixaAtendeuMenosPessoas = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][0];
+        }
+        if(caixaVendeuMaisProdutos < HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1]){
+            HistoricoDados.dadosEstatisticos->mediaDiaria.caixaVendeuMaisProdutos = i+1;
+            caixaVendeuMaisProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1];
+        }
+        if(caixaVendeuMenosProdutos > HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1]){
+            HistoricoDados.dadosEstatisticos->mediaDiaria.caixaVendeuMenosProdutos = i+1;
+            caixaVendeuMenosProdutos = HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][1];
+        }
+    }    
+
+
+    for (int i = 0; i < 24; i++){//Atualizar tempoMedioEspera_CadaCaixa_CadaHora e tempoMedioEsperaTotal_CadaHora, numeroMedioClienteFila_CadaCaixa_CadaHora e numeroMedioClienteFila_CadaHora
+        for (int j = 0; j < 6; j++){
+            for (int l = 0; l < Opcoes.numCaixasTotal; l++){
+                //Tempos de espera
+                HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[i][l] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[i][l] + HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0])/2);
+                HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaTotal_CadaHora[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaTotal_CadaHora[i] + HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0])/2);
+
+                //Numero de clientes Fila
+                HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa_CadaHora[i][l] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa_CadaHora[i][l] + HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1])/2);
+                HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaHora[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaHora[i] + HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1])/2);
+
+            }
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas_CadaHora[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas_CadaHora[i] + HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numerosCaixasAbertas)/2);
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado_CadaHora[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado_CadaHora[i] + HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].numeroClienteSupermercado)/2);
+        }
     }
-    
+
+    for (int i = 0; i < Opcoes.numCaixasTotal; i++){//Atualizar tempoMedioEspera_CadaCaixa e numeroMedioClienteFila_CadaCaixa
+        for (int j = 0; j < 24; j++){
+            HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa[i] + tempoMedioEspera_CadaCaixa_CadaHora[j][i])/2);
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] + numeroMedioClienteFila_CadaCaixa_CadaHora[j][i])/2);
+        }
+    }
     
     
 }
