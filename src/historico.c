@@ -9,11 +9,9 @@ void initHistorico(){
 
 void initDadosEstatisticos(){
     HistoricoDados.dadosEstatisticos = (DadosEstatisticosStruct *)malloc(sizeof(DadosEstatisticosStruct));
-    HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios = (DadosInstantaneoStruct **) malloc(sizeof(DadosInstantaneoStruct*)*24);
     
     //DADOS INSTANTANEOS
     for (int i = 0; i < 24; i++){
-            HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i] = (DadosInstantaneoStruct*) malloc(sizeof(DadosInstantaneoStruct)*6);
         for (int j = 0; j < 6; j++){
             HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa = (int **)malloc(sizeof(int*)*Opcoes.numCaixasTotal);
             for (int l = 0; l < Opcoes.numCaixasTotal; l++){
@@ -81,9 +79,7 @@ void destruirRecolhasHistoricos(){
                 }
                 free(HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa);
             }
-            free(HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i]);
         }
-        free(HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios);
 
     // INTS
         for (int i = 0; i < n_funcionarios; i++) {
@@ -186,7 +182,7 @@ void calculosRecolhas(){
         }
     }    
 
-
+/* 
     for (int i = 0; i < 24; i++){//Atualizar tempoMedioEspera_CadaCaixa_CadaHora e tempoMedioEsperaTotal_CadaHora, numeroMedioClienteFila_CadaCaixa_CadaHora e numeroMedioClienteFila_CadaHora
         for (int j = 0; j < 6; j++){
             for (int l = 0; l < Opcoes.numCaixasTotal; l++){
@@ -206,12 +202,17 @@ void calculosRecolhas(){
 
     for (int i = 0; i < Opcoes.numCaixasTotal; i++){//Atualizar tempoMedioEspera_CadaCaixa e numeroMedioClienteFila_CadaCaixa
         for (int j = 0; j < 24; j++){
-            HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa[i] + tempoMedioEspera_CadaCaixa_CadaHora[j][i])/2);
-            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] + numeroMedioClienteFila_CadaCaixa_CadaHora[j][i])/2);
+            HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa[i] + HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[j][i])/2);
+            HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] + HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa_CadaHora[j][i])/2);
         }
     }
     
-    
+    for (int i = 0; i < 24; i++){
+        HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_Dia = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_Dia + HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEsperaTotal_CadaHora[i])/2);
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_Dia = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_Dia + HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaHora[i])/2);
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas_dia = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas_dia + HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas_CadaHora[i])/2);
+        HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado_Dia = (float)((HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado_Dia + HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado_CadaHora[i])/2);
+    } */
 }
 
 
@@ -502,5 +503,6 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
 /* void recolhaDadosEstatisticosHistoricoPeriodica(){
     // depois
 } */
+
 
 
