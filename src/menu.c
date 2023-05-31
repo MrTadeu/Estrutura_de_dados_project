@@ -368,6 +368,7 @@ void menuHistorico(){
         printc("**        [blue]%d [/blue]-> Mostrar Histórico                **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Caixa                  **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver dados estatísticos           **\n", i++);
         printc("**************************************************\n");
         scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
@@ -380,6 +381,23 @@ void menuHistorico(){
         }
         if (opcao == i++){
             pesquisarCaixaNoHistorico();
+        }
+        if(opcao == i++){
+            initDadosEstatisticos();
+            printf("ola");
+            recolhaDadosEstatisticosHistoricoTransacoes();
+            printf("ola");
+            calculosRecolhas();
+            printf("Nome funcionario que atendeu mais pessoas: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas);
+            printf("Nome funcionario que atendeu menos pessoas: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas);
+            printf("Nome funcionario que atendeu mais produtos: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos);
+            printf("Nome funcionario que atendeu menos produtos: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos);
+
+            printf("id caixa que atendeu mais pessoas: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaAtendeuMaisPessoas);
+            printf("id caixa que atendeu menos pessoas: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaAtendeuMenosPessoas);
+            printf("id caixa que atendeu mais produtos: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaVendeuMaisProdutos);
+            printf("id caixa que atendeu menos produtos: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaVendeuMenosProdutos);
+            destruirRecolhasHistoricos();
         }
     } while (opcao != 0);
 }
