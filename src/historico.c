@@ -152,32 +152,32 @@ void calculosRecolhas(){
     /* pthread_mutex_lock(&FuncionariosLock); */
         int indexVetorFuncionarios;
 
-        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas);
         indexVetorFuncionarios = encontrarIdFuncionario(idFunc_maisAtendimentos);
         if(indexVetorFuncionarios != -1){
+            free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas);
             HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = (char*)malloc(1+sizeof(char)*strlen(Funcionarios[indexVetorFuncionarios]->nome));
             strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas, Funcionarios[indexVetorFuncionarios]->nome);
         }
 
-        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas);
         indexVetorFuncionarios = encontrarIdFuncionario(idFunc_menosAtendimentos);
         if(indexVetorFuncionarios != -1){
-        HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas = (char*)malloc(1+sizeof(char)*strlen(Funcionarios[indexVetorFuncionarios]->nome));
-        strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas, Funcionarios[indexVetorFuncionarios]->nome);
+            free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas);
+            HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas = (char*)malloc(1+sizeof(char)*strlen(Funcionarios[indexVetorFuncionarios]->nome));
+            strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas, Funcionarios[indexVetorFuncionarios]->nome);
         }
 
-        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos);
         indexVetorFuncionarios = encontrarIdFuncionario(idFunc_maisProdutos);
         if(indexVetorFuncionarios != -1){
-        HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos = (char*)malloc(1+sizeof(char)*strlen(Funcionarios[indexVetorFuncionarios]->nome));
-        strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos, Funcionarios[indexVetorFuncionarios]->nome);
+            free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos);
+            HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos = (char*)malloc(1+sizeof(char)*strlen(Funcionarios[indexVetorFuncionarios]->nome));
+            strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos, Funcionarios[indexVetorFuncionarios]->nome);
         }
 
-        free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos);
         indexVetorFuncionarios = encontrarIdFuncionario(idFunc_menosProdutos);
         if(indexVetorFuncionarios != -1){
-        HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos = (char*)malloc(1+sizeof(char)*strlen(Funcionarios[indexVetorFuncionarios]->nome));
-        strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos, Funcionarios[indexVetorFuncionarios]->nome);
+            free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos);
+            HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos = (char*)malloc(1+sizeof(char)*strlen(Funcionarios[indexVetorFuncionarios]->nome));
+            strcpy(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos, Funcionarios[indexVetorFuncionarios]->nome);
         }
 
     /* pthread_mutex_unlock(&FuncionariosLock); */
