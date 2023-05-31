@@ -83,7 +83,9 @@ void atenderPessoa(CaixaStruct *caixa){
         (tempo < 1000) ? dormir(tempo) : dormir(1000), tempo -= 1000;
 
         if (Opcoes.VerTransacoes == 1){
-            printf("\nCaixa %dº Pessoa: %s Tempo: %d",caixa->id, cliente->nome, tempo);
+            char tempoString[9];
+            formatTime(tempo, tempoString);
+            printc("\n[yellow]%dº Caixa[/yellow] Pessoa: [blue]%s[/blue] Tempo: [green]%s[/green]",caixa->id, cliente->nome, tempoString);
         }
 
         int x;

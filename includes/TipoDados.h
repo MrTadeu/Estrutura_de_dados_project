@@ -333,6 +333,7 @@ void changeStateThreadGlobal();
 void *ThreadGlobal();
 void *ThreadEsperaTempoCompra(void *args);
 void *threadTempo();
+void *threadSchedule();
 
 // historico.c
 void initHistorico();

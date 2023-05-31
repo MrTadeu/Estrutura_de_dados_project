@@ -240,6 +240,8 @@ void formatTime(long long milliseconds, char* string){// STRING SIZE[9]
         strftime(string, 9, "%H:%M", time);
     } else if (time->tm_min > 0) {
         strftime(string, 9, "%Mm %Ss", time);
+    } else if (time->tm_sec == 0) {
+        snprintf(string, 9, "%lldms", milliseconds);
     } else {
         snprintf(string, 9, "%ds", time->tm_sec);
     }
