@@ -161,22 +161,23 @@ typedef struct{
         *nomeFuncionarioAtendeuMenosPessoas,    //
         *nomeFuncionarioVendeuMaisProdutos,     // É descoberto após a recolha transacoes
         *nomeFuncionarioVendeuMenosProdutos;    // 
-        
-    float **tempoMedioEspera_CadaCaixa_CadaHora,            // 
-          *tempoMedioEspera_CadaHora,                       // 
-          *tempoMedioEspera_CadaCaixa,                      // 
-          tempoMedioEspera_Dia,                             // 
-          **numeroMedioClienteFila_CadaCaixa_CadaHora,      //
-          *numeroMedioClienteFila_CadaHora,                 //
-          *numeroMedioClienteFila_CadaCaixa,                // É descoberto após a recolha periodica
-          numeroMedioClienteFila_Dia,                       // 
-                                                            //
-          numeroMedioCaixasAbertas_CadaHora,                //
-          numeroMedioCaixasAbertas_dia,                     // 
-          numeroMedioClienteSupermercado_CadaHora,          //
-          numeroMedioClienteSupermercado_Dia,               // 
+
+    // É descoberto após a recolha periodica        
+    float **tempoMedioEspera_CadaCaixa_CadaHora,//[24][caixasTotal]          
+          *tempoMedioEsperaTotal_CadaHora,//[24]
+          *tempoMedioEspera_CadaCaixa,//[caixasTotal] 
+          tempoMedioEspera_Dia, 
+          **numeroMedioClienteFila_CadaCaixa_CadaHora,//[24][caixasTotal]
+          *numeroMedioClienteFila_CadaHora,//[24]
+          *numeroMedioClienteFila_CadaCaixa,//[caixasTotal]                
+          numeroMedioClienteFila_Dia,                       
+                                                            
+          *numeroMedioCaixasAbertas_CadaHora,//[24]               
+          numeroMedioCaixasAbertas_dia,               
+          *numeroMedioClienteSupermercado_CadaHora,//[24]           
+          numeroMedioClienteSupermercado_Dia,               
   
-          valorTotalProdutosOferecidos;                         // É recolhido diretamente pra aqui
+          valorTotalProdutosOferecidos;// É recolhido diretamente pra aqui
     // Ser criativo para adicionar mais
 } DadosEstatisticosMedias;
 
