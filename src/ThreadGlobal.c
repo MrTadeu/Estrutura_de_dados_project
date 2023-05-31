@@ -95,15 +95,15 @@ void changeStateThreadGlobal(){
     }
 }
 
-/* void *threadCalculoEstatistico(void* args){
-
-} */
+void *threadSchedule(){
+    
+}
 
 void *threadTempo(){
     tempoEmMilisegundos = getCurrentTimeMillisecounds();
     while(1){
         tempoEmMilisegundos += 1000LL;
-        dormir(1000LL * Opcoes.multiplicadorTempo);
+        dormir(1000LL /* * Opcoes.multiplicadorTempo */);
     }
 }
 
