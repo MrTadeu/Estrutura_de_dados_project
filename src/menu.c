@@ -384,19 +384,8 @@ void menuHistorico(){
         }
         if(opcao == i++){
             initDadosEstatisticos();
-            printf("ola");
             recolhaDadosEstatisticosHistoricoTransacoes();
-            printf("ola");
             calculosRecolhas();
-            printf("Nome funcionario que atendeu mais pessoas: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas);
-            printf("Nome funcionario que atendeu menos pessoas: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas);
-            printf("Nome funcionario que atendeu mais produtos: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos);
-            printf("Nome funcionario que atendeu menos produtos: %s", HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos);
-
-            printf("id caixa que atendeu mais pessoas: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaAtendeuMaisPessoas);
-            printf("id caixa que atendeu menos pessoas: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaAtendeuMenosPessoas);
-            printf("id caixa que atendeu mais produtos: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaVendeuMaisProdutos);
-            printf("id caixa que atendeu menos produtos: %d", HistoricoDados.dadosEstatisticos->mediaDiaria.caixaVendeuMenosProdutos);
             destruirRecolhasHistoricos();
         }
     } while (opcao != 0);

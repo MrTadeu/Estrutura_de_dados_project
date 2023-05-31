@@ -80,7 +80,7 @@ void destruirRecolhasHistoricos(){
                 free(HistoricoDados.dadosEstatisticos->dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa);
             }
         }
-    printf("\nola1");
+        
     // INTS
         for (int i = 0; i < n_funcionarios; i++) {
             free(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[i]);
@@ -91,13 +91,13 @@ void destruirRecolhasHistoricos(){
             free(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i]);
         }
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa);
-printf("\nola2");
+
     // CHARS
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMaisPessoas);
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioAtendeuMenosPessoas);
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMaisProdutos);
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.nomeFuncionarioVendeuMenosProdutos);
-printf("\nola3");
+
     // FLOATS
         for (int i = 0; i < 24; i++) {
             free(HistoricoDados.dadosEstatisticos->mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[i]);
@@ -112,10 +112,9 @@ printf("\nola3");
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteFila_CadaCaixa);
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioCaixasAbertas_CadaHora);
         free(HistoricoDados.dadosEstatisticos->mediaDiaria.numeroMedioClienteSupermercado_CadaHora);
-printf("\nola4");
+
     //Struct
     free(HistoricoDados.dadosEstatisticos);
-    printf("\nola5");
 }
 
 void calculosRecolhas(){
