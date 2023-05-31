@@ -100,7 +100,7 @@ void *threadSchedule(){
     while (1){ 
         if (formatTimeStruct(tempoEmMilisegundos).minuto % 10 == 0 && minAnterior != formatTimeStruct(tempoEmMilisegundos).minuto){
             minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
-            printf("\n\n\t[green]Hora: %d:%d[/green]", formatTimeStruct(tempoEmMilisegundos).hora, formatTimeStruct(tempoEmMilisegundos).minuto);
+            printc("\n\n\t[green]Hora: %d:%d[/green]", formatTimeStruct(tempoEmMilisegundos).hora, formatTimeStruct(tempoEmMilisegundos).minuto);
         } 
         
     }
