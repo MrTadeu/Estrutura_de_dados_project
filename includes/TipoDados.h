@@ -244,7 +244,7 @@ float atualizarSaldoCliente(ClienteStruct *cliente);
 ClienteStruct *criarGuest();
 int pesquisarClienteVetorBatente(ClienteStruct *pessoa);
 void destruirCliente(void *Cliente);
-float oferecerBrinde(ClienteStruct *cliente);
+float oferecerBrinde(ClienteStruct *cliente, CaixaStruct *caixa);
 void encontrarCaixaCliente(ClienteStruct *cliente);
 void verSeClienteEspecificoEmCaixa();
 

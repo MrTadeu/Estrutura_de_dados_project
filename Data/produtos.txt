@@ -1,11 +1,11 @@
 10
 10005	Mini Picos Azeite [marcaB] 300 gr	1.450000	6.000000	0.000000
-10006	Rosquinhas Sésamo e Azeite [marcaB] 180 gr	0.900000	18.000000	2.000000
-10007	Azeitona Verde Descaroçada [marcaB] 230 gr	2.000000	61.000000	4.000000
+10006	Rosquinhas Sésamo e Azeite [marcaB] 180 gr	0.900000	18.000000	20.000000
+10007	Azeitona Verde Descaroçada [marcaB] 230 gr	2.000000	61.000000	40.000000
 10008	Azeitona Preta Inteira Oxidada [marcaB] 560 gr	2.500000	36.000000	1.000000
 10009	Mini Tosta Integral [marcaB Equilíbrio] 180 gr	0.910000	1.000000	4.000000
 10010	Azeitona Verde Inteira [marcaB] 290 gr	2.000000	59.000000	1.000000
-10011	Azeitona Preta Descaroçada Oxidada [marcaB] 200 gr	1.500000	21.000000	4.000000
+10011	Azeitona Preta Descaroçada Oxidada [marcaB] 200 gr	1.500000	21.000000	40.000000
 10012	Pasta de Delícias do Mar [Fácil & Bom] 250 gr	3.250000	46.000000	5.000000
-10013	Azeitona Preta às Rodelas Oxidada [marcaB] 200 gr	1.500000	42.000000	5.000000
-10014	Azeitona Verde Retalhada com Ervas [marcaB] 800 gr	4.000000	4.000000	0.000000
+10013	Azeitona Preta às Rodelas Oxidada [marcaB] 200 gr	1.500000	42.000000	50.000000
+10014	Azeitona Verde Retalhada com Ervas [marcaB] 800 gr	4.000000	4.000000	10.000000

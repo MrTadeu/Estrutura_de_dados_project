@@ -11,6 +11,15 @@ void *ThreadGlobal(){
             ClienteStruct *pessoa = escolherCliente();
             
             if(pessoa){
+                if(Opcoes.VerTransacoes == 1){
+                    printf("\n\nPessoa Gerada: \nNome: %s\nTempo de Compra: %d\nTempo de Estimado Fila: %d\nTempo de Estimado Caixa: %d\nTempo de tempoAtraso: %d\nLista de Produtos:",  pessoa->nome, pessoa->tempoEstimadoCompra, pessoa->tempoEstimadoFila, pessoa->tempoEstimadoCaixa, pessoa->tempoAtraso);
+                    Elemento *Aux = pessoa->listaProdutos->head;
+                    while(Aux){
+                        ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
+                        printf("\t\nID: %d Nome: %s, QT: %dX, Preco: %.2f TCompra: %d TCaixa: %d",x->id, x->nome, x->quantidadeProdutosRepetidos, x->preco, x->tempoCompra, x->tempoCaixa );
+                        Aux = Aux->next; 
+                    }
+                }
                 pthread_t thread;
                 pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
                 pthread_detach(thread); // para não ficar alocando memoria assim que acabar é como um pthread join
@@ -32,24 +41,11 @@ void *ThreadEsperaTempoCompra(void *pessoa){
         printf("\n\n\t[red]ERRO: Pessoa Nula[/red]\n");
         exit(1);
     }  
-    if(Opcoes.VerTransacoes == 1){
-        printf("\n\nPessoa Gerada: ");
-        printf("\nNome: %s", cliente->nome);
-        printf("\nTempo de Compra: %d", cliente->tempoEstimadoCompra);
-        printf("\nTempo de Estimado Fila: %d", cliente->tempoEstimadoFila);
-        printf("\nTempo de Estimado Caixa: %d", cliente->tempoEstimadoCaixa);
-        printf("\nTempo de tempoAtraso: %d", cliente->tempoAtraso);
-        printf("\nLista de Produtos:");
-         Elemento *Aux = cliente->listaProdutos->head;
-        while(Aux){
-            ProdutoStruct *x = (ProdutoStruct *)Aux->Info;
-            printf("\t\nID: %d Nome: %s, QT: %dX, Preco: %.2f TCompra: %d TCaixa: %d",x->id, x->nome, x->quantidadeProdutosRepetidos, x->preco, x->tempoCompra, x->tempoCaixa );
-            Aux = Aux->next; 
-        }
-    }
     dormir(cliente->tempoEstimadoCompra);
     if(Opcoes.VerTransacoes == 1){
-        printf("\n\n%s acabou de comprar todos os produtos em %ds",cliente->nome, cliente->tempoEstimadoCompra);
+        char tempoEstimadoCompra[9];
+        formatTime(cliente->tempoEstimadoCompra, tempoEstimadoCompra);
+        printc("\n\n[green]%s acabou de comprar todos os produtos em %s[/green]",cliente->nome, tempoEstimadoCompra);
     }
     pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
     AddElementoFim(Global.PessoasAcabaramTempoDeCompra, criarElemento(cliente));

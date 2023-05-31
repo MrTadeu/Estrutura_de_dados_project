@@ -98,7 +98,7 @@ void verClientesCaixa(){
     else{
         Elemento *Caixa = Global.caixas->head;
         while(Caixa){
-            if(((CaixaStruct *)Caixa->Info)->aberta == 1 /* || ((CaixaStruct *)Caixa->Info)->listaPessoas->head != NULL */){
+            if(((CaixaStruct *)Caixa->Info)->aberta == 1){
                 char tempoTotalEspera[9];
                 formatTime(((CaixaStruct *)Caixa->Info)->tempoTotalEspera, tempoTotalEspera);
                 printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %s [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, tempoTotalEspera);
@@ -326,7 +326,7 @@ ClienteStruct *escolherCliente(){
 
 void DesocuparCliente(ClienteStruct *pessoa){
     pthread_mutex_lock(&ClientesLock);
-    if (Opcoes.VerTransacoes){
+    if (Opcoes.VerTransacoes == 1){
         printc("\n\n[blue]Clientes em Loja:[/blue] %d, [blue]Clientes Total:[/blue] %d\n", n_clientesAtivos, n_clientes);
     }
     
@@ -342,13 +342,11 @@ void DesocuparCliente(ClienteStruct *pessoa){
     
     Clientes[index] = Clientes[--n_clientesAtivos];
     Clientes[n_clientesAtivos] = cliente;
-    /* n_clientesAtivos--; */
     pthread_mutex_unlock(&ClientesLock);
 }
 
 int pesquisarClienteVetorBatente(ClienteStruct *pessoa){
     for (int i = 0; i < n_clientesAtivos; i++){
-        /* printf("[red]\n Clientes[i]->nome %s  pessoa->nome %s[/red] id: Clientes[i]->id, %d  pessoa->id %d", Clientes[i]->nome, pessoa->nome, Clientes[i]->id, pessoa->id); */
         if(strcmp(Clientes[i]->nome, pessoa->nome) == 0 && Clientes[i]->id == pessoa->id){
             return i;
         }
@@ -386,10 +384,8 @@ void destruirCliente(void *Cliente){
     free(Cliente);
 }
 
-float oferecerBrinde(ClienteStruct *cliente){
+float oferecerBrinde(ClienteStruct *cliente, CaixaStruct *caixa){
     if(cliente->tempoBrinde > Opcoes.tempoAtrasoMaximoBrinde){
-        printc("\n\n[red]BRINDE[/red]");
-        printc("[red]Preco antigo: %f[/red]", cliente->precoTotalProdutos);
         Elemento *aux = cliente->listaProdutos->head, *produtoOferecido = aux;
         float precoMin = ((ProdutoStruct*)aux->Info)->preco;
 
@@ -401,9 +397,9 @@ float oferecerBrinde(ClienteStruct *cliente){
             aux = aux->next;
         }
         cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
-        printc("[red]ID Produto: %f[/red]", ((ProdutoStruct*)produtoOferecido->Info)->nome);
-        printc("[red]Preco novo: %f[/red]", cliente->precoTotalProdutos);
-
+        if(Opcoes.VerTransacoes == 1){
+            printc("\n[red]BRINDE\nID Caixa: %d\nNome Cliente: %s\nID Produto: %d\nNome Produto: %d[/red]", caixa->id, cliente->nome, ((ProdutoStruct*)produtoOferecido->Info)->id, ((ProdutoStruct*)produtoOferecido->Info)->nome);
+        }
         ((ProdutoStruct*)produtoOferecido->Info)->oferecido = 1;
         return precoMin;
     }
