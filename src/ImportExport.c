@@ -19,6 +19,7 @@ void importOpcoes(){
     else{
         Opcoes.numCaixasTotal = 10;
         Opcoes.numCaixasAbertas = 0;
+        Opcoes.numCaixasTotalUpdate = Opcoes.numCaixasTotal;
         Opcoes.probGerarPessoa = 100;
         Opcoes.probUsarSaldoCartao = 30;
         Opcoes.percentagemPrecoAngariarSaldo = 10; // 0-10%

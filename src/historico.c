@@ -126,9 +126,9 @@ void destruirHistoricoSubStructTransacao(void *transacaoArg){
 void destruirHistoricoSubStructCliente(void* clienteArg){
     HistoricoSubStructCliente* cliente = (HistoricoSubStructCliente*)clienteArg;
     for(int j = 0; j < Opcoes.numCaixasTotal; j++){
-        destruirLista(ClienteInfo->caixas[j], destruirHistoricoSubStructTransacao);
+        destruirLista(cliente->caixas[j], destruirHistoricoSubStructTransacao);
     }
-    free(ClienteInfo->caixas);
+    free(cliente->caixas);
 }
 
 void recolhaDadosEstatisticosHistoricoTransacoes(){
@@ -173,13 +173,12 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
 
 void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto){
     Elemento* caixa = Global.caixas->head;
-    ;
     HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numerosCaixasAbertas = Global.caixas->quantidadeElementos;
     HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numeroClienteSupermercado = Global.n_pessoasEmLoja;
     
     int i = 0;
     while(caixa){
-        CaixaStruct* caixaInfo = (CaixaStruct*)caixa->Info
+        CaixaStruct* caixaInfo = (CaixaStruct*)caixa->Info;
         HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i][0] = caixaInfo->tempoTotalEspera;
         HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i++][1] = caixaInfo->listaPessoas->quantidadeElementos;
         caixa = caixa->next;
