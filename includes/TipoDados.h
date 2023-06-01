@@ -133,13 +133,12 @@ typedef struct{
     int tempoEstimadoCaixa, tempoAtraso;
     float movimentoCartaoCliente, precoTotal, valorProdutoOferecido;
     DataStruct dataTransacao;
-} HistoricoSubStructCaixa;
+} HistoricoSubStructTransacao;
 
-typedef struct
-{
+typedef struct{
     char *nome;
     int id;
-    Lista **caixas; // vetor de listas de tipo HistoricoSubStructCaixa
+    Lista **caixas; // vetor de listas de tipo HistoricoSubStructTransacao
 } HistoricoSubStructCliente;
 
 typedef struct{
@@ -147,48 +146,44 @@ typedef struct{
 } DadosInstantaneoStruct;
 
 typedef struct{
-    int **numeroAtendimentos_numeroProdutos_CadaFuncionario,    // 
-        **numeroAtendimentos_numeroProdutos_CadaCaixa,          // É recolhido diretamente pra aqui
-        caixaAtendeuMaisPessoas,                //
-        caixaAtendeuMenosPessoas,                //
+    int **numeroAtendimentos_numeroProdutos_CadaFuncionario,    // É recolhido diretamente para aqui
+        **numeroAtendimentos_numeroProdutos_CadaCaixa,          // É recolhido diretamente para aqui
+        caixaAtendeuMaisPessoas,               // É descoberto após a recolha transacoes
+        caixaAtendeuMenosPessoas,              // É descoberto após a recolha transacoes
         caixaVendeuMaisProdutos,               // É descoberto após a recolha transacoes
-        caixaVendeuMenosProdutos,               // 
-        numeroProdutosOferecidos;                               // É recolhido diretamente pra aqui             
+        caixaVendeuMenosProdutos,              // É descoberto após a recolha transacoes
+        numeroProdutosOferecidos;                               // É recolhido diretamente para aqui             
 
-    char *nomeFuncionarioAtendeuMaisPessoas,    //
-        *nomeFuncionarioAtendeuMenosPessoas,    //
+    char *nomeFuncionarioAtendeuMaisPessoas,    // É descoberto após a recolha transacoes
+        *nomeFuncionarioAtendeuMenosPessoas,    // É descoberto após a recolha transacoes
         *nomeFuncionarioVendeuMaisProdutos,     // É descoberto após a recolha transacoes
-        *nomeFuncionarioVendeuMenosProdutos;    // 
+        *nomeFuncionarioVendeuMenosProdutos;    // É descoberto após a recolha transacoes
 
     // É descoberto após a recolha periodica        
-    float **tempoMedioEspera_CadaCaixa_CadaHora,//[24][caixasTotal]          
-          *tempoMedioEsperaTotal_CadaHora,//[24]
-          *tempoMedioEspera_CadaCaixa,//[caixasTotal] 
+    float **tempoMedioEspera_CadaCaixa_CadaHora,     //[24][caixasTotal]          
+          *tempoMedioEsperaTotal_CadaHora,           //[24]
+          *tempoMedioEspera_CadaCaixa,               //[caixasTotal] 
           tempoMedioEspera_Dia, 
           **numeroMedioClienteFila_CadaCaixa_CadaHora,//[24][caixasTotal]
-          *numeroMedioClienteFila_CadaHora,//[24]
-          *numeroMedioClienteFila_CadaCaixa,//[caixasTotal]                
+          *numeroMedioClienteFila_CadaHora,           //[24]
+          *numeroMedioClienteFila_CadaCaixa,          //[caixasTotal]                
           numeroMedioClienteFila_Dia,                       
                                                             
-          *numeroMedioCaixasAbertas_CadaHora,//[24]               
+          *numeroMedioCaixasAbertas_CadaHora,        //[24]               
           numeroMedioCaixasAbertas_dia,               
-          *numeroMedioClienteSupermercado_CadaHora,//[24]           
+          *numeroMedioClienteSupermercado_CadaHora,  //[24]           
           numeroMedioClienteSupermercado_Dia,               
   
-          valorTotalProdutosOferecidos;// É recolhido diretamente pra aqui
+          valorTotalProdutosOferecidos;             // É recolhido diretamente pra aqui
     // Ser criativo para adicionar mais
 } DadosEstatisticosMedias;
 
 typedef struct{
-    DadosEstatisticosMedias globais, mediaDiaria;
-    DadosInstantaneoStruct dadosIntantaneosdiarios[24][6];
-} DadosEstatisticosStruct; // Vai ser guardado nos ficheios txt
-
-typedef struct{
     int tamanhoVetorHash;
-    Lista **HistoricoTransacoes; // vetor de listas com tamanho igual à variavel acima
+    Lista **HistoricoTransacoes; // vetor de listas com tamanho igual à variavel acima (Vetor de hashmap)
     pthread_mutex_t HistoricoTransacoesLock;
-    DadosEstatisticosStruct *dadosEstatisticos;
+    DadosInstantaneoStruct dadosIntantaneosdiarios[24][6];
+    DadosEstatisticosMedias globais, mediaDiaria;
 } HistoricoStruct;
 
 // GLOBAL VARIABLES
@@ -338,6 +333,7 @@ void initDadosEstatisticos();
 void destruirRecolhasHistoricos();
 void calculosRecolhas();
 void recolhaDadosEstatisticosHistoricoTransacoes();
+void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto);
 int hashFunction(char *nome);
 void *criarElementoClienteHistorico(ClienteStruct *cliente);
 void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
