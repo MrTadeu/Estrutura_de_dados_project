@@ -128,7 +128,7 @@ void destruirHistoricoSubStructCliente(void* clienteArg){
     for(int j = 0; j < Opcoes.numCaixasTotal; j++){
         destruirLista(cliente->caixas[j], destruirHistoricoSubStructTransacao);
     }
-    free(ClienteInfo->caixas);
+    free(cliente->caixas);
 }
 
 void recolhaDadosEstatisticosHistoricoTransacoes(){

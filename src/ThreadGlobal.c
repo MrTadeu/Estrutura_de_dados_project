@@ -6,7 +6,7 @@ void *ThreadGlobal(){
     pthread_mutex_init(&FuncionariosLock, NULL);
     pthread_mutex_init(&HistoricoDados.HistoricoTransacoesLock, NULL);
 
-    while(n_clientesAtivos || Opcoes.lojaAberta == 1){
+    while(n_clientesAtivos && Opcoes.lojaAberta == 1 && Global.fecharLoja == 0){
         if (Aleatorio(0, 100) <= Opcoes.probGerarPessoa && Opcoes.lojaAberta == 1 && Opcoes.lotacaoMaxima >= Global.n_pessoasEmLoja){ //Gerar, simular tempo de compra e inserir pessoa na fila da melhor caixa
             ClienteStruct *pessoa = escolherCliente();
             
@@ -53,7 +53,7 @@ void *ThreadEsperaTempoCompra(void *pessoa){
 void changeStateThreadGlobal(){
     if(Opcoes.lojaAberta == 0 && menuvalidarCaixaFuncionarios()){
         Opcoes.lojaAberta = 1;
-        Global
+        Global.fecharLoja = 0;
         pthread_t GlobalThread;
         initHistoricos();
 
@@ -72,6 +72,7 @@ void changeStateThreadGlobal(){
     }
     else if(Opcoes.lojaAberta == 1){
         Opcoes.lojaAberta = 0;
+        Global.fecharLoja = 1;
         destruirHistoricos();
     }
 }
