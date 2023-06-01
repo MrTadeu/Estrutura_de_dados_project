@@ -96,6 +96,7 @@ void adicionarProduto(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarProdutoTxt, PRODUTOS);
 }
 
 void editarProduto(){
@@ -123,6 +124,7 @@ void editarProduto(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarProdutoTxt, PRODUTOS);
 }
 
 void removerProduto(){
@@ -145,6 +147,7 @@ void removerProduto(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarProdutoTxt, PRODUTOS);
 }
 
 int compareProduto(void* p1, void* p2){
