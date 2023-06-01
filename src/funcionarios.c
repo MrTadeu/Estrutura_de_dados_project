@@ -130,6 +130,7 @@ void editarFuncionarios(){
         bufferclear();
         getchar();
     }
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
 
 void adicionarFuncionario(){
@@ -150,6 +151,7 @@ void adicionarFuncionario(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
 
 
@@ -185,6 +187,7 @@ void removerFuncionario(){
         bufferclear();
         getchar();
     }
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
     
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio){

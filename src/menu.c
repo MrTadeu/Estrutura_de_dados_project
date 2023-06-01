@@ -160,6 +160,11 @@ void menuConfig(){
 }
 
 void menuMultiplicadorTempo(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    printf("xd::");
+    float xx = 0.0;
+    scanf("%f", &xx);
+    Opcoes.multiplicadorTempo =(double) xx;
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
@@ -440,6 +445,7 @@ void menuHistorico(){
         printc("**        [blue]%d [/blue]-> Mostrar Histórico                **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Caixa                  **\n", i++);
+        printc("**        [blue]%d [/blue]-> Ver dados estatísticos           **\n", i++);
         printc("**************************************************\n");
         scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
@@ -452,6 +458,12 @@ void menuHistorico(){
         }
         if (opcao == i++){
             pesquisarCaixaNoHistorico();
+        }
+        if(opcao == i++){
+            initHistoricos();
+            recolhaDadosEstatisticosHistoricoTransacoes();
+            calculosRecolhas();
+            destruirHistoricos();
         }
     } while (opcao != 0);
 }

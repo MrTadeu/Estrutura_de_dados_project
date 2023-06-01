@@ -8,12 +8,10 @@ void Init(){
     importarDados(importarProdutos, PRODUTOS);
     criarCaixaInit();
     checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
-
-    initHistorico();
-    initDadosEstatisticos();
     if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();
     }
+    
 }
 
 void closeAll(){
@@ -37,6 +35,7 @@ void editarLojaAbertaAranque(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarNumCaixas(){
@@ -47,6 +46,7 @@ void editarNumCaixas(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarProbGerarPessoa(){
@@ -57,6 +57,7 @@ void editarProbGerarPessoa(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarLotacaoMax(){
@@ -67,6 +68,7 @@ void editarLotacaoMax(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarProbUsarSaldoCartao(){
@@ -76,6 +78,7 @@ void editarProbUsarSaldoCartao(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarTempoLimiteSuperior(){
@@ -88,6 +91,7 @@ void editarTempoLimiteSuperior(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarTempoLimiteInferior(){
@@ -100,6 +104,7 @@ void editarTempoLimiteInferior(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarTempoAtrasoMaximoBrinde(){
@@ -112,6 +117,7 @@ void editarTempoAtrasoMaximoBrinde(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarQuantMinProd(){
@@ -122,6 +128,7 @@ void editarQuantMinProd(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarPercTempoCaixaAtraso(){
@@ -132,6 +139,7 @@ void editarPercTempoCaixaAtraso(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarPercBonusFuncionario(){
@@ -142,6 +150,7 @@ void editarPercBonusFuncionario(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarPercAcumularCartaoCli(){
@@ -152,6 +161,7 @@ void editarPercAcumularCartaoCli(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 void editarQuantMaxProd(){
@@ -162,6 +172,7 @@ void editarQuantMaxProd(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarOpcoes();
 }
 
 /* void editarMultiplicadorTempo(){
