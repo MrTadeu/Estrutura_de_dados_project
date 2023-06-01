@@ -124,10 +124,25 @@ void atenderPessoa(CaixaStruct *caixa){
 
 CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     Elemento *caixaAux = Global.caixas->head;
-    CaixaStruct *maior = (CaixaStruct *)caixaAux->Info;
-    CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
-    CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
-    CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
+    if (Opcoes.numCaixasAbertas == 0){
+        CaixaStruct *maior = (CaixaStruct *)caixaAux->Info;
+        CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
+        CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
+        CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
+    }
+    else{ // apontar para a primeira aberta
+        while (caixaAux && ((CaixaStruct *)caixaAux->Info)->aberta == 0){
+            caixaAux = caixaAux->next;
+        }
+        
+        CaixaStruct *maior = (CaixaStruct *)caixaAux->Info;
+        CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
+        CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
+        CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
+        caixaAux = Global.caixas->head;
+    }
+    
+    
 
     //!IMPEDIR QUE SE MANDE ALGUEM PARA UMA CAIXA FECHADA POR URGENCIA  
     while (caixaAux){
