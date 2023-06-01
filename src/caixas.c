@@ -31,7 +31,7 @@ void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEmAtendimento){
         return;
     }
 
-    int atrasoMaximo = (int)(pessoaEmAtendimento->tempoEstimadoCaixa * Opcoes.percentagemParaAtraso);
+    int atrasoMaximo = (int)(pessoaEmAtendimento->tempoEstimadoCaixa * (Opcoes.percentagemParaAtraso/100));
     int atraso;
     if(Aleatorio(0,1) == 1){
         atraso = atrasoMaximo*1;

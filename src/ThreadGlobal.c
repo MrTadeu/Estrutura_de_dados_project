@@ -23,14 +23,12 @@ void *ThreadGlobal(){
             }
             
         }
-        /* printf("\n\n\t[red]Pessoa Nula[/red]\n"); */
         SelecionarCaixa();
         dormir(1000);
     }
     return NULL;
 }
 
-/* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
 void *ThreadEsperaTempoCompra(void *pessoa){
     ClienteStruct *cliente = (ClienteStruct *)pessoa;
     
@@ -49,7 +47,6 @@ void *ThreadEsperaTempoCompra(void *pessoa){
     pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
     return NULL;
 }
-/* ------------------------------#< Tempo De Espera da caixa >#------------------------------*/
 
 void changeStateThreadGlobal(){
     if(Opcoes.lojaAberta == 0 && menuvalidarCaixaFuncionarios()){
@@ -61,24 +58,6 @@ void changeStateThreadGlobal(){
             Global.PessoasAcabaramTempoDeCompra = criarLista();
         }
         pthread_mutex_unlock(&PessoasAcabaramTempoDeCompraLock);
-
-
-        /* Elemento *CaixaElm = Global.caixas->head;
-        for (int i = 0; i < Opcoes.; i++){
-            CaixaStruct *caixa = (CaixaStruct *)CaixaElm->Info;
-            if(n_funcionariosAtivos >= n_funcisonarios){
-                caixa->aberta = 0;
-                caixa->funcionario = NULL;
-            }
-            else{
-                caixa->aberta = 1;
-                caixa->funcionario = (FuncionarioStruct *) escolherFuncionarios();
-            }
-            CaixaElm = CaixaElm->next; 
-            if(CaixaElm == NULL){
-                break;
-            }
-        } */
 
         if (pthread_create(&GlobalThread, NULL, ThreadGlobal, NULL) != 0){
             printc("[red]Erro[/red] ao criar thread global!!!\n");
@@ -99,7 +78,6 @@ void *threadSchedule(){
             minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
             printc("\n\n\t[green]Hora: %d:%d[/green]", formatTimeStruct(tempoEmMilisegundos).hora, formatTimeStruct(tempoEmMilisegundos).minuto);
         } 
-        
     }
     
 }

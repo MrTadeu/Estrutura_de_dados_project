@@ -1,7 +1,7 @@
 #include "../includes/TipoDados.h"
 
 float getBonusFuncionario(FuncionarioStruct *funcionario){
-    return (funcionario->atrasoMedio < 0) ? Opcoes.eurosPorSegundoAdiantamentoFuncinario * abs(funcionario->atrasoMedio) : 0;
+    return (funcionario->atrasoMedio < 0) ? (Opcoes.eurosPorSegundoAdiantamentoFuncinario/100) * abs(funcionario->atrasoMedio/100) : 0;
 }
 
 int encontrarIdFuncionario(int id){

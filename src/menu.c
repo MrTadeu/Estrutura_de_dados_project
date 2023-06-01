@@ -76,34 +76,40 @@ void menuConfig(){
         printc("*********************    [blue]Menu Config[/blue]    ********************\n");
         printc("************************************************************\n");
         if(Opcoes.threadGlobalAranque == 1){
-            printc("        [red]Loja Aberta no Aranque[/red]\n");
+            printc("        [red]Loja Aberta no Arranque[/red]\n");
         }
         if(Opcoes.threadGlobalAranque == 0){
-            printc("        [green]Loja não é Aberta no Aranque[/green]\n");
+            printc("        [green]Loja não está Aberta no Arranque[/green]\n");
         }
-        printc("        [blue]%d[/blue] - Numero Caixas\n", Opcoes.numCaixasTotal);
+        printc("        [blue]%d[/blue] - Número de Caixas\n", Opcoes.numCaixasTotal);
         printc("        [blue]%d%%[/blue] - Probabilidade de Gerar Pessoa 1/seg\n", Opcoes.probGerarPessoa);
-        printc("        [blue]%d%%[/blue] - Probabilidade de Usar Saldo do Cartao\n", Opcoes.probUsarSaldoCartao);
-        printc("        [blue]%d pessoas[/blue] - Lotaçao Maxima\n", Opcoes.lotacaoMaxima);
+        printc("        [blue]%d%%[/blue] - Probabilidade de Usar Saldo do Cartão\n", Opcoes.probUsarSaldoCartao);
+        printc("        [blue]%d pessoas[/blue] -Lotação Máxima\n", Opcoes.lotacaoMaxima);
         printc("        [blue]%s[/blue] - Tempo Limite Superior por caixa\n", TempoLimiteSuperior);
         printc("        [blue]%s[/blue] - Tempo Limite Inferior por caixa\n", TempoLimiteInferior);
-        printc("        [blue]%s[/blue] - Tempo Atraso Maximo para obter o brinde\n", TempoAtrasoMaximoBrinde);
-        printc("        [blue]%d[/blue] - Quantidade minima de Produtos por Cliente\n", Opcoes.QuantMinProd);
-        printc("        [blue]%d[/blue] - Quantidade maxima de Produtos por Cliente\n", Opcoes.QuantMaxProd);
-        printc("        [blue]%.2f[/blue] - Multiplicador de Tempo\n", Opcoes.multiplicadorTempo);
+        printc("        [blue]%s[/blue] - Tempo de Atraso Máximo para obter o brinde\n", TempoAtrasoMaximoBrinde);
+        printc("        [blue]%d[/blue] - Quantidade Mínima de Produtos por Cliente\n", Opcoes.QuantMinProd);
+        printc("        [blue]%d[/blue] - Quantidade Máxima de Produtos por Cliente\n", Opcoes.QuantMaxProd);
+        printc("        [blue]%d%%[/blue] - Percentagem do tempoCaixa para cálculo do atraso\n", Opcoes.percentagemParaAtraso);
+        printc("        [blue]%d%%[/blue] - Bónus Funcionário = Percentagem * TempoAtraso (em segundos)\n", Opcoes.eurosPorSegundoAdiantamentoFuncinario);
+        printc("        [blue]%d%%[/blue] - Percentagem do preço total a acumular no cartão\n", Opcoes.percentagemPrecoAngariarSaldo);
+        printc("        [blue]%.2f[/blue] -Multiplicador de Tempo\n", Opcoes.multiplicadorTempo);
         printc("************************************************************\n");
-        printc("**        [blue]%d [/blue]-> Voltar                                     **\n", i++);
-        printc("**        [blue]%d [/blue]-> Editar Loja Aberta no Aranque              **\n", i++);
-        printc("**        [blue]%d [/blue]-> Editar Numero Caixas                       **\n", i++);
-        printc("**        [blue]%d [/blue]-> Probabilidade de Gerar Pessoa              **\n", i++);
-        printc("**        [blue]%d [/blue]-> Probabilidade de Usar Saldo do Cartao      **\n", i++);
-        printc("**        [blue]%d [/blue]-> Lotaçao Maxima                             **\n", i++);
-        printc("**        [blue]%d [/blue]-> Tempo Limite Superior por caixa            **\n", i++);
-        printc("**        [blue]%d [/blue]-> Tempo Limite Inferior por caixa            **\n", i++);
-        printc("**        [blue]%d [/blue]-> Tempo Atraso Maximo para obter o brinde    **\n", i++);
-        printc("**        [blue]%d [/blue]-> Quantidade minima de Produtos por Cliente  **\n", i++);
-        printc("**        [blue]%d [/blue]-> Quantidade maxima de Produtos por Cliente **\n", i++);
-        printc("**        [blue]%d [/blue]-> Multiplicador de Tempo                    **\n", i++);
+        printc("**       [blue]%d [/blue]-> Voltar                                      **\n", i++);
+        printc("**       [blue]%d [/blue]-> Editar Loja Aberta no Arranque              **\n", i++);
+        printc("**       [blue]%d [/blue]-> Editar Número de Caixas                     **\n", i++);
+        printc("**       [blue]%d [/blue]-> Probabilidade de Gerar Pessoa               **\n", i++);
+        printc("**       [blue]%d [/blue]-> Probabilidade de Usar Saldo do Cartão       **\n", i++);
+        printc("**       [blue]%d [/blue]-> Lotação Máxima                              **\n", i++);
+        printc("**       [blue]%d [/blue]-> Tempo Limite Superior por caixa             **\n", i++);
+        printc("**       [blue]%d [/blue]-> Tempo Limite Inferior por caixa             **\n", i++);
+        printc("**       [blue]%d [/blue]-> Tempo de Atraso Máximo para obter o brinde  **\n", i++);
+        printc("**       [blue]%d [/blue]-> Quantidade Mínima de Produtos por Cliente   **\n", i++);
+        printc("**       [blue]%d [/blue]-> Quantidade Máxima de Produtos por Cliente   **\n", i++);
+        printc("**       [blue]%d [/blue]-> Percent do tempoCaixa para cálc do atraso   **\n", i++);
+        printc("**       [blue]%d [/blue]-> Bónus Funcionário = Percentagem*TempoAtraso **\n", i++);
+        printc("**       [blue]%d [/blue]-> Percent do preço total a acumular no cartão **\n", i++);
+        printc("**       [blue]%d [/blue]-> Multiplicador de Tempo                      **\n", i++);
         printc("************************************************************\n");
         scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
@@ -137,6 +143,15 @@ void menuConfig(){
         }
         if (opcao == i++){
             editarQuantMaxProd();
+        }
+        if (opcao == i++){
+            editarPercTempoCaixaAtraso();
+        }
+        if (opcao == i++){
+            editarPercBonusFuncionario();
+        }
+        if (opcao == i++){
+            editarPercAcumularCartaoCli();
         }
         if (opcao == i++){
             editarMultiplicadorTempo();

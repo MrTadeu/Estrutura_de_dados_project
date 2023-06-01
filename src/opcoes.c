@@ -122,6 +122,36 @@ void editarQuantMinProd(){
     getchar();
 }
 
+void editarPercTempoCaixaAtraso(){
+    int n;
+    scanfv("%d", &n, "Qual a percentagem de tempo de atraso do caixa: ", "A percentagem de tempo de atraso do caixa tem de ser maior que 0\% e menor que 100\%!\n", validateRange, 0, 100);
+    Opcoes.percentagemParaAtraso = n;
+    printc("\n[green]A percentagem de tempo de atraso do caixa foi alterada para %d%%[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarPercBonusFuncionario(){
+    int n;
+    scanfv("%d", &n, "Qual a percentagem de bonus para funcionários: ", "A percentagem de bonus para funcionários tem de ser maior que 0\% e menor que 100\%!\n", validateRange, 0, 100);
+    Opcoes.eurosPorSegundoAdiantamentoFuncinario = n;
+    printc("\n[green]A percentagem de bonus para funcionários foi alterada para %d%%[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarPercAcumularCartaoCli(){
+    int n;
+    scanfv("%d", &n, "Qual a percentagem de acumulação de saldo do cartão de cliente: ", "A percentagem de acumulação de saldo do cartão de cliente tem de ser maior que 0\% e menor que 10\%!\n", validateRange, 0, 10);
+    Opcoes.percentagemPrecoAngariarSaldo = n;
+    printc("\n[green]A percentagem de acumulação de saldo do cartão de cliente foi alterada para %d%%[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
 void editarQuantMaxProd(){
     int n;
     scanfv("%d", &n, "Qual a quantidade máxima de produtos: ", "A quantidade máxima de produtos tem de ser maior que 0 e menor que 1000!\n", validateRange, 0, 1000);
