@@ -127,14 +127,12 @@ typedef struct
     int n_pessoasEmLoja;
 } GlobalStruct;
 
-typedef struct
-{
+typedef struct{
     FuncionarioStruct *funcionario;
     Lista *listaProdutos;
     int tempoEstimadoCaixa, tempoAtraso;
     float movimentoCartaoCliente, precoTotal, valorProdutoOferecido;
     DataStruct dataTransacao;
-    // Falta struct hora
 } HistoricoSubStructCaixa;
 
 typedef struct
@@ -146,7 +144,6 @@ typedef struct
 
 typedef struct{
     int **tempoEspera_numeroClienteFila_CadaCaixa, numerosCaixasAbertas, numeroClienteSupermercado;
-    // Ser criativo para adicionar mais
 } DadosInstantaneoStruct;
 
 typedef struct{
