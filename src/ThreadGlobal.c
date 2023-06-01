@@ -94,12 +94,32 @@ void changeStateThreadGlobal(){
 
 void *threadSchedule(){
     int minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
-    while (1){ 
-        if (formatTimeStruct(tempoEmMilisegundos).minuto % 10 == 0 && minAnterior != formatTimeStruct(tempoEmMilisegundos).minuto){
+    int horaAnterior = formatTimeStruct(tempoEmMilisegundos).hora;
+    int diaAnterior = formatTimeStruct(tempoEmMilisegundos).dia;
+    int segAnterior = formatTimeStruct(tempoEmMilisegundos).segundo;
+    while (1){
+        int nseg = formatTimeStruct(tempoEmMilisegundos).segundo;
+        int nmin = formatTimeStruct(tempoEmMilisegundos).minuto;
+        int nhora = formatTimeStruct(tempoEmMilisegundos).hora;
+        int ndia = formatTimeStruct(tempoEmMilisegundos).dia;
+        if (nseg % 10 == 0 && segAnterior != nseg){
+            segAnterior = formatTimeStruct(tempoEmMilisegundos).segundo;
+            printc("\n\n\t[green]Hora: %d:%d:%d[/green]", nhora, nmin.minuto, nseg);
+        }
+        if (nmin % 10 == 0 && minAnterior != nmin){
             minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
-            printc("\n\n\t[green]Hora: %d:%d[/green]", formatTimeStruct(tempoEmMilisegundos).hora, formatTimeStruct(tempoEmMilisegundos).minuto);
-        } 
-        dormir(1000);
+            printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin);
+        }
+        if (nhora % 1 == 0 && horaAnterior != nhora){
+            horaAnterior = formatTimeStruct(tempoEmMilisegundos).hora;
+            printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin);
+        }
+        if (ndia % 1 == 0 && diaAnterior != formatTimeStruct(tempoEmMilisegundos).dia){
+            diaAnterior = formatTimeStruct(tempoEmMilisegundos).dia;
+            printc("\n\n\t[green]Dia: %d[/green]", ndia);
+        }
+        
+        /* dormir(1000); */
     }
     
 }
