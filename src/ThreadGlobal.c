@@ -78,6 +78,7 @@ void *threadSchedule(){
             minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
             printc("\n\n\t[green]Hora: %d:%d[/green]", formatTimeStruct(tempoEmMilisegundos).hora, formatTimeStruct(tempoEmMilisegundos).minuto);
         } 
+        dormir(1000);
     }
     
 }
