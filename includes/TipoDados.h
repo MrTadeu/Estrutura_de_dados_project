@@ -273,6 +273,7 @@ void pesquisarFuncionariosID();
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio);
 void verFuncionarios();
 FuncionarioStruct *escolherFuncionarios();
+void desocuparFuncionario(FuncionarioStruct* funcionario);
 
 // produtos.c
 int pesquisarProdutoListaAtualizarRepetidos(Lista *lista, ProdutoStruct *produto);

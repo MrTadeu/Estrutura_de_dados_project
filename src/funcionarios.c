@@ -188,9 +188,9 @@ void removerFuncionario(){
 }
     
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio){
-    float salario = (getNivelFuncionario(funcionario)).salario;
     funcionario->n_vendas++;
     if(Opcoes.VerTransacoes == 1){
+        float salario = (getNivelFuncionario(funcionario)).salario;
         if((getNivelFuncionario(funcionario)).salario != salario){
             NivelFuncionarioStruct nivelFuncionario = getNivelFuncionario(funcionario);
             printc("\n\t[green]Promoção[/green] Funcionario com id %d promovido para o nível %d com novo salario de %.2f euros\n", funcionario->id, nivelFuncionario.nivel, nivelFuncionario.salario);

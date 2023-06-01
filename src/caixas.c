@@ -31,7 +31,8 @@ void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEmAtendimento){
         return;
     }
 
-    int atrasoMaximo = (int)(pessoaEmAtendimento->tempoEstimadoCaixa * (Opcoes.percentagemParaAtraso/100));
+    int atrasoMaximo = (int)((pessoaEmAtendimento->tempoEstimadoCaixa *(float) (Opcoes.percentagemParaAtraso/100)));
+    printf("\n\n\npercentagemParaAtraso: %d\n atrasoMaximo: %d\n\n\n", Opcoes.percentagemParaAtraso, atrasoMaximo);
     int atraso;
     if(Aleatorio(0,1) == 1){
         atraso = atrasoMaximo*1;
@@ -256,7 +257,15 @@ void *ThreadCaixa(void *arg){
             pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         }
         else{
+            caixa->aberta = 0;
             caixa->threadAberta = 0;
+            ((FuncionarioStruct *)caixa->funcionario)->ativo = 0;
+            desocuparFuncionario((FuncionarioStruct *) caixa->funcionario);
+            caixa->funcionario = NULL;
+            caixa->fecharUrgencia = 0;
+            caixa->tempoTotalEspera = 0;
+            free(caixa->listaPessoas);
+            caixa->listaPessoas = criarLista(); 
             return NULL;
         }
         pthread_mutex_lock(&caixa->lock);
@@ -267,25 +276,22 @@ void *ThreadCaixa(void *arg){
         movimentoSaldoCliente = atualizarSaldoCliente(pessoaEmAtendimento);
         atrasoSum += pessoaEmAtendimento->tempoAtraso;
     
-        atenderPessoa(caixa); // simula os tempos e atualiza valores em tempo real para melhor precisao
+        atenderPessoa(caixa);
         atualizarDadosFuncionario(caixa->funcionario, atrasoSum / ++n_vendas);
 
-        //guardarhistorico
         AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
 
-        //Add info Qt pessoa instante --> threadCalculoEstatistico
         pthread_mutex_lock(&caixa->lock);
-        RemElementoInicio(caixa->listaPessoas); // Free do elemento, nao da pessoa em si
+        free(RemElementoInicio(caixa->listaPessoas)); 
         pthread_mutex_unlock(&caixa->lock); 
 
         /* if(caixa->fecharUrgencia)
             fecharUrgencia(caixa); */
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);
+
         Global.n_pessoasEmLoja--;
     }
-    //Por a zero os tempos para reutilizacao da caixa
-    caixa->threadAberta = 0;
 }
 
 void removerCaixa(){

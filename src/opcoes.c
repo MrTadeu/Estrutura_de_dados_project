@@ -39,7 +39,7 @@ void editarLojaAbertaAranque(){
 
 void editarNumCaixas(){
     int n;
-    scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 0 e menor que 50!", validateRange, 0, 50);
+    scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 1 e menor que 50!", validateRange, 1, 50);
     Opcoes.numCaixasTotal = n;
     printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
