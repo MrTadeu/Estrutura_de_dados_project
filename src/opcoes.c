@@ -8,11 +8,10 @@ void Init(){
     importarDados(importarProdutos, PRODUTOS);
     criarCaixaInit();
     checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
-
-    initHistoricos();
     if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();
     }
+    
 }
 
 void closeAll(){

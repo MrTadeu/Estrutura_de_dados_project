@@ -54,6 +54,7 @@ void changeStateThreadGlobal(){
     if(Opcoes.lojaAberta == 0 && menuvalidarCaixaFuncionarios()){
         Opcoes.lojaAberta = 1;
         pthread_t GlobalThread;
+        initHistoricos();
 
         pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
         if(Global.PessoasAcabaramTempoDeCompra == NULL){
@@ -70,6 +71,7 @@ void changeStateThreadGlobal(){
     }
     else if(Opcoes.lojaAberta == 1){
         Opcoes.lojaAberta = 0;
+        destruirHistoricos();
     }
 }
 
