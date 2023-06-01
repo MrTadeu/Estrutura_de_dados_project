@@ -73,7 +73,7 @@ void changeStateThreadGlobal(){
     else if(Opcoes.lojaAberta == 1){
         Opcoes.lojaAberta = 0;
         Global.fecharLoja = 1;
-        destruirHistoricos();
+        /* destruirHistoricos(); */
     }
 }
 
