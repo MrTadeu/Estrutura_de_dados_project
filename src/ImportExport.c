@@ -21,8 +21,8 @@ void importOpcoes(){
         Opcoes.numCaixasAbertas = 0;
         Opcoes.probGerarPessoa = 100;
         Opcoes.probUsarSaldoCartao = 30;
-        Opcoes.percentagemPrecoAngariarSaldo = 0.2; // FLOAT
-        Opcoes.percentagemParaAtraso = 1; // FLOAT
+        Opcoes.percentagemPrecoAngariarSaldo = 10; // 0-10%
+        Opcoes.percentagemParaAtraso = 20;
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 1;
@@ -33,7 +33,7 @@ void importOpcoes(){
         Opcoes.nivelFuncionario[0].salario = 850.0;
         Opcoes.nivelFuncionario[1].salario = 900.0;
         Opcoes.nivelFuncionario[2].salario = 950.0;
-        Opcoes.eurosPorSegundoAdiantamentoFuncinario = 0.5; // FLOAT
+        Opcoes.eurosPorSegundoAdiantamentoFuncinario = 50;
         Opcoes.TempoLimiteInferior = 180000; // 180 * 1000
         Opcoes.TempoLimiteSuperior = 200000; // 200 * 1000
         Opcoes.QuantMinProd = 1;
