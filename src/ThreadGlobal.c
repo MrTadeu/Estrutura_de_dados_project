@@ -133,7 +133,7 @@ void *threadSchedule(){
         }
         if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
-            printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
+            //printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
         }
         if (dataAtual.hora % 1 == 0 && dataAnterior.hora != dataAtual.hora){ // bater de 1 em 1 hora
             dataAnterior.hora = formatTimeStruct(tempoEmMilisegundos).hora;
@@ -147,11 +147,11 @@ void *threadSchedule(){
             // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
             char dataString[100];
             sprintf(dataString, "Historico/Data_%d-%d-%d", dataAtual.dia, dataAtual.mes, dataAtual.ano);
-            printf("%s\n", dataString);
+            //printf("%s\n", dataString);
             stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
             char imgsString[100];
             sprintf(imgsString, "%s/imgs", dataString);
-            printf("%s\n", imgsString);
+            //printf("%s\n", imgsString);
             stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
 
             
