@@ -25,7 +25,7 @@ void importOpcoes(){
         Opcoes.percentagemParaAtraso = 20;
         Opcoes.lotacaoMaxima = 200;
         Opcoes.lojaAberta = 0;
-        Opcoes.VerTransacoes = 1;
+        Opcoes.VerTransacoes = 0;
         Opcoes.threadGlobalAranque = 0;
         Opcoes.nivelFuncionario[0].n_vendas = 10000;  
         Opcoes.nivelFuncionario[1].n_vendas = 30000;  
