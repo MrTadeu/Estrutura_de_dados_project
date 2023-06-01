@@ -81,10 +81,10 @@ void *threadSchedule(){
         int nmin = formatTimeStruct(tempoEmMilisegundos).minuto;
         int nhora = formatTimeStruct(tempoEmMilisegundos).hora;
         int ndia = formatTimeStruct(tempoEmMilisegundos).dia;
-        if (nseg % 10 == 0 && segAnterior != nseg){
+        /* if (nseg % 10 == 0 && segAnterior != nseg){
             segAnterior = formatTimeStruct(tempoEmMilisegundos).segundo;
             printc("\n\n\t[green]Hora: %d:%d:%d[/green]", nhora, nmin.minuto, nseg);
-        }
+        } */
         if (nmin % 10 == 0 && minAnterior != nmin){
             minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
             printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin);
@@ -100,7 +100,6 @@ void *threadSchedule(){
         
         /* dormir(1000); */
     }
-    
 }
 
 void *threadTempo(){
