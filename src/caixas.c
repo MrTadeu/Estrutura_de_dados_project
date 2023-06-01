@@ -155,6 +155,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     //SE NÃO HOUVER CAIXAS ABERTAS ABRIR A PRIMEIRA
     if(Opcoes.numCaixasAbertas == 0){
         if(n_funcionariosAtivos >= n_funcionarios){
+        printc("\n\n\n\n[red]n_funcionarios[/red]\n\n\n\n");
             return NULL;
         }
         if (menor->funcionario == NULL){ 
@@ -168,6 +169,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
             pthread_detach(threadCaixa);
         }
+        printc("\n\n\n\t[red]MENORRRRRRRRRRRRRRRRRRRRR[/red]\n\n\n\n");
         return menor;
         
     }
@@ -199,7 +201,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     }
 
     // SE NAO FECHARMOS CAIXAS OU ABRIRMOS CAIXAS A MELHOR CAIXA É A MENOR
-    if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior && menor->aberta == 1){
+    if(menor->tempoTotalEspera < Opcoes.TempoLimiteSuperior /* && menor->aberta == 1 */){
         if(menor->threadAberta == 0){
             menor->threadAberta = 1;
             pthread_t threadCaixa;
@@ -266,6 +268,7 @@ void *ThreadCaixa(void *arg){
             caixa->tempoTotalEspera = 0;
             free(caixa->listaPessoas);
             caixa->listaPessoas = criarLista(); 
+            Opcoes.numCaixasAbertas--;
             return NULL;
         }
         pthread_mutex_lock(&caixa->lock);
