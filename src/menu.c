@@ -160,6 +160,11 @@ void menuConfig(){
 }
 
 void menuMultiplicadorTempo(){
+    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+    printf("xd::");
+    float xx = 0.0;
+    scanf("%f", &xx);
+    Opcoes.multiplicadorTempo =(double) xx;
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);

@@ -212,6 +212,7 @@ void adicionarCliente(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarClienteTxt, CLIENTES);
 }
 
 void editarCliente(){
@@ -256,6 +257,7 @@ void editarCliente(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarClienteTxt, CLIENTES);
 }
 
 void removerCliente(){
@@ -277,6 +279,7 @@ void removerCliente(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarClienteTxt, CLIENTES);
 }
 
 void criarProdutosAddCliente(ClienteStruct *cliente){

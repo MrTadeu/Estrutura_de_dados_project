@@ -252,6 +252,7 @@ void guardarProdutoTxt(FILE *file, int i){
 void exportarOpcoes(){
     Opcoes.lojaAberta = 0;
     Opcoes.VerTransacoes = 0;
+    Opcoes.multiplicadorTempo = 1.0;
     FILE *file = fopen("Data/opcoes.bin", "wb");
     if (!file) {
         printc("\n\n\tImpossivel abrir Ficheiro [red]opcoes.bin[/red]\n\n");
