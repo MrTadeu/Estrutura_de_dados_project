@@ -7,6 +7,8 @@ void Init(){
     importarDados(importarFuncionarios, FUNCIONARIOS);
     importarDados(importarProdutos, PRODUTOS);
     criarCaixaInit();
+    checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
+
     initHistorico();
     initDadosEstatisticos();
     if(Opcoes.threadGlobalAranque == 1){
@@ -39,7 +41,7 @@ void editarLojaAbertaAranque(){
 
 void editarNumCaixas(){
     int n;
-    scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 0 e menor que 50!", validateRange, 0, 50);
+    scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 1 e menor que 50!", validateRange, 1, 50);
     Opcoes.numCaixasTotal = n;
     printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -122,6 +124,36 @@ void editarQuantMinProd(){
     getchar();
 }
 
+void editarPercTempoCaixaAtraso(){
+    int n;
+    scanfv("%d", &n, "Qual a percentagem de tempo de atraso do caixa: ", "A percentagem de tempo de atraso do caixa tem de ser maior que 0\% e menor que 100\%!\n", validateRange, 0, 100);
+    Opcoes.percentagemParaAtraso = n;
+    printc("\n[green]A percentagem de tempo de atraso do caixa foi alterada para %d%%[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarPercBonusFuncionario(){
+    int n;
+    scanfv("%d", &n, "Qual a percentagem de bonus para funcionários: ", "A percentagem de bonus para funcionários tem de ser maior que 0\% e menor que 100\%!\n", validateRange, 0, 100);
+    Opcoes.eurosPorSegundoAdiantamentoFuncinario = n;
+    printc("\n[green]A percentagem de bonus para funcionários foi alterada para %d%%[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+void editarPercAcumularCartaoCli(){
+    int n;
+    scanfv("%d", &n, "Qual a percentagem de acumulação de saldo do cartão de cliente: ", "A percentagem de acumulação de saldo do cartão de cliente tem de ser maior que 0\% e menor que 10\%!\n", validateRange, 0, 10);
+    Opcoes.percentagemPrecoAngariarSaldo = n;
+    printc("\n[green]A percentagem de acumulação de saldo do cartão de cliente foi alterada para %d%%[/green]", n);
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
 void editarQuantMaxProd(){
     int n;
     scanfv("%d", &n, "Qual a quantidade máxima de produtos: ", "A quantidade máxima de produtos tem de ser maior que 0 e menor que 1000!\n", validateRange, 0, 1000);
@@ -132,7 +164,7 @@ void editarQuantMaxProd(){
     getchar();
 }
 
-void editarMultiplicadorTempo(){
+/* void editarMultiplicadorTempo(){
     float n;
     scanfv("%f", &n, "Qual o multiplicador de tempo: ", "O multiplicador de tempo tem de ser maior que 0 e menor que 100!\n", validateRangeFloat, 0.0, 100.0);
     Opcoes.multiplicadorTempo = n;
@@ -140,10 +172,10 @@ void editarMultiplicadorTempo(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
-}
+} */
 
 void editarVerTransacoes(){
-    if(Opcoes.lojaAberta == 1 || TRUE){
+    if(Opcoes.lojaAberta == 1 /* || TRUE */){
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         printc("[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");

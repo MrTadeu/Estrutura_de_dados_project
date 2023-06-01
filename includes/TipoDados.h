@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <sys/time.h>
 #include <stdarg.h>
+#include <sys/stat.h>
 
 // Criar as threads
 #ifndef PTHREAD_H
@@ -94,23 +95,23 @@ typedef struct
 
 typedef struct
 {
-    int numCaixasTotal,          // FEITO
-        numCaixasAbertas,        // NADA
-        probGerarPessoa,         // FEITO
-        probUsarSaldoCartao,     // POR FAZER--
-        lotacaoMaxima,           // FEITO //!NÃO 
-        lojaAberta,              // NADA
-        VerTransacoes,           // NADA
-        threadGlobalAranque,     // FEITO
-        TempoLimiteSuperior,     // POR FAZER--
-        TempoLimiteInferior,     // POR FAZER--
-        QuantMaxProd,            // POR FAZER--
-        QuantMinProd,            // POR FAZER--
-        tempoAtrasoMaximoBrinde; // POR FAZER--
-    float eurosPorSegundoAdiantamentoFuncinario,
+    int numCaixasTotal,
+        numCaixasAbertas,
+        probGerarPessoa,
+        probUsarSaldoCartao,
+        lotacaoMaxima,
+        lojaAberta,
+        VerTransacoes,
+        threadGlobalAranque,
+        TempoLimiteSuperior,
+        TempoLimiteInferior,
+        QuantMaxProd,
+        QuantMinProd,
+        tempoAtrasoMaximoBrinde,
         percentagemParaAtraso,
-        percentagemPrecoAngariarSaldo,
-        multiplicadorTempo; // POR FAZER
+        eurosPorSegundoAdiantamentoFuncinario,
+        percentagemPrecoAngariarSaldo;
+    float multiplicadorTempo;
     NivelFuncionarioStruct nivelFuncionario[3];
 } OpcaoStruct;
 
@@ -210,6 +211,7 @@ void menuPesquisarProduto();
 int menuvalidarCaixaFuncionarios();
 int menuResolverCaixaFuncionario();
 void menuHistorico();
+void menuMultiplicadorTempo();
 
 // opcoes.c
 void editarNumCaixas();
@@ -226,6 +228,9 @@ void editarTempoAtrasoMaximoBrinde();
 void editarQuantMinProd();
 void editarQuantMaxProd();
 void editarMultiplicadorTempo();
+void editarPercTempoCaixaAtraso();
+void editarPercBonusFuncionario();
+void editarPercAcumularCartaoCli();
 
 // clientes.c
 void verClientes();
@@ -272,6 +277,7 @@ void pesquisarFuncionariosID();
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio);
 void verFuncionarios();
 FuncionarioStruct *escolherFuncionarios();
+void desocuparFuncionario(FuncionarioStruct* funcionario);
 
 // produtos.c
 int pesquisarProdutoListaAtualizarRepetidos(Lista *lista, ProdutoStruct *produto);
