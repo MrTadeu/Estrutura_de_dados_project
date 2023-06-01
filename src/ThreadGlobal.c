@@ -73,13 +73,57 @@ void changeStateThreadGlobal(){
     }
 }
 
+/* void *threadSchedule(){
+    DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
+    while (1){
+        DataStruct dataAtual = formatTimeStruct(tempoEmMilisegundos);
+        if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
+            checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
+            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
+            // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
+            char dataString[100];
+            sprintf(dataString, "Data_%d-%d-%d_%d_%d_%d", dataAtual.dia, dataAtual.mes, dataAtual.ano, dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
+            char command[100];
+            sprintf(command, "mkdir Historico/%s", dataString);
+            printf("%s\n", command);
+            checkIFfileExists(dataString) == 0 ? system(command) : (void)NULL;
+        }
+        if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
+            dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
+            printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
+        }
+        if (dataAtual.hora % 1 == 0 && dataAnterior.hora != dataAtual.hora){ // bater de 1 em 1 hora
+            dataAnterior.hora = formatTimeStruct(tempoEmMilisegundos).hora;
+            // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
+        }
+        if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
+            checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
+            dataAnterior.dia = formatTimeStruct(tempoEmMilisegundos).dia;
+            //char dataString[20];
+            //sprintf(dataString, "Data_%d-%d-%d", dataAtual.dia, dataAtual.mes, dataAtual.ano);
+            //char command[100];
+            //sprintf(command, "mkdir Historico/%s", dataString);
+            
+            //checkIFfileExists(dataString) == 0 ? system(command) : (void)NULL; 
+
+            // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
+        }
+        
+    }
+} */
 void *threadSchedule(){
     DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
     while (1){
         DataStruct dataAtual = formatTimeStruct(tempoEmMilisegundos);
         if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
+            /* struct stat st;
+            stat("Historico", &st) == 0 ? mkdir("Historico") : (void)NULL;
             dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
-            /* printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); */
+            // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
+            char dataString[100];
+            sprintf(dataString, "Historico/Data_%d-%d-%d_%d_%d_%d", dataAtual.dia, dataAtual.mes, dataAtual.ano, dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
+            printf("%s\n", dataString);
+            stat(dataString, &st) == 0 ? mkdir(dataString, 0700) : (void)NULL; */
         }
         if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
@@ -90,7 +134,15 @@ void *threadSchedule(){
             /* printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); */
         }
         if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
+            /* checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL; */
             dataAnterior.dia = formatTimeStruct(tempoEmMilisegundos).dia;
+            /*char dataString[20];
+            sprintf(dataString, "Data_%d-%d-%d", dataAtual.dia, dataAtual.mes, dataAtual.ano);
+            char command[100];
+            sprintf(command, "mkdir Historico/%s", dataString);
+            
+            checkIFfileExists(dataString) == 0 ? system(command) : (void)NULL; */
+
             /* printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); */
         }
         /* dormir(1000); */
