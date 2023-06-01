@@ -295,8 +295,8 @@ void *ThreadCaixa(void *arg){
         free(RemElementoInicio(caixa->listaPessoas)); 
         pthread_mutex_unlock(&caixa->lock); 
 
-        /* if(caixa->fecharUrgencia)
-            fecharUrgencia(caixa); */
+        if(caixa->fecharUrgencia)
+            fecharUrgencia(caixa);
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);
 

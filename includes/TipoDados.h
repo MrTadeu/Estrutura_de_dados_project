@@ -125,7 +125,7 @@ typedef enum
 typedef struct
 {
     Lista *caixas, *PessoasAcabaramTempoDeCompra;
-    int n_pessoasEmLoja;
+    int n_pessoasEmLoja, fecharLoja;
 } GlobalStruct;
 
 typedef struct{

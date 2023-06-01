@@ -53,6 +53,7 @@ void *ThreadEsperaTempoCompra(void *pessoa){
 void changeStateThreadGlobal(){
     if(Opcoes.lojaAberta == 0 && menuvalidarCaixaFuncionarios()){
         Opcoes.lojaAberta = 1;
+        Global
         pthread_t GlobalThread;
         initHistoricos();
 
