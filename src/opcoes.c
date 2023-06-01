@@ -162,7 +162,7 @@ void editarQuantMaxProd(){
     getchar();
 }
 
-void editarMultiplicadorTempo(){
+/* void editarMultiplicadorTempo(){
     float n;
     scanfv("%f", &n, "Qual o multiplicador de tempo: ", "O multiplicador de tempo tem de ser maior que 0 e menor que 100!\n", validateRangeFloat, 0.0, 100.0);
     Opcoes.multiplicadorTempo = n;
@@ -170,10 +170,10 @@ void editarMultiplicadorTempo(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
-}
+} */
 
 void editarVerTransacoes(){
-    if(Opcoes.lojaAberta == 1 || TRUE){
+    if(Opcoes.lojaAberta == 1 /* || TRUE */){
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         printc("[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");

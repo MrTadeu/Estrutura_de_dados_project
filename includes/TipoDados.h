@@ -208,6 +208,7 @@ void menuPesquisarProduto();
 int menuvalidarCaixaFuncionarios();
 int menuResolverCaixaFuncionario();
 void menuHistorico();
+void menuMultiplicadorTempo();
 
 // opcoes.c
 void editarNumCaixas();

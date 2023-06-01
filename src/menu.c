@@ -154,8 +154,65 @@ void menuConfig(){
             editarPercAcumularCartaoCli();
         }
         if (opcao == i++){
-            editarMultiplicadorTempo();
+            menuMultiplicadorTempo();
         }
+    } while (opcao != 0);
+}
+
+void menuMultiplicadorTempo(){
+    int opcao;
+    do{
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
+        int i = 0;
+        printc("Opcoes.multiplicadorTempo: %f\n", Opcoes.multiplicadorTempo);
+        printc("**************************************************\n");
+        printc("**********   [blue]Menu Multiplicador Tempo[/blue]    *********\n");
+        printc("**************************************************\n");
+        printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
+        float opcaoTempo[] = {2.0, 1.0, (float)1/2, (float)1/3, (float)1/4, (float)1/5, (float)1/6, (float)1/7, (float)1/8, (float)1/9, (float)1/10, (float)1/100};
+        for (int j = 0; j < 12; j++){
+            if (Opcoes.multiplicadorTempo == opcaoTempo[j]){
+                if (j == 0){
+                    printc("[green]**        [blue]%d [/blue]-> %.1fx                             **[/green]\n", j+1, 0.5);
+                }
+                else if (j == 9){
+                    printc("**[green]        [blue]%d [/blue]-> %dx                              **[/green]\n", j+1, j);
+                }
+                else if (j == 10){
+                    printc("[green]**        [blue]%d [/blue]-> %dx                             **[/green]\n", j+1, j);
+                }
+                else if (j == 11){
+                    printc("**[green]        [blue]%d [/blue]-> %dx                            **[/green]\n", j+1, 100);
+                }
+                else
+                    printc("[green]**        [blue]%d [/blue]-> %dx                               **[/green]\n", j+1, j);
+                
+            }
+            else{
+                if (j == 0){
+                    printc("**        [blue]%d [/blue]-> %.1fx                             **\n", j+1, 0.5);
+                }
+                else if (j == 9){
+                    printc("**        [blue]%d [/blue]-> %dx                              **\n", j+1, j);
+                }
+                else if (j == 11){
+                    printc("**        [blue]%d [/blue]-> %dx                            **\n", j+1, 100);
+                }
+                
+                else
+                    j < 9 ? printc("**        [blue]%d [/blue]-> %dx                               **\n", j+1, j) : printc("**        [blue]%d [/blue]-> %dx                             **\n", j+1, j);
+
+            }
+        }
+        scanfv("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números entre (0 - 12)!\n", validateRange, 0, 12);
+
+        for (int i = 0; i < 12; i++){
+            if (opcao == i+1){
+                printf("opcaoTempo[%d] = %f\n", i, opcaoTempo[i]);
+                Opcoes.multiplicadorTempo = opcaoTempo[i];
+            }
+        }
+        /* printf("O multiplicador de tempo foi alterado para %fx, Opçoes %d\n", Opcoes.multiplicadorTempo, opcao); */
     } while (opcao != 0);
 }
 

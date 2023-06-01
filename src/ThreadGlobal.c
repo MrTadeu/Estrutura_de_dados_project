@@ -15,7 +15,9 @@ void *ThreadGlobal(){
                     char tempoEstimadoCompra[9], tempoEstimadoCaixa[9];
                     formatTime(pessoa->tempoEstimadoCompra, tempoEstimadoCompra);
                     formatTime(pessoa->tempoEstimadoCaixa, tempoEstimadoCaixa);
-                    printc("\n\n[yellow]Pessoa Gerada:[/yellow] \n Nome: [blue]%s[/blue] \n Tempo de Compra: [green]%s[/green] \n Tempo de Estimado Caixa: [green]%s[/green]\n",  pessoa->nome, tempoEstimadoCompra, tempoEstimadoCaixa);
+                    if (Opcoes.VerTransacoes){
+                        printc("\n\n[yellow]Pessoa Gerada:[/yellow] \n Nome: [blue]%s[/blue] \n Tempo de Compra: [green]%s[/green] \n Tempo de Estimado Caixa: [green]%s[/green]\n",  pessoa->nome, tempoEstimadoCompra, tempoEstimadoCaixa);
+                    }
                 }
                 pthread_t thread;
                 pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
@@ -87,15 +89,15 @@ void *threadSchedule(){
         } */
         if (nmin % 10 == 0 && minAnterior != nmin){
             minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
-            printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin);
+            /* printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin); */
         }
         if (nhora % 1 == 0 && horaAnterior != nhora){
             horaAnterior = formatTimeStruct(tempoEmMilisegundos).hora;
-            printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin);
+            /* printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin); */
         }
         if (ndia % 1 == 0 && diaAnterior != formatTimeStruct(tempoEmMilisegundos).dia){
             diaAnterior = formatTimeStruct(tempoEmMilisegundos).dia;
-            printc("\n\n\t[green]Dia: %d[/green]", ndia);
+            /* printc("\n\n\t[green]Dia: %d[/green]", ndia); */
         }
         
         /* dormir(1000); */
