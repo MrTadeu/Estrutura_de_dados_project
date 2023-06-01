@@ -114,11 +114,11 @@ void changeStateThreadGlobal(){
     }
 } */
 void *threadSchedule(){
-    DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
+/*     DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
     while (1){
         DataStruct dataAtual = formatTimeStruct(tempoEmMilisegundos);
         if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
-          /*   struct stat st;
+           struct stat st;
             stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
             dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
             // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
@@ -129,7 +129,7 @@ void *threadSchedule(){
             char imgsString[100];
             sprintf(imgsString, "%s/imgs", dataString);
             printf("%s\n", imgsString);
-            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString); */
+            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString); 
         }
         if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
@@ -137,7 +137,7 @@ void *threadSchedule(){
         }
         if (dataAtual.hora % 1 == 0 && dataAnterior.hora != dataAtual.hora){ // bater de 1 em 1 hora
             dataAnterior.hora = formatTimeStruct(tempoEmMilisegundos).hora;
-            /* printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); */
+             printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
         }
         if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
             dataAnterior.dia = formatTimeStruct(tempoEmMilisegundos).dia;
@@ -156,8 +156,9 @@ void *threadSchedule(){
 
             
         }
-        /* dormir(1000); */
-    }
+         dormir(1000); 
+    } */
+    return NULL;
 }
 
 void *threadTempo(){
