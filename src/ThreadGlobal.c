@@ -74,32 +74,25 @@ void changeStateThreadGlobal(){
 }
 
 void *threadSchedule(){
-    int minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
-    int horaAnterior = formatTimeStruct(tempoEmMilisegundos).hora;
-    int diaAnterior = formatTimeStruct(tempoEmMilisegundos).dia;
-    int segAnterior = formatTimeStruct(tempoEmMilisegundos).segundo;
+    DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
     while (1){
-        int nseg = formatTimeStruct(tempoEmMilisegundos).segundo;
-        int nmin = formatTimeStruct(tempoEmMilisegundos).minuto;
-        int nhora = formatTimeStruct(tempoEmMilisegundos).hora;
-        int ndia = formatTimeStruct(tempoEmMilisegundos).dia;
-        /* if (nseg % 10 == 0 && segAnterior != nseg){
-            segAnterior = formatTimeStruct(tempoEmMilisegundos).segundo;
-            printc("\n\n\t[green]Hora: %d:%d:%d[/green]", nhora, nmin.minuto, nseg);
-        } */
-        if (nmin % 10 == 0 && minAnterior != nmin){
-            minAnterior = formatTimeStruct(tempoEmMilisegundos).minuto;
-            /* printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin); */
+        DataStruct dataAtual = formatTimeStruct(tempoEmMilisegundos);
+        if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
+            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
+            /* printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); */
         }
-        if (nhora % 1 == 0 && horaAnterior != nhora){
-            horaAnterior = formatTimeStruct(tempoEmMilisegundos).hora;
-            /* printc("\n\n\t[green]Hora: %d:%d[/green]", nhora, nmin); */
+        if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
+            dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
+            printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
         }
-        if (ndia % 1 == 0 && diaAnterior != formatTimeStruct(tempoEmMilisegundos).dia){
-            diaAnterior = formatTimeStruct(tempoEmMilisegundos).dia;
-            /* printc("\n\n\t[green]Dia: %d[/green]", ndia); */
+        if (dataAtual.hora % 1 == 0 && dataAnterior.hora != dataAtual.hora){ // bater de 1 em 1 hora
+            dataAnterior.hora = formatTimeStruct(tempoEmMilisegundos).hora;
+            /* printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); */
         }
-        
+        if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
+            dataAnterior.dia = formatTimeStruct(tempoEmMilisegundos).dia;
+            /* printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); */
+        }
         /* dormir(1000); */
     }
 }
