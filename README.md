@@ -68,8 +68,6 @@ Para executar uma **compilação automátomaticamente** no Linux, é obrigatóri
 Uma vez que o Makefile tenha sido instalado com sucesso e você esteja na mesma pasta que o arquivo makefile, use o comando `make buildLinux` para criar um arquivo executável chamado "simulation". Se você precisar recompilar ou excluir o arquivo, use o comando `make cleanLinux`, que irá remover o arquivo "simulation".\
 >&nbsp;
 
-# 2. Como Usar
-
 # Créditos do trabalho
 <table align="center" dir="auto" cellpadding="10">
 <tr>

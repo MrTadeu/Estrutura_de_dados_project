@@ -32,7 +32,6 @@ void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEmAtendimento){
     }
 
     int atrasoMaximo = (int)((pessoaEmAtendimento->tempoEstimadoCaixa *(float) (Opcoes.percentagemParaAtraso/100)));
-    printf("\n\n\npercentagemParaAtraso: %d\n atrasoMaximo: %d\n\n\n", Opcoes.percentagemParaAtraso, atrasoMaximo);
     int atraso;
     if(Aleatorio(0,1) == 1){
         atraso = atrasoMaximo*(-1);
