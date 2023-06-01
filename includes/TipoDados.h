@@ -336,9 +336,11 @@ void *threadSchedule();
 // historico.c
 void initHistoricos();
 void destruirHistoricos();
-void calculosRecolhas();
+void destruirHistoricoSubStructTransacao(void *transacaoArg);
+void destruirHistoricoSubStructCliente(void* clienteArg);
 void recolhaDadosEstatisticosHistoricoTransacoes();
 void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto);
+void calculosRecolhas();
 int hashFunction(char *nome);
 void *criarElementoClienteHistorico(ClienteStruct *cliente);
 void *criarInfoHistorico(CaixaStruct *caixa, float movimentoSaldoCartao, float valorProdutoOferecido);
