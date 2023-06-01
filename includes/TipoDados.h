@@ -334,9 +334,8 @@ void *threadTempo();
 void *threadSchedule();
 
 // historico.c
-void initHistorico();
-void initDadosEstatisticos();
-void destruirRecolhasHistoricos();
+void initHistoricos();
+void destruirHistoricos();
 void calculosRecolhas();
 void recolhaDadosEstatisticosHistoricoTransacoes();
 void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto);

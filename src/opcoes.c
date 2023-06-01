@@ -9,8 +9,7 @@ void Init(){
     criarCaixaInit();
     checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
 
-    initHistorico();
-    initDadosEstatisticos();
+    initHistoricos();
     if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();
     }

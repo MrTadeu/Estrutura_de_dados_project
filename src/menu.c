@@ -455,10 +455,10 @@ void menuHistorico(){
             pesquisarCaixaNoHistorico();
         }
         if(opcao == i++){
-            initDadosEstatisticos();
+            initHistoricos();
             recolhaDadosEstatisticosHistoricoTransacoes();
             calculosRecolhas();
-            destruirRecolhasHistoricos();
+            destruirHistoricos();
         }
     } while (opcao != 0);
 }
