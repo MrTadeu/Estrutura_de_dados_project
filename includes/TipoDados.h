@@ -96,6 +96,7 @@ typedef struct
 typedef struct
 {
     int numCaixasTotal,
+        numCaixasTotalUpdate,
         numCaixasAbertas,
         probGerarPessoa,
         probUsarSaldoCartao,
