@@ -18,4 +18,6 @@ int main(){
     Init();
     menu();
     closeAll();
+    Opcoes.numCaixasTotal = Opcoes.numCaixasTotalUpdate;
+    exportarOpcoes();
 }
