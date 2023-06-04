@@ -309,19 +309,19 @@ void exportarHistoricoTransacoesParaTXT(HistoricoSubStructTransacao* historico, 
                         produtos = produtos->next;
                     }
 
-                    fprintf("\tPreço total: %.2f\n", caixasHistoricoInfo->precoTotal);
+                    fprintf(arquivo,"\tPreço total: %.2f\n", caixasHistoricoInfo->precoTotal);
 
                     if (caixasHistoricoInfo->valorProdutoOferecido > 0)
                     {
-                        fprintf("\tProduto oferecido! Preço: %.2f", caixasHistoricoInfo->valorProdutoOferecido);
+                        fprintf(arquivo,"\tProduto oferecido! Preço: %.2f", caixasHistoricoInfo->valorProdutoOferecido);
                     }
-                    fprintf("\tSaldo cartão cliente:\n");
+                    fprintf(arquivo,"\tSaldo cartão cliente:\n");
                     if (caixasHistoricoInfo->movimentoCartaoCliente < 0)
                     {
-                        fprintf("\t\tO cliente usou %.2f euros", fabs(caixasHistoricoInfo->movimentoCartaoCliente));
+                        fprintf(arquivo,"\t\tO cliente usou %.2f euros", fabs(caixasHistoricoInfo->movimentoCartaoCliente));
                     }
                     else
-                        fprintf("\t\tO cliente angariou %.2f euros", caixasHistoricoInfo->movimentoCartaoCliente);
+                        fprintf(arquivo,"\t\tO cliente angariou %.2f euros", caixasHistoricoInfo->movimentoCartaoCliente);
 
                     caixasHistorico = caixasHistorico->next;
                 }
@@ -355,16 +355,16 @@ void exportarHistoricoTransacoesParaCSV(HistoricoSubStructTransacao* historico, 
 
                     fprintf(arquivo, "Nome cliente;ID cliente;ID caixa;Nome funcionario;ID funcionario;Dia de transacao;Mes de transacao;Ano de transacao;Hora;Tempo de espera na fila;Tempo de atraso;Produtos;Preco total;Valor produto Oferecido;Saldo cartao cliente;\"");
 
-                    fprintf(arquivo, "%s;%d;%d;%s;%d;%d;%d;%d;%s;%d;%d", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j+1, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, horas, caixasHistoricoInfo->tempoEstimadoCaixa / 1000.0, caixasHistoricoInfo->tempoAtraso / 1000.0);
+                    fprintf(arquivo, "%s;%d;%d;%s;%d;%d;%d;%d;%s;%.2f;%.2f", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j+1, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, horas, caixasHistoricoInfo->tempoEstimadoCaixa / 1000.0, caixasHistoricoInfo->tempoAtraso / 1000.0);
 
                     Elemento *produtos = caixasHistoricoInfo->listaProdutos->head;
                     while (produtos){
                         ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
-                        fprintf(arquivo, "%d %s %dX %.2f€ %ds %ds,", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra / 1000.0, produtoInfo->tempoCaixa / 1000.0);
+                        fprintf(arquivo, "%d %s %dX %.2f€ %ds %ds,", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa / 1000.0);
                         produtos = produtos->next;
                     }
 
-                    fprintf("\";%.2f€;%.2f€;%.2f€;", caixasHistoricoInfo->precoTotal, caixasHistoricoInfo->valorProdutoOferecido, caixasHistoricoInfo->movimentoCartaoCliente);
+                    fprintf(arquivo,"\";%.2f€;%.2f€;%.2f€;", caixasHistoricoInfo->precoTotal, caixasHistoricoInfo->valorProdutoOferecido, caixasHistoricoInfo->movimentoCartaoCliente);
 
                     caixasHistorico = caixasHistorico->next;
                 }
