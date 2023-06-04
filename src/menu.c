@@ -160,11 +160,6 @@ void menuConfig(){
 }
 
 void menuMultiplicadorTempo(){
-    fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    printf("xd::");
-    float xx = 0.0;
-    scanf("%f", &xx);
-    Opcoes.multiplicadorTempo =(double) xx;
     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
@@ -460,10 +455,16 @@ void menuHistorico(){
             pesquisarCaixaNoHistorico();
         }
         if(opcao == i++){
-            initHistoricos();
             recolhaDadosEstatisticosHistoricoTransacoes();
+            printf("olaaaaa");
             calculosRecolhas();
-            destruirHistoricos();
+            printf("olaaaaa");
+            limparHistoricoTransacoes();
+            destruirHistoricoDadosEstatisticos();
+            initHistoricoDadosEstatisticos();
+            printf("olaaaaa");
+            getchar();
+            getchar();
         }
     } while (opcao != 0);
 }

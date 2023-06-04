@@ -96,7 +96,6 @@ typedef struct
 typedef struct
 {
     int numCaixasTotal,
-        numCaixasTotalUpdate,
         numCaixasAbertas,
         probGerarPessoa,
         probUsarSaldoCartao,
@@ -197,7 +196,7 @@ extern ClienteStruct **Clientes;
 extern FuncionarioStruct **Funcionarios;
 extern ProdutoStruct *Produtos;
 extern long long tempoEmMilisegundos;
-extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
+extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos, numeroMaximoCaixasPossivel;
 
 int CriarGrafico();
 // menu.c
@@ -335,8 +334,11 @@ void *threadTempo();
 void *threadSchedule();
 
 // historico.c
-void initHistoricos();
-void destruirHistoricos();
+void initHistoricoTransacoes();
+void limparHistoricoTransacoes();
+void destruirHistoricoTransacoes(Lista **historicoTransacoes);
+void initHistoricoDadosEstatisticos();
+void destruirHistoricoDadosEstatisticos();
 void destruirHistoricoSubStructTransacao(void *transacaoArg);
 void destruirHistoricoSubStructCliente(void* clienteArg);
 void recolhaDadosEstatisticosHistoricoTransacoes();
