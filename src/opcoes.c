@@ -275,6 +275,16 @@ void fechamentoLoja(){
     destruirHistoricoTransacoes();
     destruirHistoricoDadosEstatisticos();
     
-    
+    for (int i = 0; i < n_clientes; i++) // free vetor clientes
+        free(Clientes[i]);
+    free(Clientes);
+
+    for (int i = 0; i < n_fun; i++) // free vetor funcionarios
+        free(Funcionarios[i]);
+    free(Funcionarios);
+
+    for (int i = 0; i < n_produtos; i++) // free vetor produtos
+        free(Produtos[i]);
+    free(Produtos);
 }
 

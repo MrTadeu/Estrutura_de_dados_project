@@ -1,7 +1,7 @@
 #include "../includes/supportLib.h"
 #include "../includes/pbPlots.h"
 
-int CriarGrafico(){
+int CriarGrafico(char* caminhoFicheiro, int *X, int *Y){
 	/* printf("odjaodjaiodjaidjiadjiadjd\n"); */
 	/* ScatterPlotSeries series = GetDefaultScatterPlotSeriesSettings();
 	series.xs = new double [] {-2, -1, 0, 1, 2};
@@ -26,8 +26,8 @@ int CriarGrafico(){
 	StringReference errorMessage = new StringReference();
 	success = DrawScatterPlotFromSettings(imageReference, settings, errorMessage);
  */
-	double eixoX [] = {-2, -1, 0, 1, 2};
-	double eixoY [] = {2, -1, -2, -1, 2};
+	double *eixoX = (double)X; 
+	double *eixoY = (double)Y; 
 	_Bool success;
 
 	RGBABitmapImageReference *canvasReference = CreateRGBABitmapImageReference();

@@ -273,3 +273,11 @@ void exportarOpcoesInsta(){
     fwrite(&Opcoes, sizeof(OpcaoStruct), 1, file);
     fclose(file);
 }
+
+void exportHistoricoTransacoes(){
+    
+}
+
+void exportHistoricoDadosEstatisticos(){
+
+}
