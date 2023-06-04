@@ -260,16 +260,11 @@ void editarVerTransacoes()
 }
 
 void fechamentoLoja(){
-    char simbolos[4] = {'-', '\\', '|', '/'};
     Opcoes.lojaAberta = 0;
-
+    printc("[green]A atender os ultimos clientes. Por favor aguarde...[/green]");
     int i = 0;
     while(n_clientesAtivos){
-        int indexSimbol = i % 4;
-        printc("[green]A atender os ultimos clientes. Por favor aguarde... %c[/green]", simbolos[indexSimbol]);
         dormir(50);
-        i++;
-        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     }
     destruirLista(Global.caixas, destruirCaixa); // free area das caixas
     free(Global.PessoasAcabaramTempoDeCompra);
