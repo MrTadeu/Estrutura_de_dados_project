@@ -66,16 +66,12 @@ void verSeClienteEspecificoEmCaixa(){
 
 void verClientesEmLoja(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    if(Opcoes.lojaAberta == 0){
-        printc("\n\n[yellow]A loja está fechada! Não é possível ver os clientes em caixa.[/yellow]");
-    }else{
-        printc("[yellow]Listar Todos Clientes na Loja:[/yellow]\n");
-        for(int i = 0; i < n_clientesAtivos; i++){
-            char tempoEstimadoCompra[9], tempoEstimadoCaixa[9];
-            formatTime(Clientes[i]->tempoEstimadoCompra, tempoEstimadoCompra);
-            formatTime(Clientes[i]->tempoEstimadoCaixa, tempoEstimadoCaixa);
-            printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d Tempo Compra: %s Tempo Caixa: %s", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano, tempoEstimadoCompra, tempoEstimadoCaixa);
-        }
+    printc("[yellow]Listar Todos Clientes na Loja:[/yellow]\n");
+    for(int i = 0; i < n_clientesAtivos; i++){
+        char tempoEstimadoCompra[9], tempoEstimadoCaixa[9];
+        formatTime(Clientes[i]->tempoEstimadoCompra, tempoEstimadoCompra);
+        formatTime(Clientes[i]->tempoEstimadoCaixa, tempoEstimadoCaixa);
+        printf("\nID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d Tempo Compra: %s Tempo Caixa: %s", Clientes[i]->id, Clientes[i]->nome, Clientes[i]->saldoCartaoCliente, Clientes[i]->dataNascimento.dia, Clientes[i]->dataNascimento.mes, Clientes[i]->dataNascimento.ano, tempoEstimadoCompra, tempoEstimadoCaixa);
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
