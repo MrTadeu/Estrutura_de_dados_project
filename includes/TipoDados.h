@@ -334,8 +334,11 @@ void *threadTempo();
 void *threadSchedule();
 
 // historico.c
-void initHistoricos();
-void destruirHistoricos();
+void initHistoricoTransacoes();
+void limparHistoricoTransacoes();
+void destruirHistoricoTransacoes(Lista **historicoTransacoes);
+void initHistoricoDadosEstatisticos();
+void destruirHistoricoDadosEstatisticos();
 void destruirHistoricoSubStructTransacao(void *transacaoArg);
 void destruirHistoricoSubStructCliente(void* clienteArg);
 void recolhaDadosEstatisticosHistoricoTransacoes();

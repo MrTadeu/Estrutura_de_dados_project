@@ -1,12 +1,25 @@
 #include "../includes/TipoDados.h"
 
-void initHistoricos(){
-    //Histórico Transações
-        HistoricoDados.tamanhoVetorHash = 30;
-        HistoricoDados.HistoricoTransacoes = malloc(HistoricoDados.tamanhoVetorHash * sizeof(Lista*));
-        for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
-            HistoricoDados.HistoricoTransacoes[i] = criarLista();
-    
+void initHistoricoTransacoes(){
+    HistoricoDados.tamanhoVetorHash = 30;
+    HistoricoDados.HistoricoTransacoes = (Lista**) malloc(HistoricoDados.tamanhoVetorHash * sizeof(Lista*));
+    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
+        HistoricoDados.HistoricoTransacoes[i] = criarLista();
+}
+
+void limparHistoricoTransacoes(){
+    Lista **Aux = HistoricoDados.HistoricoTransacoes;
+    initHistoricoTransacoes();
+    destruirHistoricoTransacoes(Aux);
+}
+
+void destruirHistoricoTransacoes(Lista **historicoTransacoes){
+    for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
+        destruirLista(historicoTransacoes[i], destruirHistoricoSubStructCliente);
+    free(historicoTransacoes);
+}
+
+void initHistoricoDadosEstatisticos(){
     //DADOS INSTANTANEOS
     for (int i = 0; i < 24; i++){
         for (int j = 0; j < 6; j++){
@@ -19,6 +32,7 @@ void initHistoricos(){
             HistoricoDados.dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
         }      
     }
+    printf("\nolaaaaa1");
 
     //INTS
         HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario = (int **)malloc(sizeof(int*)*n_funcionarios);
@@ -33,6 +47,7 @@ void initHistoricos(){
         //coluna 0: n pessoas atendidas por cada caixa | coluna 1: n produtos vendidos por cada caixa
 
         HistoricoDados.mediaDiaria.numeroProdutosOferecidos = 0;
+    printf("\nolaaaaa2");
 
     //CHARS
         HistoricoDados.mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = (char*) malloc(sizeof(char)*11);
@@ -45,6 +60,7 @@ void initHistoricos(){
         strcpy(HistoricoDados.mediaDiaria.nomeFuncionarioVendeuMenosProdutos, "Calculando");
     
 
+    printf("\nolaaaaa3");
 
     //FLOATS    
         HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora = (float **)malloc(sizeof(float*)*24);
@@ -67,7 +83,7 @@ void initHistoricos(){
 }
 
 
-void destruirHistoricos(){
+void destruirHistoricoDadosEstatisticos(){
     // DADOS INSTANTANEOS
         for (int i = 0; i < 24; i++) {
             for (int j = 0; j < 6; j++) {
@@ -109,12 +125,6 @@ void destruirHistoricos(){
         free(HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa);
         free(HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_CadaHora);
         free(HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_CadaHora);
-
-    //!!Histórico Transações
-    for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
-        destruirLista(HistoricoDados.HistoricoTransacoes[i], destruirHistoricoSubStructCliente);
-    free(HistoricoDados.HistoricoTransacoes);
-    
 }
 
 void destruirHistoricoSubStructTransacao(void *transacaoArg){

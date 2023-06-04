@@ -455,10 +455,14 @@ void menuHistorico(){
             pesquisarCaixaNoHistorico();
         }
         if(opcao == i++){
-            initHistoricos();
             recolhaDadosEstatisticosHistoricoTransacoes();
+            printf("olaaaaa");
             calculosRecolhas();
+            printf("olaaaaa");
             destruirHistoricos();
+            printf("olaaaaa");
+            getchar();
+            getchar();
         }
     } while (opcao != 0);
 }
