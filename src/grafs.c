@@ -26,8 +26,8 @@ int CriarGrafico(char* caminhoFicheiro, int *X, int *Y){
 	StringReference errorMessage = new StringReference();
 	success = DrawScatterPlotFromSettings(imageReference, settings, errorMessage);
  */
-	double *eixoX = (double)X; 
-	double *eixoY = (double)Y; 
+	double *eixoX = (double*)X; 
+	double *eixoY = (double*)Y; 
 	_Bool success;
 
 	RGBABitmapImageReference *canvasReference = CreateRGBABitmapImageReference();
@@ -38,7 +38,7 @@ int CriarGrafico(char* caminhoFicheiro, int *X, int *Y){
         size_t length;
         double *pngdata = ConvertToPNG(&length, canvasReference->image);
 		/* WriteToFile(pngdata, length, "Historico/Dia 1/imgs/example1.png"); */
-        WriteToFile(pngdata, length, "Historico/Dia 1/imgs/example1.png");
+        WriteToFile(pngdata, length, caminhoFicheiro);
         DeleteImage(canvasReference->image);
 	}else{
 	    fprintf(stderr, "Error: ");

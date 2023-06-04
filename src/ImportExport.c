@@ -274,7 +274,7 @@ void exportarOpcoesInsta(){
     fclose(file);
 }
 
-void exportarHistoricoTransacoesParaTXT(HistoricoSubStructTransacao* historico, const char* nomeArquivo) {
+void exportarHistoricoTransacoesParaTXT(const char* nomeArquivo){
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
@@ -334,7 +334,7 @@ void exportarHistoricoTransacoesParaTXT(HistoricoSubStructTransacao* historico, 
     printf("Dados exportados com sucesso para o arquivo %s.\n", nomeArquivo);
 }
 
-void exportarHistoricoTransacoesParaCSV(HistoricoSubStructTransacao* historico, const char* nomeArquivo) {
+void exportarHistoricoTransacoesParaCSV(const char* nomeArquivo){
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
@@ -349,27 +349,29 @@ void exportarHistoricoTransacoesParaCSV(HistoricoSubStructTransacao* historico, 
             for (int j = 0; j < numeroMaximoCaixasPossivel; j++){
                 Elemento *caixasHistorico = clientesHistoricoInfo->caixas[j]->head;
                 while (caixasHistorico){   
-                    char horas[9];
                     HistoricoSubStructTransacao *caixasHistoricoInfo = (HistoricoSubStructTransacao *)caixasHistorico->Info;
-                    formatTime(caixasHistoricoInfo->tempoEstimadoCaixa, horas);
+                    char tempoCaixa[9], tempoAtraso[9], tempoCaixaProduto[9], tempoCompraProduto[9];
+                    formatTime(caixasHistoricoInfo->tempoEstimadoCaixa, tempoCaixa);
+                    formatTime(caixasHistoricoInfo->tempoAtraso, tempoAtraso);
 
-                    fprintf(arquivo, "Nome cliente;ID cliente;ID caixa;Nome funcionario;ID funcionario;Dia de transacao;Mes de transacao;Ano de transacao;Hora;Tempo de espera na fila;Tempo de atraso;Produtos;Preco total;Valor produto Oferecido;Saldo cartao cliente;\"");
+                    fprintf(arquivo, "Nome cliente;ID cliente;ID caixa;Nome funcionario;ID funcionario;Dia de transacao;Mes de transacao;Ano de transacao;Tempo de espera na fila;Tempo de atraso;Produto ID;Produto Nome;Produto Quantidade;Produto Preco;Produto tempo compra;Produto tempo caixa;Preco total;Valor produto Oferecido;Saldo cartao cliente;\"");
 
-                    fprintf(arquivo, "%s;%d;%d;%s;%d;%d;%d;%d;%s;%.2f;%.2f", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j+1, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, horas, caixasHistoricoInfo->tempoEstimadoCaixa / 1000.0, caixasHistoricoInfo->tempoAtraso / 1000.0);
+                    fprintf(arquivo, "%s;%d;%d;%s;%d;%d;%d;%d;%s;%s", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j+1, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, tempoCaixa, tempoAtraso);
 
                     Elemento *produtos = caixasHistoricoInfo->listaProdutos->head;
                     while (produtos){
                         ProdutoStruct *produtoInfo = (ProdutoStruct *)produtos->Info;
-                        fprintf(arquivo, "%d %s %dX %.2f€ %ds %ds,", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, produtoInfo->tempoCompra, produtoInfo->tempoCaixa / 1000.0);
+                        formatTime(produtoInfo->tempoCaixa, tempoCaixaProduto);
+                        formatTime(produtoInfo->tempoCompra, tempoCompraProduto);
+                        fprintf(arquivo, "%d %s %dX %.2f€ %s %s,", produtoInfo->id, produtoInfo->nome, produtoInfo->quantidadeProdutosRepetidos, produtoInfo->preco, tempoCompraProduto, tempoCaixaProduto);
                         produtos = produtos->next;
                     }
 
                     fprintf(arquivo,"\";%.2f€;%.2f€;%.2f€;", caixasHistoricoInfo->precoTotal, caixasHistoricoInfo->valorProdutoOferecido, caixasHistoricoInfo->movimentoCartaoCliente);
-
                     caixasHistorico = caixasHistorico->next;
-                }
+                }  
             }
-            clientesHistorico = clientesHistorico->next;
+        clientesHistorico = clientesHistorico->next;
         }
     }
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
@@ -379,6 +381,10 @@ void exportarHistoricoTransacoesParaCSV(HistoricoSubStructTransacao* historico, 
 //So falta fazer estas duas funcoes e fazer a thread schedule e o criar grafico funcionar e depois testar
 
 
-void exportHistoricoDadosEstatisticos(){
-    
+void exportHistoricoDadosEstatisticosParaTXT(const char* nomeArquivo){
+    //pass
+}
+
+void exportHistoricoDadosEstatisticosParaCSV(const char* nomeArquivo){
+    //pass
 }
