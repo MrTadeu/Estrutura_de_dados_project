@@ -277,12 +277,22 @@ void *ThreadCaixa(void *arg){
     int n_vendas = 0, atrasoSum = 0;
     float valorProdutoOferecido = 0.0, movimentoSaldoCliente = 0.0;
     ClienteStruct *pessoaEmAtendimento;
+    if (Opcoes.VerTransacoes){
+        printc("\n[red]%dº Caixa [/red]\n Funcionário: [blue]%s[/blue] a ir para caixa", caixa->id, caixa->funcionario->nome);
+    }
     dormir(5000);
+    if (Opcoes.VerTransacoes){
+        printc("\n[red]%dº Caixa [/red][green]Aberta[/green]", caixa->id);
+    }
     while(1){
         if(caixa->listaPessoas->quantidadeElementos > 0){
             pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         }
-        if (caixa->fecharUrgencia == 1){
+        else{
+            if (Opcoes.VerTransacoes){
+                printc("\n[red]%dº Caixa: fechada[/red]\n", caixa->id);
+            }
+            
             caixa->aberta = 0;
             caixa->threadAberta = 0;
             Opcoes.numCaixasAbertas--;
@@ -294,7 +304,6 @@ void *ThreadCaixa(void *arg){
             if(caixa->listaPessoas->head == NULL)
                 free(caixa->listaPessoas);
             caixa->listaPessoas = criarLista(); 
-            printc("[red]Caixa %d fechada[/red]\n", caixa->id);
             return NULL;
         }
         pthread_mutex_lock(&caixa->lock);
@@ -314,10 +323,13 @@ void *ThreadCaixa(void *arg){
         free(RemElementoInicio(caixa->listaPessoas)); 
         pthread_mutex_unlock(&caixa->lock); 
 
-        if(caixa->fecharUrgencia == 1){
+
+        if(caixa->fecharUrgencia){ // se quiser realmente ver aumentar o tempo de dormir na threadGlobal para selecionar as pesseoas mais devagar
             fecharUrgencia(caixa);
-            printf("\n\tCaixa %d ordem de fechamento\n", caixa->id);
+            /* printf("\n\tCaixa %d ordem de fechamento\n", caixa->id);
+            printc("\n\n[yellow]Caixa quantidade %d[/yellow]\n", caixa->listaPessoas->quantidadeElementos);  */           
         }
+        
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);
 
