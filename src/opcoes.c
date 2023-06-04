@@ -269,6 +269,7 @@ void fechamentoLoja(){
         printc("[green]A atender os ultimos clientes. Por favor aguarde... %c[/green]", simbolos[indexSimbol]);
         dormir(50);
         i++;
+        fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     }
     destruirLista(Global.caixas, destruirCaixa); // free area das caixas
     free(Global.PessoasAcabaramTempoDeCompra);
