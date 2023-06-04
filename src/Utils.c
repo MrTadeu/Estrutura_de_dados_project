@@ -246,17 +246,42 @@ int validarData(DataStruct date, int minAno, int maxAno) {
 }
 
 void formatTime(long long milliseconds, char* string){// STRING SIZE[9]
+    int flag = 0;
+    if(milliseconds<0){
+        milliseconds *= -1;
+        flag = 1;
+    }
     time_t segundos = milliseconds / 1000;
     struct tm* time = localtime(&segundos);
 
     if (time->tm_hour > 0) {
-        strftime(string, 9, "%H:%M", time);
+        if(flag == 1){
+            strftime(string, 9, "-%H:%M", time);
+        }
+        else{
+            strftime(string, 9, "%H:%M", time);
+        }
     } else if (time->tm_min > 0) {
-        strftime(string, 9, "%Mm %Ss", time);
+        if(flag == 1){
+            strftime(string, 9, "-%Mm %Ss", time);
+        }
+        else{
+            strftime(string, 9, "%Mm %Ss", time);
+        }
     } else if (time->tm_sec == 0) {
-        snprintf(string, 9, "%lldms", milliseconds);
+        if(flag == 1){
+            snprintf(string, 9, "-%lldms", milliseconds);
+        }
+        else{
+            snprintf(string, 9, "%lldms", milliseconds);
+        }
     } else {
-        snprintf(string, 9, "%ds", time->tm_sec);
+        if(flag == 1){
+            snprintf(string, 9, "-%ds", time->tm_sec);
+        }
+        else{
+            snprintf(string, 9, "%ds", time->tm_sec);
+        }
     }
 }
 
