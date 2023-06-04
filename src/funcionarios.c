@@ -27,7 +27,7 @@ void verFuncionarios(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[yellow]Listar Todos Funcionarios:[/yellow]\n");
     for (int i = 0; i < n_funcionarios; i++){
-        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2fs Bonus: %.2f", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
+        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2fs Bonus: %.2f€", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -42,7 +42,7 @@ void verFuncionariosCaixa(){
     else{
         printc("[yellow]Listar Todos Funcionarios em caixa:[/yellow]\n");
         for (int i = 0; i < n_funcionariosAtivos; i++){
-            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
+            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f€", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
         }
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
@@ -54,7 +54,7 @@ void verFuncionariosInativos(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     printc("[yellow]Listar Todos Funcionarios Inativos:[/yellow]\n");
     for (int i = n_funcionariosAtivos; i < n_funcionarios; i++){
-        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
+        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f€", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
@@ -75,7 +75,7 @@ void pesquisarFuncionariosID(){
         getchar();
     }
     else{
-        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[pos]->id, Funcionarios[pos]->nome, (getNivelFuncionario(Funcionarios[pos])).salario, Funcionarios[pos]->n_vendas, Funcionarios[pos]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[pos]));
+        printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f€", Funcionarios[pos]->id, Funcionarios[pos]->nome, (getNivelFuncionario(Funcionarios[pos])).salario, Funcionarios[pos]->n_vendas, Funcionarios[pos]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[pos]));
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         bufferclear();
         getchar();
@@ -90,7 +90,7 @@ void pesquisarFuncionariosNome(){
     int flag = 0;
     for (int i = 0; i < n_funcionarios; i++){
         if (PesquisaParecido(nome, Funcionarios[i]->nome) <= 4){
-            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
+            printf("\nID: %d Nome: %s Salario: %.2f€ Numero Vendas: %d Atraso medio: %.2f Bonus: %.2f€", Funcionarios[i]->id, Funcionarios[i]->nome, (getNivelFuncionario(Funcionarios[i])).salario, Funcionarios[i]->n_vendas, Funcionarios[i]->atrasoMedio/1000.0, getBonusFuncionario(Funcionarios[i]));
             flag = 1;
         }
     }
@@ -117,7 +117,7 @@ void editarFuncionarios(){
     }
     else{
         printc("[yellow]Listar Dados do Funcionario a editar:[/yellow]\n");
-        printf("\nID: %d \nNome: %s \nSalario: %.2f€ \nNumero Vendas: %d \nAtraso medio: %.2f \nBonus: %.2f", Funcionarios[pos]->id, Funcionarios[pos]->nome, (getNivelFuncionario(Funcionarios[pos])).salario, Funcionarios[pos]->n_vendas, Funcionarios[pos]->atrasoMedio/10000.0, getBonusFuncionario(Funcionarios[pos]));
+        printf("\nID: %d \nNome: %s \nSalario: %.2f€ \nNumero Vendas: %d \nAtraso medio: %.2f \nBonus: %.2f€", Funcionarios[pos]->id, Funcionarios[pos]->nome, (getNivelFuncionario(Funcionarios[pos])).salario, Funcionarios[pos]->n_vendas, Funcionarios[pos]->atrasoMedio/10000.0, getBonusFuncionario(Funcionarios[pos]));
 
         char nome[100];
         /* bufferclear(); */
@@ -142,7 +142,6 @@ void adicionarFuncionario(){
     printc("[blue]Introduza os dados do Funcionario:[/blue]\n");
     printc("\n\n[yellow]ID FUNCIONARIO: %d[/yellow]\n", Funcionarios[n_funcionarios]->id);
 
-    /* bufferclear(); */
     scanfv("%[^\n]", &nome, "Nome: ", "Input invalido, tente novamente: ", validateIsAlphabetic);
     Funcionarios[n_funcionarios]->nome = (char*)malloc(sizeof(char) * (strlen(nome) + 1));
     strcpy(Funcionarios[n_funcionarios]->nome, nome);    

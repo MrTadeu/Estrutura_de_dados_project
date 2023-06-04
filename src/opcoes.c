@@ -260,5 +260,21 @@ void editarVerTransacoes()
 }
 
 void fechamentoLoja(){
-    //pass
+    char simbolos = {'-', '\\', '|', '/'};
+    Opcoes.lojaAberta = 0;
+
+    int i = 0;
+    while(n_clientesAtivos){
+        printc("[green]A atender os ultimos clientes. Por favor aguarde... %c[/green]", simbolos[i % 4]);
+        dormir(50);
+        i++;
+    }
+    destruirLista(Global.caixas, destruirCaixa); // free area das caixas
+    free(Global.PessoasAcabaramTempoDeCompra);
+    exportHistoricoTransacoes();
+    destruirHistoricoTransacoes();
+    destruirHistoricoDadosEstatisticos();
+    
+    
 }
+

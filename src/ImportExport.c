@@ -271,6 +271,5 @@ void exportarOpcoesInsta(){
         exit(1);
     }
     fwrite(&Opcoes, sizeof(OpcaoStruct), 1, file);
-
     fclose(file);
 }

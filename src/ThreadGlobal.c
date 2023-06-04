@@ -53,7 +53,6 @@ void *ThreadEsperaTempoCompra(void *pessoa){
 void changeStateThreadGlobal(){
     if(Opcoes.lojaAberta == 0 && menuvalidarCaixaFuncionarios()){
         Opcoes.lojaAberta = 1;
-        Global.fecharLoja = 0;
         pthread_t GlobalThread;
 
         pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
@@ -70,7 +69,7 @@ void changeStateThreadGlobal(){
         /* pthread_join(GlobalThread, NULL); */// <--- Nao dar join porque a thread global vai ficar sempre a correr
     }
     else if(Opcoes.lojaAberta == 1){
-        Opcoes.lojaAberta = 0;
+        fechamentoLoja();
         //!antes de poderes destruir o historico, todas as pessoas da caixaas tem de ser atendidas ou removidas
         //!destruirHistoricos();
     }
