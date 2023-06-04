@@ -267,10 +267,14 @@ void fechamentoLoja(){
     while(n_clientesAtivos){
         printc("[green]A atender os ultimos clientes. Por favor aguarde... %c[/green]", simbolos[i % 4]);
         dormir(50);
-        destruirLista(Global.caixas, destruirCaixa);
         i++;
     }
-    //!destruirHistoricos();
-    //pass
+    destruirLista(Global.caixas, destruirCaixa); // free area das caixas
+    free(Global.PessoasAcabaramTempoDeCompra);
+    exportHistoricoTransacoes();
+    destruirHistoricoTransacoes();
+    destruirHistoricoDadosEstatisticos();
+    
+    
 }
 
