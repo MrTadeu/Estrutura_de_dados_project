@@ -49,13 +49,31 @@ void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEmAtendimento){
     }
 }
 
+void fecharEscolherFecharCaixa(){
+    int id;
+    scanfv("%d", &id, "Id de caixa que deseja fechar: ", "Tem de ser um numero entre 1 e o numero máximo de caixas abertas", validateRange, 1, Opcoes.numCaixasAbertas);
+    Elemento *caixa = Global.caixas->head;
+    while (caixa){
+        if (((CaixaStruct *) caixa->Info)->id == id){
+            ((CaixaStruct *) caixa->Info)->fecharUrgencia = 1;
+            printf("\n\tCaixa %d por fechar %d\n", id, ((CaixaStruct *) caixa->Info)->fecharUrgencia);
+            break;          
+        }
+        caixa = caixa->next;
+    }
+    printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
+    bufferclear();
+    getchar();
+}
+
+
 void fecharUrgencia(CaixaStruct *caixa){
     if (!caixa){
         printc("\n\t[red]Error[/red] Given caixa is NULL\n");
         return;
     }
     
-    caixa->aberta = 0;
+    /* caixa->aberta = 0; */
     pthread_mutex_lock(&PessoasAcabaramTempoDeCompraLock);
     caixa->listaPessoas->tail->next = Global.PessoasAcabaramTempoDeCompra->head;
     Global.PessoasAcabaramTempoDeCompra->head = caixa->listaPessoas->head;
@@ -264,7 +282,7 @@ void *ThreadCaixa(void *arg){
         if(caixa->listaPessoas->quantidadeElementos > 0){
             pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
         }
-        else{
+        if (caixa->fecharUrgencia == 1){
             caixa->aberta = 0;
             caixa->threadAberta = 0;
             Opcoes.numCaixasAbertas--;
@@ -276,6 +294,7 @@ void *ThreadCaixa(void *arg){
             if(caixa->listaPessoas->head == NULL)
                 free(caixa->listaPessoas);
             caixa->listaPessoas = criarLista(); 
+            printc("[red]Caixa %d fechada[/red]\n", caixa->id);
             return NULL;
         }
         pthread_mutex_lock(&caixa->lock);
@@ -295,13 +314,16 @@ void *ThreadCaixa(void *arg){
         free(RemElementoInicio(caixa->listaPessoas)); 
         pthread_mutex_unlock(&caixa->lock); 
 
-        if(caixa->fecharUrgencia)
+        if(caixa->fecharUrgencia == 1){
             fecharUrgencia(caixa);
+            printf("\n\tCaixa %d ordem de fechamento\n", caixa->id);
+        }
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);
 
         Global.n_pessoasEmLoja--;
     }
+    return NULL;
 }
 
 void removerCaixa(){
@@ -323,4 +345,9 @@ void removerCaixa(){
     printc("\n\n [yellow]%d Caixa(s) removida(s) com sucesso. Pressione Enter para continuar...[/yellow]\n\n", diferenca);
     bufferclear();
     getchar();
+}
+
+void destruirCaixa(void* Caixa){
+    CaixaStruct* caixa = (CaixaStruct*)Caixa;
+    destruirLista(caixa->listaPessoas, destruirCliente);
 }

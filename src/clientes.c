@@ -393,8 +393,6 @@ ClienteStruct *criarGuest(){
 void destruirCliente(void *Cliente){
     ClienteStruct *cliente = (ClienteStruct*)Cliente;
     destruirLista(cliente->listaProdutos, destruirProduto);
-    free(cliente->nome);
-    free(cliente);
 }
 
 float oferecerBrinde(ClienteStruct *cliente, CaixaStruct *caixa){
