@@ -17,6 +17,8 @@ int main(){
     
     Init();
     menu();
+    //tem de ser sempre rodadas
+    fechamentoLoja();
     closeAll();
-    exportarOpcoes();
+    //
 }

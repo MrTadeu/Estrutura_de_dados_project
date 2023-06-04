@@ -18,12 +18,9 @@ void limparHistoricoTransacoes(){
 }
 
 void destruirHistoricoTransacoes(Lista **historicoTransacoes){
-    for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
-    printf("\nxxxxxxxxxxxx1");
+    for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
         destruirLista(historicoTransacoes[i], destruirHistoricoSubStructCliente);
-    }
     free(historicoTransacoes);
-    printf("bitch");
 }
 
 void initHistoricoDadosEstatisticos(){

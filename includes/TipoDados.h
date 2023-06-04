@@ -219,6 +219,7 @@ void editarProbGerarPessoa();
 void editarLotacaoMax();
 void editarLojaAbertaAranque();
 void Init();
+void fechamentoLoja();
 void closeAll();
 void editarVerTransacoes();
 void editarProbUsarSaldoCartao();
@@ -303,6 +304,7 @@ void guardarFuncionarioTxt(FILE *file, int i);
 void guardarProdutoTxt(FILE *file, int i);
 void importOpcoes();
 void exportarOpcoes();
+void exportarOpcoesInsta();
 
 // Utils.c
 void setPortugues();

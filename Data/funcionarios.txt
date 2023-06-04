@@ -1,15 +1,15 @@
 14
-5919	Fabiana Costa Silva Coelho	12	-476846208
-3100	Joao Maria Marques 	32	-567982848
-9140	Ines Fernandes Guilherme Silva	29	-561443200
-9164	Carolina Rita Cruz Almeida	30	-884576896
-5037	Beatriz Manuel dos Antos	36	-1011392256
-7046	Carolina Gomes Moutinho	28	-930419840
-8839	Roberto Maria Silva Pina	27	-753289984
-3251	Monica Diogo Santos Fardilha	35	-394333216
-7353	Ines Emanuel Munhoz 	19	-523272320
-3044	Ana Beatriz Campos Pereira	28	-824455744
-6129	Maria Soraia Bullitta Portela	30	-434027552
-6477	Pedro Ferreira Alves Silva	28	-812555456
-3562	Catarina Nicole Silva Silva	26	-521268800
-2856	Ana Beatriz Campos Pereira	23	-843043968
+5919	Fabiana Costa Silva Coelho	0	0
+3100	Joao Maria Marques 	0	0
+9140	Ines Fernandes Guilherme Silva	0	0
+9164	Carolina Rita Cruz Almeida	0	0
+5037	Beatriz Manuel dos Antos	0	0
+7046	Carolina Gomes Moutinho	0	0
+8839	Roberto Maria Silva Pina	0	0
+3251	Monica Diogo Santos Fardilha	0	0
+7353	Ines Emanuel Munhoz 	0	0
+3044	Ana Beatriz Campos Pereira	0	0
+6129	Maria Soraia Bullitta Portela	0	0
+6477	Pedro Ferreira Alves Silva	0	0
+3562	Catarina Nicole Silva Silva	0	0
+2856	Ana Beatriz Campos Pereira	0	0

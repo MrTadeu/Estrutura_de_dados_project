@@ -131,8 +131,11 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
   
     //!IMPEDIR QUE SE MANDE ALGUEM PARA UMA CAIXA FECHADA POR URGENCIA  
     while (caixaAux){
-        if(i++ >= Opcoes.numCaixasTotal)
+        if(i++ >= Opcoes.numCaixasTotal){
+            caixaAux = caixaAux->next;
             continue;
+        }
+            
         CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
             SegundaMenor = menor;
@@ -316,13 +319,13 @@ void removerCaixa(){
     printc(" [yellow]Quantidade fucionarios:[/yellow] %d", n_funcionarios);
     int diferenca = Opcoes.numCaixasTotal - n_funcionarios;
     printc("\n [yellow]Quantidade de caixas a remover:[/yellow] %d\n", diferenca);
-    int diferencaAux = diferenca;
+/*     int diferencaAux = diferenca;
     while (diferenca > 0){
         destruirElemento(RemElementoUltimo(Global.caixas), destruirCaixa);
         diferenca--;
-    }
-    Opcoes.numCaixasTotal -= diferencaAux;
-    printc("\n\n [yellow]%d Caixa(s) removida(s) com sucesso. Pressione Enter para continuar...[/yellow]\n\n", diferencaAux);
+    } */
+    Opcoes.numCaixasTotal -= diferenca;
+    printc("\n\n [yellow]%d Caixa(s) removida(s) com sucesso. Pressione Enter para continuar...[/yellow]\n\n", diferenca);
     bufferclear();
     getchar();
 }
