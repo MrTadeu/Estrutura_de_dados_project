@@ -11,7 +11,6 @@ void Init(){
     if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();
     }
-    
 }
 
 void closeAll(){
@@ -41,11 +40,24 @@ void editarLojaAbertaAranque(){
 void editarNumCaixas(){
     int n;
     scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 1 e menor que 50!", validateRange, 1, 50);
-    Opcoes.numCaixasTotalUpdate = n;
+    
+    if(Opcoes.numCaixasTotal > n){
+        Opcoes.numCaixasTotal = n;
+        Elemento* caixa = Global.caixas->head;
+        while(caixa){
+            CaixaStruct* caixaInfo = (CaixaStruct*)caixa->Info;
+            
+            caixa = caixa->next;
+        }
+    }
+    
+
     printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+
+    
     exportarOpcoes();
 }
 

@@ -158,7 +158,7 @@ void *threadSchedule(){
         }
          dormir(1000); 
     } */
-    return NULL;
+    return NULL; 
 }
 
 void *threadTempo(){
