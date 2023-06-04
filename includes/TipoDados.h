@@ -196,7 +196,7 @@ extern ClienteStruct **Clientes;
 extern FuncionarioStruct **Funcionarios;
 extern ProdutoStruct *Produtos;
 extern long long tempoEmMilisegundos;
-extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
+extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos, numeroMaximoCaixasPossivel;
 
 int CriarGrafico();
 // menu.c

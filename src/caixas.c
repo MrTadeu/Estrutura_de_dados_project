@@ -3,7 +3,7 @@
 void criarCaixaInit(){
     Global.caixas = criarLista();
     Global.n_pessoasEmLoja = 0;
-    for (int i = 0; i < Opcoes.numCaixasTotal; i++){
+    for (int i = 0; i < numeroMaximoCaixasPossivel; i++){
         CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
         caixa->id = i+1;
         pthread_mutex_init(&caixa->lock, NULL);
@@ -127,9 +127,12 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
+    int i = 0;
   
     //!IMPEDIR QUE SE MANDE ALGUEM PARA UMA CAIXA FECHADA POR URGENCIA  
     while (caixaAux){
+        if(i++ >= Opcoes.numCaixasTotal)
+            continue;
         CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
             SegundaMenor = menor;

@@ -38,26 +38,31 @@ void editarLojaAbertaAranque(){
 }
 
 void editarNumCaixas(){
-    int n;
+    int n, option;
     scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 1 e menor que 50!", validateRange, 1, 50);
     
     if(Opcoes.numCaixasTotal > n){
         Opcoes.numCaixasTotal = n;
         Elemento* caixa = Global.caixas->head;
+        int i = 0;
+
+        scanfv("%d", &option, "\nQuer remover caixas em funcionamento. Pretende fecha-las Com ou sem urgência? (1 --> sem urgência | 2 --> com urgência)", "(1 --> sem urgência | 2 --> com urgência)", validateRange, 1, 2);
         while(caixa){
             CaixaStruct* caixaInfo = (CaixaStruct*)caixa->Info;
-            
+            if(i++ >= Opcoes.numCaixasTotal){
+                if(option == 1)
+                    caixaInfo->aberta = 0;
+                else
+                    caixaInfo->fecharUrgencia = 1;
+            }
             caixa = caixa->next;
         }
     }
-    
 
     printc("\n[green]O número de caixas foi alterado para %d[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
-
-    
     exportarOpcoes();
 }
 
