@@ -275,9 +275,10 @@ void exportarOpcoesInsta(){
 }
 
 void exportHistoricoTransacoes(){
-    
+
 }
 
 void exportHistoricoDadosEstatisticos(){
 
 }
+//So falta fazer estas duas funcoes e fazer a thread schedule e o criar grafico funcionar e depois testar
