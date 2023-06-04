@@ -20,6 +20,7 @@ void menu(){
         printc("**        [blue]%d [/blue]-> Menu Produtos                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Transações                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Historico                   **\n", i++);
+        printc("**        [blue]%d [/blue]-> Fechar Caixa por urgência        **\n", i++);
         printc("**        [blue]%d [/blue]-> Criar Grafico                    **\n", i++);
         printc("**************************************************\n");
         scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
@@ -55,6 +56,9 @@ void menu(){
         }
         if (opcao == i++){
             menuHistorico();
+        }
+        if (opcao == i++){
+            fecharEscolherFecharCaixa();
         }
         if (opcao == i++){
             CriarGrafico();
