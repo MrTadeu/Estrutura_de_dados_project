@@ -307,6 +307,8 @@ void guardarProdutoTxt(FILE *file, int i);
 void importOpcoes();
 void exportarOpcoes();
 void exportarOpcoesInsta();
+void exportHistoricoTransacoes();
+void exportHistoricoDadosEstatisticos();
 
 // Utils.c
 void setPortugues();
