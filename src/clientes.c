@@ -411,7 +411,7 @@ float oferecerBrinde(ClienteStruct *cliente, CaixaStruct *caixa){
         }
         cliente->precoTotalProdutos -= ((ProdutoStruct*)produtoOferecido->Info)->preco;
         if(Opcoes.VerTransacoes == 1){
-            printc("\n[red]BRINDE\nID Caixa: %d\nNome Cliente: %s\nID Produto: %d\nNome Produto: %d[/red]", caixa->id, cliente->nome, ((ProdutoStruct*)produtoOferecido->Info)->id, ((ProdutoStruct*)produtoOferecido->Info)->nome);
+            printc("\n[yellow]%dº Caixa BRINDE[/yellow]\n Nome Cliente: [blue]%s[/blue]\n ID Produto: [green]%d[/green]\n Nome Produto: [blue]%s[/blue]", caixa->id, cliente->nome, ((ProdutoStruct*)produtoOferecido->Info)->id, ((ProdutoStruct*)produtoOferecido->Info)->nome);
         }
         ((ProdutoStruct*)produtoOferecido->Info)->oferecido = 1;
         return precoMin;
