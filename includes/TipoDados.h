@@ -264,6 +264,7 @@ void criarCaixaInit();
 void *ThreadCaixa(void *arg);
 void removerCaixa();
 void destruirCaixa(void* Caixa);
+void fecharEscolherFecharCaixa();
 
 // funcionarios.c
 int encontrarIdFuncionario(int id);

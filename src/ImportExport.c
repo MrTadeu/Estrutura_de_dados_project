@@ -24,7 +24,7 @@ void importOpcoes(){
         Opcoes.percentagemPrecoAngariarSaldo = 10; // 0-10%
         Opcoes.percentagemParaAtraso = 20;
         Opcoes.lotacaoMaxima = 200;
-        Opcoes.lojaAberta = 1;
+        Opcoes.lojaAberta = 0;
         Opcoes.VerTransacoes = 0;
         Opcoes.threadGlobalAranque = 0;
         Opcoes.nivelFuncionario[0].n_vendas = 10000;  
@@ -253,6 +253,7 @@ void exportarOpcoes(){
     Opcoes.lojaAberta = 0;
     Opcoes.VerTransacoes = 0;
     Opcoes.multiplicadorTempo = 1.0;
+    Opcoes.numCaixasAbertas = 0;
     FILE *file = fopen("Data/opcoes.bin", "wb");
     if (!file) {
         printc("\n\n\tImpossivel abrir Ficheiro [red]opcoes.bin[/red]\n\n");
