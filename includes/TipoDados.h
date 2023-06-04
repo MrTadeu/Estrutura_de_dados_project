@@ -328,6 +328,7 @@ void scanfv(const char *formato, void *DataScanf, char *MensagemRepitida, char *
 int validateRange(void *DataScanf, void *args);
 int validateRangeFloat(void *DataScanf, void *args);
 int validateIsAlphabetic(void *DataScanf, void *args);
+void SignalInstrucao(int sinal);
 
 // ThreadGlobal.c
 void changeStateThreadGlobal();
