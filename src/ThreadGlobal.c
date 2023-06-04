@@ -134,10 +134,11 @@ void *threadSchedule(){
         if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
             //printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
+            /* recolhaDadosEstatisticosHistoricoPeriodica(dataAnterior.hora, dataAnterior.minuto); */
         }
         if (dataAtual.hora % 1 == 0 && dataAnterior.hora != dataAtual.hora){ // bater de 1 em 1 hora
             dataAnterior.hora = formatTimeStruct(tempoEmMilisegundos).hora;
-             printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
+            //printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
         }
         if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
             dataAnterior.dia = formatTimeStruct(tempoEmMilisegundos).dia;
@@ -154,24 +155,20 @@ void *threadSchedule(){
             //printf("%s\n", imgsString);
             stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
 
+
+            //Recolha de dados estatísticos
+            /* recolhaDadosEstatisticosHistoricoTransacoes();
+            calculosRecolhas(); */
+            /* exportHistoricoTransacoes();
+            exportHistoricoDadosEstatisticos(); */
+
+            //Criação de gráfico
+            //CriarGrafico(imgsString, int *X, int *Y);
             
-        }
-         dormir(1000); 
-        if(opcao == i++){
-            recolhaDadosEstatisticosHistoricoTransacoes();
-            printf("olaaaaa");
-            calculosRecolhas();
-            printf("olaaaaa");
-            exportHistoricoTransacoes();
-            exportHistoricoDadosEstatisticos();
-            criarGrafico();
-            criarGrafico();
-            criarGrafico();
-            criarGrafico();
-            limparHistoricoTransacoes();
+            
+            /* limparHistoricoTransacoes();
             destruirHistoricoDadosEstatisticos();
-            initHistoricoDadosEstatisticos();
-            printf("olaaaaa");
+            initHistoricoDadosEstatisticos(); */
         }
     }
     return NULL; 

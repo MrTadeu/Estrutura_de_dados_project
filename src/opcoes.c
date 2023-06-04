@@ -262,7 +262,6 @@ void editarVerTransacoes()
 void fechamentoLoja(){
     Opcoes.lojaAberta = 0;
     printc("[green]A atender os ultimos clientes. Por favor aguarde...[/green]");
-    int i = 0;
     while(n_clientesAtivos){
         dormir(50);
     }
