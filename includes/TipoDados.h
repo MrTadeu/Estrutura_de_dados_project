@@ -12,6 +12,7 @@
 #include <sys/time.h>
 #include <stdarg.h>
 #include <sys/stat.h>
+#include <signal.h>
 
 // Criar as threads
 #ifndef PTHREAD_H
@@ -327,6 +328,7 @@ void scanfv(const char *formato, void *DataScanf, char *MensagemRepitida, char *
 int validateRange(void *DataScanf, void *args);
 int validateRangeFloat(void *DataScanf, void *args);
 int validateIsAlphabetic(void *DataScanf, void *args);
+void SignalInstrucao(int sinal);
 
 // ThreadGlobal.c
 void changeStateThreadGlobal();

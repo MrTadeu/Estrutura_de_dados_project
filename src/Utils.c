@@ -36,6 +36,19 @@
     #endif
 #endif
 
+void SignalInstrucao(int sinal){
+    if(sinal == SIGINT){
+        printc("\n[red]A sair do programa... Ctrl+C[/red]\n");
+        /* fechamentoLoja(); */
+        closeAll();
+        exit(0);
+    }
+    if (sinal == SIGABRT){
+        printc("\n[red]A sair do programa... Core Dump[/red]\n"); // grave falha (despejo de memória) do programa
+        // não fazer exit pq o sistema operacional no caso o seu Debug irá me fornecer informações adicionais e fazer isso
+    }
+}
+
 void setPortugues(){
     SET_UTF8_CODEPAGE;
     setlocale(LC_ALL, "pt_PT.UTF-8");
