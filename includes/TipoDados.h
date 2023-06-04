@@ -65,8 +65,7 @@ typedef struct
     float preco;
 } ProdutoStruct;
 
-typedef struct
-{
+typedef struct{
     int dia, mes, ano, hora, minuto, segundo;
 } DataStruct;
 
@@ -126,7 +125,7 @@ typedef enum
 typedef struct
 {
     Lista *caixas, *PessoasAcabaramTempoDeCompra;
-    int n_pessoasEmLoja, fecharLoja;
+    int n_pessoasEmLoja;
 } GlobalStruct;
 
 typedef struct{
@@ -264,6 +263,7 @@ void atenderPessoa(CaixaStruct *caixa);
 void criarCaixaInit();
 void *ThreadCaixa(void *arg);
 void removerCaixa();
+void destruirCaixa(void* Caixa);
 
 // funcionarios.c
 int encontrarIdFuncionario(int id);

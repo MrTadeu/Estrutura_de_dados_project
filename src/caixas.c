@@ -329,3 +329,8 @@ void removerCaixa(){
     bufferclear();
     getchar();
 }
+
+void destruirCaixa(void* Caixa){
+    CaixaStruct* caixa = (CaixaStruct*)Caixa;
+    destruirLista(caixa->listaPessoas, destruirCliente);
+}
