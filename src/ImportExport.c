@@ -378,13 +378,42 @@ void exportarHistoricoTransacoesParaCSV(const char* nomeArquivo){
     fclose(arquivo);
     printf("Dados exportados com sucesso para o arquivo %s.\n", nomeArquivo);
 }
-//So falta fazer estas duas funcoes e fazer a thread schedule e o criar grafico funcionar e depois testar
-
 
 void exportHistoricoDadosEstatisticosParaTXT(const char* nomeArquivo){
-    //pass
+    FILE* arquivo = fopen(nomeArquivo, "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
+        return;
+    }
+    fprintf(arquivo, "Horas;Minutos;ID Caixa;Tempo Espera;Numero de clientes na fila;Numero de caixas abertas;Numero de clientes no supermercado\n");
+    for (int i = 0; i < 24; i++){
+        for (int j = 0; j < 6; j++){
+            for(int l = 0; l < numeroMaximoCaixasPossivel; l++){
+                char hora[6], tempoEspera[9];
+                sprintf(hora, "%d:%d", i+1, j+1);
+                format(HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], tempoEspera);
+                fprintf("Hora %s ID Caixa: %d Tempo de espera: %s Número de cleintes na fila: %d Número de caixas abertas: %d Número de clientes no supermercado: %d\n", hora, l+1, tempoEspera, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
+            }
+        }
+    }
+    fclose(arquivo);
+    printf("Dados exportados com sucesso para o arquivo %s.\n", nomeArquivo);
 }
 
 void exportHistoricoDadosEstatisticosParaCSV(const char* nomeArquivo){
-    //pass
+    FILE* arquivo = fopen(nomeArquivo, "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
+        return;
+    }
+    fprintf(arquivo, "Horas;Minutos;ID Caixa;Tempo Espera;Numero de clientes na fila;Numero de caixas abertas;Numero de clientes no supermercado\n");
+    for (int i = 0; i < 24; i++){
+        for (int j = 0; j < 6; j++){
+            for(int l = 0; l < numeroMaximoCaixasPossivel; l++){
+                fprintf(arquivo, "%d;%d;%d;%d;%d;%d;%d;%d\n", i+1, j+1, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
+            }
+        }
+    }
+    fclose(arquivo);
+    printf("Dados exportados com sucesso para o arquivo %s.\n", nomeArquivo);
 }

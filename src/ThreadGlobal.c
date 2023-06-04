@@ -170,6 +170,18 @@ void *threadSchedule(){
 //            destruirHistoricoDadosEstatisticos();
 //            initHistoricoDadosEstatisticos(); */
 //        }
+
+/* recolhaDadosEstatisticosHistoricoTransacoes();
+calculosRecolhas();
+exportHistoricoTransacoes();
+exportHistoricoDadosEstatisticos();
+criarGrafico();
+criarGrafico();
+criarGrafico();
+criarGrafico();
+limparHistoricoTransacoes();
+destruirHistoricoDadosEstatisticos();
+initHistoricoDadosEstatisticos(); */
 //    }
 //    return NULL; 
 }
