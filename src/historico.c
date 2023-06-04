@@ -9,14 +9,21 @@ void initHistoricoTransacoes(){
 
 void limparHistoricoTransacoes(){
     Lista **Aux = HistoricoDados.HistoricoTransacoes;
+    printf("\nolaa1");
     initHistoricoTransacoes();
+    printf("\nolaa2");
+
     destruirHistoricoTransacoes(Aux);
+    printf("\nolaa3");
 }
 
 void destruirHistoricoTransacoes(Lista **historicoTransacoes){
-    for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
+    for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
+    printf("\nxxxxxxxxxxxx1");
         destruirLista(historicoTransacoes[i], destruirHistoricoSubStructCliente);
+    }
     free(historicoTransacoes);
+    printf("bitch");
 }
 
 void initHistoricoDadosEstatisticos(){
@@ -143,7 +150,6 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento *clientesHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
         while (clientesHistorico){
-            
             HistoricoSubStructCliente *clientesHistoricoInfo = (HistoricoSubStructCliente *)clientesHistorico->Info;
             for (int j = 0; j < numeroMaximoCaixasPossivel; j++){
                 Elemento *caixasHistorico = clientesHistoricoInfo->caixas[j]->head;
@@ -152,12 +158,13 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
                 while (caixasHistorico){
                     int flag = 1;
                     HistoricoSubStructTransacao *caixasHistoricoInfo = (HistoricoSubStructTransacao *)caixasHistorico->Info;
+
                     HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[j][1] += caixasHistoricoInfo->listaProdutos->quantidadeElementos; //!numProdutos recolhido
                     if (caixasHistoricoInfo->valorProdutoOferecido > 0){
+                        
                         HistoricoDados.mediaDiaria.numeroProdutosOferecidos++; //!numeroProdutosOferecidos recolhido
                         HistoricoDados.mediaDiaria.valorTotalProdutosOferecidos += caixasHistoricoInfo->valorProdutoOferecido; //!valorProdutosOferecidos recolhido
                     }
-
                     for (int l = 0; l < n_funcionarios; l++){
                         if(HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] == 0)
                             HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] = caixasHistoricoInfo->funcionario->id;
@@ -170,13 +177,12 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
                     }
                     caixasHistorico = caixasHistorico->next;
                 }
-            clientesHistorico = clientesHistorico->next;
             }
+            clientesHistorico = clientesHistorico->next;
         }
     }
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
 }
-
 void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto){
     Elemento* caixa = Global.caixas->head;
     HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numerosCaixasAbertas = Global.caixas->quantidadeElementos;

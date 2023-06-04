@@ -42,9 +42,8 @@ void editarLojaAbertaAranque(){
 void editarNumCaixas(){
     int n, option;
     scanfv("%d", &n, "Quantos caixas deseja ter? ", "O número de caixas tem de ser maior que 1 e menor que 50!", validateRange, 1, 50);
-    
+    Opcoes.numCaixasTotal = n;
     if(Opcoes.numCaixasTotal > n){
-        Opcoes.numCaixasTotal = n;
         Elemento* caixa = Global.caixas->head;
         int i = 0;
 

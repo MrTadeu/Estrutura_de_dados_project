@@ -168,6 +168,6 @@ ProdutoStruct *escolherProduto(){
 }
 
 void destruirProduto(void *Produto){
-    free(((ProdutoStruct *)Produto)->nome);
-    free(Produto);
+    ProdutoStruct* produto = (ProdutoStruct*)Produto;
+    free(produto);
 }
