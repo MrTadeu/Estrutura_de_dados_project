@@ -100,7 +100,13 @@ void verClientesCaixa(){
     }
     else{
         Elemento *Caixa = Global.caixas->head;
+        int i = 0;
         while(Caixa){
+            if(i++ >= Opcoes.numCaixasTotal){
+                Caixa = Caixa->next;
+                continue;
+            }
+                
             if(((CaixaStruct *)Caixa->Info)->aberta == 1){
                 char tempoTotalEspera[9];
                 formatTime(((CaixaStruct *)Caixa->Info)->tempoTotalEspera, tempoTotalEspera);

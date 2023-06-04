@@ -97,7 +97,6 @@ typedef struct
 typedef struct
 {
     int numCaixasTotal,
-        numCaixasTotalUpdate,
         numCaixasAbertas,
         probGerarPessoa,
         probUsarSaldoCartao,
@@ -198,7 +197,7 @@ extern ClienteStruct **Clientes;
 extern FuncionarioStruct **Funcionarios;
 extern ProdutoStruct *Produtos;
 extern long long tempoEmMilisegundos;
-extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos;
+extern int n_clientes, n_clientesAtivos, n_funcionarios, n_funcionariosAtivos, n_produtos, numeroMaximoCaixasPossivel;
 
 int CriarGrafico();
 // menu.c
@@ -221,6 +220,7 @@ void editarProbGerarPessoa();
 void editarLotacaoMax();
 void editarLojaAbertaAranque();
 void Init();
+void fechamentoLoja();
 void closeAll();
 void editarVerTransacoes();
 void editarProbUsarSaldoCartao();
@@ -305,6 +305,7 @@ void guardarFuncionarioTxt(FILE *file, int i);
 void guardarProdutoTxt(FILE *file, int i);
 void importOpcoes();
 void exportarOpcoes();
+void exportarOpcoesInsta();
 
 // Utils.c
 void setPortugues();
@@ -336,8 +337,11 @@ void *threadTempo();
 void *threadSchedule();
 
 // historico.c
-void initHistoricos();
-void destruirHistoricos();
+void initHistoricoTransacoes();
+void limparHistoricoTransacoes();
+void destruirHistoricoTransacoes(Lista **historicoTransacoes);
+void initHistoricoDadosEstatisticos();
+void destruirHistoricoDadosEstatisticos();
 void destruirHistoricoSubStructTransacao(void *transacaoArg);
 void destruirHistoricoSubStructCliente(void* clienteArg);
 void recolhaDadosEstatisticosHistoricoTransacoes();

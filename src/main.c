@@ -10,14 +10,15 @@ ClienteStruct **Clientes;
 FuncionarioStruct **Funcionarios;
 ProdutoStruct *Produtos;
 long long tempoEmMilisegundos = 0;
-int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos;
+int n_clientes, n_clientesAtivos = 0, n_funcionarios, n_funcionariosAtivos = 0, n_produtos, numeroMaximoCaixasPossivel = 50;
 
 int main(){
     srand(time(NULL));
     
     Init();
     menu();
+    //tem de ser sempre rodadas
+    fechamentoLoja();
     closeAll();
-    Opcoes.numCaixasTotal = Opcoes.numCaixasTotalUpdate;
-    exportarOpcoes();
+    //
 }

@@ -3,7 +3,7 @@
 void criarCaixaInit(){
     Global.caixas = criarLista();
     Global.n_pessoasEmLoja = 0;
-    for (int i = 0; i < Opcoes.numCaixasTotal; i++){
+    for (int i = 0; i < numeroMaximoCaixasPossivel; i++){
         CaixaStruct *caixa = (CaixaStruct *) malloc(sizeof(CaixaStruct));
         caixa->id = i+1;
         pthread_mutex_init(&caixa->lock, NULL);
@@ -32,7 +32,6 @@ void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEmAtendimento){
     }
 
     int atrasoMaximo = (int)((pessoaEmAtendimento->tempoEstimadoCaixa *(float) (Opcoes.percentagemParaAtraso/100)));
-    printf("\n\n\npercentagemParaAtraso: %d\n atrasoMaximo: %d\n\n\n", Opcoes.percentagemParaAtraso, atrasoMaximo);
     int atraso;
     if(Aleatorio(0,1) == 1){
         atraso = atrasoMaximo*(-1);
@@ -128,9 +127,15 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     CaixaStruct *menor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *SegundaMenor = (CaixaStruct *)caixaAux->Info;
     CaixaStruct *primeiraCaixaFechada = (CaixaStruct *)caixaAux->Info;
+    int i = 0;
   
     //!IMPEDIR QUE SE MANDE ALGUEM PARA UMA CAIXA FECHADA POR URGENCIA  
     while (caixaAux){
+        if(i++ >= Opcoes.numCaixasTotal){
+            caixaAux = caixaAux->next;
+            continue;
+        }
+            
         CaixaStruct *caixaAuxInfo = (CaixaStruct *)caixaAux->Info;
         if (caixaAuxInfo->aberta == 1 && caixaAuxInfo->tempoTotalEspera < menor->tempoTotalEspera && menor->aberta == 1){
             SegundaMenor = menor;
@@ -314,13 +319,13 @@ void removerCaixa(){
     printc(" [yellow]Quantidade fucionarios:[/yellow] %d", n_funcionarios);
     int diferenca = Opcoes.numCaixasTotal - n_funcionarios;
     printc("\n [yellow]Quantidade de caixas a remover:[/yellow] %d\n", diferenca);
-    int diferencaAux = diferenca;
+/*     int diferencaAux = diferenca;
     while (diferenca > 0){
         destruirElemento(RemElementoUltimo(Global.caixas), destruirCaixa);
         diferenca--;
-    }
-    Opcoes.numCaixasTotal -= diferencaAux;
-    printc("\n\n [yellow]%d Caixa(s) removida(s) com sucesso. Pressione Enter para continuar...[/yellow]\n\n", diferencaAux);
+    } */
+    Opcoes.numCaixasTotal -= diferenca;
+    printc("\n\n [yellow]%d Caixa(s) removida(s) com sucesso. Pressione Enter para continuar...[/yellow]\n\n", diferenca);
     bufferclear();
     getchar();
 }

@@ -1,17 +1,34 @@
 #include "../includes/TipoDados.h"
 
-void initHistoricos(){
-    //Histórico Transações
-        HistoricoDados.tamanhoVetorHash = 30;
-        HistoricoDados.HistoricoTransacoes = malloc(HistoricoDados.tamanhoVetorHash * sizeof(Lista*));
-        for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
-            HistoricoDados.HistoricoTransacoes[i] = criarLista();
-    
+void initHistoricoTransacoes(){
+    HistoricoDados.tamanhoVetorHash = 30;
+    HistoricoDados.HistoricoTransacoes = (Lista**) malloc(HistoricoDados.tamanhoVetorHash * sizeof(Lista*));
+    for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
+        HistoricoDados.HistoricoTransacoes[i] = criarLista();
+}
+
+void limparHistoricoTransacoes(){
+    Lista **Aux = HistoricoDados.HistoricoTransacoes;
+    printf("\nolaa1");
+    initHistoricoTransacoes();
+    printf("\nolaa2");
+
+    destruirHistoricoTransacoes(Aux);
+    printf("\nolaa3");
+}
+
+void destruirHistoricoTransacoes(Lista **historicoTransacoes){
+    for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
+        destruirLista(historicoTransacoes[i], destruirHistoricoSubStructCliente);
+    free(historicoTransacoes);
+}
+
+void initHistoricoDadosEstatisticos(){
     //DADOS INSTANTANEOS
     for (int i = 0; i < 24; i++){
         for (int j = 0; j < 6; j++){
-            HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa = (int **)malloc(sizeof(int*)*Opcoes.numCaixasTotal);
-            for (int l = 0; l < Opcoes.numCaixasTotal; l++){
+            HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa = (int **)malloc(sizeof(int*)*numeroMaximoCaixasPossivel);
+            for (int l = 0; l < numeroMaximoCaixasPossivel; l++){
                 HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l] = (int*)calloc(2, sizeof(int));
                 // Coluna 0: tempoEspera | Coluna 1: numeroClientesFila
             }
@@ -27,8 +44,8 @@ void initHistoricos(){
         //coluna 0: ids funcionarios | coluna 1: n pessoas atendidas | coluna 2: n produtos vendidos
 
 
-        HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa = (int**) malloc(sizeof(int*)*Opcoes.numCaixasTotal);
-        for (int i = 0; i < Opcoes.numCaixasTotal; i++)
+        HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa = (int**) malloc(sizeof(int*)*numeroMaximoCaixasPossivel);
+        for (int i = 0; i < numeroMaximoCaixasPossivel; i++)
             HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i] = (int *)calloc(2, sizeof(int));
         //coluna 0: n pessoas atendidas por cada caixa | coluna 1: n produtos vendidos por cada caixa
 
@@ -45,18 +62,17 @@ void initHistoricos(){
         strcpy(HistoricoDados.mediaDiaria.nomeFuncionarioVendeuMenosProdutos, "Calculando");
     
 
-
     //FLOATS    
         HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora = (float **)malloc(sizeof(float*)*24);
         HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa_CadaHora = (float **)malloc(sizeof(float*)*24);
         for (int i = 0; i < 24; i++){
-            HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[i] = (float*)calloc(Opcoes.numCaixasTotal, sizeof(float));
-            HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa_CadaHora[i] = (float*)calloc(Opcoes.numCaixasTotal, sizeof(float));
+            HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[i] = (float*)calloc(numeroMaximoCaixasPossivel, sizeof(float));
+            HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa_CadaHora[i] = (float*)calloc(numeroMaximoCaixasPossivel, sizeof(float));
         }
         HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora = (float*)calloc(24, sizeof(float));
-        HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa = (float*)calloc(Opcoes.numCaixasTotal, sizeof(float));
+        HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa = (float*)calloc(numeroMaximoCaixasPossivel, sizeof(float));
         HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaHora = (float*)calloc(24, sizeof(float));
-        HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa = (float*)calloc(Opcoes.numCaixasTotal, sizeof(float));
+        HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa = (float*)calloc(numeroMaximoCaixasPossivel, sizeof(float));
         HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_CadaHora = (float*)calloc(24, sizeof(float));
         HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_CadaHora = (float*)calloc(24, sizeof(float));
 
@@ -67,11 +83,11 @@ void initHistoricos(){
 }
 
 
-void destruirHistoricos(){
+void destruirHistoricoDadosEstatisticos(){
     // DADOS INSTANTANEOS
         for (int i = 0; i < 24; i++) {
             for (int j = 0; j < 6; j++) {
-                for (int l = 0; l < Opcoes.numCaixasTotal; l++) {
+                for (int l = 0; l < numeroMaximoCaixasPossivel; l++) {
                     free(HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l]);
                 }
                 free(HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa);
@@ -84,7 +100,7 @@ void destruirHistoricos(){
         }
         free(HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario);
 
-        for (int i = 0; i < Opcoes.numCaixasTotal; i++) {
+        for (int i = 0; i < numeroMaximoCaixasPossivel; i++) {
             free(HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i]);
         }
         free(HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa);
@@ -109,12 +125,6 @@ void destruirHistoricos(){
         free(HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa);
         free(HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_CadaHora);
         free(HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_CadaHora);
-
-    //Histórico Transações
-        for(int i = 0; i < HistoricoDados.tamanhoVetorHash; i++)
-            destruirLista(HistoricoDados.HistoricoTransacoes[i], destruirHistoricoSubStructCliente);
-        free(HistoricoDados.HistoricoTransacoes);
-    
 }
 
 void destruirHistoricoSubStructTransacao(void *transacaoArg){
@@ -125,7 +135,7 @@ void destruirHistoricoSubStructTransacao(void *transacaoArg){
 
 void destruirHistoricoSubStructCliente(void* clienteArg){
     HistoricoSubStructCliente* cliente = (HistoricoSubStructCliente*)clienteArg;
-    for(int j = 0; j < Opcoes.numCaixasTotal; j++){
+    for(int j = 0; j < numeroMaximoCaixasPossivel; j++){
         destruirLista(cliente->caixas[j], destruirHistoricoSubStructTransacao);
     }
     free(cliente->caixas);
@@ -137,21 +147,21 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento *clientesHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
         while (clientesHistorico){
-            
             HistoricoSubStructCliente *clientesHistoricoInfo = (HistoricoSubStructCliente *)clientesHistorico->Info;
-            for (int j = 0; j < Opcoes.numCaixasTotal; j++){
+            for (int j = 0; j < numeroMaximoCaixasPossivel; j++){
                 Elemento *caixasHistorico = clientesHistoricoInfo->caixas[j]->head;
                 if(caixasHistorico)
                     HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[j][0]++; //!numAtendimentos recolhido
                 while (caixasHistorico){
                     int flag = 1;
                     HistoricoSubStructTransacao *caixasHistoricoInfo = (HistoricoSubStructTransacao *)caixasHistorico->Info;
+
                     HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[j][1] += caixasHistoricoInfo->listaProdutos->quantidadeElementos; //!numProdutos recolhido
                     if (caixasHistoricoInfo->valorProdutoOferecido > 0){
+                        
                         HistoricoDados.mediaDiaria.numeroProdutosOferecidos++; //!numeroProdutosOferecidos recolhido
                         HistoricoDados.mediaDiaria.valorTotalProdutosOferecidos += caixasHistoricoInfo->valorProdutoOferecido; //!valorProdutosOferecidos recolhido
                     }
-
                     for (int l = 0; l < n_funcionarios; l++){
                         if(HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] == 0)
                             HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario[l][0] = caixasHistoricoInfo->funcionario->id;
@@ -164,13 +174,12 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
                     }
                     caixasHistorico = caixasHistorico->next;
                 }
-            clientesHistorico = clientesHistorico->next;
             }
+            clientesHistorico = clientesHistorico->next;
         }
     }
     pthread_mutex_unlock(&HistoricoDados.HistoricoTransacoesLock);
 }
-
 void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto){
     Elemento* caixa = Global.caixas->head;
     HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numerosCaixasAbertas = Global.caixas->quantidadeElementos;
@@ -252,7 +261,7 @@ void calculosRecolhas(){
     caixaAtendeuMenosPessoas = HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][0],
     caixaVendeuMaisProdutos = HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][1],
     caixaVendeuMenosProdutos = HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[0][1];
-    for (int i = 0; i < Opcoes.numCaixasTotal; i++){
+    for (int i = 0; i < numeroMaximoCaixasPossivel; i++){
         if(caixaAtendeuMaisPessoas < HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][0]){
             caixaAtendeuMaisPessoas = HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaCaixa[i][0];
             HistoricoDados.mediaDiaria.caixaAtendeuMaisPessoas = i+1;
@@ -274,7 +283,7 @@ void calculosRecolhas(){
 
     for (int i = 0; i < 24; i++){//Atualizar tempoMedioEspera_CadaCaixa_CadaHora e tempoMedioEsperaTotal_CadaHora, numeroMedioClienteFila_CadaCaixa_CadaHora e numeroMedioClienteFila_CadaHora
         for (int j = 0; j < 6; j++){
-            for (int l = 0; l < Opcoes.numCaixasTotal; l++){
+            for (int l = 0; l < numeroMaximoCaixasPossivel; l++){
                 //Tempos de espera
                 HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[i][l] = (float)((HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[i][l] + HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0])/2);
                 HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora[i] = (float)((HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora[i] + HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0])/2);
@@ -289,7 +298,7 @@ void calculosRecolhas(){
         }
     }
 
-    for (int i = 0; i < Opcoes.numCaixasTotal; i++){//Atualizar tempoMedioEspera_CadaCaixa e numeroMedioClienteFila_CadaCaixa
+    for (int i = 0; i < numeroMaximoCaixasPossivel; i++){//Atualizar tempoMedioEspera_CadaCaixa e numeroMedioClienteFila_CadaCaixa
         for (int j = 0; j < 24; j++){
             HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa[i] = (float)((HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa[i] + HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora[j][i])/2);
             HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] = (float)((HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa[i] + HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa_CadaHora[j][i])/2);
@@ -325,8 +334,8 @@ void *criarSubStructClienteHistorico(ClienteStruct *cliente)
     elementoCliente->nome = (char *)malloc(strlen(cliente->nome) + 1);
     strcpy(elementoCliente->nome, cliente->nome);
     elementoCliente->id = cliente->id;
-    elementoCliente->caixas = (Lista **)malloc(sizeof(Lista *) * Opcoes.numCaixasTotal);
-    for (int i = 0; i < Opcoes.numCaixasTotal; i++)
+    elementoCliente->caixas = (Lista **)malloc(sizeof(Lista *) * numeroMaximoCaixasPossivel);
+    for (int i = 0; i < numeroMaximoCaixasPossivel; i++)
         elementoCliente->caixas[i] = criarLista();
     return elementoCliente;
 }
@@ -397,7 +406,7 @@ void mostrarHistorico(){
         Elemento *clientesHistorico = HistoricoDados.HistoricoTransacoes[i]->head;
         while (clientesHistorico){
             HistoricoSubStructCliente *clientesHistoricoInfo = (HistoricoSubStructCliente *)clientesHistorico->Info;
-            for (int j = 0; j < Opcoes.numCaixasTotal; j++){
+            for (int j = 0; j < numeroMaximoCaixasPossivel; j++){
                 Elemento *caixasHistorico = clientesHistoricoInfo->caixas[j]->head;
                 while (caixasHistorico){   
                     char horas[9];
@@ -462,7 +471,7 @@ void pesquisarClienteNoHistorico(){
         if ((id == ClienteInfo->id) /* && strcasecmp(nome, ClienteInfo->nome) */){
             flag = 1;
             printc("[blue]Cliente:[/blue] %s [blue]id:[/blue] %d \n", ClienteInfo->nome, ClienteInfo->id);
-            for (int j = 0; j < Opcoes.numCaixasTotal; j++){
+            for (int j = 0; j < numeroMaximoCaixasPossivel; j++){
                 Elemento *caixasHistorico = ClienteInfo->caixas[j]->head;
                 while (caixasHistorico){
                     HistoricoSubStructTransacao *caixaInfo = ((HistoricoSubStructTransacao *)((HistoricoSubStructCliente *) pessoasHistorico->Info)->caixas[j]->head->Info);
@@ -504,7 +513,7 @@ void pesquisarClienteNoHistorico(){
 
 void pesquisarCaixaNoHistorico(){
     int id;
-    scanfv("%d", &id, "Qual o id de caixa que pretende pesquisar? ", "Tem de inserir um numero inteiro!", validateRange, 1, Opcoes.numCaixasTotal);
+    scanfv("%d", &id, "Qual o id de caixa que pretende pesquisar? ", "Tem de inserir um numero inteiro!", validateRange, 1, numeroMaximoCaixasPossivel);
     printc("[yellow]Caixa:[/yellow] %d\n\n", id);
     for (int i = 0; i < HistoricoDados.tamanhoVetorHash; i++){
         Elemento* pessoasHistorico = HistoricoDados.HistoricoTransacoes[i]->head;

@@ -1,6 +1,8 @@
-10005	Mini Picos Azeite [marcaB] 300 gr	1.45	6.7	60.8
-10006	Rosquinhas Sésamo e Azeite [marcaB] 180 gr	0.90	8.3	2.8
-10007	Azeitona Verde Descaroçada [marcaB] 230 gr	2.00	1.6	4.9
-10008	Azeitona Preta Inteira Oxidada [marcaB] 560 gr	2.50	6.9	1.4
-10009	Mini Tosta Integral [marcaB Equilíbrio] 180 gr	0.91	1.5	4.0
-10010	Azeitona Verde Inteira [marcaB] 290 gr	2.00	50.4	15.5
+7
+10005	Mini Picos Azeite [marcaB] 300 gr	1.450000	6.000000	60.000000
+10006	Rosquinhas Sésamo e Azeite [marcaB] 180 gr	0.900000	8.000000	2.000000
+10007	Azeitona Verde Descaroçada [marcaB] 230 gr	2.000000	1.000000	4.000000
+10008	Azeitona Preta Inteira Oxidada [marcaB] 560 gr	2.500000	6.000000	1.000000
+10009	Mini Tosta Integral [marcaB Equilíbrio] 180 gr	0.910000	1.000000	4.000000
+10010	Azeitona Verde Inteira [marcaB] 290 gr	2.000000	50.000000	15.000000
+0	(null)	0.000000	0.000000	0.000000
