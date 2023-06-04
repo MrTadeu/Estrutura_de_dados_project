@@ -176,7 +176,6 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
     //SE NÃO HOUVER CAIXAS ABERTAS ABRIR A PRIMEIRA
     if(Opcoes.numCaixasAbertas == 0){
         if(n_funcionariosAtivos >= n_funcionarios){
-            printc("\n\n\n\n[red]n_funcionarios[/red]\n\n\n\n");
             return NULL;
         }
         if (menor->funcionario == NULL){ 
@@ -184,7 +183,7 @@ CaixaStruct *MelhorCaixa(){ // o melhor index que tem o menor tempo
         }
         menor->aberta = 1;
         Opcoes.numCaixasAbertas++;
-        if (menor->listaPessoas->head == NULL){
+        if (menor->threadAberta == 0){
             menor->threadAberta = 1;
             pthread_t threadCaixa;
             pthread_create(&threadCaixa, NULL, ThreadCaixa, (void *)menor);
@@ -281,8 +280,7 @@ void *ThreadCaixa(void *arg){
     int n_vendas = 0, atrasoSum = 0;
     float valorProdutoOferecido = 0.0, movimentoSaldoCliente = 0.0;
     ClienteStruct *pessoaEmAtendimento;
-    dormir(10000);
-
+    dormir(5000);
     while(1){
         if(caixa->listaPessoas->quantidadeElementos > 0){
             pessoaEmAtendimento = (ClienteStruct *) caixa->listaPessoas->head->Info;
