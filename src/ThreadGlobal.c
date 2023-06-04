@@ -114,23 +114,23 @@ void changeStateThreadGlobal(){
     }
 } */
 void *threadSchedule(){
-/*     DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
+    DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
     while (1){
         DataStruct dataAtual = formatTimeStruct(tempoEmMilisegundos);
-        if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
-           struct stat st;
-            stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
-            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
-            // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
-            char dataString[100];
-            sprintf(dataString, "Historico/Data_%d-%d-%d_%d_%d_%d", dataAtual.dia, dataAtual.mes, dataAtual.ano, dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
-            printf("%s\n", dataString);
-            stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
-            char imgsString[100];
-            sprintf(imgsString, "%s/imgs", dataString);
-            printf("%s\n", imgsString);
-            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString); 
-        }
+        //if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
+        //   struct stat st;
+        //    stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
+        //    dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
+        //    //printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
+        //    char dataString[100];
+        //    sprintf(dataString, "Historico/Data_%d-%d-%d_%d_%d_%d", dataAtual.dia, dataAtual.mes, dataAtual.ano, dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
+        //    printf("%s\n", dataString);
+        //    stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
+        //    char imgsString[100];
+        //    sprintf(imgsString, "%s/imgs", dataString);
+        //    printf("%s\n", imgsString);
+        //    stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString); 
+        //}
         if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
             //printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
@@ -156,8 +156,7 @@ void *threadSchedule(){
 
             
         }
-         dormir(1000); 
-    } */
+    }
     return NULL; 
 }
 
@@ -165,7 +164,7 @@ void *threadTempo(){
     tempoEmMilisegundos = getCurrentTimeMillisecounds();
     while(1){
         tempoEmMilisegundos += 1000LL;
-        dormir(1000 /* * Opcoes.multiplicadorTempo */);
+        dormir(1000);
     }
 }
 
