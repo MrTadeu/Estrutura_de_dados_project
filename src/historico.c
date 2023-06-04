@@ -32,7 +32,6 @@ void initHistoricoDadosEstatisticos(){
             HistoricoDados.dadosIntantaneosdiarios[i][j].numeroClienteSupermercado = 0;
         }      
     }
-    printf("\nolaaaaa1");
 
     //INTS
         HistoricoDados.mediaDiaria.numeroAtendimentos_numeroProdutos_CadaFuncionario = (int **)malloc(sizeof(int*)*n_funcionarios);
@@ -47,7 +46,6 @@ void initHistoricoDadosEstatisticos(){
         //coluna 0: n pessoas atendidas por cada caixa | coluna 1: n produtos vendidos por cada caixa
 
         HistoricoDados.mediaDiaria.numeroProdutosOferecidos = 0;
-    printf("\nolaaaaa2");
 
     //CHARS
         HistoricoDados.mediaDiaria.nomeFuncionarioAtendeuMaisPessoas = (char*) malloc(sizeof(char)*11);
@@ -59,8 +57,6 @@ void initHistoricoDadosEstatisticos(){
         HistoricoDados.mediaDiaria.nomeFuncionarioVendeuMenosProdutos = (char*) malloc(sizeof(char)*11);
         strcpy(HistoricoDados.mediaDiaria.nomeFuncionarioVendeuMenosProdutos, "Calculando");
     
-
-    printf("\nolaaaaa3");
 
     //FLOATS    
         HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa_CadaHora = (float **)malloc(sizeof(float*)*24);

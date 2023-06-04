@@ -7,6 +7,8 @@ void Init(){
     importarDados(importarFuncionarios, FUNCIONARIOS);
     importarDados(importarProdutos, PRODUTOS);
     criarCaixaInit();
+    initHistoricoTransacoes();
+    initHistoricoDadosEstatisticos();
     checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
     if(Opcoes.threadGlobalAranque == 1){
         changeStateThreadGlobal();

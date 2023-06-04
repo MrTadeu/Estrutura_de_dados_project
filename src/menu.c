@@ -459,7 +459,9 @@ void menuHistorico(){
             printf("olaaaaa");
             calculosRecolhas();
             printf("olaaaaa");
-            destruirHistoricos();
+            limparHistoricoTransacoes();
+            destruirHistoricoDadosEstatisticos();
+            initHistoricoDadosEstatisticos();
             printf("olaaaaa");
             getchar();
             getchar();
