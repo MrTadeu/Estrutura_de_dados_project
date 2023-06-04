@@ -9,12 +9,8 @@ void initHistoricoTransacoes(){
 
 void limparHistoricoTransacoes(){
     Lista **Aux = HistoricoDados.HistoricoTransacoes;
-    printf("\nolaa1");
     initHistoricoTransacoes();
-    printf("\nolaa2");
-
     destruirHistoricoTransacoes(Aux);
-    printf("\nolaa3");
 }
 
 void destruirHistoricoTransacoes(Lista **historicoTransacoes){

@@ -272,7 +272,7 @@ void fechamentoLoja(){
     destruirLista(Global.caixas, destruirCaixa); // free area das caixas
     free(Global.PessoasAcabaramTempoDeCompra);
     exportHistoricoTransacoes();
-    destruirHistoricoTransacoes();
+    destruirHistoricoTransacoes(HistoricoDados.HistoricoTransacoes);
     destruirHistoricoDadosEstatisticos();
     
     for (int i = 0; i < n_clientes; i++) // free vetor clientes

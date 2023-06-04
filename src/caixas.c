@@ -19,11 +19,6 @@ void criarCaixaInit(){
     }
 }
 
-void destruirCaixa(void *Caixa){
-    destruirLista(((CaixaStruct *)Caixa)->listaPessoas, destruirCliente);
-    free(Caixa);
-}
-
 /* ------------------------------#< ATUALIZAÇÃO DADOS CAIXA >#------------------------------*/
 void atualizarAtrasos(Lista *lista, ClienteStruct *pessoaEmAtendimento){
     if(!lista){
