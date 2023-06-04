@@ -12,6 +12,7 @@
 #include <sys/time.h>
 #include <stdarg.h>
 #include <sys/stat.h>
+#include <signal.h>
 
 // Criar as threads
 #ifndef PTHREAD_H
