@@ -444,7 +444,6 @@ void menuHistorico(){
         printc("**        [blue]%d [/blue]-> Mostrar Histórico                **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Caixa                  **\n", i++);
-        printc("**        [blue]%d [/blue]-> Ver dados estatísticos           **\n", i++);
         printc("**************************************************\n");
         scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
 
@@ -457,18 +456,6 @@ void menuHistorico(){
         }
         if (opcao == i++){
             pesquisarCaixaNoHistorico();
-        }
-        if(opcao == i++){
-            recolhaDadosEstatisticosHistoricoTransacoes();
-            printf("olaaaaa");
-            calculosRecolhas();
-            printf("olaaaaa");
-            limparHistoricoTransacoes();
-            destruirHistoricoDadosEstatisticos();
-            initHistoricoDadosEstatisticos();
-            printf("olaaaaa");
-            getchar();
-            getchar();
         }
     } while (opcao != 0);
 }

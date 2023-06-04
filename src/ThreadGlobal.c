@@ -156,6 +156,23 @@ void *threadSchedule(){
 
             
         }
+         dormir(1000); 
+        if(opcao == i++){
+            recolhaDadosEstatisticosHistoricoTransacoes();
+            printf("olaaaaa");
+            calculosRecolhas();
+            printf("olaaaaa");
+            exportHistoricoTransacoes();
+            exportHistoricoDadosEstatisticos();
+            criarGrafico();
+            criarGrafico();
+            criarGrafico();
+            criarGrafico();
+            limparHistoricoTransacoes();
+            destruirHistoricoDadosEstatisticos();
+            initHistoricoDadosEstatisticos();
+            printf("olaaaaa");
+        }
     }
     return NULL; 
 }

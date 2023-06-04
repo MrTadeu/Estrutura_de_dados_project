@@ -307,6 +307,10 @@ void guardarProdutoTxt(FILE *file, int i);
 void importOpcoes();
 void exportarOpcoes();
 void exportarOpcoesInsta();
+void exportarHistoricoTransacoesParaTXT(const char* nomeArquivo);
+void exportarHistoricoTransacoesParaCSV(const char* nomeArquivo);
+void exportHistoricoDadosEstatisticosParaTXT(const char* nomeArquivo);
+void exportHistoricoDadosEstatisticosParaCSV(const char* nomeArquivo);
 
 // Utils.c
 void setPortugues();

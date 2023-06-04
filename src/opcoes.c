@@ -260,21 +260,27 @@ void editarVerTransacoes()
 }
 
 void fechamentoLoja(){
-    char simbolos = {'-', '\\', '|', '/'};
     Opcoes.lojaAberta = 0;
-
+    printc("[green]A atender os ultimos clientes. Por favor aguarde...[/green]");
     int i = 0;
     while(n_clientesAtivos){
-        printc("[green]A atender os ultimos clientes. Por favor aguarde... %c[/green]", simbolos[i % 4]);
         dormir(50);
-        i++;
     }
     destruirLista(Global.caixas, destruirCaixa); // free area das caixas
     free(Global.PessoasAcabaramTempoDeCompra);
-    exportHistoricoTransacoes();
-    destruirHistoricoTransacoes();
+    exportarHistoricoTransacoesParaTXT("teste"); //!FALTA NOME FICHEIRO
+    exportarHistoricoTransacoesParaCSV("teste"); //!FALTA NOME FICHEIRO
+    destruirHistoricoTransacoes(HistoricoDados.HistoricoTransacoes);
     destruirHistoricoDadosEstatisticos();
     
-    
+    for (int i = 0; i < n_clientes; i++) // free vetor clientes
+        free(Clientes[i]);
+    free(Clientes);
+
+    for (int i = 0; i < n_funcionarios; i++) // free vetor funcionarios
+        free(Funcionarios[i]);
+    free(Funcionarios);
+
+    free(Produtos); // free vetor produtos
 }
 
