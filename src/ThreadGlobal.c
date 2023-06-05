@@ -76,11 +76,11 @@ void changeStateThreadGlobal(){
 
 void *ThreadSchedule(){
     int flag = 1;
-    double numCaixas[numeroMaximoCaixasPossivel], numHoras[24];
+    /* double numCaixas[numeroMaximoCaixasPossivel], numHoras[24]; 
     for (int i = 0; i < numeroMaximoCaixasPossivel; i++)
         numCaixas[i] = i+1;
     for (int i = 0; i < 24; i++)
-        numHoras[i] = i;
+        numHoras[i] = i; */
 
     DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
     while (1){
@@ -127,18 +127,6 @@ void *ThreadSchedule(){
                 sprintf(imgsString, "%s/imgs", dataString);
                 //printf("%s\n", imgsString);
                 stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
-
-                for (int i = 0; i < 24; i++)
-                {
-                    for (int j = 0; j < 6; j++)
-                    {
-                        for (int l = 0; l < numeroMaximoCaixasPossivel; l++)
-                        {
-                            printc("[yellow]%dms %dpessoas Fila[/yellow]\n", HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1]);
-                        }
-                        printf("%dcaixas %dpessoas\n", HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numeroClienteSupermercado);
-                    }  
-                }
                 
             #endif
             #ifndef _WIN32
@@ -178,13 +166,9 @@ void *ThreadSchedule(){
             CriarGrafico(imgsString5, numHoras, HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_CadaHora, "Numero medio de caixas abertas por hora", "Horas", "Numero medio de caixas abertas");
             CriarGrafico(imgsString6, numHoras, HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_CadaHora, "Numero medio de no supermercado por hora", "Horas", "Numero medio de clientes no supermercado");
             limparHistoricoTransacoes();
-            /* destruirHistoricoDadosEstatisticos();
-            initHistoricoDadosEstatisticos(); */
-            printc("\n[red]Hora passada 222222222[/red]");
-
-            /* *tempoMedioEsperaTotal_CadaHora,         //[24]
->>         *tempoMedioEspera_CadaCaixa,  *numeroMedioClienteFila_CadaHora,            //[24]
->>         *numeroMedioClienteFila_CadaCaixa,  *numeroMedioCaixasAbertas_CadaHora,*numeroMedioClienteSupermercado_CadaHora,*/ 
+            destruirHistoricoDadosEstatisticos();
+            initHistoricoDadosEstatisticos();
+            printc("\n[red]Hora passada 222222222[/red]");*/ 
         } 
     }
     return NULL;
