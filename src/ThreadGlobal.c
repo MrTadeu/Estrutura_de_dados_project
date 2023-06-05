@@ -72,6 +72,7 @@ void changeStateThreadGlobal(){
         fechamentoLoja();
         //!antes de poderes destruir o historico, todas as pessoas da caixaas tem de ser atendidas ou removidas
         //!destruirHistoricos();
+        Opcoes.lojaAberta = 0;
     }
 }
 
