@@ -116,6 +116,8 @@ void atenderPessoa(CaixaStruct *caixa){
                 cliente->tempoAtraso-=1000;
             }
         }
+
+        // printf("\nx: %d tempo:%d  caixa->tempoTotalEspera:%d", x, tempo, caixa->tempoTotalEspera);
     }
     pthread_mutex_lock(&caixa->lock);
     if(tempoAtrasoAux<0){
@@ -316,6 +318,8 @@ void *ThreadCaixa(void *arg){
         if(caixa->fecharUrgencia) // se quiser realmente ver aumentar o tempo de dormir na threadGlobal para selecionar as pesseoas mais devagar
             fecharUrgencia(caixa);
         
+        free(remov);
+        remov = NULL;
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);
 

@@ -70,6 +70,7 @@ void changeStateThreadGlobal(){
         fechamentoLoja();
         //!antes de poderes destruir o historico, todas as pessoas da caixaas tem de ser atendidas ou removidas
         //!destruirHistoricos();
+        Opcoes.lojaAberta = 0;
     }
 }
 
@@ -100,9 +101,9 @@ void *ThreadSchedule(){
 
         if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
-            printc("\n\n\n[red]Dados recolhidos[/red]");
+            printc("\n\n\n[red]Dados recolhidos[/red] %d:%d", dataAtual.hora, dataAtual.minuto);
             recolhaDadosEstatisticosHistoricoPeriodica(dataAnterior.hora, dataAnterior.minuto);
-            printc("\n[red]Dados recolhidos 222222222[/red]");
+            printc("\n[red]Dados recolhidos 222222222[/red]%d:%d", dataAtual.hora, dataAtual.minuto);
         }
        
         if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
@@ -128,50 +129,21 @@ void *ThreadSchedule(){
             exportarHistoricoTransacoesParaCSV(dataString);
             exportHistoricoDadosEstatisticosParaTXT(dataString);
             exportHistoricoDadosEstatisticosParaCSV(dataString);
-            /* CriarGrafico(imgsString, HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora); */
+            CriarGrafico(imgsString, HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora); 
             limparHistoricoTransacoes();
             destruirHistoricoDadosEstatisticos();
             initHistoricoDadosEstatisticos();
             printc("\n[red]Hora passada 222222222[/red]");
             /* *tempoMedioEsperaTotal_CadaHora,         //[24]
 >>         *tempoMedioEspera_CadaCaixa,  *numeroMedioClienteFila_CadaHora,            //[24]
->>         *numeroMedioClienteFila_CadaCaixa,  *numeroMedioCaixasAbertas_CadaHora,*numeroMedioClienteSupermercado_CadaHora, */
-
-
-            //Recolha de dados estatísticos
-            /* recolhaDadosEstatisticosHistoricoTransacoes();
-            calculosRecolhas(); */
-            /* exportHistoricoTransacoes();
-            exportHistoricoDadosEstatisticos(); */
-
-            //Criação de gráfico
-            //CriarGrafico(imgsString, int *X, int *Y);
-            
-            
-            /* limparHistoricoTransacoes();
-            destruirHistoricoDadosEstatisticos();
-            initHistoricoDadosEstatisticos(); */
+>>         *numeroMedioClienteFila_CadaCaixa,  *numeroMedioCaixasAbertas_CadaHora,*numeroMedioClienteSupermercado_CadaHora,*/ 
         } 
-
-/* recolhaDadosEstatisticosHistoricoTransacoes();
-calculosRecolhas();
-exportarHistoricoTransacoesParaTXT("teste");
-exportarHistoricoTransacoesParaCSV("teste");
-exportHistoricoDadosEstatisticosParaTXT("teste");
-exportHistoricoDadosEstatisticosParaCSV("teste");
-CriarGrafico();
-CriarGrafico();
-CriarGrafico();
-CriarGrafico();
-limparHistoricoTransacoes();
-destruirHistoricoDadosEstatisticos();
-initHistoricoDadosEstatisticos(); */
     }
     return NULL;
 }
 
 void *threadTempo(){
-    tempoEmMilisegundos = getCurrentTimeMillisecounds();
+    tempoEmMilisegundos = getCurrentTimeMillisecounds(); //gravar tempo init nas opcoes.bin
     while(1){
         tempoEmMilisegundos += 1000LL;
         dormir(1000);
