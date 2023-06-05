@@ -119,7 +119,7 @@ void atenderPessoa(CaixaStruct *caixa){
             }
         }
 
-        printf("\nx: %d tempo:%d  caixa->tempoTotalEspera:%d", x, tempo, caixa->tempoTotalEspera);
+        // printf("\nx: %d tempo:%d  caixa->tempoTotalEspera:%d", x, tempo, caixa->tempoTotalEspera);
     }
     pthread_mutex_lock(&caixa->lock);
     printf("\nfinal antes caixa->tempoTotalEspera:%d",caixa->tempoTotalEspera);

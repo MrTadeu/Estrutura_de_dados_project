@@ -274,7 +274,9 @@ void exportarOpcoesInsta(){
     fclose(file);
 }
 
-void exportarHistoricoTransacoesParaTXT(const char* nomeArquivo){
+void exportarHistoricoTransacoesParaTXT(const char* diretorio){
+    char nomeArquivo[100];
+    sprintf(nomeArquivo, "%s/HistoricoTransacoes.txt", diretorio);
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
@@ -334,7 +336,9 @@ void exportarHistoricoTransacoesParaTXT(const char* nomeArquivo){
     printf("Dados exportados com sucesso para o arquivo %s.\n", nomeArquivo);
 }
 
-void exportarHistoricoTransacoesParaCSV(const char* nomeArquivo){
+void exportarHistoricoTransacoesParaCSV(const char* diretorio){
+    char nomeArquivo[100];
+    sprintf(nomeArquivo, "%s/HistoricoTransacoes.csv", diretorio);
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
@@ -379,7 +383,9 @@ void exportarHistoricoTransacoesParaCSV(const char* nomeArquivo){
     printf("Dados exportados com sucesso para o arquivo %s.\n", nomeArquivo);
 }
 
-void exportHistoricoDadosEstatisticosParaTXT(const char* nomeArquivo){
+void exportHistoricoDadosEstatisticosParaTXT(const char* diretorio){
+    char nomeArquivo[100];
+    sprintf(nomeArquivo, "%s/HistoricoTransacoes.csv", diretorio);
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
@@ -400,7 +406,9 @@ void exportHistoricoDadosEstatisticosParaTXT(const char* nomeArquivo){
     printf("Dados exportados com sucesso para o arquivo %s.\n", nomeArquivo);
 }
 
-void exportHistoricoDadosEstatisticosParaCSV(const char* nomeArquivo){
+void exportHistoricoDadosEstatisticosParaCSV(const char* diretorio){
+    char nomeArquivo[100];
+    sprintf(nomeArquivo, "%s/HistoricoTransacoes.csv", diretorio);
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
