@@ -1,15 +1,15 @@
 14
-3044	Ana Beatriz Campos Pereira	12	3751
-2856	Ana Beatriz Campos Pereira	15	-1102
-5037	Beatriz Manuel dos Antos	8	-2135
-9164	Carolina Rita Cruz Almeida	11	-310
-3100	Joao Maria Marques 	10	17
-3562	Catarina Nicole Silva Silva	9	4629
-5919	Fabiana Costa Silva Coelho	8	819
-7353	Ines Emanuel Munhoz 	4	-15108
-9140	Ines Fernandes Guilherme Silva	10	2068
-6477	Pedro Ferreira Alves Silva	12	-1902
+6129	Maria Soraia Bullitta Portela	2	0
+9140	Ines Fernandes Guilherme Silva	1	-6700
+3100	Joao Maria Marques 	1	-7200
+6477	Pedro Ferreira Alves Silva	2	-5400
+3562	Catarina Nicole Silva Silva	1	-2400
+3251	Monica Diogo Santos Fardilha	1	-6300
+5037	Beatriz Manuel dos Antos	2	-200
+9164	Carolina Rita Cruz Almeida	1	-500
+2856	Ana Beatriz Campos Pereira	1	-200
+7353	Ines Emanuel Munhoz 	3	2958
+3044	Ana Beatriz Campos Pereira	0	0
+5919	Fabiana Costa Silva Coelho	3	-450
 7046	Carolina Gomes Moutinho	0	0
 8839	Roberto Maria Silva Pina	0	0
-3251	Monica Diogo Santos Fardilha	0	0
-6129	Maria Soraia Bullitta Portela	0	0
