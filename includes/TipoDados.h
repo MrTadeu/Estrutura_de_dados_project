@@ -42,15 +42,13 @@ void progress_start(int max, char *fmt);
 void progress_update();
 #endif
 
-typedef struct
-{
+typedef struct{
     char *nome;
     int id, n_vendas, ativo; // A experiencia é a quantidade de vendas realizadas e influencia o salário.
     int atrasoMedio;         // O atraso medio pode ser negativo ou positivo e influencia o bonus.
 } FuncionarioStruct;
 
-typedef struct
-{
+typedef struct{
     int id, aberta, fecharUrgencia, threadAberta;
     int tempoTotalEspera; // tempoEstimadoCaixa += tempoEstimadoCaixa
     FuncionarioStruct *funcionario;
@@ -58,20 +56,17 @@ typedef struct
     pthread_mutex_t lock;
 } CaixaStruct;
 
-typedef struct
-{
+typedef struct{
     int id, quantidadeProdutosRepetidos, oferecido, tempoCompra, tempoCaixa;
     char *nome;
     float preco;
 } ProdutoStruct;
 
-typedef struct
-{
+typedef struct{
     int dia, mes, ano, hora, minuto, segundo;
 } DataStruct;
 
-typedef struct
-{
+typedef struct{
     int id, ativo;             // guests: -1
     char *nome;                // guests: "Desconhecido"
     DataStruct dataNascimento; // guests: -1/-1/-1
@@ -88,14 +83,12 @@ typedef struct
     float precoTotalProdutos;
 } ClienteStruct;
 
-typedef struct
-{
+typedef struct{
     int nivel, n_vendas; // NIVEL 1/2/3
     float salario;
 } NivelFuncionarioStruct;
 
-typedef struct
-{
+typedef struct{
     int numCaixasTotal,
         numCaixasAbertas,
         probGerarPessoa,
@@ -116,21 +109,18 @@ typedef struct
     NivelFuncionarioStruct nivelFuncionario[3];
 } OpcaoStruct;
 
-typedef enum
-{
+typedef enum{
     CLIENTES,
     FUNCIONARIOS,
     PRODUTOS
 } TipoDados;
 
-typedef struct
-{
+typedef struct{
     Lista *caixas, *PessoasAcabaramTempoDeCompra;
     int n_pessoasEmLoja;
 } GlobalStruct;
 
-typedef struct
-{
+typedef struct{
     FuncionarioStruct *funcionario;
     Lista *listaProdutos;
     int tempoEstimadoCaixa, tempoAtraso;
@@ -138,20 +128,17 @@ typedef struct
     DataStruct dataTransacao;
 } HistoricoSubStructTransacao;
 
-typedef struct
-{
+typedef struct{
     char *nome;
     int id;
     Lista **caixas; // vetor de listas de tipo HistoricoSubStructTransacao
 } HistoricoSubStructCliente;
 
-typedef struct
-{
+typedef struct{
     int **tempoEspera_numeroClienteFila_CadaCaixa, numerosCaixasAbertas, numeroClienteSupermercado;
 } DadosInstantaneoStruct;
 
-typedef struct
-{
+typedef struct{
     int **numeroAtendimentos_numeroProdutos_CadaFuncionario, // É recolhido diretamente para aqui
         **numeroAtendimentos_numeroProdutos_CadaCaixa,       // É recolhido diretamente para aqui
         caixaAtendeuMaisPessoas,                             // É descoberto após a recolha transacoes
@@ -184,8 +171,7 @@ typedef struct
     // Ser criativo para adicionar mais
 } DadosEstatisticosMedias;
 
-typedef struct
-{
+typedef struct{
     int tamanhoVetorHash;
     Lista **HistoricoTransacoes; // vetor de listas com tamanho igual à variavel acima (Vetor de hashmap)
     pthread_mutex_t HistoricoTransacoesLock;
@@ -234,7 +220,6 @@ void editarTempoLimiteInferior();
 void editarTempoAtrasoMaximoBrinde();
 void editarQuantMinProd();
 void editarQuantMaxProd();
-void editarMultiplicadorTempo();
 void editarPercTempoCaixaAtraso();
 void editarPercBonusFuncionario();
 void editarPercAcumularCartaoCli();
@@ -274,8 +259,7 @@ void fecharEscolherFecharCaixa();
 
 // funcionarios.c
 int encontrarIdFuncionario(int id);
-// float convertNumeroDeVendasSalario_vetor(int pos);  //Nao esta a ser usada
-// NivelFuncionarioStruct getNivelFuncionario(FuncionarioStruct *funcionario); //Nao esta a ser usada
+NivelFuncionarioStruct  getNivelFuncionario(FuncionarioStruct *funcionario);
 void verFuncionariosCaixa();
 void verFuncionariosInativos();
 void editarFuncionarios();
@@ -296,7 +280,6 @@ void editarProduto();
 void removerProduto();
 void pesquisarProdutoID();
 void pesquisarProdutoNome();
-int compareProduto(void *p1, void *p2);
 ProdutoStruct *escolherProduto();
 void destruirProduto(void *Produto);
 
@@ -322,7 +305,6 @@ void exportHistoricoDadosEstatisticosParaCSV(const char *nomeArquivo);
 void setPortugues();
 int Aleatorio(int min, int max);
 DataStruct gerarData(int anoMin, int anoMax);
-int DataAntesDepois(DataStruct d1, DataStruct d2);
 void dormir(int tempo);
 struct tm getCurrentTime();
 int checkIFfileExists(char *filepath);
@@ -346,7 +328,6 @@ void changeStateThreadGlobal();
 void *ThreadGlobal();
 void *ThreadEsperaTempoCompra(void *args);
 void *threadTempo();
-void *hedule();
 void* ThreadSchedule();
 
 // historico.c

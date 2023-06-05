@@ -139,17 +139,6 @@ DataStruct gerarData(int anoMin, int anoMax){
     return data;
 }
 
-int DataAntesDepois(DataStruct d1, DataStruct d2){ // Se d1 for antes de d2 return 1
-    if(d2.ano > d1.ano || 
-        (d2.ano == d1.ano && 
-        d2.mes > d1.mes) || 
-        (d2.ano == d1.ano && 
-        d2.mes == d1.mes && 
-        d2.dia >=  d1.dia))
-        return 1;
-    return 0;
-}
-
 int checkIFfileExists(char *filepath){
     if(access(filepath, F_OK) != -1){
         return 1;

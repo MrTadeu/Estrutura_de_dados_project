@@ -21,7 +21,7 @@ void *ThreadGlobal(){
                 }
                 pthread_t thread;
                 pthread_create(&thread, NULL, ThreadEsperaTempoCompra, (void *)pessoa);
-                pthread_detach(thread); // para não ficar alocando memoria assim que acabar é como um pthread join
+                pthread_detach(thread);
             }
             
         }
@@ -65,8 +65,6 @@ void changeStateThreadGlobal(){
             printc("[red]Erro[/red] ao criar thread global!!!\n");
             exit(1);
         } 
-        
-        /* pthread_join(GlobalThread, NULL); */// <--- Nao dar join porque a thread global vai ficar sempre a correr
     }
     else if(Opcoes.lojaAberta == 1){
         fechamentoLoja();
@@ -171,63 +169,6 @@ initHistoricoDadosEstatisticos(); */
     }
     return NULL;
 }
-
-
-/* void* ThreadSchedule() {
-    // Obter o tempo atual
-    DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
-
-    while (1) {
-        // Obter a estrutura de dados de tempo
-        DataStruct dataAtual = formatTimeStruct(tempoEmMilisegundos);
-
-        if (dataAtual.segundo != dataAnterior.segundo && dataAtual.segundo % 10 == 0){
-            struct stat st;
-            stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
-            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
-            char dataString[100];
-            sprintf(dataString, "Historico/Data_%d-%d-%d", dataAtual.dia, dataAtual.mes, dataAtual.ano);
-            stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
-            char imgsString[100];
-            sprintf(imgsString, "%s/imgs", dataString);
-            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
-
-        }
-
-        // Verificar se passaram 10 minutos
-        if (dataAtual.minuto != dataAnterior.minuto && dataAtual.minuto % 10 == 0)
-            recolhaDadosEstatisticosHistoricoTransacoes();
-
-        // Verificar se passou 1 dia
-        if (dataAtual.dia != dataAnterior.dia && dataAtual.hora == 0 && dataAtual.minuto == 0) {
-            struct stat st;
-            stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
-            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
-            char dataString[100];
-            sprintf(dataString, "Historico/Data_%d-%d-%d_%d_%d_%d", dataAtual.dia, dataAtual.mes, dataAtual.ano, dataAtual.hora, dataAtual.minuto, dataAtual.segundo);
-            stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
-            char imgsString[100];
-            sprintf(imgsString, "%s/imgs", dataString);
-            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
-
-            calculosRecolhas();
-            exportarHistoricoTransacoesParaTXT("teste");
-            exportHistoricoDadosEstatisticosParaCSV("teste");
-            exportHistoricoDadosEstatisticosParaTXT("teste");
-            exportHistoricoDadosEstatisticosParaCSV("teste");
-            CriarGrafico();
-            CriarGrafico();
-            CriarGrafico();
-            CriarGrafico();
-            limparHistoricoTransacoes();
-            destruirHistoricoDadosEstatisticos();
-            initHistoricoDadosEstatisticos(); 
-        }
-        dataAnterior = dataAtual;
-        sleep(1);
-    }
-    return NULL;
-} */
 
 void *threadTempo(){
     tempoEmMilisegundos = getCurrentTimeMillisecounds();

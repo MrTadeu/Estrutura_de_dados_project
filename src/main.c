@@ -19,9 +19,7 @@ int main(){
     
     Init();
     menu();
-    //tem de ser sempre rodadas
     if(Opcoes.lojaAberta)
         fechamentoLoja();
     closeAll();
-    //
 }

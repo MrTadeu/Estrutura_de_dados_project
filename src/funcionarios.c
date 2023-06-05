@@ -32,6 +32,7 @@ void verFuncionarios(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
 
 void verFuncionariosCaixa(){
@@ -48,6 +49,7 @@ void verFuncionariosCaixa(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
 
 void verFuncionariosInativos(){
@@ -59,6 +61,7 @@ void verFuncionariosInativos(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
 
 void pesquisarFuncionariosID(){
@@ -80,6 +83,7 @@ void pesquisarFuncionariosID(){
         bufferclear();
         getchar();
     }
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
 
 void pesquisarFuncionariosNome(){
@@ -100,7 +104,7 @@ void pesquisarFuncionariosNome(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
-    return;
+    exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
 }
 
 void editarFuncionarios(){
@@ -120,7 +124,6 @@ void editarFuncionarios(){
         printf("\nID: %d \nNome: %s \nSalario: %.2f€ \nNumero Vendas: %d \nAtraso medio: %.2f \nBonus: %.2f€", Funcionarios[pos]->id, Funcionarios[pos]->nome, (getNivelFuncionario(Funcionarios[pos])).salario, Funcionarios[pos]->n_vendas, Funcionarios[pos]->atrasoMedio/10000.0, getBonusFuncionario(Funcionarios[pos]));
 
         char nome[100];
-        /* bufferclear(); */
         scanfs("%[^\n]", &nome, "\nNome do funcionario: ", "Input invalido, tente novamente: ");
         free(Funcionarios[pos]->nome);
         Funcionarios[pos]->nome = malloc(sizeof(char) * (strlen(nome) + 1));
@@ -161,7 +164,8 @@ void removerFuncionario(){
     verFuncionariosInativos();
     int id;
     scanfs("%d", &id, "Insira o ID do funcionario que pretende remover: ", "Apenas pode inserir números inteiros!");
-    
+
+    pthread_mutex_lock(&FuncionariosLock);
     int pos = encontrarIdFuncionario(id);
 
     if (pos == -1){
@@ -175,6 +179,7 @@ void removerFuncionario(){
         printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
         bufferclear();
         getchar();
+        pthread_mutex_unlock(&FuncionariosLock);
         return;
     }
     else{
@@ -187,6 +192,7 @@ void removerFuncionario(){
         getchar();
     }
     exportarDados(guardarFuncionarioTxt, FUNCIONARIOS);
+    pthread_mutex_unlock(&FuncionariosLock);
 }
     
 void atualizarDadosFuncionario(FuncionarioStruct *funcionario, float atrasoMedio){
@@ -212,21 +218,21 @@ FuncionarioStruct *escolherFuncionarios(){
     funcionario = Funcionarios[index];
     funcionario->ativo = 1;
     
-    /* pthread_mutex_lock(&ClientesLock); */
+    pthread_mutex_lock(&FuncionariosLock);
     Funcionarios[index] = Funcionarios[n_funcionariosAtivos];
     Funcionarios[n_funcionariosAtivos] = funcionario;
     n_funcionariosAtivos++;
-
+    pthread_mutex_unlock(&FuncionariosLock);
     return funcionario;
-    /* pthread_mutex_unlock(&ClientesLock); */
 }
 
 void desocuparFuncionario(FuncionarioStruct* funcionario){
     int pos = encontrarIdFuncionario(funcionario->id);
     (pos == -1 || pos >= n_funcionariosAtivos) ? printf("\n\tErro! Funcionario não encontrado.\n") : (void)NULL;
-    
+    pthread_mutex_lock(&FuncionariosLock);
     funcionario = Funcionarios[pos];
     funcionario->ativo = 0;
     Funcionarios[pos] = Funcionarios[--n_funcionariosAtivos];
     Funcionarios[n_funcionariosAtivos] = funcionario;
+    pthread_mutex_unlock(&FuncionariosLock);
 }

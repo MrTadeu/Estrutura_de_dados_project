@@ -18,6 +18,7 @@ void verClientes(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarClienteTxt, CLIENTES);
 }
 
 void encontrarCaixaCliente(ClienteStruct *cliente){
@@ -76,6 +77,7 @@ void verClientesEmLoja(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarClienteTxt, CLIENTES);
 }
 
 void verClientesInativos(){
@@ -87,6 +89,7 @@ void verClientesInativos(){
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
     getchar();
+    exportarDados(guardarClienteTxt, CLIENTES);
 }
 
 void verClientesCaixa(){
@@ -217,7 +220,7 @@ void editarCliente(){
     char nome[100];
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     scanfs("%d", &id, "Insira o ID do cliente que pretende editar: ", "Apenas pode inserir números inteiros!");
-    
+    pthread_mutex_lock(&ClientesLock);
     int index = encontrarIdCliente(id);
     if(index == -1){
         printc("[red]\nCliente não encontrado![/red]\n");
@@ -255,13 +258,14 @@ void editarCliente(){
     bufferclear();
     getchar();
     exportarDados(guardarClienteTxt, CLIENTES);
+    pthread_mutex_unlock(&ClientesLock);
 }
 
 void removerCliente(){
     int id, index;
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     scanfs("%d", &id, "Insira o ID do cliente que pretende remover: ", "Apenas pode inserir números inteiros!");
-
+    pthread_mutex_lock(&ClientesLock);
     index = encontrarIdCliente(id);
     if(index == -1){
         printc("\n[yellow]Não existe nenhum cliente com esse ID1![/yellow]");
@@ -277,6 +281,7 @@ void removerCliente(){
     bufferclear();
     getchar();
     exportarDados(guardarClienteTxt, CLIENTES);
+    pthread_mutex_unlock(&ClientesLock);
 }
 
 void criarProdutosAddCliente(ClienteStruct *cliente){

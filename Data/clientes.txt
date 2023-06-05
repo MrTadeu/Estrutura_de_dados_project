@@ -1,8 +1,8 @@
 7
-812996	Bruno Baptista Estrela	1.902000	24	8	1977
-606011	Bruna Dinis Rocha	0.549000	19	8	1942
-333150	Camilo Calado Martins	3.516000	8	4	1971
 806711	Boris Almada Paredes	0.900000	18	12	1967
-366179	David Calheiros Almeida	3.584000	2	12	1923
+366179	David Calheiros Almeida	0.584000	2	12	1923
+606011	Bruna Dinis Rocha	0.549000	19	8	1942
 726970	Francisca Almeida Calheiros	0.905000	6	11	1947
-428085	Valdemar Arouca Coelho	2.276000	22	6	1992
+428085	Valdemar Arouca Coelho	0.276000	22	6	1992
+333150	Camilo Calado Martins	0.516000	8	4	1971
+812996	Bruno Baptista Estrela	0.902000	24	8	1977

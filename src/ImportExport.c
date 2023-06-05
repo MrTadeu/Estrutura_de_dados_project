@@ -79,7 +79,7 @@ void importarFuncionarios(char **linhaString, int n_linha, int n_colunas){
     strcpy(Funcionarios[n_linha]->nome, linhaString[1]);
     if(n_colunas == 6){
         Funcionarios[n_linha]->n_vendas = atoi(linhaString[3]);
-        Funcionarios[n_linha]->atrasoMedio = atof(linhaString[5]);
+        Funcionarios[n_linha]->atrasoMedio = atoi(linhaString[5]);
     }
     else{
         Funcionarios[n_linha]->n_vendas = 0;
