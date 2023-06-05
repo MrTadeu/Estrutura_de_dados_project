@@ -251,10 +251,10 @@ void editarVerTransacoes(){
 void fechamentoLoja(){
     Opcoes.lojaAberta = 0;
     printc("[green]A atender os ultimos clientes. Por favor aguarde...[/green]");
-    while(n_clientesAtivos){
+   /*  while(n_clientesAtivos){
         dormir(50);
-    }
-    destruirLista(Global.caixas, destruirCaixa); // free area das caixas
+    } */
+    /* destruirLista(Global.caixas, destruirCaixa); // free area das caixas
     free(Global.PessoasAcabaramTempoDeCompra);
     exportarHistoricoTransacoesParaTXT("teste"); //!FALTA NOME FICHEIRO
     exportarHistoricoTransacoesParaCSV("teste"); //!FALTA NOME FICHEIRO
@@ -269,6 +269,6 @@ void fechamentoLoja(){
         free(Funcionarios[i]);
     free(Funcionarios);
 
-    free(Produtos); // free vetor produtos
+    free(Produtos) */; // free vetor produtos
 }
 

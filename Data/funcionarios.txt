@@ -1,5 +1,5 @@
 14
-6129	Maria Soraia Bullitta Portela	0	0
+3044	Ana Beatriz Campos Pereira	1	2000
 7353	Ines Emanuel Munhoz 	0	0
 3100	Joao Maria Marques 	0	0
 6477	Pedro Ferreira Alves Silva	0	0
@@ -7,9 +7,9 @@
 3251	Monica Diogo Santos Fardilha	0	0
 5037	Beatriz Manuel dos Antos	0	0
 9164	Carolina Rita Cruz Almeida	0	0
-2856	Ana Beatriz Campos Pereira	0	0
+6129	Maria Soraia Bullitta Portela	0	0
 9140	Ines Fernandes Guilherme Silva	0	0
-3044	Ana Beatriz Campos Pereira	0	0
-5919	Fabiana Costa Silva Coelho	0	0
 7046	Carolina Gomes Moutinho	0	0
+5919	Fabiana Costa Silva Coelho	0	0
+2856	Ana Beatriz Campos Pereira	0	0
 8839	Roberto Maria Silva Pina	0	0

@@ -84,7 +84,6 @@ void atenderPessoa(CaixaStruct *caixa){
     int tempoEstimadoCaixaAux = cliente->tempoEstimadoCaixa, 
     tempoAtrasoAux = cliente->tempoAtraso,
     tempo = cliente->tempoEstimadoCaixa + cliente->tempoAtraso;
-    printf("tempo inicial: %d tempoAtraso:%d\n", tempo, tempoAtrasoAux);
 
     while(tempo>0){
         int x;
@@ -119,12 +118,11 @@ void atenderPessoa(CaixaStruct *caixa){
             }
         }
 
-        printf("\nx: %d tempo:%d  caixa->tempoTotalEspera:%d", x, tempo, caixa->tempoTotalEspera);
     }
     pthread_mutex_lock(&caixa->lock);
-    printf("\nfinal antes caixa->tempoTotalEspera:%d",caixa->tempoTotalEspera);
-    caixa->tempoTotalEspera += tempoAtrasoAux;
-    printf("\nfinal depos caixa->tempoTotalEspera:%d",caixa->tempoTotalEspera);
+    if(tempoAtrasoAux<0){
+        caixa->tempoTotalEspera += tempoAtrasoAux;
+    }
     pthread_mutex_unlock(&caixa->lock); 
     cliente->tempoEstimadoCaixa = tempoEstimadoCaixaAux;
     cliente->tempoAtraso = tempoAtrasoAux;
@@ -289,7 +287,6 @@ void *ThreadCaixa(void *arg){
             if (Opcoes.VerTransacoes){
                 printc("\n[red]%dº Caixa: fechada[/red]\n", caixa->id);
             }
-            dormir(10000);
             
             caixa->aberta = 0;
             caixa->threadAberta = 0;
