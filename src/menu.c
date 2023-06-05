@@ -168,7 +168,10 @@ void menuConfig(){
 }
 
 void menuMultiplicadorTempo(){
-    int opcao;
+    float mult;
+    scanf("%f", &mult);
+    Opcoes.multiplicadorTempo = mult;
+/*     int opcao;
     do{
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         int i = 0;
@@ -220,8 +223,8 @@ void menuMultiplicadorTempo(){
                 Opcoes.multiplicadorTempo = opcaoTempo[i];
             }
         }
-        /* printf("O multiplicador de tempo foi alterado para %fx, Opçoes %d\n", Opcoes.multiplicadorTempo, opcao); */
-    } while (opcao != 0);
+        /* printf("O multiplicador de tempo foi alterado para %fx, Opçoes %d\n", Opcoes.multiplicadorTempo, opcao); 
+    } while (opcao != 0);     */
 }
 
 void menuClientes(){

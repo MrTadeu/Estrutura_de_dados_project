@@ -178,14 +178,15 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
 }
 void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto){
     Elemento* caixa = Global.caixas->head;
-    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numerosCaixasAbertas = Global.caixas->quantidadeElementos;
-    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numeroClienteSupermercado = Global.n_pessoasEmLoja;
+    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numerosCaixasAbertas = Opcoes.numCaixasAbertas;
+    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numeroClienteSupermercado = n_clientesAtivos;
     
     int i = 0;
     while(caixa){
         CaixaStruct* caixaInfo = (CaixaStruct*)caixa->Info;
         HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i][0] = caixaInfo->tempoTotalEspera;
-        HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i++][1] = caixaInfo->listaPessoas->quantidadeElementos;
+        HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i][1] = caixaInfo->listaPessoas->quantidadeElementos;
+        i++;
         caixa = caixa->next;
     }
 }
