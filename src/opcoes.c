@@ -235,10 +235,7 @@ void editarQuantMaxProd()
     getchar();
 } */
 
-void editarVerTransacoes()
-{
-    if (Opcoes.lojaAberta == 1 /* || TRUE */)
-    {
+void editarVerTransacoes(){
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         printc("[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
         printc("\n[yellow]Pressione qualquer tecla para [red]PARAR[/red] de ver as transações![/yellow]");
@@ -249,20 +246,12 @@ void editarVerTransacoes()
         bufferclear();
         getchar();
         Opcoes.VerTransacoes = 0;
-    }
-    else
-    {
-        printc("\n[red]A loja tem de estar aberta para ver as transações![/red]");
-        printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
-        bufferclear();
-        getchar();
-    }
 }
 
 void fechamentoLoja(){
     Opcoes.lojaAberta = 0;
     printc("[green]A atender os ultimos clientes. Por favor aguarde...[/green]");
-    while(n_clientesAtivos){
+    /* while(n_clientesAtivos){
         dormir(50);
     }
     destruirLista(Global.caixas, destruirCaixa); // free area das caixas
@@ -280,6 +269,6 @@ void fechamentoLoja(){
         free(Funcionarios[i]);
     free(Funcionarios);
 
-    free(Produtos); // free vetor produtos
+    free(Produtos); // free vetor produtos */
 }
 
