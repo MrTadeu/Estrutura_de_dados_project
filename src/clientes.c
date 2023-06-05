@@ -91,47 +91,42 @@ void verClientesInativos(){
 
 void verClientesCaixa(){
     fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
-    if(/* Opcoes.lojaAberta ==  */0){
-        printc("\n\n[yellow]A loja está fechada! Não é possível ver os clientes em caixa.[/yellow]");
-    }
-    else{
-        Elemento *Caixa = Global.caixas->head;
-        int i = 0;
-        while(Caixa){
-            if(i++ >= Opcoes.numCaixasTotal){
-                Caixa = Caixa->next;
-                continue;
-            }
-                
-            if(((CaixaStruct *)Caixa->Info)->aberta == 1){
-                char tempoTotalEspera[9];
-                formatTime(((CaixaStruct *)Caixa->Info)->tempoTotalEspera, tempoTotalEspera);
-                printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %s [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, tempoTotalEspera);
-            }
-            else{
-                printc("[red]%d ºCaixa FECHADA[/red]\n", ((CaixaStruct *)Caixa->Info)->id);
-            }
-            Elemento *Cliente = ((CaixaStruct *)Caixa->Info)->listaPessoas->head;
-            while (Cliente){
-                ClienteStruct ClienteInfo = *((ClienteStruct *)Cliente->Info);
-                char tempoAtraso[9], tempoBrinde[9], tempoEstimadoCaixa[9], tempoEstimadoCompra[9];
-                formatTime(ClienteInfo.tempoAtraso, tempoAtraso);
-                formatTime(ClienteInfo.tempoBrinde, tempoBrinde);
-                formatTime(ClienteInfo.tempoEstimadoCaixa, tempoEstimadoCaixa);
-                formatTime(ClienteInfo.tempoEstimadoCompra, tempoEstimadoCompra);
-                printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %s tempoBrinde: %s TempoEstimadoCaixa: %s tempoEstimadoCompra: %s precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, tempoAtraso, tempoBrinde, tempoEstimadoCaixa, tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
-                Elemento *Produtos = ClienteInfo.listaProdutos->head;
-                while(Produtos){
-                    ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
-                    printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue]", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco);
-                    Produtos = Produtos->next;
-                }
-                printf("\n");
-                Cliente = Cliente->next;
-            }
-            printf("\n\n");
-            Caixa = Caixa->next; 
+    Elemento *Caixa = Global.caixas->head;
+    int i = 0;
+    while(Caixa){
+        if(i++ >= Opcoes.numCaixasTotal){
+            Caixa = Caixa->next;
+            continue;
         }
+            
+        if(((CaixaStruct *)Caixa->Info)->aberta == 1){
+            char tempoTotalEspera[9];
+            formatTime(((CaixaStruct *)Caixa->Info)->tempoTotalEspera, tempoTotalEspera);
+            printc("[red]%d ºCaixa [green]ABERTA[/green]  Funcionario: %s Número De Vendas: %d Tempo Espera: %s [/red]\n", ((CaixaStruct *)Caixa->Info)->id, ((CaixaStruct *)Caixa->Info)->funcionario->nome, ((CaixaStruct *)Caixa->Info)->funcionario->n_vendas, tempoTotalEspera);
+        }
+        else{
+            printc("[red]%d ºCaixa FECHADA[/red]\n", ((CaixaStruct *)Caixa->Info)->id);
+        }
+        Elemento *Cliente = ((CaixaStruct *)Caixa->Info)->listaPessoas->head;
+        while (Cliente){
+            ClienteStruct ClienteInfo = *((ClienteStruct *)Cliente->Info);
+            char tempoAtraso[9], tempoBrinde[9], tempoEstimadoCaixa[9], tempoEstimadoCompra[9];
+            formatTime(ClienteInfo.tempoAtraso, tempoAtraso);
+            formatTime(ClienteInfo.tempoBrinde, tempoBrinde);
+            formatTime(ClienteInfo.tempoEstimadoCaixa, tempoEstimadoCaixa);
+            formatTime(ClienteInfo.tempoEstimadoCompra, tempoEstimadoCompra);
+            printc("\t[green]ID: %d Nome: %s Saldo do Cartão: %.2f€ Data Nascimento: %d/%d/%d TempoAtraso: %s tempoBrinde: %s TempoEstimadoCaixa: %s tempoEstimadoCompra: %s precoTotalProdutos: %.2f [/green]", ClienteInfo.id, ClienteInfo.nome, ClienteInfo.saldoCartaoCliente, ClienteInfo.dataNascimento.dia, ClienteInfo.dataNascimento.mes, ClienteInfo.dataNascimento.ano, tempoAtraso, tempoBrinde, tempoEstimadoCaixa, tempoEstimadoCompra, ClienteInfo.precoTotalProdutos);
+            Elemento *Produtos = ClienteInfo.listaProdutos->head;
+            while(Produtos){
+                ProdutoStruct *ProdutoInfo = ((ProdutoStruct *)Produtos->Info);
+                printc("\n\t\t[blue]%s %dx PREÇO: %.2f€[/blue]", ProdutoInfo->nome, ProdutoInfo->quantidadeProdutosRepetidos, ProdutoInfo->preco);
+                Produtos = Produtos->next;
+            }
+            printf("\n");
+            Cliente = Cliente->next;
+        }
+        printf("\n\n");
+        Caixa = Caixa->next; 
     }
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
     bufferclear();
