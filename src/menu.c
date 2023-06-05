@@ -14,7 +14,7 @@ void menu(){
         if(Opcoes.lojaAberta == 1){
             printc("**        [blue]%d [/blue]-> Fechar Loja                      **\n", i++);
         }
-         printc("**        [blue]%d [/blue]-> Ver Clientes na Caixa           **\n", i++);
+         printc("**        [blue]%d [/blue]-> Ver Clientes na Caixa            **\n", i++);
         printc("**        [blue]%d [/blue]-> Configurações                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Clientes                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Funcionarios                **\n", i++);
@@ -22,7 +22,7 @@ void menu(){
         printc("**        [blue]%d [/blue]-> Ver Transações                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Historico                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Fechar Caixa por urgência        **\n", i++);
-        printc("**        [blue]%d [/blue]-> Criar Grafico                    **\n", i++);
+        printc("**        [blue]%d [/blue]-> Criar Grafico                   **\n", i++);
         printc("**************************************************\n");
         scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
         
