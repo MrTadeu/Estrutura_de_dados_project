@@ -1,7 +1,7 @@
 #include "../includes/supportLib.h"
 #include "../includes/pbPlots.h"
 
-int CriarGrafico(char* caminhoFicheiro, int *X, int *Y){
+int CriarGrafico(char* caminhoFicheiro, int *X){
 	/* printf("odjaodjaiodjaidjiadjiadjd\n"); */
 	/* ScatterPlotSeries series = GetDefaultScatterPlotSeriesSettings();
 	series.xs = new double [] {-2, -1, 0, 1, 2};
