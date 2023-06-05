@@ -4,7 +4,7 @@
 584550	Ana Belchior Aguiar	0.000000	16	7	1963
 105653	Joana Soeiro Dias	0.000000	6	10	1926
 577418	Dulcineia Aguiar Amorim	0.000000	24	1	1996
-648138	Celso Carrasco Mendes	0.000000	24	7	1939
+380931	Basilio Rego Dias	0.000000	3	7	1945
 869014	Boris Brito Clementino	0.000000	26	7	1942
 98222	Carlota Vivas Azenha	0.000000	29	1	1941
 971930	Carla Carneiro Pacheco	0.000000	6	4	2011
@@ -20,16 +20,16 @@
 665959	Dolores Brito Pires	0.000000	22	9	1919
 210424	Cristiana Soeiro Pinheiro	0.000000	23	3	1934
 906758	Duarte Cipriano Rocha	0.000000	24	4	2001
-380931	Basilio Rego Dias	0.000000	3	7	1945
+475513	Dina Dinis Baptista	0.000000	17	11	1959
 324478	Camilo Azenha Macedo	0.000000	28	12	1913
 692864	Marisa Macedo Seixas	0.000000	23	10	1993
-464220	Leonor Barros Tinoco	0.000000	4	1	1961
-334534	Dulcineia Peres Leal	0.000000	29	11	1958
-524453	Daniel Mateus Moreno	0.000000	4	8	1990
-705773	Vitor Martins Amora	0.000000	16	2	1994
-644877	Bruna Cardoso Pacheco	0.000000	7	7	1990
-731350	Lucas Tinoco Pinto	0.000000	24	8	1958
-39160	Francisca Fonseca Vivas	0.000000	24	7	1921
+888462	Cristina Azenha Almada	0.000000	29	1	1999
+945973	Leonor Leal Moreira	0.000000	22	2	1951
+226103	Cristiano Soeiro Belchior	0.000000	7	6	1959
+344817	Lucas Tinoco Mourao	0.000000	8	7	1922
+183434	Marisa Caiado Antunes	0.000000	6	7	1917
+780951	Alzinda Soeiro Domingos	0.000000	11	3	1926
+852292	Rita Pinheiro Amaro	0.000000	8	12	1978
 600282	Bruno Queiros Mota	0.000000	12	4	1935
 455704	Bernardo Antunes Cardoso	0.000000	9	5	1919
 878146	Joana Moreira Silva	0.000000	28	6	1977
@@ -71,7 +71,7 @@
 761560	Ricardo Rosado Ferreira	0.000000	21	6	1918
 933408	Boris Aguiar Santos	0.000000	30	9	1936
 612228	Dina Brito Baptista	0.000000	22	12	1926
-945973	Leonor Leal Moreira	0.000000	22	2	1951
+334534	Dulcineia Peres Leal	0.000000	29	11	1958
 101118	Dolores Andrade Cardoso	0.000000	17	12	1969
 346939	Dina Pires Caneco	0.000000	8	9	2006
 339280	Claudio Mota Moreno	0.000000	17	7	1951
@@ -152,7 +152,7 @@
 178954	Bruna Santos Barros	0.000000	28	8	1934
 949685	Vitor Amorim Coelho	0.000000	17	7	2006
 898931	Eduarda Santos Rego	0.000000	26	1	1977
-852292	Rita Pinheiro Amaro	0.000000	8	12	1978
+39160	Francisca Fonseca Vivas	0.000000	24	7	1921
 806840	Francisco Pacheco Arouca	0.000000	11	11	1935
 455278	Hugo Matos Pires	0.000000	26	5	1981
 745536	Vitor Real Nunes	0.000000	2	3	1948
@@ -4032,7 +4032,7 @@
 696541	Pedro Castanheira Arantes	0.000000	16	10	1971
 232799	Cristiana Carvalheira Mourao	0.000000	7	2	1946
 574731	Eduarda Martins Aguiar	0.000000	14	6	1996
-888462	Cristina Azenha Almada	0.000000	29	1	1999
+464220	Leonor Barros Tinoco	0.000000	4	1	1961
 702135	Catarina Moura Valbom	0.000000	15	12	1967
 575525	Boris Rego Soeiro	0.000000	17	9	1914
 552100	Francisco Ferraz Amorim	0.000000	18	4	1996
@@ -4705,7 +4705,7 @@
 248183	Cristiana Farias Macedo	0.000000	31	3	1978
 407641	Soraia Moreira Lobato	0.000000	11	6	1997
 700069	Dora Paredes Azenha	0.000000	31	5	1974
-183434	Marisa Caiado Antunes	0.000000	6	7	1917
+644877	Bruna Cardoso Pacheco	0.000000	7	7	1990
 450877	Dina Rego Andrade	0.000000	5	7	1963
 852459	Cristiano Carrico Lopes	0.000000	5	9	1919
 932802	Alzinda Barbosa Martins	0.000000	28	3	1963
@@ -6323,7 +6323,7 @@
 285829	Claudio Andrade Seixas	0.000000	15	5	1968
 859400	Bruno Mota Almeida	0.000000	19	5	2007
 112832	Liliana Pinto Mourao	0.000000	26	5	1995
-876390	David Bacelar Leal	0.000000	18	6	1933
+697317	Celino Dinis Mota	0.000000	22	1	1940
 741367	Eduardo Pacheco Pires	0.000000	16	1	1999
 649512	Liliana Quadros Moreira	0.000000	10	3	2002
 612813	David Azeredo Fonseca	0.000000	26	2	2012
@@ -7192,7 +7192,7 @@
 160980	Boris Bacelar Soeiro	0.000000	3	7	1998
 972557	Liliana Farias Castanheira	0.000000	18	7	1933
 382774	Dolores Paredes Amado	0.000000	31	1	1965
-780951	Alzinda Soeiro Domingos	0.000000	11	3	1926
+731350	Lucas Tinoco Pinto	0.000000	24	8	1958
 639810	Paula Santos Castro	0.000000	25	8	1992
 561704	Cristiano Santos Baptista	0.000000	30	7	1941
 653752	Paula Mourao Estrela	0.000000	18	11	1997
@@ -7311,7 +7311,7 @@
 15030	Bruno Regueira Quadros	0.000000	20	2	1985
 256240	Francisca Pinheiro Rego	0.000000	5	3	1955
 125806	Silvia Silva Pacheco	0.000000	12	4	1988
-344817	Lucas Tinoco Mourao	0.000000	8	7	1922
+705773	Vitor Martins Amora	0.000000	16	2	1994
 21778	Camilo Castanheira Domingos	0.000000	10	11	1916
 647709	Boris Nunes Valbom	0.000000	12	9	1947
 293759	Cristina Amado Antunes	0.000000	8	10	1940
@@ -8044,7 +8044,7 @@
 593488	Eduardo Amorim Amora	0.000000	17	12	2012
 969356	Vitor Brito Mateus	0.000000	29	11	1920
 664436	Joana Arouca Domingos	0.000000	26	6	1939
-697317	Celino Dinis Mota	0.000000	22	1	1940
+648138	Celso Carrasco Mendes	0.000000	24	7	1939
 661488	Cristiano Ferraz Bacelar	0.000000	20	2	1987
 672625	Carmo Mora Belchior	0.000000	16	7	1915
 350414	Maria Mota Ferreira	0.000000	16	5	2004
@@ -9238,7 +9238,7 @@
 858756	Celino Carrasco Soeiro	0.000000	22	5	1943
 583529	Clotilde Arantes Brito	0.000000	11	3	1925
 332612	Clotilde Cabral Cipriano	0.000000	18	5	1995
-226103	Cristiano Soeiro Belchior	0.000000	7	6	1959
+524453	Daniel Mateus Moreno	0.000000	4	8	1990
 689258	Carla Lopes Matos	0.000000	27	4	2008
 325814	Boris Mateus Matos	0.000000	19	5	1923
 192695	Vitor Moura Carrasco	0.000000	2	2	1992
@@ -9638,7 +9638,7 @@
 1866	Celino Castanheira Moreira	0.000000	6	5	1936
 206760	Clarice Carrasco Matos	0.000000	27	3	1926
 244608	Carina Rego Leal	0.000000	10	1	1942
-475513	Dina Dinis Baptista	0.000000	17	11	1959
+876390	David Bacelar Leal	0.000000	18	6	1933
 589902	Soraia Santos Almada	0.000000	20	12	1923
 566479	Pedro Matos Azeredo	0.000000	8	3	1979
 24060	Carla Pacheco Amorim	0.000000	2	3	1916

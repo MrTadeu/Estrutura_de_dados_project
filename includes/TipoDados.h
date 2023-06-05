@@ -347,7 +347,7 @@ void *ThreadGlobal();
 void *ThreadEsperaTempoCompra(void *args);
 void *threadTempo();
 void *hedule();
-void* ThreadSchedule(void* arg);
+void* ThreadSchedule();
 
 // historico.c
 void initHistoricoTransacoes();
