@@ -105,70 +105,43 @@ void *ThreadSchedule(){
             stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString); 
         } */
 
-        if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
+        /* if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
             //recolhaDadosEstatisticosHistoricoPeriodica(dataAnterior.hora, dataAnterior.minuto);
-        }
+        } */
        
         if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
-
-            struct stat st;
-            DataStruct dataAux = formatTimeStruct(tempoEmMilisegundos - 3600*1000*24);
-            char dataString[50];
-            char imgsString[100];
             dataAnterior.dia = formatTimeStruct(tempoEmMilisegundos).dia;
-
-            #ifdef _WIN32
-                stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
-                // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
-                sprintf(dataString, "Historico/Data_%d-%d-%d", dataAux.dia, dataAux.mes, dataAux.ano);
-                //printf("%s\n", dataString);
-                stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
-                sprintf(imgsString, "%s/imgs", dataString);
-                //printf("%s\n", imgsString);
-                stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
-                
-            #endif
-            #ifndef _WIN32
-                printf("dataAtual.dia: %d e dataAnterior.dia: %d", dataAtual.dia, dataAnterior.dia);
-                stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico", 0700); // retorna 0 se existir
-                // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
-                sprintf(dataString, "Historico/Data_%d-%d-%d", dataAux.dia, dataAux.mes, dataAux.ano);
-                //printf("%s\n", dataString);
-                stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString, 0700);
-                sprintf(imgsString, "%s/imgs", dataString);
-                //printf("%s\n", imgsString);
-                stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString, 0700);
-                printc("\n\n\n[red]Hora passada[/red]");
-            #endif
+            DataStruct dataAux = formatTimeStruct(tempoEmMilisegundos - 3600*1000*24);
+            struct stat st;
+            stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
+            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
+            // printc("\n\n\t[green]Hora: %d:%d:%d[/green]", dataAtual.hora, dataAtual.minuto, dataAtual.segundo); 
+            char dataString[100];
+            sprintf(dataString, "Historico/Data_%d-%d-%d", dataAtual.dia, dataAtual.mes, dataAtual.ano);
+            sprintf(dataString, "Historico/Data_%d-%d-%d", dataAux.dia, dataAux.mes, dataAux.ano);
+            //printf("%s\n", dataString);
+            stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
+            char imgsString[100];
+            sprintf(imgsString, "%s/imgs", dataString);
+            //printf("%s\n", imgsString);
+            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
             
-            /* char imgsString1[150];
-            sprintf(imgsString, "%s/Imagem1.png", imgsString);
-            char imgsString2[150];
-            sprintf(imgsString, "%s/Imagem2.png", imgsString);
-            char imgsString3[150];
-            sprintf(imgsString, "%s/Imagem3.png", imgsString);
-            char imgsString4[150];
-            sprintf(imgsString, "%s/Imagem4.png", imgsString);
-            char imgsString5[150];
-            sprintf(imgsString, "%s/Imagem5.png", imgsString);
-            char imgsString6[150];
-            sprintf(imgsString, "%s/Imagem6.png", imgsString); */
             calculosRecolhas();
             exportarHistoricoTransacoesParaTXT(dataString);
             exportarHistoricoTransacoesParaCSV(dataString);
             /* exportHistoricoDadosEstatisticosParaTXT(dataString);
-            exportHistoricoDadosEstatisticosParaCSV(dataString); 
-            CriarGrafico(imgsString1, numHoras, HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora, "Tempo medio de espera por hora", "Horas" ,"Tempo medio de espera"); 
-            CriarGrafico(imgsString2, numCaixas, HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa, "Tempo medio de espera por caixa", "ID Caixa" ,"Tempo medio de espera"); 
-            CriarGrafico(imgsString3, numHoras, HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaHora, "Numero medio de pessoas na fila por hora", "Horas" ,"Numero medio de pessoas na fila"); 
-            CriarGrafico(imgsString4, numCaixas, HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa, "Numero medio de pessoas na fila por caixa", "ID Caixa" ,"Numero medio de pessoas na fila");
-            CriarGrafico(imgsString5, numHoras, HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_CadaHora, "Numero medio de caixas abertas por hora", "Horas", "Numero medio de caixas abertas");
-            CriarGrafico(imgsString6, numHoras, HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_CadaHora, "Numero medio de no supermercado por hora", "Horas", "Numero medio de clientes no supermercado");
-            limparHistoricoTransacoes();
-            destruirHistoricoDadosEstatisticos();
+            exportHistoricoDadosEstatisticosParaCSV(dataString);
+            CriarGrafico(imgsString, HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora); 
+            CriarGrafico(imgsString, numHoras, HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora, "Tempo medio de espera por hora", "Horas" ,"Tempo medio de espera"); 
+            CriarGrafico(imgsString, numCaixas, HistoricoDados.mediaDiaria.tempoMedioEspera_CadaCaixa, "Tempo medio de espera por caixa", "ID Caixa" ,"Tempo medio de espera"); 
+            CriarGrafico(imgsString, numHoras, HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaHora, "Numero medio de pessoas na fila por hora", "Horas" ,"Numero medio de pessoas na fila"); 
+            CriarGrafico(imgsString, numCaixas, HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaCaixa, "Numero medio de pessoas na fila por caixa", "ID Caixa" ,"Numero medio de pessoas na fila");
+            CriarGrafico(imgsString, numHoras, HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_CadaHora, "Numero medio de caixas abertas por hora", "Horas", "Numero medio de caixas abertas");
+            CriarGrafico(imgsString, numHoras, HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_CadaHora, "Numero medio de no supermercado por hora", "Horas", "Numero medio de clientes no supermercado");
             initHistoricoDadosEstatisticos();
-            printc("\n[red]Hora passada 222222222[/red]");*/ 
+            destruirHistoricoDadosEstatisticos(); */
+            limparHistoricoTransacoes();
         } 
     }
     return NULL;
