@@ -76,10 +76,16 @@ void changeStateThreadGlobal(){
 }
 
 void *ThreadSchedule(){
+    int flag = 1;
     DataStruct dataAnterior = formatTimeStruct(tempoEmMilisegundos);
     while (1){
+        
         DataStruct dataAtual = formatTimeStruct(tempoEmMilisegundos);
-        if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
+        if (flag){
+            dataAnterior = dataAtual;
+            flag = 0;
+        }
+        /* if (dataAtual.segundo % 10 == 0 && dataAnterior.segundo != dataAtual.segundo){
            struct stat st;
             stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
             dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
@@ -92,14 +98,19 @@ void *ThreadSchedule(){
             sprintf(imgsString, "%s/imgs", dataString);
             printf("%s\n", imgsString);
             stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString); 
-        }
+        } */
+
         if (dataAtual.minuto % 10 == 0 && dataAnterior.minuto != dataAtual.minuto){ // bater de 10 em 10 minutos
             dataAnterior.minuto = formatTimeStruct(tempoEmMilisegundos).minuto;
+            printc("\n\n\n[red]Dados recolhidos[/red]");
             recolhaDadosEstatisticosHistoricoPeriodica(dataAnterior.hora, dataAnterior.minuto);
+            printc("\n[red]Dados recolhidos 222222222[/red]");
         }
        
         if (dataAtual.dia % 1 == 0 && dataAnterior.dia != dataAtual.dia){ // bater de 1 em 1 dia
+            printf("dataAtual.dia: %d e dataAnterior.dia: %d", dataAtual.dia, dataAnterior.dia);
             dataAnterior.dia = formatTimeStruct(tempoEmMilisegundos).dia;
+            printf("dataAtual.dia: %d e dataAnterior.dia: %d", dataAtual.dia, dataAnterior.dia);
             struct stat st;
             stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
             dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
@@ -112,16 +123,18 @@ void *ThreadSchedule(){
             sprintf(imgsString, "%s/imgs", dataString);
             //printf("%s\n", imgsString);
             stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
+            printc("\n\n\n[red]Hora passada[/red]");
             
             calculosRecolhas();
             exportarHistoricoTransacoesParaTXT(dataString);
             exportarHistoricoTransacoesParaCSV(dataString);
             exportHistoricoDadosEstatisticosParaTXT(dataString);
             exportHistoricoDadosEstatisticosParaCSV(dataString);
-            CriarGrafico(imgsString, HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora);
+            /* CriarGrafico(imgsString, HistoricoDados.mediaDiaria.tempoMedioEsperaTotal_CadaHora); */
             limparHistoricoTransacoes();
             destruirHistoricoDadosEstatisticos();
             initHistoricoDadosEstatisticos();
+            printc("\n[red]Hora passada 222222222[/red]");
             /* *tempoMedioEsperaTotal_CadaHora,         //[24]
 >>         *tempoMedioEspera_CadaCaixa,  *numeroMedioClienteFila_CadaHora,            //[24]
 >>         *numeroMedioClienteFila_CadaCaixa,  *numeroMedioCaixasAbertas_CadaHora,*numeroMedioClienteSupermercado_CadaHora, */
