@@ -318,7 +318,7 @@ void *ThreadCaixa(void *arg){
         AddHistorico_Hash(caixa, movimentoSaldoCliente, valorProdutoOferecido);
 
         pthread_mutex_lock(&caixa->lock);
-        RemElementoInicio(caixa->listaPessoas); 
+        Elemento* remov = RemElementoInicio(caixa->listaPessoas); 
         pthread_mutex_unlock(&caixa->lock); 
 
 
@@ -328,8 +328,11 @@ void *ThreadCaixa(void *arg){
             printc("\n\n[yellow]Caixa quantidade %d[/yellow]\n", caixa->listaPessoas->quantidadeElementos);  */           
         }
         
+        free(remov);
+        remov = NULL;
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);
+
 
         Global.n_pessoasEmLoja--;
     }

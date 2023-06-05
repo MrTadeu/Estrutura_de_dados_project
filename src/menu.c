@@ -158,7 +158,11 @@ void menuConfig(){
             editarPercAcumularCartaoCli();
         }
         if (opcao == i++){
-            menuMultiplicadorTempo();
+            Opcoes.multiplicadorTempo = 0.01;
+            printf("Qual o multiplicador de tempo %.2f\n", Opcoes.multiplicadorTempo);
+            bufferclear();
+            getchar();
+            //menuMultiplicadorTempo();
         }
     } while (opcao != 0);
 }
