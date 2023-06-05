@@ -410,7 +410,7 @@ void exportHistoricoDadosEstatisticosParaCSV(const char* nomeArquivo){
     for (int i = 0; i < 24; i++){
         for (int j = 0; j < 6; j++){
             for(int l = 0; l < numeroMaximoCaixasPossivel; l++){
-                fprintf(arquivo, "%d;%d;%d;%d;%d;%d;%d;%d\n", i+1, j+1, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numeroClienteSupermercado);
+                fprintf(arquivo, "%d;%d;%d;%d;%d;%d;%d\n", i+1, j+1, l+1, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numeroClienteSupermercado);
             }
         }
     }
