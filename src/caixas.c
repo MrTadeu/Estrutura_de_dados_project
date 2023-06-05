@@ -118,7 +118,7 @@ void atenderPessoa(CaixaStruct *caixa){
             }
         }
 
-        // printf("\nx: %d tempo:%d  caixa->tempoTotalEspera:%d", x, tempo, caixa->tempoTotalEspera);
+        // printf("\nx: %d tempo:%d  %d", x, tempo, caixa->tempoTotalEspera);
     }
     pthread_mutex_lock(&caixa->lock);
     if(tempoAtrasoAux<0){
@@ -326,7 +326,8 @@ void *ThreadCaixa(void *arg){
             printc("\n\n[yellow]Caixa quantidade %d[/yellow]\n", caixa->listaPessoas->quantidadeElementos);  */           
         }
         
-        free(remov);
+        remov->next = NULL;
+        /* free(remov);  */
         remov = NULL;
         if (pessoaEmAtendimento->id != -1)
             DesocuparCliente(pessoaEmAtendimento);

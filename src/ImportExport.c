@@ -358,9 +358,9 @@ void exportarHistoricoTransacoesParaCSV(const char* diretorio){
                     formatTime(caixasHistoricoInfo->tempoEstimadoCaixa, tempoCaixa);
                     formatTime(caixasHistoricoInfo->tempoAtraso, tempoAtraso);
 
-                    fprintf(arquivo, "Nome cliente;ID cliente;ID caixa;Nome funcionario;ID funcionario;Dia de transacao;Mes de transacao;Ano de transacao;Tempo de espera na fila;Tempo de atraso;Produto ID;Produto Nome;Produto Quantidade;Produto Preco;Produto tempo compra;Produto tempo caixa;Preco total;Valor produto Oferecido;Saldo cartao cliente;\"");
+                    fprintf(arquivo, "Nome cliente;ID cliente;ID caixa;Nome funcionario;ID funcionario;Dia de transacao;Mes de transacao;Ano de transacao;Tempo de espera na fila;Tempo de atraso;Produto ID;Produto Nome;Produto Quantidade;Produto Preco;Produto tempo compra;Produto tempo caixa;Preco total;Valor produto Oferecido;Saldo cartao cliente;\n");
 
-                    fprintf(arquivo, "%s;%d;%d;%s;%d;%d;%d;%d;%s;%s", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j+1, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, tempoCaixa, tempoAtraso);
+                    fprintf(arquivo, "%s;%d;%d;%s;%d;%d;%d;%d;%s;%s\"", clientesHistoricoInfo->nome, clientesHistoricoInfo->id, j+1, caixasHistoricoInfo->funcionario->nome, caixasHistoricoInfo->funcionario->id, caixasHistoricoInfo->dataTransacao.dia, caixasHistoricoInfo->dataTransacao.mes, caixasHistoricoInfo->dataTransacao.ano, tempoCaixa, tempoAtraso);
 
                     Elemento *produtos = caixasHistoricoInfo->listaProdutos->head;
                     while (produtos){
@@ -371,7 +371,7 @@ void exportarHistoricoTransacoesParaCSV(const char* diretorio){
                         produtos = produtos->next;
                     }
 
-                    fprintf(arquivo,"\";%.2f€;%.2f€;%.2f€;", caixasHistoricoInfo->precoTotal, caixasHistoricoInfo->valorProdutoOferecido, caixasHistoricoInfo->movimentoCartaoCliente);
+                    fprintf(arquivo,"\";%.2f€;%.2f€;%.2f€\n", caixasHistoricoInfo->precoTotal, caixasHistoricoInfo->valorProdutoOferecido, caixasHistoricoInfo->movimentoCartaoCliente);
                     caixasHistorico = caixasHistorico->next;
                 }  
             }
@@ -385,20 +385,19 @@ void exportarHistoricoTransacoesParaCSV(const char* diretorio){
 
 void exportHistoricoDadosEstatisticosParaTXT(const char* diretorio){
     char nomeArquivo[100];
-    sprintf(nomeArquivo, "%s/HistoricoTransacoes.csv", diretorio);
+    sprintf(nomeArquivo, "%s/HistoricoDadosEstatisticos.txt", diretorio);
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
         return;
     }
-    fprintf(arquivo, "Horas;Minutos;ID Caixa;Tempo Espera;Numero de clientes na fila;Numero de caixas abertas;Numero de clientes no supermercado\n");
     for (int i = 0; i < 24; i++){
         for (int j = 0; j < 6; j++){
             for(int l = 0; l < numeroMaximoCaixasPossivel; l++){
                 char hora[6], tempoEspera[9];
                 sprintf(hora, "%d:%d", i+1, j+1);
                 formatTime(HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], tempoEspera);
-                fprintf(arquivo, "Hora %s ID Caixa: %d Tempo de espera: %s Número de cleintes na fila: %d Número de caixas abertas: %d Número de clientes no supermercado: %d\n", hora, l+1, tempoEspera, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
+                fprintf(arquivo, "Hora: %s ID Caixa: %d Tempo de espera: %s Número de clientes na fila: %d Número de caixas abertas: %d Número de clientes no supermercado: %d\n", hora, l+1, tempoEspera, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
             }
         }
     }
@@ -408,7 +407,7 @@ void exportHistoricoDadosEstatisticosParaTXT(const char* diretorio){
 
 void exportHistoricoDadosEstatisticosParaCSV(const char* diretorio){
     char nomeArquivo[100];
-    sprintf(nomeArquivo, "%s/HistoricoTransacoes.csv", diretorio);
+    sprintf(nomeArquivo, "%s/HistoricoDadosEstatisticos.csv", diretorio);
     FILE* arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
