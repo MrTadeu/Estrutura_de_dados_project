@@ -14,6 +14,7 @@ void menu(){
         if(Opcoes.lojaAberta == 1){
             printc("**        [blue]%d [/blue]-> Fechar Loja                      **\n", i++);
         }
+         printc("**        [blue]%d [/blue]-> Ver Clientes na Caixa           **\n", i++);
         printc("**        [blue]%d [/blue]-> Configurações                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Clientes                    **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Funcionarios                **\n", i++);
@@ -38,6 +39,9 @@ void menu(){
             if (opcao == i++){
                 changeStateThreadGlobal();
             }
+        }
+        if (opcao == i++){
+            verClientesCaixa();
         }
         if (opcao == i++){
             menuConfig();
@@ -158,11 +162,7 @@ void menuConfig(){
             editarPercAcumularCartaoCli();
         }
         if (opcao == i++){
-            Opcoes.multiplicadorTempo = 0.01;
-            printf("Qual o multiplicador de tempo %.2f\n", Opcoes.multiplicadorTempo);
-            bufferclear();
-            getchar();
-            //menuMultiplicadorTempo();
+            menuMultiplicadorTempo();
         }
     } while (opcao != 0);
 }
@@ -236,7 +236,6 @@ void menuClientes(){
         printc("**        [blue]%d [/blue]-> Ver Todos Clientes               **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Clientes Inativos            **\n", i++);
         printc("**        [blue]%d [/blue]-> Ver Clientes na Loja             **\n", i++);
-        printc("**        [blue]%d [/blue]-> Ver Clientes na Caixa (alterar)  **\n", i++);
         printc("**        [blue]%d [/blue]-> Pesquisar Clientes               **\n", i++);
         printc("**        [blue]%d [/blue]-> Adicionar Cliente                **\n", i++);
         printc("**        [blue]%d [/blue]-> Editar Cliente                   **\n", i++);
@@ -254,9 +253,6 @@ void menuClientes(){
         }
         if (opcao == i++){
             verClientesEmLoja();
-        }
-        if (opcao == i++){
-            verClientesCaixa();
         }
         if (opcao == i++){
             menuPesquisarClientes();
