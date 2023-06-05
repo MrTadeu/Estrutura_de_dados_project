@@ -3598,56 +3598,56 @@ Hora: 12:6 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 12:6 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 12:6 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 12:6 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 13:1 ID Caixa: 1 Tempo de espera: 04m 26s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 2 Tempo de espera: 03m 38s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 3 Tempo de espera: 03m 48s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 4 Tempo de espera: 05m 08s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 5 Tempo de espera: 03m 37s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 6 Tempo de espera: 04m 46s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 7 Tempo de espera: 05m 18s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 8 Tempo de espera: 05m 14s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 9 Tempo de espera: 04m 27s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 10 Tempo de espera: 03m 31s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 13:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 13:1 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 13:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 13:2 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 13:2 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 13:2 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -4098,56 +4098,56 @@ Hora: 14:4 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 14:4 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 14:4 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 14:4 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 14:5 ID Caixa: 1 Tempo de espera: 04m 00s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 2 Tempo de espera: 03m 23s Número de clientes na fila: 5 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 3 Tempo de espera: 05m 45s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 4 Tempo de espera: 06m 08s Número de clientes na fila: 6 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 5 Tempo de espera: 03m 53s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 6 Tempo de espera: 05m 05s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 7 Tempo de espera: 04m 10s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 8 Tempo de espera: 03m 56s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 9 Tempo de espera: 04m 12s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 10 Tempo de espera: 06m 04s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 14:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 14:5 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 14:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 14:6 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 14:6 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 14:6 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -4198,56 +4198,56 @@ Hora: 14:6 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 14:6 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 14:6 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 14:6 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 15:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 15:1 ID Caixa: 1 Tempo de espera: 04m 51s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 2 Tempo de espera: 03m 42s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 3 Tempo de espera: 03m 25s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 4 Tempo de espera: 03m 27s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 5 Tempo de espera: 04m 20s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 6 Tempo de espera: 06m 37s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 7 Tempo de espera: 03m 50s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 8 Tempo de espera: 03m 57s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 9 Tempo de espera: 12m 29s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 10 Tempo de espera: 04m 10s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 15:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
 Hora: 15:2 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 15:2 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 15:2 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -4598,56 +4598,56 @@ Hora: 16:2 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 16:2 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:2 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:2 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:3 ID Caixa: 1 Tempo de espera: 04m 13s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 2 Tempo de espera: 03m 42s Número de clientes na fila: 5 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 3 Tempo de espera: 03m 28s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 4 Tempo de espera: 05m 05s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 5 Tempo de espera: 03m 43s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 6 Tempo de espera: 03m 28s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 7 Tempo de espera: 04m 39s Número de clientes na fila: 6 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 8 Tempo de espera: 03m 57s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 9 Tempo de espera: 03m 26s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 10 Tempo de espera: 04m 17s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 16:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:3 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:4 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:4 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:4 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -4698,56 +4698,56 @@ Hora: 16:4 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 16:4 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:4 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:4 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 16:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 16:5 ID Caixa: 1 Tempo de espera: 04m 33s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 2 Tempo de espera: 03m 30s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 3 Tempo de espera: 05m 17s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 4 Tempo de espera: 03m 48s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 5 Tempo de espera: 08m 25s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 6 Tempo de espera: 04m 26s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 7 Tempo de espera: 07m 01s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 8 Tempo de espera: 05m 10s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 9 Tempo de espera: 03m 45s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 10 Tempo de espera: 06m 26s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 16:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
 Hora: 16:6 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:6 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 16:6 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -5098,56 +5098,56 @@ Hora: 17:6 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 17:6 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 17:6 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 17:6 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:1 ID Caixa: 1 Tempo de espera: 03m 35s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 2 Tempo de espera: 04m 25s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 3 Tempo de espera: 03m 31s Número de clientes na fila: 5 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 4 Tempo de espera: 03m 44s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 5 Tempo de espera: 04m 10s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 6 Tempo de espera: 03m 20s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 7 Tempo de espera: 05m 19s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 8 Tempo de espera: 05m 11s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 9 Tempo de espera: 05m 38s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 10 Tempo de espera: 03m 30s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 18:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:1 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 18:2 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 18:2 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 18:2 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -5198,56 +5198,56 @@ Hora: 18:2 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 18:2 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 18:2 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 18:2 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 18:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 18:3 ID Caixa: 1 Tempo de espera: 05m 13s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 2 Tempo de espera: 04m 00s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 3 Tempo de espera: 04m 39s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 4 Tempo de espera: 06m 46s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 5 Tempo de espera: 05m 52s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 6 Tempo de espera: 10m 39s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 7 Tempo de espera: 05m 44s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 8 Tempo de espera: 05m 33s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 9 Tempo de espera: 04m 00s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 10 Tempo de espera: 05m 54s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 18:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
 Hora: 18:4 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 18:4 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 18:4 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -5598,56 +5598,56 @@ Hora: 19:4 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 19:4 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 19:4 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 19:4 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 19:5 ID Caixa: 1 Tempo de espera: 06m 03s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 2 Tempo de espera: 04m 15s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 3 Tempo de espera: 05m 10s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 4 Tempo de espera: 03m 20s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 5 Tempo de espera: 04m 17s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 6 Tempo de espera: 03m 30s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 7 Tempo de espera: 04m 14s Número de clientes na fila: 6 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 8 Tempo de espera: 03m 40s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 9 Tempo de espera: 05m 25s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 10 Tempo de espera: 13m 57s Número de clientes na fila: 6 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 19:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 19:5 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 19:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 19:6 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 19:6 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 19:6 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -5698,56 +5698,56 @@ Hora: 19:6 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 19:6 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 19:6 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 19:6 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 20:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 20:1 ID Caixa: 1 Tempo de espera: 03m 37s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 2 Tempo de espera: 05m 16s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 3 Tempo de espera: 03m 43s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 4 Tempo de espera: 06m 29s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 5 Tempo de espera: 05m 20s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 6 Tempo de espera: 03m 27s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 7 Tempo de espera: 03m 23s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 8 Tempo de espera: 04m 00s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 9 Tempo de espera: 04m 04s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 10 Tempo de espera: 03m 22s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 20:1 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
 Hora: 20:2 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 20:2 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 20:2 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -6098,56 +6098,56 @@ Hora: 21:2 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 21:2 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:2 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:2 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:3 ID Caixa: 1 Tempo de espera: 05m 44s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 2 Tempo de espera: 05m 07s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 3 Tempo de espera: 03m 53s Número de clientes na fila: 6 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 4 Tempo de espera: 08m 09s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 5 Tempo de espera: 03m 55s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 6 Tempo de espera: 03m 56s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 7 Tempo de espera: 07m 11s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 8 Tempo de espera: 04m 59s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 9 Tempo de espera: 05m 21s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 10 Tempo de espera: 04m 48s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
-Hora: 21:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:3 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:4 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:4 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:4 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -6198,56 +6198,56 @@ Hora: 21:4 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 21:4 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:4 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:4 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 21:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 21:5 ID Caixa: 1 Tempo de espera: 05m 36s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 2 Tempo de espera: 03m 34s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 3 Tempo de espera: 04m 28s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 4 Tempo de espera: 08m 40s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 5 Tempo de espera: 04m 36s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 6 Tempo de espera: 05m 01s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 7 Tempo de espera: 07m 00s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 8 Tempo de espera: 05m 35s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 9 Tempo de espera: 03m 21s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 10 Tempo de espera: 05m 19s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 21:5 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
 Hora: 21:6 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:6 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 21:6 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
@@ -6698,56 +6698,56 @@ Hora: 23:2 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Núm
 Hora: 23:2 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 23:2 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 23:2 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 4 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 5 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 6 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 7 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 8 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 9 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 10 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
-Hora: 23:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
+Hora: 23:3 ID Caixa: 1 Tempo de espera: 03m 27s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 2 Tempo de espera: 03m 20s Número de clientes na fila: 1 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 3 Tempo de espera: 04m 19s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 4 Tempo de espera: 07m 56s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 5 Tempo de espera: 04m 17s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 6 Tempo de espera: 06m 39s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 7 Tempo de espera: 05m 56s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 8 Tempo de espera: 07m 28s Número de clientes na fila: 3 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 9 Tempo de espera: 04m 39s Número de clientes na fila: 2 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 10 Tempo de espera: 07m 44s Número de clientes na fila: 4 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 11 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 12 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 13 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 14 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 15 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 16 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 17 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 18 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 19 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 20 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 21 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 22 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 23 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 24 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 25 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 26 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 27 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 28 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 29 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 30 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 31 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 32 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 33 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 34 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 35 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 36 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 37 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 38 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 39 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 40 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 41 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 42 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 43 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 44 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 45 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 46 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 47 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 48 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 49 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
+Hora: 23:3 ID Caixa: 50 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 50 Número de clientes no supermercado: 50
 Hora: 23:4 ID Caixa: 1 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 23:4 ID Caixa: 2 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
 Hora: 23:4 ID Caixa: 3 Tempo de espera: 0ms Número de clientes na fila: 0 Número de caixas abertas: 0 Número de clientes no supermercado: 0
