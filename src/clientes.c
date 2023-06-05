@@ -360,13 +360,13 @@ int pesquisarClienteVetorBatente(ClienteStruct *pessoa){
 
 
 float atualizarSaldoCliente(ClienteStruct *pessoaEmAtendimento){
-    float movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente;
-    if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao)
-        pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, pessoaEmAtendimento->saldoCartaoCliente);
-    else
-        pessoaEmAtendimento->saldoCartaoCliente += (pessoaEmAtendimento->precoTotalProdutos * (Opcoes.percentagemPrecoAngariarSaldo/100));
-    movimentoSaldoCartao = pessoaEmAtendimento->saldoCartaoCliente - movimentoSaldoCartao;
-    return movimentoSaldoCartao;
+    float saldoInical = 0;
+    if(Aleatorio(0, 100) <= Opcoes.probUsarSaldoCartao){
+        saldoInical = pessoaEmAtendimento->saldoCartaoCliente;
+        pessoaEmAtendimento->saldoCartaoCliente -= Aleatorio(0, saldoInical);
+    }   
+    pessoaEmAtendimento->saldoCartaoCliente += (pessoaEmAtendimento->precoTotalProdutos * (Opcoes.percentagemPrecoAngariarSaldo/100.0));
+    return pessoaEmAtendimento->saldoCartaoCliente-saldoInical;
 }
 
 ClienteStruct *criarGuest(){
