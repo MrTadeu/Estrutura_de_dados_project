@@ -77,19 +77,41 @@ void changeStateThreadGlobal(){
 
 void* ThreadSchedule(void* arg) {
     // Obter o tempo atual
-    DataStruct dataAnterior = formatTime(getCurrentTimeMillisecound());
+    DataStruct dataAnterior = formatTime(getCurrentTimeMillisecounds());
 
     while (1) {
         // Obter a estrutura de dados de tempo
         DataStruct dataAtual = formatTimeStruct(getCurrentTimeMillisecounds());
 
-        // Verificar se passaram 10 minutos
-        if (dataAtual.minuto != dataAnterior.minuto && dataAtual.minuto % 10 == 0) {
-            recolhaDadosEstatisticosHistoricoTransacoes();
+        if (dataAtual.segundo != dataAnterior.segundo && dataAtual.segundo % 10 == 0){
+            struct stat st;
+            stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
+            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
+            char dataString[100];
+            sprintf(dataString, "Historico/Data_%d-%d-%d", dataAtual.dia, dataAtual.mes, dataAtual.ano);
+            stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
+            char imgsString[100];
+            sprintf(imgsString, "%s/imgs", dataString);
+            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
+
         }
+
+        // Verificar se passaram 10 minutos
+        if (dataAtual.minuto != dataAnterior.minuto && dataAtual.minuto % 10 == 0)
+            recolhaDadosEstatisticosHistoricoTransacoes();
 
         // Verificar se passou 1 dia
         if (dataAtual.dia != dataAnterior.dia && dataAtual.hora == 0 && dataAtual.minuto == 0) {
+            struct stat st;
+            stat("Historico", &st) == 0 ? (void)NULL : mkdir("Historico"); // retorna 0 se existir
+            dataAnterior.segundo = formatTimeStruct(tempoEmMilisegundos).segundo;
+            char dataString[100];
+            sprintf(dataString, "Historico/Data_%d-%d-%d", dataAtual.dia, dataAtual.mes, dataAtual.ano);
+            stat(dataString, &st) == 0 ?  (void)NULL : mkdir(dataString);
+            char imgsString[100];
+            sprintf(imgsString, "%s/imgs", dataString);
+            stat(imgsString, &st) == 0 ?  (void)NULL : mkdir(imgsString);
+
             calculosRecolhas();
             exportarHistoricoTransacoesParaTXT();
             exportHistoricoDadosEstatisticosParaCSV();
@@ -101,7 +123,7 @@ void* ThreadSchedule(void* arg) {
             criarGrafico();
             limparHistoricoTransacoes();
             destruirHistoricoDadosEstatisticos();
-            initHistoricoDadosEstatisticos();
+            initHistoricoDadosEstatisticos(); 
         }
         dataAnterior = dataAtual;
         sleep(1);

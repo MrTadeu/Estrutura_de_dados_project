@@ -5,7 +5,7 @@ void importOpcoes(){
     strcpy(file,"Data/opcoes.bin");
     pthread_t threadRelogio, threadS;
     pthread_create(&threadRelogio, NULL, threadTempo, NULL);
-    pthread_create(&threadS, NULL, executeAcoes, NULL);
+    pthread_create(&threadS, NULL, ThreadSchedule, NULL);
     
     if(checkIFfileExists(file) == 1){
         FILE *file = fopen("Data/opcoes.bin", "rb");
@@ -391,8 +391,8 @@ void exportHistoricoDadosEstatisticosParaTXT(const char* nomeArquivo){
             for(int l = 0; l < numeroMaximoCaixasPossivel; l++){
                 char hora[6], tempoEspera[9];
                 sprintf(hora, "%d:%d", i+1, j+1);
-                format(HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], tempoEspera);
-                fprintf("Hora %s ID Caixa: %d Tempo de espera: %s Número de cleintes na fila: %d Número de caixas abertas: %d Número de clientes no supermercado: %d\n", hora, l+1, tempoEspera, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
+                formatTime(HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], tempoEspera);
+                fprintf(arquivo, "Hora %s ID Caixa: %d Tempo de espera: %s Número de cleintes na fila: %d Número de caixas abertas: %d Número de clientes no supermercado: %d\n", hora, l+1, tempoEspera, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
             }
         }
     }
@@ -410,7 +410,7 @@ void exportHistoricoDadosEstatisticosParaCSV(const char* nomeArquivo){
     for (int i = 0; i < 24; i++){
         for (int j = 0; j < 6; j++){
             for(int l = 0; l < numeroMaximoCaixasPossivel; l++){
-                fprintf(arquivo, "%d;%d;%d;%d;%d;%d;%d;%d\n", i+1, j+1, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
+                fprintf(arquivo, "%d;%d;%d;%d;%d;%d;%d;%d\n", i+1, j+1, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numeroClienteSupermercado);
             }
         }
     }
