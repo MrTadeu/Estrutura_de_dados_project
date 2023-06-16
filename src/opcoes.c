@@ -8,7 +8,7 @@ void Init(){
     importarDados(importarProdutos, PRODUTOS);
     criarCaixaInit();
     initHistoricoTransacoes();
-    initHistoricoDadosEstatisticos();
+    /* initHistoricoDadosEstatisticos(); */
     checkIFfileExists("Historico") == 0 ? system("mkdir Historico") : (void)NULL;
     if (Opcoes.threadGlobalAranque == 1)
     {

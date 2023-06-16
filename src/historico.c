@@ -178,14 +178,15 @@ void recolhaDadosEstatisticosHistoricoTransacoes(){
 }
 void recolhaDadosEstatisticosHistoricoPeriodica(int hora, int minuto){
     Elemento* caixa = Global.caixas->head;
-    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numerosCaixasAbertas = Global.caixas->quantidadeElementos;
-    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numeroClienteSupermercado = Global.n_pessoasEmLoja;
+    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numerosCaixasAbertas = Opcoes.numCaixasAbertas;
+    HistoricoDados.dadosIntantaneosdiarios[hora][minuto].numeroClienteSupermercado = n_clientesAtivos;
     
     int i = 0;
     while(caixa){
         CaixaStruct* caixaInfo = (CaixaStruct*)caixa->Info;
         HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i][0] = caixaInfo->tempoTotalEspera;
-        HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i++][1] = caixaInfo->listaPessoas->quantidadeElementos;
+        HistoricoDados.dadosIntantaneosdiarios[hora][minuto].tempoEspera_numeroClienteFila_CadaCaixa[i][1] = caixaInfo->listaPessoas->quantidadeElementos;
+        i++;
         caixa = caixa->next;
     }
 }
@@ -277,7 +278,7 @@ void calculosRecolhas(){
     }    
 
 
-    for (int i = 0; i < 24; i++){//Atualizar tempoMedioEspera_CadaCaixa_CadaHora e tempoMedioEsperaTotal_CadaHora, numeroMedioClienteFila_CadaCaixa_CadaHora e numeroMedioClienteFila_CadaHora
+/*     for (int i = 0; i < 24; i++){//Atualizar tempoMedioEspera_CadaCaixa_CadaHora e tempoMedioEsperaTotal_CadaHora, numeroMedioClienteFila_CadaCaixa_CadaHora e numeroMedioClienteFila_CadaHora
         for (int j = 0; j < 6; j++){
             for (int l = 0; l < numeroMaximoCaixasPossivel; l++){
                 //Tempos de espera
@@ -306,7 +307,7 @@ void calculosRecolhas(){
         HistoricoDados.mediaDiaria.numeroMedioClienteFila_Dia = (float)((HistoricoDados.mediaDiaria.numeroMedioClienteFila_Dia + HistoricoDados.mediaDiaria.numeroMedioClienteFila_CadaHora[i])/2);
         HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_dia = (float)((HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_dia + HistoricoDados.mediaDiaria.numeroMedioCaixasAbertas_CadaHora[i])/2);
         HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_Dia = (float)((HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_Dia + HistoricoDados.mediaDiaria.numeroMedioClienteSupermercado_CadaHora[i])/2);
-    }
+    } */
 }
 
 int hashFunction(char *nome){

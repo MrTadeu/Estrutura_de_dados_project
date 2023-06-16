@@ -454,6 +454,7 @@ void exportHistoricoDadosEstatisticosParaTXT(const char *diretorio)
                 char hora[6], tempoEspera[9];
                 sprintf(hora, "%d:%d", i + 1, j + 1);
                 formatTime(HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][0], tempoEspera);
+                printf("Número de caixas abertas: %d, Número de clientes no supermercado: %d\n", HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
                 fprintf(arquivo, "Hora: %s ID Caixa: %d Tempo de espera: %s Número de clientes na fila: %d Número de caixas abertas: %d Número de clientes no supermercado: %d\n", hora, l + 1, tempoEspera, HistoricoDados.dadosIntantaneosdiarios[i][j].tempoEspera_numeroClienteFila_CadaCaixa[l][1], HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas, HistoricoDados.dadosIntantaneosdiarios[i][j].numerosCaixasAbertas);
             }
         }

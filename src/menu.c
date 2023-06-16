@@ -22,7 +22,6 @@ void menu(){
         printc("**        [blue]%d [/blue]-> Ver Transações                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Menu Historico                   **\n", i++);
         printc("**        [blue]%d [/blue]-> Fechar Caixa por urgência        **\n", i++);
-        printc("**        [blue]%d [/blue]-> Criar Grafico                   **\n", i++);
         printc("**************************************************\n");
         scanfs("%d", &opcao, "Qual a opção que pretende? ", "Apenas pode inserir números inteiros!\n");
         
@@ -63,9 +62,6 @@ void menu(){
         }
         if (opcao == i++){
             fecharEscolherFecharCaixa();
-        }
-        if (opcao == i++){
-            CriarGrafico();
         }
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
     } while (opcao != 0);
@@ -220,8 +216,8 @@ void menuMultiplicadorTempo(){
                 Opcoes.multiplicadorTempo = opcaoTempo[i];
             }
         }
-        /* printf("O multiplicador de tempo foi alterado para %fx, Opçoes %d\n", Opcoes.multiplicadorTempo, opcao); */
-    } while (opcao != 0);
+         printf("O multiplicador de tempo foi alterado para %fx, Opçoes %d\n", Opcoes.multiplicadorTempo, opcao); 
+    } while (opcao != 0);    
 }
 
 void menuClientes(){
@@ -438,7 +434,7 @@ void menuHistorico(){
         fputs("\x1b[H\x1b[2J\x1b[3J", stdout);
         int i = 0;
         printc("**************************************************\n");
-        printc("****************     [blue]Menu Produto[/blue]    *************\n");
+        printc("****************     [blue]Menu Histórico[/blue]    *************\n");
         printc("**************************************************\n");
         printc("**        [blue]%d [/blue]-> Voltar                           **\n", i++);
         printc("**        [blue]%d [/blue]-> Mostrar Histórico                **\n", i++);
