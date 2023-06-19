@@ -85,7 +85,7 @@ void editarProbGerarPessoa(){
 
 void editarLotacaoMax(){
     int n;
-    scanfv("%d", &n, "Qual a lotação máxima da loja: ", "A lotação máxima tem de ser maior que 0 e menor que 1000!\n", validateRange, 0, 1000);
+    scanfv("%d", &n, "Qual a lotação máxima da loja: ", "A lotação máxima tem de ser maior que 0 e menor que 5000!\n", validateRange, 0, 5000);
     Opcoes.lotacaoMaxima = n;
     printc("\n[green]A lotação máxima foi alterada para %d[/green]", n);
     printc("\n\n[yellow]Pressione qualquer tecla para continuar...[/yellow]");
